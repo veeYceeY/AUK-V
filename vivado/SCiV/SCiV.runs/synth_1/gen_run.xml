@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1582294790">
-  <File Type="VDS-TIMINGSUMMARY" Name="reg_file_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="reg_file.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="reg_file_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="reg_file_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="reg_file_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="reg_file.vds"/>
-  <File Type="REPORTS-TCL" Name="reg_file_reports.tcl"/>
-  <File Type="VDS-TIMING-PB" Name="reg_file_timing_summary_synth.pb"/>
-  <File Type="PA-TCL" Name="reg_file.tcl"/>
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1588913502">
+  <File Type="VDS-TIMING-PB" Name="execute_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="execute_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="execute.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="execute_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="execute_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="execute_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="execute.vds"/>
+  <File Type="REPORTS-TCL" Name="execute_reports.tcl"/>
+  <File Type="PA-TCL" Name="execute.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PPRDIR/../../src/rtl/reg_file.vhd">
+    <File Path="$PSRCDIR/sources_1/new/alu.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/comp.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../src/rtl/execute.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -24,14 +36,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../src/rtl/code_mem.vhd">
+    <File Path="$PPRDIR/../../src/rtl/reg_file.vhd">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../src/rtl/execute.vhd">
+    <File Path="$PPRDIR/../../src/rtl/code_mem.vhd">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -52,9 +64,32 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/predict.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/rtl/decode_mp.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../src/rtl/decode_mp.vhd"/>
+        <Attr Name="ImportTime" Val="1584845513"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/microcode_mem.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="reg_file"/>
+      <Option Name="TopModule" Val="execute"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
@@ -70,9 +105,9 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
-    <Step Id="synth_design"/>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
+    <Step Id="synth_design">
+      <Option Id="FlattenHierarchy">1</Option>
+    </Step>
   </Strategy>
 </GenRun>

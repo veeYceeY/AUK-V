@@ -7,9 +7,9 @@
 # 
 
 if [ -z "$PATH" ]; then
-  PATH=/opt/tools/xilinx/Vitis/2019.2/bin:/opt/tools/xilinx/Vivado/2019.2/ids_lite/ISE/bin/lin64:/opt/tools/xilinx/Vivado/2019.2/bin
+  PATH=/opt/xilinx/Vitis/2019.2/bin:/opt/xilinx/Vivado/2019.2/ids_lite/ISE/bin/lin64:/opt/xilinx/Vivado/2019.2/bin
 else
-  PATH=/opt/tools/xilinx/Vitis/2019.2/bin:/opt/tools/xilinx/Vivado/2019.2/ids_lite/ISE/bin/lin64:/opt/tools/xilinx/Vivado/2019.2/bin:$PATH
+  PATH=/opt/xilinx/Vitis/2019.2/bin:/opt/xilinx/Vivado/2019.2/ids_lite/ISE/bin/lin64:/opt/xilinx/Vivado/2019.2/bin:$PATH
 fi
 export PATH
 
@@ -36,4 +36,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log reg_file.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source reg_file.tcl
+EAStep vivado -log execute.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source execute.tcl

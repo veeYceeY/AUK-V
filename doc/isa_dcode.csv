@@ -1,50 +1,53 @@
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,imm_type,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,instr,opcode,funct3,funct7,imm_type,instr_type,alu_op,wb_src,src1,src2,src1_sel,src2_sel,alu_en,imm_sel,alu_sel,data_sel,br_en,br_dst,br_sel,mem_we,load_type,wb_sel,wb_we,,,Format,Name,Pseudocode
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,LUI,'0110111’,xxx,'xxxxxxx’,U,LOAD,X,x,x,,'000’,'0000’,'0’,'00001’,'00000000’,'00’,'0’,'00’,'00000’,'0’,'00000’,'00’,'0’,,,"LUI rd,imm",Load Upper Immediate,rd = imm
-,AUIPC,'0010111’,xxx,'xxxxxxx’,U,U,X,x,x,,'000’,'0000’,'0’,'00001’,'00000000’,'00’,'0’,'00’,'00000’,'0’,'00000’,'00’,'0’,,,"AUIPC rd,offset",Add Upper Immediate to PC,rd = pc + offset
-,JAL,'1101111’,xxx,'xxxxxxx’,J,JMP,X,pc,z,j,'001’,'0001’,'0’,'00010’,'00000000’,'01’,'1’,'01’,'00001’,'0’,'00000’,'01’,'1’,,,"JAL rd,offset",Jump and Link,rd = pc + length(inst)
-,JALR,'1100111’,'000’,'xxxxxxx’,B,JMP,ADD,pc,rs1,rs2,‘010’,'0010’,'1’,'00100’,'00000001’,'01’,'1’,'01’,'00001’,'0’,'00000’,‘01’,'1’,,,,,pc = pc + offset
-,BEQ,'1100011’,'000’,'xxxxxxx’,B,BRANCH,SUB,x,rs1,rs2,‘010’,'0010’,'1’,'00100’,'00000010’,'00’,'1’,'10’,'00010’,'0’,'00000’,'00’,'0’,,,"JALR rd,rs1,offset",Jump and Link Register,rd = pc + length(inst)
-,BNE,,'001’,'xxxxxxx’,B,BRANCH,SUB,x,rs1,rs2,‘010’,'0010’,'1’,'00100’,'00000010’,'00’,'1’,'10’,'00100’,'0’,'00000’,'00’,'0’,,,,,pc = (rs1 + offset) = -2
-,BLT,,'100’,'xxxxxxx’,B,BRANCH,SUB,x,rs1,rs2,‘010’,'0010’,'1’,'00100’,'00000010’,'00’,'1’,'10’,'01000’,'0’,'00000’,'00’,'0’,,,"BEQ rs1,rs2,offset",Branch Equal,if rs1 = rs2 then pc = pc + offset
-,BGE,,'101’,'xxxxxxx’,B,BRANCH,SUB,x,rs1,rs2,‘010’,'0010’,'1’,'00100’,'00000010’,'00’,'1’,'10’,'10000’,'0’,'00000’,'00’,'0’,,,"BNE rs1,rs2,offset",Branch Not Equal,if rs1 = rs2 then pc = pc + offset
-,BLTU,,'110’,'xxxxxxx’,B,BRANCH,SUB,x,rs1,rs2,‘010’,'0010’,'1’,'00100’,'00000010’,'00’,'1’,'10’,'01000’,'0’,'00000’,'00’,'0’,,,"BLT rs1,rs2,offset",Branch Less Than,if rs1 < rs2 then pc = pc + offset
-,BGEU,,'111’,'xxxxxxx’,B,BRANCH,SUB,x,rs1,rs2,‘010’,'0010’,'1’,'00100’,'00000010’,'00’,'1’,'10’,'10000’,'0’,'00000’,'00’,'0’,,,"BGE rs1,rs2,offset",Branch Greater than Equal,if rs1 = rs2 then pc = pc + offset
-,LB,'0000011’,'000’,'xxxxxxx’,I,LOAD,ADD,memb,rs1,I,‘010’,'0100’,'1’,'01000’,'00000001’,'00’,'0’,'00’,'00000’,'1’,'00001’,'10’,'1’,,,"BLTU rs1,rs2,offset",Branch Less Than Unsigned,if rs1 < rs2 then pc = pc + offset
-,LH,,'001’,'xxxxxxx’,I,LOAD,ADD,memh,rs1,I,‘010’,'0100’,'1’,'01000’,'00000001’,'00’,'0’,'00’,'00000’,'1’,'00010’,'10’,'1’,,,"BGEU rs1,rs2,offset",Branch Greater than Equal Unsigned,if rs1 = rs2 then pc = pc + offset
-,LW,,'010’,'xxxxxxx’,I,LOAD,ADD,memw,rs1,I,‘010’,'0100’,'1’,'01000’,'00000001’,'00’,'0’,'00’,'00000’,'1’,'00100’,'10’,'1’,,,"LB rd,offset(rs1)",Load Byte,rd = s8[rs1 + offset]
-,LBU,,'100’,'xxxxxxx’,I,LOAD,ADD,membu,rs1,I,‘010’,'0100’,'1’,'01000’,'00000001’,'00’,'0’,'00’,'00000’,'1’,'01000’,'10’,'1’,,,"LH rd,offset(rs1)",Load Half,rd = s16[rs1 + offset]
-,LHU,,'101’,'xxxxxxx’,I,LOAD,ADD,memhu,rs1,I,‘010’,'0100’,'1’,'01000’,'00000001’,'00’,'0’,'00’,'00000’,'1’,'10000’,'10’,'1’,,,"LW rd,offset(rs1)",Load Word,rd = s32[rs1 + offset]
-,SB,'0100011’,'000’,'xxxxxxx’,B,STORE,ADD,x,rs1,b,‘010’,'1000’,'1’,'00100’,'00000001’,'00’,'0’,'00’,'00000’,'0’,'00000’,'00’,'0’,,,"LBU rd,offset(rs1)",Load Byte Unsigned,rd = u8[rs1 + offset]
-,SH,,'001’,'xxxxxxx’,B,STORE,ADD,x,rs2,b,‘100’,'1000’,'1’,'00100’,'00000001’,'00’,'0’,'00’,'00000’,'0’,'00000’,'00’,'0’,,,"LHU rd,offset(rs1)",Load Half Unsigned,rd = u16[rs1 + offset]
-,SW,,'010’,'xxxxxxx’,B,STORE,ADD,x,rs2,b,‘100’,'1000’,'1’,'00100’,'00000001’,'00’,'0’,'00’,'00000’,'0’,'00000’,'00’,'0’,,,"SB rs2,offset(rs1)",Store Byte,u8[rs1 + offset] = rs2
-,ADDI,'0010011’,'000’,'xxxxxxx’,I,ALUI,ADD,alu,rs1,I,‘010’,'0100’,'1’,'01000’,'00000001’,'00’,'0’,'00’,'00000’,'0’,'00000’,'01’,'1’,,,"SH rs2,offset(rs1)",Store Half,u16[rs1 + offset] = rs2
-,SLTI,,'010’,'xxxxxxx’,I,ALUI,SUB,alu,rs1,I,‘010’,'0100’,'1’,'01000’,'00000010’,'10’,'0’,'00’,'00000’,'0’,'00000’,'01’,'1’,,,"SW rs2,offset(rs1)",Store Word,u32[rs1 + offset] = rs2
-,SLTIU,,'011’,'xxxxxxx’,I,ALUI,SUB,alu,rs1,I,‘010’,'0100’,'1’,'01000’,'00000010’,'10’,'0’,'00’,'00000’,'0’,'00000’,'01’,'1’,,,"ADDI rd,rs1,imm",Add Immediate,rd = rs1 + sx(imm)
-,XORI,,'100’,'xxxxxxx’,I,ALUI,XOR,alu,rs1,I,‘010’,'0100’,'1’,'01000’,'00000100’,'01’,'0’,'00’,'00000’,'0’,'00000’,'01’,'1’,,,"SLTI rd,rs1,imm",Set Less Than Immediate,rd = sx(rs1) < sx(imm)
-,ORI,,'110’,'xxxxxxx’,I,ALUI,AND,alu,rs1,I,‘010’,'0100’,'1’,'01000’,'00001000’,'01’,'0’,'00’,'00000’,'0’,'00000’,'01’,'1’,,,"SLTIU rd,rs1,imm",Set Less Than Immediate Unsigned,rd = ux(rs1) < ux(imm)
-,ANDI,,'111’,'xxxxxxx’,I,ALUI,OR,alu,rs1,I,‘010’,'0100’,'1’,'01000’,'00010000’,'01’,'0’,'00’,'00000’,'0’,'00000’,'01’,'1’,,,"XORI rd,rs1,imm",Xor Immediate,rd = ux(rs1) = ux(imm)
-,SLLI,,'001’,'0000000’,RI,ALUI,SLL,alu,rs1,rs2,‘010’,'0010’,'1’,'10000’,'00100000’,'01’,'0’,'00’,'00000’,'0’,'00000’,'01’,'1’,,,"ORI rd,rs1,imm",Or Immediate,rd = ux(rs1) = ux(imm)
-,SRLI,,'101’,'0000000’,RI,ALUI,SRL,alu,rs1,rs2,‘010’,'0010’,'1’,'10000’,'01000000’,'01’,'0’,'00’,'00000’,'0’,'00000’,'01’,'1’,,,"ANDI rd,rs1,imm",And Immediate,rd = ux(rs1) = ux(imm)
-,SRAI,,'101’,'0100000’,RI,ALUI,SRA,alu,rs1,rs2,‘010’,'0010’,'1’,'10000’,'10000000’,'01’,'0’,'00’,'00000’,'0’,'00000’,'01’,'1’,,,"SLLI rd,rs1,imm",Shift Left Logical Immediate,rd = ux(rs1) « ux(imm)
-,ADD,'0110011’,'000’,'0000000’,R,ALU,ADD,alu,rs1,rs2,‘010’,'0010’,'1’,'00000’,'00000001’,'01’,'0’,'00’,'00000’,'0’,'00000’,'01’,'1’,,,"SRLI rd,rs1,imm",Shift Right Logical Immediate,rd = ux(rs1) » ux(imm)
-,SUB,,'000’,'0100000’,R,ALU,SUB,alu,rs1,rs2,‘010’,'0010’,'1’,'00000’,'00000010’,'01’,'0’,'00’,'00000’,'0’,'00000’,'01’,'1’,,,"SRAI rd,rs1,imm",Shift Right Arithmetic Immediate,rd = sx(rs1) » ux(imm)
-,SLL,,'001’,'0000000’,R,ALU,SLL,alu,rs1,rs2,‘010’,'0010’,'1’,'00000’,'00100000’,'01’,'0’,'00’,'00000’,'0’,'00000’,'01’,'1’,,,"ADD rd,rs1,rs2",Add,rd = sx(rs1) + sx(rs2)
-,SLT,,'010’,'0000000’,R,ALU,SUB,alu,rs1,rs2,‘010’,'0010’,'1’,'00000’,'00000010’,'10’,'0’,'00’,'00000’,'0’,'00000’,'01’,'1’,,,"SUB rd,rs1,rs2",Subtract,rd = sx(rs1) - sx(rs2)
-,SLTU,,'011’,'0000000’,R,ALU,SUB,alu,rs1,rs2,‘010’,'0010’,'1’,'00000’,'00000010’,'10’,'0’,'00’,'00000’,'0’,'00000’,'01’,'1’,,,"SLL rd,rs1,rs2",Shift Left Logical,rd = ux(rs1) « rs2
-,XOR,,'100’,'0000000’,R,ALU,XOR,alu,rs1,rs2,‘010’,'0010’,'1’,'00000’,'00000100’,'01’,'0’,'00’,'00000’,'0’,'00000’,'01’,'1’,,,"SLT rd,rs1,rs2",Set Less Than,rd = sx(rs1) < sx(rs2)
-,SRL,,'101’,'0000000’,R,ALU,SRL,alu,rs1,rs2,‘010’,'0010’,'1’,'00000’,'01000000’,'01’,'0’,'00’,'00000’,'0’,'00000’,'01’,'1’,,,"SLTU rd,rs1,rs2",Set Less Than Unsigned,rd = ux(rs1) < ux(rs2)
-,SRA,,'101’,'0100000’,R,ALU,SRA,alu,rs1,rs2,‘010’,'0010’,'1’,'00000’,'10000000’,'01’,'0’,'00’,'00000’,'0’,'00000’,'01’,'1’,,,"XOR rd,rs1,rs2",Xor,rd = ux(rs1) = ux(rs2)
-,OR,,'110’,'0000000’,R,ALU,OR,alu,rs1,rs2,‘010’,'0010’,'1’,'00000’,'00010000’,'01’,'0’,'00’,'00000’,'0’,'00000’,'01’,'1’,,,"SRL rd,rs1,rs2",Shift Right Logical,rd = ux(rs1) » rs2
-,AND,,'111’,'0000000’,R,ALU,AND,alu,rs1,rs2,‘010’,'0010’,'1’,'00000’,'00001000’,'01’,'0’,'00’,'00000’,'0’,'00000’,'01’,'1’,,,"SRA rd,rs1,rs2",Shift Right Arithmetic,rd = sx(rs1) » rs2
-,FENCE,'0001111’,'000’,'xxxxxxx’,SYS,XXX,XXX,x,x,x,‘000’,'0000’,'0’,'00000’,'00000000’,'00’,'0’,'00’,'00000’,'0’,'00000’,'00’,'0’,,,"OR rd,rs1,rs2",Or,rd = ux(rs1) = ux(rs2)
-,FENC-I,,'001’,'xxxxxxx’,SYS,XXX,XXX,x,x,x,‘000’,'0000’,'0’,'00000’,'00000000’,'00’,'0’,'00’,'00000’,'0’,'00000’,'00’,'0’,,,"AND rd,rs1,rs2",And,rd = ux(rs1) = ux(rs2)
-,ECALL,'1110011’,'000’,'xxxxxxx’,SYS,XXX,XXX,x,x,x,‘000’,'0000’,'0’,'00000’,'00000000’,'00’,'0’,'00’,'00000’,'0’,'00000’,'00’,'0’,,,"FENCE pred,succ",Fence,
-,EBREAK,,'000’,'xxxxxxx’,SYS,XXX,XXX,x,x,x,‘000’,'0000’,'0’,'00000’,'00000000’,'00’,'0’,'00’,'00000’,'0’,'00000’,'00’,'0’,,,FENCE.I,Fence Instruction,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,bbr_type,,alu_opsel,,store_type,,wb_sel,,load_type,,op1_sel,,op2_sel,,immsel,,br_addrsel,,res_sel,,,,,,
+,,,,,,,,,0,eq,0,sum       ,0,B,0,exe_res,0,B,,,,,0,u,0,alu_res,0,mem_res,,,,,
+,,,,,,,,,1,ne,1,dif       ,1,H,1,mem_data,1,H,0,rs1,0,rs2,1,I,1,imm,1,pc+4,,,,,
+,,,,,,,,,2,lt,2,ored      ,2,W,,,2,W,1,rs2,1,rs1,2,J,,,2,set_res,,,,,
+,,,,,,,,,3,ge,3,anded     ,,,,,3,BU,2,pc,2,imm,3,B,,,,,,,,,
+,,,,,,,,,4,1,4,xored     ,,,,,4,HU,3,0,3,'0',,,,,,,,,,,
+,,,,,,,,,,,5,shiftleft ,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,6,shiftright,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,7,shiftright,,,,,,,,,,,,,,,,,,,,,
+,instr,Format,Name,Pseudocode,opcode,funct3,funct7,Funct7[6],imm_type,instr_type,alu_op,wb_src,src1,src2,,op_sign,imm_sel,op1_sel,op2_sel,alu_op_sel,exe_result_sel,br_addr_sel,br_type_sel,br_en,mem_load_type_sel,mem_we,mem_en,wb_data_sel,wb_we,srore_type,,Token,Micro code
+,,,,,,,,,,,,,,,,1,2,2,2,4,1,1,3,1,3,1,1,1,1,2,,,26
+0,LUI,"LUI rd,imm",Load Upper Immediate,rd = imm,37,xxx,'xxxxxxx�,x,U,LOAD,X,x,x,,,1,0,3,2,0,0,0,0,0,0,0,0,0,1,0,,,10000100000000000000000100
+1,AUIPC,"AUIPC rd,offset",Add Upper Immediate to PC,rd = pc + offset,17,xxx,'xxxxxxx�,x,U,U,X,x,x,,,1,0,2,3,0,0,0,0,0,0,0,0,0,1,0,,,10000110000000000000000100
+2,JAL,"JAL rd,offset",Jump and Link,rd = pc + length(inst)pc = (pc + offset),6f,xxx,'xxxxxxx�,x,J,JMP,X,pc,z,j,,1,2,2,2,0,1,1,4,1,0,0,0,0,1,0,,,11000100000111001000000100
+3,JALR,"JALR rd,rs1,offset",Jump and Link Register,rd = pc + length(inst)pc = (rs1 + offset),67,0,'xxxxxxx�,x,B,JMP,ADD,pc,rs1,rs2,,1,3,0,2,0,1,1,4,1,0,0,0,0,1,0,,,11100100000111001000000100
+4,BEQ,"BEQ rs1,rs2,offset",Branch Equal,if rs1 = rs2 then pc = pc + offset,63,0,'xxxxxxx�,x,B,BRANCH,SUB,x,rs1,rs2,,1,3,2,2,0,1,0,0,1,0,0,0,0,0,0,,,11100100000100001000000000
+5,BNE,"BNE rs1,rs2,offset",Branch Not Equal,if rs1 = rs2 then pc = pc + offset,,1,'xxxxxxx�,x,B,BRANCH,SUB,x,rs1,rs2,,1,3,2,2,0,1,0,1,1,0,0,0,0,0,0,,,11100100000100011000000000
+6,BLT,"BLT rs1,rs2,offset",Branch Less Than,if rs1 < rs2 then pc = pc + offset,,4,'xxxxxxx�,x,B,BRANCH,SUB,x,rs1,rs2,,1,3,2,2,0,1,0,2,1,0,0,0,0,0,0,,,11100100000100101000000000
+7,BGE,"BGE rs1,rs2,offset",Branch Greater than Equal,if rs1 = rs2 then pc = pc + offset,,5,'xxxxxxx�,x,B,BRANCH,SUB,x,rs1,rs2,,1,3,2,2,0,1,0,3,1,0,0,0,0,0,0,,,11100100000100111000000000
+8,BLTU,"BLTU rs1,rs2,offset",Branch Less Than Unsigned,if rs1 < rs2 then pc = pc + offset,,6,'xxxxxxx�,x,B,BRANCH,SUB,x,rs1,rs2,,0,3,2,2,0,1,0,2,1,0,0,0,0,0,0,,,01100100000100101000000000
+9,BGEU,"BGEU rs1,rs2,offset",Branch Greater than Equal Unsigned,if rs1 = rs2 then pc = pc + offset,,7,'xxxxxxx�,x,B,BRANCH,SUB,x,rs1,rs2,,0,3,2,2,0,1,0,3,1,0,0,0,0,0,0,,,01100100000100111000000000
+10,LB,"LB rd,offset(rs1)",Load Byte,rd = s8[rs1 + offset],3,0,'xxxxxxx�,x,I,LOAD,ADD,memb,rs1,I,,1,1,0,2,0,0,0,0,0,0,0,1,1,1,0,,,10100100000000000000011100
+11,LH,"LH rd,offset(rs1)",Load Half,rd = s16[rs1 + offset],,1,'xxxxxxx�,x,I,LOAD,ADD,memh,rs1,I,,1,1,0,2,0,0,0,0,0,1,0,1,1,1,0,,,10100100000000000001011100
+12,LW,"LW rd,offset(rs1)",Load Word,rd = s32[rs1 + offset],,2,'xxxxxxx�,x,I,LOAD,ADD,memw,rs1,I,,1,1,0,2,0,0,0,0,0,2,0,1,1,1,0,,,10100100000000000010011100
+13,LBU,"LBU rd,offset(rs1)",Load Byte Unsigned,rd = u8[rs1 + offset],,4,'xxxxxxx�,x,I,LOAD,ADD,membu,rs1,I,,0,1,0,2,0,0,0,0,0,3,0,1,1,1,0,,,00100100000000000011011100
+14,LHU,"LHU rd,offset(rs1)",Load Half Unsigned,rd = u16[rs1 + offset],,5,'xxxxxxx�,x,I,LOAD,ADD,memhu,rs1,I,,0,1,0,2,0,0,0,0,0,4,0,1,1,1,0,,,00100100000000000100011100
+15,SB,"SB rs2,offset(rs1)",Store Byte,u8[rs1 + offset] = rs2,23,0,'xxxxxxx�,x,B,STORE,ADD,x,rs1,b,,1,3,0,2,0,0,0,0,0,0,1,1,0,0,0,,,11100100000000000000110000
+16,SH,"SH rs2,offset(rs1)",Store Half,u16[rs1 + offset] = rs2,,1,'xxxxxxx�,x,B,STORE,ADD,x,rs2,b,,1,3,0,2,0,0,0,0,0,0,1,1,0,0,1,,,11100100000000000000110001
+17,SW,"SW rs2,offset(rs1)",Store Word,u32[rs1 + offset] = rs2,,2,'xxxxxxx�,x,B,STORE,ADD,x,rs2,b,,1,3,0,2,0,0,0,0,0,0,1,1,0,0,2,,,11100100000000000000110010
+18,ADDI,"ADDI rd,rs1,imm",Add Immediate,rd = rs1 + sx(imm),13,0,'xxxxxxx�,x,I,ALUI,ADD,alu,rs1,I,,1,1,0,2,0,0,0,0,0,0,0,0,0,1,0,,,10100100000000000000000100
+19,SLTI,"SLTI rd,rs1,imm",Set Less Than Immediate,rd = sx(rs1) < sx(imm),,2,'xxxxxxx�,x,I,ALUI,SUB,alu,rs1,I,,1,1,0,2,1,0,0,0,0,0,0,0,0,1,0,,,10100100001000000000000100
+20,SLTIU,"SLTIU rd,rs1,imm",Set Less Than Immediate Unsigned,rd = ux(rs1) < ux(imm),,3,'xxxxxxx�,x,I,ALUI,SUB,alu,rs1,I,,0,1,0,2,1,0,0,0,0,0,0,0,0,1,0,,,00100100001000000000000100
+21,XORI,"XORI rd,rs1,imm",Xor Immediate,rd = ux(rs1) = ux(imm),,4,'xxxxxxx�,x,I,ALUI,XOR,alu,rs1,I,,0,1,0,2,2,0,0,0,0,0,0,0,0,1,0,,,00100100010000000000000100
+22,ORI,"ORI rd,rs1,imm",Or Immediate,rd = ux(rs1) = ux(imm),,6,'xxxxxxx�,x,I,ALUI,AND,alu,rs1,I,,0,1,0,2,3,0,0,0,0,0,0,0,0,1,0,,,00100100011000000000000100
+23,ANDI,"ANDI rd,rs1,imm",And Immediate,rd = ux(rs1) = ux(imm),,7,'xxxxxxx�,x,I,ALUI,OR,alu,rs1,I,,0,1,0,2,4,0,0,0,0,0,0,0,0,1,0,,,00100100100000000000000100
+24,SLLI,"SLLI rd,rs1,imm",Shift Left Logical Immediate,rd = ux(rs1) � ux(imm),,1,'0000000�,0,RI,ALUI,SLL,alu,rs1,rs2,,0,1,0,2,5,0,0,0,0,0,0,0,0,1,0,,,00100100101000000000000100
+25,SRLI,"SRLI rd,rs1,imm",Shift Right Logical Immediate,rd = ux(rs1) � ux(imm),,5,'0000000�,0,RI,ALUI,SRL,alu,rs1,rs2,,0,1,0,2,6,0,0,0,0,0,0,0,0,1,0,,,00100100110000000000000100
+26,SRAI,"SRAI rd,rs1,imm",Shift Right Arithmetic Immediate,rd = sx(rs1) � ux(imm),,5,'0100000�,1,RI,ALUI,SRA,alu,rs1,rs2,,0,1,0,2,7,0,0,0,0,0,0,0,0,1,0,,,00100100111000000000000100
+27,ADD,"ADD rd,rs1,rs2",Add,rd = sx(rs1) + sx(rs2),33,0,'0000000�,0,R,ALU,ADD,alu,rs1,rs2,,0,0,0,2,0,0,0,0,0,0,0,0,0,1,0,,,00000100000000000000000100
+28,SUB,"SUB rd,rs1,rs2",Subtract,rd = sx(rs1) - sx(rs2),,0,'0100000�,1,R,ALU,SUB,alu,rs1,rs2,,0,0,0,2,1,0,0,0,0,0,0,0,0,1,0,,,00000100001000000000000100
+29,SLL,"SLL rd,rs1,rs2",Shift Left Logical,rd = ux(rs1) � rs2,,1,'0000000�,0,R,ALU,SLL,alu,rs1,rs2,,0,0,0,2,5,0,0,0,0,0,0,0,0,1,0,,,00000100101000000000000100
+30,SLT,"SLT rd,rs1,rs2",Set Less Than,rd = sx(rs1) < sx(rs2),,2,'0000000�,0,R,ALU,SUB,alu,rs1,rs2,,0,0,0,2,0,0,0,0,0,0,0,0,0,1,0,,,00000100000000000000000100
+31,SLTU,"SLTU rd,rs1,rs2",Set Less Than Unsigned,rd = ux(rs1) < ux(rs2),,3,'0000000�,0,R,ALU,SUB,alu,rs1,rs2,,1,0,0,2,0,0,0,0,0,0,0,0,0,1,0,,,10000100000000000000000100
+32,XOR,"XOR rd,rs1,rs2",Xor,rd = ux(rs1) = ux(rs2),,4,'0000000�,0,R,ALU,XOR,alu,rs1,rs2,,0,0,0,2,2,0,0,0,0,0,0,0,0,1,0,,,00000100010000000000000100
+33,SRL,"SRL rd,rs1,rs2",Shift Right Logical,rd = ux(rs1) � rs2,,5,'0000000�,0,R,ALU,SRL,alu,rs1,rs2,,0,0,0,2,6,0,0,0,0,0,0,0,0,1,0,,,00000100110000000000000100
+34,SRA,"SRA rd,rs1,rs2",Shift Right Arithmetic,rd = sx(rs1) � rs2,,5,'0100000�,1,R,ALU,SRA,alu,rs1,rs2,,0,0,0,2,7,0,0,0,0,0,0,0,0,1,0,,,00000100111000000000000100
+35,OR,"OR rd,rs1,rs2",Or,rd = ux(rs1) = ux(rs2),,6,'0000000�,0,R,ALU,OR,alu,rs1,rs2,,0,0,0,2,4,0,0,0,0,0,0,0,0,1,0,,,00000100100000000000000100
+36,AND,"AND rd,rs1,rs2",And,rd = ux(rs1) = ux(rs2),,7,'0000000�,0,R,ALU,AND,alu,rs1,rs2,,0,0,0,2,3,0,0,0,0,0,0,0,0,1,0,,,00000100011000000000000100
+37,FENCE,"FENCE pred,succ",Fence,,0f,0,'xxxxxxx�,x,SYS,XXX,XXX,x,x,x,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,00000000000000000000000000
+38,FENC-I,FENCE.I,Fence Instruction,,,1,'xxxxxxx�,x,SYS,XXX,XXX,x,x,x,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,00000000000000000000000000
+39,ECALL,,,,73,0,'xxxxxxx�,x,SYS,XXX,XXX,x,x,x,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,00000000000000000000000000
+40,EBREAK,,,,,0,'xxxxxxx�,x,SYS,XXX,XXX,x,x,x,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,00000000000000000000000000
