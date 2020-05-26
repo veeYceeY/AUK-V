@@ -14,6 +14,7 @@ entity fetch is
                 
                 o_addr : out std_logic_vector(31 downto 0);
                 i_data : std_logic_vector(31 downto 0);
+                i_valid: std_logic;
                 
                 o_pc : out std_logic_vector(31 downto 0);
                 o_instr : out std_logic_vector(31 downto 0)
@@ -30,7 +31,7 @@ begin
 if i_rst = '1' then
     pc <= (others=> '0');
 elsif rising_edge(i_clk) then
-    if  i_stall='0' then
+    if  i_stall='0' and i_valid='1'then
         if i_branch_en = '1' then
             pc <= i_branch_addr;
         else

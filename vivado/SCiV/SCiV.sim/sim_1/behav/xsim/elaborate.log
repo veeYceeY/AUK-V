@@ -1,8 +1,21 @@
 Vivado Simulator 2019.2
 Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
-Running: /opt/xilinx/Vivado/2019.2/bin/unwrapped/lnx64.o/xelab -wto 93eb4bf201354d728bcfd11a6bab2a78 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot comp_behav xil_defaultlib.comp -log elaborate.log 
+Running: /opt/xilinx/Vivado/2019.2/bin/unwrapped/lnx64.o/xelab -wto 93eb4bf201354d728bcfd11a6bab2a78 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot tb_sciv_core_behav xil_defaultlib.tb_sciv_core -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/memory_access.vhd:117]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/memory_access.vhd:118]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/memory_access.vhd:119]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/memory_access.vhd:120]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/memory_access.vhd:121]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/memory_access.vhd:130]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/memory_access.vhd:131]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/memory_access.vhd:132]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/memory_access.vhd:135]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/memory_access.vhd:136]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/memory_access.vhd:137]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/memory_access.vhd:138]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/memory_access.vhd:139]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -11,5 +24,18 @@ Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
-Compiling architecture behavioral of entity xil_defaultlib.comp
-Built simulation snapshot comp_behav
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling architecture fetch_no_bp of entity xil_defaultlib.fetch [fetch_default]
+Compiling architecture behave of entity xil_defaultlib.decode_uc [decode_uc_default]
+Compiling architecture behavioral of entity xil_defaultlib.microcode_mem [microcode_mem_default]
+Compiling architecture behave of entity xil_defaultlib.decode [decode_default]
+Compiling architecture behavioral of entity xil_defaultlib.alu [alu_default]
+Compiling architecture behavioral of entity xil_defaultlib.comp [comp_default]
+Compiling architecture behave of entity xil_defaultlib.execute [execute_default]
+Compiling architecture behavioral of entity xil_defaultlib.memory_access [memory_access_default]
+Compiling architecture behavioral of entity xil_defaultlib.write_back [write_back_default]
+Compiling architecture behave of entity xil_defaultlib.reg_file [reg_file_default]
+Compiling architecture behavioral of entity xil_defaultlib.sciv_core [sciv_core_default]
+Compiling architecture behavioral of entity xil_defaultlib.tb_sciv_core
+Built simulation snapshot tb_sciv_core_behav

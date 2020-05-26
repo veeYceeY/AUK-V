@@ -17,7 +17,7 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-3967-SCiMOS/incrSyn
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-671297-SCiMOS/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7z020clg400-1
@@ -32,11 +32,7 @@ set_property target_language VHDL [current_project]
 set_property board_part myir.com:mys-7z020:part0:2.1 [current_project]
 set_property ip_output_repo /home/veeyceey/Documents/workspace/github/SCiV/vivado/SCiV/SCiV.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_vhdl -library xil_defaultlib {
-  /home/veeyceey/Documents/workspace/github/SCiV/vivado/SCiV/SCiV.srcs/sources_1/new/alu.vhd
-  /home/veeyceey/Documents/workspace/github/SCiV/vivado/SCiV/SCiV.srcs/sources_1/new/comp.vhd
-  /home/veeyceey/Documents/workspace/github/SCiV/src/rtl/execute.vhd
-}
+read_vhdl -library xil_defaultlib /home/veeyceey/Documents/workspace/github/SCiV/vivado/SCiV/SCiV.srcs/sources_1/new/memory.vhd
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
 # design are intentionally left as such for best results. Dcp files will be
@@ -48,12 +44,12 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 
-synth_design -top execute -part xc7z020clg400-1 -flatten_hierarchy none
+synth_design -top memory -part xc7z020clg400-1 -flatten_hierarchy none
 
 
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef execute.dcp
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file execute_utilization_synth.rpt -pb execute_utilization_synth.pb"
+write_checkpoint -force -noxdef memory.dcp
+create_report "synth_1_synth_report_utilization_0" "report_utilization -file memory_utilization_synth.rpt -pb memory_utilization_synth.pb"
 file delete __synthesis_is_running__
 close [open __synthesis_is_complete__ w]

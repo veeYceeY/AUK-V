@@ -1,0 +1,17 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../../src/rtl/alu.vhd" \
+"../../../../../../src/rtl/comp.vhd" \
+"../../../../../../src/rtl/decode_uc.vhd" \
+"../../../../../../src/rtl/microcode_mem.vhd" \
+"../../../../../../src/rtl/decode.vhd" \
+"../../../../../../src/rtl/execute.vhd" \
+"../../../../../../src/rtl/fetch.vhd" \
+"../../../../../../src/rtl/memory_access.vhd" \
+"../../../../../../src/rtl/reg_file.vhd" \
+"../../../../../../src/rtl/write_back.vhd" \
+"../../../../../../src/rtl/sciv_core.vhd" \
+"../../../../SCiV.srcs/sim_1/new/tb_sciv_core.vhd" \
+
+# Do not sort compile order
+nosort

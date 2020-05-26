@@ -16,24 +16,26 @@ entity execute is
             i_imm           : in std_logic_vector(31 downto 0);
             i_pc            : in std_logic_vector(31 downto 0);
             
-            i_op1_sel       : in std_logic_vector(2 downto 0);
-            i_op2_sel       : in std_logic_vector(2 downto 0);
+            i_op1_sel       : in std_logic_vector(1 downto 0);
+            i_op2_sel       : in std_logic_vector(1 downto 0);
             i_signed_op     : in std_logic;
 
             i_alu_sel       : in std_logic_vector(3 downto 0);
-            i_res_sel       : in std_logic_vector(2 downto 0);
+            i_res_sel       : in std_logic_vector(1 downto 0);
 
             i_br_addr_sel   : in std_logic;
             i_br_type_sel   : in std_logic_vector(2 downto 0);
             i_br_en         : in std_logic;
             
             
-            i_mem_wr_data   : std_logic_vector(31 downto 0);
+            i_mem_wr_data   : in std_logic_vector(31 downto 0);
             i_mem_we        : in std_logic;
+            i_mem_en        : in std_logic;
             
             i_load_type     : in std_logic_vector(2 downto 0);
+            i_store_type    : in std_logic_vector(1 downto 0);
             
-            i_wb_data_sel   : in std_logic_vector(7 downto 0);
+            i_wb_data_sel   : in std_logic;
             i_wb_reg_sel    : in std_logic_vector(4 downto 0);
             i_wb_we         : in std_logic;
             
@@ -45,12 +47,14 @@ entity execute is
             o_mem_wr_data   : out std_logic_vector(31 downto 0);
             o_mem_addr      : out std_logic_vector(31 downto 0);
             o_mem_we        : out std_logic;
+            o_mem_en        : out std_logic;
             
-            o_wb_data_sel   : out std_logic_vector(7 downto 0);
+            o_wb_data_sel   : out std_logic;
             o_wb_reg_sel    : out std_logic_vector(4 downto 0);
             o_wb_we         : out std_logic;
             
-            o_load_type     : out std_logic_vector(2 downto 0)
+            o_load_type     : out std_logic_vector(2 downto 0);
+            o_store_type     : out std_logic_vector(1 downto 0)
             
          );
 
@@ -102,8 +106,8 @@ operand1 <= i_rs1 when i_op1_sel= "00" else
             i_pc  when i_op1_sel = "10" else
             ZERO32 when i_op1_sel = "11";
 
-operand2 <= i_rs1 when i_op2_sel= "00" else
-            i_rs2 when i_op2_sel= "01" else
+operand2 <= i_rs2 when i_op2_sel= "00" else
+            i_rs1 when i_op2_sel= "01" else
             i_imm when i_op2_sel= "10" else
             ZERO32 when i_op2_sel= "11";
 
@@ -145,7 +149,7 @@ branch_addr <=  alu0_result when i_br_addr_sel = '0' else
                 i_imm;
 
 exe_result  <=  alu0_result when i_res_sel = "00" else
-                set_result  when i_res_sel = "01" else
+                set_result  when i_res_sel = "10" else
                 next_instr_addr;
                 
 mem_address <=  alu0_result;
@@ -161,10 +165,12 @@ o_mem_wr_data   <= (others => '0') when i_rst = '1' else i_mem_wr_data when risi
 o_mem_addr      <= (others => '0') when i_rst = '1' else mem_address when rising_edge(i_clk);
 o_mem_we        <= '0' when i_rst = '1' else i_mem_we when rising_edge(i_clk);
             
-o_wb_data_sel   <= (others => '0') when i_rst = '1' else i_wb_data_sel when rising_edge(i_clk);
+o_wb_data_sel   <= '0' when i_rst = '1' else i_wb_data_sel when rising_edge(i_clk);
 o_wb_reg_sel    <= (others => '0') when i_rst = '1' else i_wb_reg_sel when rising_edge(i_clk);
 o_wb_we         <= '0' when i_rst = '1' else i_wb_we when rising_edge(i_clk);
+o_mem_en         <= '0' when i_rst = '1' else i_mem_en when rising_edge(i_clk);
             
 o_load_type     <= (others => '0') when i_rst = '1' else i_load_type when rising_edge(i_clk);
+o_store_type    <= (others => '0') when i_rst = '1' else i_store_type when rising_edge(i_clk);
 
 end behave;
