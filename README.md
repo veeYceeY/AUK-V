@@ -1,4 +1,4 @@
 # SCiV
-risc v implementation
+risc v base instruction set implementation
 
-RISC3I
+RISCV-32I
