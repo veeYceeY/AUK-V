@@ -1,3 +1,24 @@
+----------------------------------------------------------------------------------
+-- Company:  SCiMOS
+-- Engineer: veeYceeY
+-- 
+-- Create Date: 24.05.2020 12:49:36
+-- Design Name: 
+-- Module Name: sciv_core - Behavioral
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
+
 --RIsc V instruction decoder with microcode memory
 --Must be changed to hard coded decoder after debugging
  

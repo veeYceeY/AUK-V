@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company:  SCiMOS
+-- Engineer: Veeyceey
 -- 
 -- Create Date: 24.05.2020 12:49:36
 -- Design Name: 

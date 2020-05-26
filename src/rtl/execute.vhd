@@ -1,3 +1,25 @@
+----------------------------------------------------------------------------------
+-- Company: SCiMOS
+-- Engineer: veeYceeY
+-- 
+-- Create Date: 24.04.2020 14:55:58
+-- Design Name: 
+-- Module Name: microcode_mem - Behavioral
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
+
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
@@ -72,11 +94,6 @@ architecture behave of execute is
     signal rd : std_logic_vector(31 downto 0);
     signal alu0_ov : std_logic;
     signal imm_type : std_logic;
-    signal equ : std_logic;
-    signal lt : std_logic;
-    signal gt : std_logic;
-    signal gte : std_logic;
-    signal cmp : std_logic;
     signal mem_we : std_logic;
     
     signal alu0_lt : std_logic;
@@ -101,15 +118,15 @@ architecture behave of execute is
 begin
 ZERO32    <= x"00000000";
 FOUR32    <= x"00000004";
-operand1 <= i_rs1 when i_op1_sel= "00" else
-            i_rs2 when i_op1_sel= "01" else
-            i_pc  when i_op1_sel = "10" else
-            ZERO32 when i_op1_sel = "11";
+operand1  <= i_rs1 when i_op1_sel= "00" else
+             i_rs2 when i_op1_sel= "01" else
+             i_pc  when i_op1_sel = "10" else
+             ZERO32 when i_op1_sel = "11";
 
-operand2 <= i_rs2 when i_op2_sel= "00" else
-            i_rs1 when i_op2_sel= "01" else
-            i_imm when i_op2_sel= "10" else
-            ZERO32 when i_op2_sel= "11";
+operand2  <= i_rs2 when i_op2_sel= "00" else
+             i_rs1 when i_op2_sel= "01" else
+             i_imm when i_op2_sel= "10" else
+             ZERO32 when i_op2_sel= "11";
 
 
 ALU0: entity work.alu
@@ -157,20 +174,17 @@ mem_address <=  alu0_result;
 br_en<= cmp_result and i_br_en;
 
 
-o_br_addr       <= (others => '0') when i_rst = '1' else branch_addr when rising_edge(i_clk);
-o_br_en         <= '0' when i_rst = '1' else br_en when rising_edge(i_clk);
-
-o_exe_res       <= (others => '0') when i_rst = '1' else exe_result when rising_edge(i_clk);
-o_mem_wr_data   <= (others => '0') when i_rst = '1' else i_mem_wr_data when rising_edge(i_clk);
-o_mem_addr      <= (others => '0') when i_rst = '1' else mem_address when rising_edge(i_clk);
-o_mem_we        <= '0' when i_rst = '1' else i_mem_we when rising_edge(i_clk);
-            
-o_wb_data_sel   <= '0' when i_rst = '1' else i_wb_data_sel when rising_edge(i_clk);
-o_wb_reg_sel    <= (others => '0') when i_rst = '1' else i_wb_reg_sel when rising_edge(i_clk);
-o_wb_we         <= '0' when i_rst = '1' else i_wb_we when rising_edge(i_clk);
-o_mem_en         <= '0' when i_rst = '1' else i_mem_en when rising_edge(i_clk);
-            
-o_load_type     <= (others => '0') when i_rst = '1' else i_load_type when rising_edge(i_clk);
-o_store_type    <= (others => '0') when i_rst = '1' else i_store_type when rising_edge(i_clk);
+o_br_addr       <= (others => '0')  when i_rst = '1' else branch_addr       when rising_edge(i_clk);
+o_br_en         <= '0'              when i_rst = '1' else br_en             when rising_edge(i_clk);
+o_exe_res       <= (others => '0')  when i_rst = '1' else exe_result        when rising_edge(i_clk);
+o_mem_wr_data   <= (others => '0')  when i_rst = '1' else i_mem_wr_data     when rising_edge(i_clk);
+o_mem_addr      <= (others => '0')  when i_rst = '1' else mem_address       when rising_edge(i_clk);
+o_mem_we        <= '0'              when i_rst = '1' else i_mem_we          when rising_edge(i_clk);          
+o_wb_data_sel   <= '0'              when i_rst = '1' else i_wb_data_sel     when rising_edge(i_clk);
+o_wb_reg_sel    <= (others => '0')  when i_rst = '1' else i_wb_reg_sel      when rising_edge(i_clk);
+o_wb_we         <= '0'              when i_rst = '1' else i_wb_we           when rising_edge(i_clk);
+o_mem_en        <= '0'              when i_rst = '1' else i_mem_en          when rising_edge(i_clk);         
+o_load_type     <= (others => '0')  when i_rst = '1' else i_load_type       when rising_edge(i_clk);
+o_store_type    <= (others => '0')  when i_rst = '1' else i_store_type      when rising_edge(i_clk);
 
 end behave;
