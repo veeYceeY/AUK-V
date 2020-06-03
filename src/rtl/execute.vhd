@@ -153,10 +153,10 @@ port map(
             o_ne => cp0_ne
 );
 
-cmp_result <=   cp0_lt when i_br_type_sel = "00" else
-                cp0_ge when i_br_type_sel = "01" else
-                cp0_eq when i_br_type_sel = "10" else
-                cp0_ne when i_br_type_sel = "11" ;
+cmp_result <=   cp0_eq when i_br_type_sel = "00" else 
+                cp0_ne when i_br_type_sel = "01" else
+                cp0_lt when i_br_type_sel = "10" else
+                cp0_ge when i_br_type_sel = "11" ;
 
 set_result <= x"0000000" & "000" & cmp_result;
 

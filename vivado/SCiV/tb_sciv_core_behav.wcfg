@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_sciv_core_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="tb_sciv_core" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="160283fs"></ZoomStartTime>
+      <ZoomEndTime time="348884fs"></ZoomEndTime>
+      <Cursor1Time time="217483fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="81"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="20" />
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/CP0/i_a">
+      <obj_property name="ElementShortName">i_a[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_a[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/CP0/i_b">
+      <obj_property name="ElementShortName">i_b[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_b[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/CP0/i_s">
+      <obj_property name="ElementShortName">i_s</obj_property>
+      <obj_property name="ObjectShortName">i_s</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/CP0/o_lt">
+      <obj_property name="ElementShortName">o_lt</obj_property>
+      <obj_property name="ObjectShortName">o_lt</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/CP0/o_ge">
+      <obj_property name="ElementShortName">o_ge</obj_property>
+      <obj_property name="ObjectShortName">o_ge</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/CP0/o_eq">
+      <obj_property name="ElementShortName">o_eq</obj_property>
+      <obj_property name="ObjectShortName">o_eq</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/CP0/o_ne">
+      <obj_property name="ElementShortName">o_ne</obj_property>
+      <obj_property name="ObjectShortName">o_ne</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/CP0/a_s">
+      <obj_property name="ElementShortName">a_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">a_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/CP0/b_s">
+      <obj_property name="ElementShortName">b_s[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b_s[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/CP0/a_u">
+      <obj_property name="ElementShortName">a_u[31:0]</obj_property>
+      <obj_property name="ObjectShortName">a_u[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/CP0/b_u">
+      <obj_property name="ElementShortName">b_u[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b_u[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/CP0/lt_u">
+      <obj_property name="ElementShortName">lt_u</obj_property>
+      <obj_property name="ObjectShortName">lt_u</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/CP0/ge_u">
+      <obj_property name="ElementShortName">ge_u</obj_property>
+      <obj_property name="ObjectShortName">ge_u</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/CP0/eq_u">
+      <obj_property name="ElementShortName">eq_u</obj_property>
+      <obj_property name="ObjectShortName">eq_u</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/CP0/ne_u">
+      <obj_property name="ElementShortName">ne_u</obj_property>
+      <obj_property name="ObjectShortName">ne_u</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/CP0/lt_s">
+      <obj_property name="ElementShortName">lt_s</obj_property>
+      <obj_property name="ObjectShortName">lt_s</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/CP0/ge_s">
+      <obj_property name="ElementShortName">ge_s</obj_property>
+      <obj_property name="ObjectShortName">ge_s</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/CP0/eq_s">
+      <obj_property name="ElementShortName">eq_s</obj_property>
+      <obj_property name="ObjectShortName">eq_s</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/CP0/ne_s">
+      <obj_property name="ElementShortName">ne_s</obj_property>
+      <obj_property name="ObjectShortName">ne_s</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/i_br_en">
+      <obj_property name="ElementShortName">i_br_en</obj_property>
+      <obj_property name="ObjectShortName">i_br_en</obj_property>
+   </wvobject>
+</wave_config>

@@ -105,12 +105,15 @@ signal imm_i : std_logic_vector(31 downto 0);
 signal imm_j : std_logic_vector(31 downto 0);
 signal imm_b : std_logic_vector(31 downto 0);
 signal imm_s : std_logic_vector(31 downto 0);
+signal imm_r : std_logic_vector(31 downto 0);
 
 signal immu_u : std_logic_vector(31 downto 0);
 signal immu_i : std_logic_vector(31 downto 0);
 signal immu_j : std_logic_vector(31 downto 0);
 signal immu_b : std_logic_vector(31 downto 0);
 signal immu_s : std_logic_vector(31 downto 0);
+
+
 
 signal rd : std_logic_vector(4 downto 0);
 
@@ -132,7 +135,7 @@ signal exe_res_sel      : std_logic_vector(1 downto 0);
 signal alu_op_sel       : std_logic_vector(3 downto 0);
 signal op2_sel          : std_logic_vector(1 downto 0);
 signal op1_sel          : std_logic_vector(1 downto 0);
-signal imm_sel          : std_logic_vector(1 downto 0);
+signal imm_sel          : std_logic_vector(2 downto 0);
 signal op_sign          : std_logic;
 
 
@@ -159,7 +162,10 @@ immu_i <=    x"00000" & instr(31 downto 20);
 immu_s <=    x"00000" & instr(31 downto 25) & instr(11 downto 7) ;
 immu_u <=    x"000" & instr(31 downto 12);
 immu_b <=    "000" & x"0000" & instr(31) & instr(7) & instr(30 downto 25) & instr(11 downto 8) & '0';
-immu_j <=    "000" & x"00" & instr(31 )  & instr(19 downto 12) & instr(20) & instr( 30 downto 21)  & '0';
+immu_j <=    "000" & x"00" & instr(31)  & instr(19 downto 12) & instr(20) & instr( 30 downto 21)  & '0';
+
+imm_r <=    x"000000" & "000" & rs2;
+
 o_uc_addr        <= uc_addr;
 uc               <= i_data;
 store_type       <=uc(1 downto 0);
@@ -175,8 +181,8 @@ exe_res_sel      <=uc(15 downto 14);
 alu_op_sel       <=uc(19 downto 16);
 op2_sel          <=uc(21 downto 20);
 op1_sel          <=uc(23 downto 22);
-imm_sel          <=uc(25 downto 24);
-op_sign          <=uc(26);
+imm_sel          <=uc(26 downto 24);
+op_sign          <=uc(27);
 
 o_src1_addr     <= rs1;
 o_src2_addr     <= rs2;
@@ -201,18 +207,19 @@ o_mem_we        <= '0' when i_rst = '1' else mem_we      when rising_edge(i_clk)
 --o_mem_addr      <= imm         when rising_edge(i_clk);
 o_mem_data      <= (others =>'0') when i_rst = '1' else i_src2      when rising_edge(i_clk);
 o_op_sign        <= '0' when i_rst = '1' else op_sign when rising_edge(i_clk);
-imm_u <= imms_u when op_sign = '0' else immu_u;
-imm_i <= imms_i when op_sign = '0' else immu_i;
-imm_j <= imms_j when op_sign = '0' else immu_j;
-imm_b <= imms_b when op_sign = '0' else immu_b;
-imm_s <= imms_s when op_sign = '0' else immu_s;
+imm_u <= imms_u when op_sign = '1' else immu_u;
+imm_i <= imms_i when op_sign = '1' else immu_i;
+imm_j <= imms_j when op_sign = '1' else immu_j;
+imm_b <= imms_b when op_sign = '1' else immu_b;
+imm_s <= imms_s when op_sign = '1' else immu_s;
 
 
 imm <=  imm_u when imm_sel = x"0" else
         imm_i when imm_sel = x"1" else
         imm_j when imm_sel = x"2" else
         imm_b when imm_sel = x"3" else
-        imm_s when imm_sel = x"4" ;
+        imm_r when imm_sel = x"4" else
+        imm_s when imm_sel = x"5" ;
         
 
 process(opcode,funct3,funct7) 

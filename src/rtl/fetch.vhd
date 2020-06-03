@@ -63,5 +63,5 @@ end if;
 end process;
 o_addr <= pc;
 o_instr <= i_data;
-o_pc <= pc;
+o_pc <= (others =>'0') when i_rst = '1' else pc when rising_edge(i_clk);
 end fetch_no_bp;

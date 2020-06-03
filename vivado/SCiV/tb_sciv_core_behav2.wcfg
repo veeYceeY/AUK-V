@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_sciv_core_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="tb_sciv_core" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="32083fs"></ZoomStartTime>
+      <ZoomEndTime time="503584fs"></ZoomEndTime>
+      <Cursor1Time time="425000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="81"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="53" />
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/i_clk">
+      <obj_property name="ElementShortName">i_clk</obj_property>
+      <obj_property name="ObjectShortName">i_clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/i_rst">
+      <obj_property name="ElementShortName">i_rst</obj_property>
+      <obj_property name="ObjectShortName">i_rst</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/i_rs1">
+      <obj_property name="ElementShortName">i_rs1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_rs1[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/i_rs2">
+      <obj_property name="ElementShortName">i_rs2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_rs2[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/i_br_en">
+      <obj_property name="ElementShortName">i_br_en</obj_property>
+      <obj_property name="ObjectShortName">i_br_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/i_imm">
+      <obj_property name="ElementShortName">i_imm[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_imm[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/i_pc">
+      <obj_property name="ElementShortName">i_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/i_op1_sel">
+      <obj_property name="ElementShortName">i_op1_sel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">i_op1_sel[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/i_op2_sel">
+      <obj_property name="ElementShortName">i_op2_sel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">i_op2_sel[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/i_signed_op">
+      <obj_property name="ElementShortName">i_signed_op</obj_property>
+      <obj_property name="ObjectShortName">i_signed_op</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/i_alu_sel">
+      <obj_property name="ElementShortName">i_alu_sel[3:0]</obj_property>
+      <obj_property name="ObjectShortName">i_alu_sel[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/i_res_sel">
+      <obj_property name="ElementShortName">i_res_sel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">i_res_sel[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/i_br_addr_sel">
+      <obj_property name="ElementShortName">i_br_addr_sel</obj_property>
+      <obj_property name="ObjectShortName">i_br_addr_sel</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/i_br_type_sel">
+      <obj_property name="ElementShortName">i_br_type_sel[2:0]</obj_property>
+      <obj_property name="ObjectShortName">i_br_type_sel[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/i_mem_wr_data">
+      <obj_property name="ElementShortName">i_mem_wr_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_mem_wr_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/i_mem_we">
+      <obj_property name="ElementShortName">i_mem_we</obj_property>
+      <obj_property name="ObjectShortName">i_mem_we</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/i_mem_en">
+      <obj_property name="ElementShortName">i_mem_en</obj_property>
+      <obj_property name="ObjectShortName">i_mem_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/i_load_type">
+      <obj_property name="ElementShortName">i_load_type[2:0]</obj_property>
+      <obj_property name="ObjectShortName">i_load_type[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/i_store_type">
+      <obj_property name="ElementShortName">i_store_type[1:0]</obj_property>
+      <obj_property name="ObjectShortName">i_store_type[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/i_wb_data_sel">
+      <obj_property name="ElementShortName">i_wb_data_sel</obj_property>
+      <obj_property name="ObjectShortName">i_wb_data_sel</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/i_wb_reg_sel">
+      <obj_property name="ElementShortName">i_wb_reg_sel[4:0]</obj_property>
+      <obj_property name="ObjectShortName">i_wb_reg_sel[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/i_wb_we">
+      <obj_property name="ElementShortName">i_wb_we</obj_property>
+      <obj_property name="ObjectShortName">i_wb_we</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/o_exe_res">
+      <obj_property name="ElementShortName">o_exe_res[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_exe_res[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/o_br_addr">
+      <obj_property name="ElementShortName">o_br_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_br_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/o_br_en">
+      <obj_property name="ElementShortName">o_br_en</obj_property>
+      <obj_property name="ObjectShortName">o_br_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/o_mem_wr_data">
+      <obj_property name="ElementShortName">o_mem_wr_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_mem_wr_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/o_mem_addr">
+      <obj_property name="ElementShortName">o_mem_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_mem_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/o_mem_we">
+      <obj_property name="ElementShortName">o_mem_we</obj_property>
+      <obj_property name="ObjectShortName">o_mem_we</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/o_mem_en">
+      <obj_property name="ElementShortName">o_mem_en</obj_property>
+      <obj_property name="ObjectShortName">o_mem_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/o_wb_data_sel">
+      <obj_property name="ElementShortName">o_wb_data_sel</obj_property>
+      <obj_property name="ObjectShortName">o_wb_data_sel</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/o_wb_reg_sel">
+      <obj_property name="ElementShortName">o_wb_reg_sel[4:0]</obj_property>
+      <obj_property name="ObjectShortName">o_wb_reg_sel[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/o_wb_we">
+      <obj_property name="ElementShortName">o_wb_we</obj_property>
+      <obj_property name="ObjectShortName">o_wb_we</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/o_load_type">
+      <obj_property name="ElementShortName">o_load_type[2:0]</obj_property>
+      <obj_property name="ObjectShortName">o_load_type[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/o_store_type">
+      <obj_property name="ElementShortName">o_store_type[1:0]</obj_property>
+      <obj_property name="ObjectShortName">o_store_type[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/operand1">
+      <obj_property name="ElementShortName">operand1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">operand1[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/operand2">
+      <obj_property name="ElementShortName">operand2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">operand2[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/alu0_result">
+      <obj_property name="ElementShortName">alu0_result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu0_result[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/set_res">
+      <obj_property name="ElementShortName">set_res[31:0]</obj_property>
+      <obj_property name="ObjectShortName">set_res[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/branch_res">
+      <obj_property name="ElementShortName">branch_res[31:0]</obj_property>
+      <obj_property name="ObjectShortName">branch_res[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/branch_address">
+      <obj_property name="ElementShortName">branch_address[31:0]</obj_property>
+      <obj_property name="ObjectShortName">branch_address[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/mem_address">
+      <obj_property name="ElementShortName">mem_address[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_address[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/cp0_lt">
+      <obj_property name="ElementShortName">cp0_lt</obj_property>
+      <obj_property name="ObjectShortName">cp0_lt</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/cp0_ge">
+      <obj_property name="ElementShortName">cp0_ge</obj_property>
+      <obj_property name="ObjectShortName">cp0_ge</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/cp0_eq">
+      <obj_property name="ElementShortName">cp0_eq</obj_property>
+      <obj_property name="ObjectShortName">cp0_eq</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/cp0_ne">
+      <obj_property name="ElementShortName">cp0_ne</obj_property>
+      <obj_property name="ObjectShortName">cp0_ne</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/ZERO32">
+      <obj_property name="ElementShortName">ZERO32[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ZERO32[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/FOUR32">
+      <obj_property name="ElementShortName">FOUR32[31:0]</obj_property>
+      <obj_property name="ObjectShortName">FOUR32[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/cmp_result">
+      <obj_property name="ElementShortName">cmp_result</obj_property>
+      <obj_property name="ObjectShortName">cmp_result</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_sciv_core/SC0/EX0/br_en">
+      <obj_property name="ElementShortName">br_en</obj_property>
+      <obj_property name="ObjectShortName">br_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/set_result">
+      <obj_property name="ElementShortName">set_result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">set_result[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/next_instr_addr">
+      <obj_property name="ElementShortName">next_instr_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">next_instr_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/branch_addr">
+      <obj_property name="ElementShortName">branch_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">branch_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/EX0/exe_result">
+      <obj_property name="ElementShortName">exe_result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">exe_result[31:0]</obj_property>
+   </wvobject>
+</wave_config>

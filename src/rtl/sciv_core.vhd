@@ -132,7 +132,7 @@ FE0: entity work.fetch
                 i_rst           =>i_rst,
                                 
                 i_stall         =>ma0_stall,
-                i_branch_addr   =>wb0_branch_addr,
+                i_branch_addr   =>wb0_br_addr,
                 i_branch_en     =>wb0_branch_en,
                                  
                 o_addr          =>o_code_mem_addr,
