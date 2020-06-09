@@ -120,7 +120,9 @@ signal wb0_br_en: std_logic;
 --signal wb0_rs1: std_logic_vector(31 downto 0);
 --signal wb0_rs2: std_logic_vector(31 downto 0);
 
-
+signal de0_rs1_fwsel : std_logic_vector(1 downto 0);
+signal de0_rs2_fwsel : std_logic_vector(1 downto 0);
+signal de0_cmp_op1sel : std_logic;
 begin
 
 ma0_stall<= '0';
@@ -132,8 +134,8 @@ FE0: entity work.fetch
                 i_rst           =>i_rst,
                                 
                 i_stall         =>ma0_stall,
-                i_branch_addr   =>wb0_br_addr,
-                i_branch_en     =>wb0_branch_en,
+                i_branch_addr   =>ma0_br_addr,
+                i_branch_en     =>ma0_br_en,  
                                  
                 o_addr          =>o_code_mem_addr,
                 i_data          =>i_code_mem_data,
@@ -159,13 +161,17 @@ DE0: entity work.decode
             o_rs2           =>de0_rs2,
             o_imm           =>de0_imm,
             o_pc            =>de0_pc,
-                             
+            
+            o_rs1_fwsel     =>de0_rs1_fwsel,
+            o_rs2_fwsel     =>de0_rs2_fwsel,
+            
+            o_cmp_op1sel    =>de0_cmp_op1sel,
             o_op1_sel       =>de0_op1_sel,
             o_op2_sel       =>de0_op2_sel,
                             
             o_br_en         =>de0_br_en,
             o_br_type       =>de0_br_type,
-            o_br_addr_sel   =>de0_br_addr_sel,
+            --o_br_addr_sel   =>de0_br_addr_sel,
             
             o_alu_opsel     =>de0_alu_opsel,
             o_op_sign       =>de0_op_sign,
@@ -194,9 +200,18 @@ EX0: entity work.execute
                              
             i_rs1           =>de0_rs1,
             i_rs2           =>de0_rs2,
+            
+            i_fw_ee         =>ex0_exe_res,
+            i_fw_me         =>ma0_wb_data,
+            i_fw_we         =>wb0_wb_data,
+            
             i_imm           =>de0_imm,
             i_pc            =>de0_pc,
                              
+            i_rs1_fwsel     =>de0_rs1_fwsel,
+            i_rs2_fwsel     =>de0_rs2_fwsel,
+            
+            i_cmp_op1sel    =>de0_cmp_op1sel,
             i_op1_sel       =>de0_op1_sel,
             i_op2_sel       =>de0_op2_sel,
             i_signed_op     =>de0_op_sign,
@@ -204,7 +219,7 @@ EX0: entity work.execute
             i_alu_sel       =>de0_alu_opsel,
             i_res_sel       =>de0_exe_res_sel,
                              
-            i_br_addr_sel   =>de0_br_addr_sel,
+            i_br_addr_sel   =>'0',
             i_br_type_sel   =>de0_br_type,
             i_br_en         =>de0_br_en,
                              
@@ -307,9 +322,9 @@ RF0: entity work.reg_file
             i_rs1_addr  =>de0_rs1_addr,
             i_rs2_addr  =>de0_rs2_addr,
                         
-            i_wb_data   =>wb0_wb_data,
-            i_wb_addr   =>wb0_wb_reg_sel,
-            i_we        =>wb0_wb_we,
+            i_wb_data   =>ma0_wb_data,
+            i_wb_addr   =>ma0_wb_reg_sel,
+            i_we        =>ma0_wb_we,
                         
             o_rs1       =>rf0_rs1,
             o_rs2       =>rf0_rs2

@@ -35,9 +35,18 @@ entity execute is
             
             i_rs1           : in std_logic_vector(31 downto 0);
             i_rs2           : in std_logic_vector(31 downto 0);
+            
+            i_fw_ee           : in std_logic_vector(31 downto 0);
+            i_fw_me           : in std_logic_vector(31 downto 0);
+            i_fw_we           : in std_logic_vector(31 downto 0);
+            
             i_imm           : in std_logic_vector(31 downto 0);
             i_pc            : in std_logic_vector(31 downto 0);
             
+            i_rs1_fwsel     : in std_logic_vector(1 downto 0);
+            i_rs2_fwsel     : in std_logic_vector(1 downto 0);
+            
+            i_cmp_op1sel       : in std_logic;
             i_op1_sel       : in std_logic_vector(1 downto 0);
             i_op2_sel       : in std_logic_vector(1 downto 0);
             i_signed_op     : in std_logic;
@@ -114,19 +123,35 @@ architecture behave of execute is
     signal next_instr_addr : std_logic_vector(31 downto 0);
     signal branch_addr : std_logic_vector(31 downto 0);
     signal exe_result : std_logic_vector(31 downto 0);
-    
+    signal rs1 : std_logic_vector(31 downto 0);
+    signal rs2 : std_logic_vector(31 downto 0);
+    signal cmp_op1 : std_logic_vector(31 downto 0);
 begin
+
+rs1 <=  i_rs1 when i_rs1_fwsel = "00"  else
+        i_fw_ee when i_rs1_fwsel = "01" else
+        i_fw_me when i_rs1_fwsel = "10" else
+        i_fw_we;
+rs2 <=  i_rs2 when i_rs2_fwsel = "00"  else
+        i_fw_ee when i_rs2_fwsel = "01" else
+        i_fw_me when i_rs2_fwsel = "10" else
+        i_fw_we;
+
 ZERO32    <= x"00000000";
 FOUR32    <= x"00000004";
-operand1  <= i_rs1 when i_op1_sel= "00" else
-             i_rs2 when i_op1_sel= "01" else
+operand1  <= rs1 when i_op1_sel= "00" else
+             rs2 when i_op1_sel= "01" else
              i_pc  when i_op1_sel = "10" else
              ZERO32 when i_op1_sel = "11";
 
-operand2  <= i_rs2 when i_op2_sel= "00" else
-             i_rs1 when i_op2_sel= "01" else
+operand2  <= rs2 when i_op2_sel= "00" else
+             rs1 when i_op2_sel= "01" else
              i_imm when i_op2_sel= "10" else
              ZERO32 when i_op2_sel= "11";
+             
+             
+cmp_op1 <= rs2 when i_cmp_op1sel='0' else i_imm; 
+
 
 
 ALU0: entity work.alu
@@ -144,8 +169,8 @@ ALU0: entity work.alu
    );
 CP0: entity work.comp
 port map(
-            i_a => i_rs1,
-            i_b => i_rs2,
+            i_a => rs1,
+            i_b => cmp_op1,
             i_s => i_signed_op,
             o_lt => cp0_lt,
             o_ge => cp0_ge,

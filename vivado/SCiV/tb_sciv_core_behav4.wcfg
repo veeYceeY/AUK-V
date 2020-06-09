@@ -10,15 +10,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="53733fs"></ZoomStartTime>
-      <ZoomEndTime time="667734fs"></ZoomEndTime>
-      <Cursor1Time time="230733fs"></Cursor1Time>
+      <ZoomStartTime time="59000fs"></ZoomStartTime>
+      <ZoomEndTime time="209201fs"></ZoomEndTime>
+      <Cursor1Time time="175000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="77"></ValueColumnWidth>
+      <ValueColumnWidth column_width="73"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="10" />
+   <WVObjectSize size="15" />
    <wvobject type="logic" fp_name="/tb_sciv_core/SC0/RF0/i_clk">
       <obj_property name="ElementShortName">i_clk</obj_property>
       <obj_property name="ObjectShortName">i_clk</obj_property>
@@ -54,6 +54,36 @@
    <wvobject type="array" fp_name="/tb_sciv_core/SC0/RF0/o_rs2">
       <obj_property name="ElementShortName">o_rs2[31:0]</obj_property>
       <obj_property name="ObjectShortName">o_rs2[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/RF0/sfr[5]">
+      <obj_property name="ElementShortName">[5][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[5][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/RF0/sfr[4]">
+      <obj_property name="ElementShortName">[4][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[4][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/RF0/sfr[3]">
+      <obj_property name="ElementShortName">[3][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[3][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/RF0/sfr[2]">
+      <obj_property name="ElementShortName">[2][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[2][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_sciv_core/SC0/RF0/sfr[1]">
+      <obj_property name="ElementShortName">[1][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[1][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_sciv_core/SC0/RF0/sfr">
       <obj_property name="ElementShortName">sfr[31:0][31:0]</obj_property>

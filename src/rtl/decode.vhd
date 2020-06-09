@@ -51,12 +51,16 @@ entity decode is
             o_imm           : out std_logic_vector(31 downto 0);
             o_pc            : out std_logic_vector(31 downto 0);
             
+            o_rs1_fwsel  : out std_logic_vector(1 downto 0);
+            o_rs2_fwsel  : out std_logic_vector(1 downto 0);
+            
+            o_cmp_op1sel    : out std_logic;
             o_op1_sel       : out std_logic_vector(1 downto 0);
             o_op2_sel       : out std_logic_vector(1 downto 0);
             
             o_br_en         : out std_logic;
             o_br_type       : out std_logic_vector(2 downto 0);
-            o_br_addr_sel   : out std_logic;
+            --o_br_addr_sel   : out std_logic;
 
             o_alu_opsel     : out std_logic_vector(3 downto 0);
             o_op_sign       : out std_logic;
@@ -83,6 +87,9 @@ architecture behave of decode is
 
 signal uc_addr : std_logic_vector(7 downto 0);
 signal data : std_logic_vector(31 downto 0);
+
+--signal rs1_fwsel : std_logic_vector(1 downto 0);
+--signal rs2_fwsel : std_logic_vector(1 downto 0);
 
 begin
 
@@ -112,12 +119,16 @@ DU0: entity work.decode_uc
             o_imm             => o_imm           ,
             o_pc              => o_pc            ,
                                 
+            o_rs1_fwsel       => o_rs1_fwsel     ,
+            o_rs2_fwsel       => o_rs2_fwsel     ,
+            
+            o_cmp_op1sel      => o_cmp_op1sel,
             o_op1_sel         => o_op1_sel       ,
             o_op2_sel         => o_op2_sel       ,
                                 
             o_br_en           => o_br_en         ,
             o_br_type         => o_br_type       ,
-            o_br_addr_sel     => o_br_addr_sel   ,
+            --o_br_addr_sel     => o_br_addr_sel   ,
                                 
             o_alu_opsel       => o_alu_opsel     ,
             o_op_sign         => o_op_sign       ,                    

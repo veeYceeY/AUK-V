@@ -55,12 +55,16 @@ entity decode_uc is
             o_imm        : out std_logic_vector(31 downto 0);
             o_pc         : out std_logic_vector(31 downto 0);
             
+            o_rs1_fwsel  : out std_logic_vector(1 downto 0);
+            o_rs2_fwsel  : out std_logic_vector(1 downto 0);
+            
+            o_cmp_op1sel : out std_logic;
             o_op1_sel    : out std_logic_vector(1 downto 0);
             o_op2_sel    : out std_logic_vector(1 downto 0);
             
             o_br_en      : out std_logic;
             o_br_type    : out std_logic_vector(2 downto 0);
-            o_br_addr_sel : out std_logic;
+            --o_br_addr_sel : out std_logic;
 
             o_alu_opsel  : out std_logic_vector(3 downto 0);
             o_op_sign    : out std_logic;
@@ -130,7 +134,7 @@ signal mem_we           : std_logic;
 signal mem_load_type    : std_logic_vector(2 downto 0);
 signal br_en            : std_logic;
 signal br_type          : std_logic_vector(2 downto 0);
-signal br_addr_sel      : std_logic;
+signal cmp_op1sel      : std_logic;
 signal exe_res_sel      : std_logic_vector(1 downto 0);
 signal alu_op_sel       : std_logic_vector(3 downto 0);
 signal op2_sel          : std_logic_vector(1 downto 0);
@@ -138,6 +142,13 @@ signal op1_sel          : std_logic_vector(1 downto 0);
 signal imm_sel          : std_logic_vector(2 downto 0);
 signal op_sign          : std_logic;
 
+type buff_type is array(2 downto 0) of std_logic_vector(5 downto 0);
+signal fw_buff : buff_type;
+
+
+signal rs1_fwsel : std_logic_vector(1 downto 0);
+signal rs2_fwsel: std_logic_vector(1 downto 0);
+signal fw_mm: std_logic;
 
 begin
 instr<= i_instr;
@@ -176,7 +187,7 @@ mem_we           <=uc(5);
 mem_load_type    <=uc(8 downto 6);
 br_en            <=uc(9);
 br_type          <=uc(12 downto 10);
-br_addr_sel      <=uc(13);
+cmp_op1sel      <=uc(13);
 exe_res_sel      <=uc(15 downto 14);
 alu_op_sel       <=uc(19 downto 16);
 op2_sel          <=uc(21 downto 20);
@@ -194,7 +205,7 @@ o_op1_sel       <= (others =>'0') when i_rst = '1' else op1_sel     when rising_
 o_op2_sel       <= (others =>'0') when i_rst = '1' else op2_sel     when rising_edge(i_clk);
 o_br_en         <= '0' when i_rst = '1' else br_en       when rising_edge(i_clk);
 o_br_type       <= (others =>'0') when i_rst = '1' else br_type     when rising_edge(i_clk);
-o_br_addr_sel   <= '0' when i_rst = '1' else br_addr_sel when rising_edge(i_clk);
+o_cmp_op1sel    <= '0' when i_rst = '1' else cmp_op1sel when rising_edge(i_clk);
 o_alu_opsel     <= (others =>'0') when i_rst = '1' else alu_op_sel  when rising_edge(i_clk);
 o_exe_res_sel   <= (others =>'0') when i_rst = '1' else exe_res_sel when rising_edge(i_clk);
 o_mem_store_type<= (others =>'0') when i_rst = '1' else store_type  when rising_edge(i_clk);
@@ -207,6 +218,12 @@ o_mem_we        <= '0' when i_rst = '1' else mem_we      when rising_edge(i_clk)
 --o_mem_addr      <= imm         when rising_edge(i_clk);
 o_mem_data      <= (others =>'0') when i_rst = '1' else i_src2      when rising_edge(i_clk);
 o_op_sign        <= '0' when i_rst = '1' else op_sign when rising_edge(i_clk);
+
+o_rs1_fwsel     <= (others => '0') when i_rst='1' else rs1_fwsel when rising_edge(i_clk);
+o_rs2_fwsel     <= (others => '0') when i_rst='1' else rs2_fwsel when rising_edge(i_clk);
+
+
+
 imm_u <= imms_u when op_sign = '1' else immu_u;
 imm_i <= imms_i when op_sign = '1' else immu_i;
 imm_j <= imms_j when op_sign = '1' else immu_j;
@@ -221,7 +238,44 @@ imm <=  imm_u when imm_sel = x"0" else
         imm_r when imm_sel = x"4" else
         imm_s when imm_sel = x"5" ;
         
+-----------------------data forwarding---------------
 
+process(i_clk,i_rst)
+begin
+if i_rst ='1' then
+    fw_buff(0) <= (others => '0');
+    fw_buff(1) <= (others => '0');
+    fw_buff(2) <= (others => '0');
+elsif rising_edge(i_clk) then
+    fw_buff(0) <= rd & wb_we;
+    fw_buff(1) <= fw_buff(0);
+    fw_buff(2) <= fw_buff(1);
+end if;
+end process;
+
+rs1_fwsel <=    "01" when fw_buff(0)(5 downto 1) = rs1 and fw_buff(0)(0) ='1'else
+                "10" when fw_buff(1)(5 downto 1) = rs1 and fw_buff(1)(0) ='1'else
+                "11" when fw_buff(2)(5 downto 1) = rs1 and fw_buff(2)(0) ='1'else
+                "00";
+                
+rs2_fwsel <=    "01" when fw_buff(0)(5 downto 1) = rs2 and fw_buff(0)(0) ='1'else
+                "10" when fw_buff(1)(5 downto 1) = rs2 and fw_buff(1)(0) ='1'else
+                "11" when fw_buff(2)(5 downto 1) = rs2 and fw_buff(2)(0) ='1'else
+                "00";
+--rs1_fwsel <=    "01" when fw_buff(0)(5 downto 1) = rs1 and op1_sel = 0 and fw_buff(0)(0) ='1'else
+--                "10" when fw_buff(1)(5 downto 1) = rs1 and op1_sel = 0 and fw_buff(1)(0) ='1'else
+--                "11" when fw_buff(2)(5 downto 1) = rs1 and op1_sel = 0 and fw_buff(2)(0) ='1'else
+--                "00";
+                
+--rs2_fwsel <=    "01" when fw_buff(0)(5 downto 1) = rs2 and (op2_sel = 0  or cmp_op1sel = '0') and fw_buff(0)(0) ='1'else
+--                "10" when fw_buff(1)(5 downto 1) = rs2 and (op2_sel = 0  or cmp_op1sel = '0') and fw_buff(1)(0) ='1'else
+--                "11" when fw_buff(2)(5 downto 1) = rs2 and (op2_sel = 0  or cmp_op1sel = '0') and fw_buff(2)(0) ='1'else
+--                "00";
+
+--fw_mm     <=    '1' when fw_buff(1)(19 downto 15) = fw_buff(0)(1 downto 15)  and op2_sel = 0 and fw_buff(0)(0) ='1'else
+--                '0';
+
+------------------------------------------------------
 process(opcode,funct3,funct7) 
 begin
     if opcode = "0110111" then
@@ -279,7 +333,7 @@ begin
                 elsif funct3 = "100" then
                     uc_addr <= x"16";
                 elsif funct3 = "101" then
-                    uc_addr <= x"20";
+                    uc_addr <= x"1a";
                 elsif funct3 = x"110" then
                     uc_addr <= x"17";
                 elsif funct3 = "111" then
