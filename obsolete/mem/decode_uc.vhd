@@ -197,6 +197,28 @@ op_sign          <=uc(27);
 
 o_src1_addr     <= rs1;
 o_src2_addr     <= rs2;
+--o_rs1           <= (others =>'0') when i_rst = '1' else i_src1      when rising_edge(i_clk);
+--o_rs2           <= (others =>'0') when i_rst = '1' else i_src2      when rising_edge(i_clk);
+--o_imm           <= (others =>'0') when i_rst = '1' else imm         when rising_edge(i_clk);
+--o_pc            <= (others =>'0') when i_rst = '1' else i_pc        when rising_edge(i_clk);
+--o_op1_sel       <= (others =>'0') when i_rst = '1' else op1_sel     when rising_edge(i_clk);
+--o_op2_sel       <= (others =>'0') when i_rst = '1' else op2_sel     when rising_edge(i_clk);
+--o_br_en         <= '0'            when i_rst = '1' else br_en       when rising_edge(i_clk);
+--o_br_type       <= (others =>'0') when i_rst = '1' else br_type     when rising_edge(i_clk);
+--o_cmp_op1sel    <= '0' when i_rst = '1'            else cmp_op1sel  when rising_edge(i_clk);
+--o_alu_opsel     <= (others =>'0') when i_rst = '1' else alu_op_sel   when rising_edge(i_clk);
+--o_exe_res_sel   <= (others =>'0') when i_rst = '1' else exe_res_sel  when rising_edge(i_clk);
+--o_mem_store_type<= (others =>'0') when i_rst = '1' else store_type   when rising_edge(i_clk);
+--o_mem_load_type <= (others =>'0') when i_rst = '1' else mem_load_type  when rising_edge(i_clk);
+--o_wb_en         <= '0' when i_rst = '1' else            wb_we           when rising_edge(i_clk);
+--o_wb_reg        <= (others =>'0') when i_rst = '1' else rd              when         rising_edge(i_clk);
+--o_wb_data_sel   <= '0' when i_rst = '1'            else wb_data_sel  when rising_edge(i_clk);
+--o_mem_en        <= '0' when i_rst = '1'            else mem_en       when rising_edge(i_clk);
+--o_mem_we        <= '0' when i_rst = '1'            else mem_we       when rising_edge(i_clk);
+--o_mem_data      <= (others =>'0') when i_rst = '1' else i_src2       when rising_edge(i_clk);
+--o_op_sign        <= '0' when i_rst = '1'           else op_sign      when rising_edge(i_clk);
+--o_rs1_fwsel     <= (others => '0') when i_rst='1' else  rs1_fwsel    when rising_edge(i_clk);
+--o_rs2_fwsel     <= (others => '0') when i_rst='1' else  rs2_fwsel    when rising_edge(i_clk);
 
 
 
@@ -362,34 +384,6 @@ begin
             end if;
     end if;
 end process;
-
-
---o_rs1           <= (others =>'0') when i_rst = '1' else i_src1      when rising_edge(i_clk);
---o_rs2           <= (others =>'0') when i_rst = '1' else i_src2      when rising_edge(i_clk);
---o_imm           <= (others =>'0') when i_rst = '1' else imm         when rising_edge(i_clk);
---o_pc            <= (others =>'0') when i_rst = '1' else i_pc        when rising_edge(i_clk);
---o_op1_sel       <= (others =>'0') when i_rst = '1' else op1_sel     when rising_edge(i_clk);
---o_op2_sel       <= (others =>'0') when i_rst = '1' else op2_sel     when rising_edge(i_clk);
---o_br_en         <= '0'            when i_rst = '1' else br_en       when rising_edge(i_clk);
---o_br_type       <= (others =>'0') when i_rst = '1' else br_type     when rising_edge(i_clk);
---o_cmp_op1sel    <= '0' when i_rst = '1'            else cmp_op1sel  when rising_edge(i_clk);
---o_alu_opsel     <= (others =>'0') when i_rst = '1' else alu_op_sel   when rising_edge(i_clk);
---o_exe_res_sel   <= (others =>'0') when i_rst = '1' else exe_res_sel  when rising_edge(i_clk);
---o_mem_store_type<= (others =>'0') when i_rst = '1' else store_type   when rising_edge(i_clk);
---o_mem_load_type <= (others =>'0') when i_rst = '1' else mem_load_type  when rising_edge(i_clk);
---o_wb_en         <= '0' when i_rst = '1' else            wb_we           when rising_edge(i_clk);
---o_wb_reg        <= (others =>'0') when i_rst = '1' else rd              when         rising_edge(i_clk);
---o_wb_data_sel   <= '0' when i_rst = '1'            else wb_data_sel  when rising_edge(i_clk);
---o_mem_en        <= '0' when i_rst = '1'            else mem_en       when rising_edge(i_clk);
---o_mem_we        <= '0' when i_rst = '1'            else mem_we       when rising_edge(i_clk);
---o_mem_data      <= (others =>'0') when i_rst = '1' else i_src2       when rising_edge(i_clk);
---o_op_sign        <= '0' when i_rst = '1'           else op_sign      when rising_edge(i_clk);
---o_rs1_fwsel     <= (others => '0') when i_rst='1' else  rs1_fwsel    when rising_edge(i_clk);
---o_rs2_fwsel     <= (others => '0') when i_rst='1' else  rs2_fwsel    when rising_edge(i_clk);
-
-
-
-
 
 process(i_clk,i_rst)
 begin

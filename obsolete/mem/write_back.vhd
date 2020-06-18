@@ -58,14 +58,9 @@ architecture Behavioral of write_back is
 
 begin
 
-
-
-
-
-
 --o_wb_data    <= (others =>'0')  when i_rst = '1' else i_wb_data    when rising_edge(i_clk);
 --o_wb_reg_sel <= (others =>'0')  when i_rst = '1' else i_wb_reg_sel when rising_edge(i_clk);
---o_wb_we      <= '0'             when i_rst = '1' else i_wb_we      ;--when rising_edge(i_clk); 
+--o_wb_we      <= '0'             when i_rst = '1' else i_wb_we      when rising_edge(i_clk); 
 --o_br_addr    <= (others =>'0')  when i_rst = '1' else i_br_addr    when rising_edge(i_clk);
 --o_br_en      <= '0'             when i_rst = '1' else i_br_en      when rising_edge(i_clk);
 
@@ -96,3 +91,4 @@ end process;
 
 
 end Behavioral;
+

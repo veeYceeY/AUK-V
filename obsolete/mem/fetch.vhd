@@ -69,7 +69,7 @@ begin
     if i_rst='1' then
         o_pc <= (others => '0');
     elsif rising_edge(i_clk) then
-        if i_stall = '0' then
+        if i_stall = '1' then
             o_pc <= pc;
         end if;            
     end if;

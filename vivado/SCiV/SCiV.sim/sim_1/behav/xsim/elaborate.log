@@ -17,25 +17,4 @@ WARNING: [VRFC 10-516] comparison between unequal length arrays always returns F
 WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/memory_access.vhd:138]
 WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/memory_access.vhd:139]
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_unsigned
-Compiling architecture fetch_no_bp of entity xil_defaultlib.fetch [fetch_default]
-Compiling architecture behave of entity xil_defaultlib.decode_uc [decode_uc_default]
-Compiling architecture behavioral of entity xil_defaultlib.microcode_mem [microcode_mem_default]
-Compiling architecture behave of entity xil_defaultlib.decode [decode_default]
-Compiling architecture behavioral of entity xil_defaultlib.alu [alu_default]
-Compiling architecture behavioral of entity xil_defaultlib.comp [comp_default]
-Compiling architecture behave of entity xil_defaultlib.execute [execute_default]
-Compiling architecture behavioral of entity xil_defaultlib.memory_access [memory_access_default]
-Compiling architecture behavioral of entity xil_defaultlib.write_back [write_back_default]
-Compiling architecture behave of entity xil_defaultlib.reg_file [reg_file_default]
-Compiling architecture behavioral of entity xil_defaultlib.sciv_core [sciv_core_default]
-Compiling architecture behavioral of entity xil_defaultlib.tb_sciv_core
-Built simulation snapshot tb_sciv_core_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
