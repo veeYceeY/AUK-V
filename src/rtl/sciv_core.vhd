@@ -36,6 +36,7 @@ entity sciv_core is
             i_clk             : in std_logic;
             i_rst             : in std_logic;
             
+            
             o_data_mem_en     : out std_logic;
             o_data_mem_we     : out std_logic;
             o_data_mem_addr   : out std_logic_vector(31 downto 0);
@@ -125,7 +126,7 @@ signal de0_rs2_fwsel : std_logic_vector(1 downto 0);
 signal de0_cmp_op1sel : std_logic;
 begin
 
-ma0_stall<= '0';
+--ma0_stall<= '0';
 o_code_mem_en<='1';
 
 FE0: entity work.fetch  
@@ -147,6 +148,7 @@ DE0: entity work.decode
     port map (
             i_clk           =>i_clk,
             i_rst           =>i_rst,
+            i_stall         =>ma0_stall,
             
             i_instr         =>fe0_instr,
             i_pc            =>fe0_pc,
@@ -197,7 +199,7 @@ EX0: entity work.execute
     port map( 
             i_clk           => i_clk,
             i_rst           => i_rst,
-                             
+            i_stall         =>ma0_stall,
             i_rs1           =>de0_rs1,
             i_rs2           =>de0_rs2,
             
@@ -254,7 +256,7 @@ MA0: entity work.memory_access
   Port map ( 
             i_clk               =>i_clk,
             i_rst               =>i_rst,
-                                
+                        
             i_exe_res           =>ex0_exe_res,
                                 
             i_br_addr           =>ex0_br_addr,
@@ -262,8 +264,12 @@ MA0: entity work.memory_access
                                 
             i_mem_wr_data       =>ex0_mem_wr_data,
             i_mem_addr          =>ex0_mem_addr,
+            
             i_mem_we            =>ex0_mem_we,
             i_mem_en            =>ex0_mem_en,
+            i_mem_we_p            =>de0_mem_we,
+            i_mem_en_p            =>de0_mem_en,
+            
             i_wb_data_sel       =>ex0_wb_data_sel,
             i_wb_reg_sel        =>ex0_wb_reg_sel,
             i_wb_we             =>ex0_wb_we,
@@ -278,7 +284,7 @@ MA0: entity work.memory_access
             i_data_mem_data     =>i_data_mem_data,
             i_data_mem_valid    =>i_data_mem_valid,
             o_data_mem_data     =>o_data_mem_data,
-                                
+            o_stall             =>ma0_stall,                   
             o_br_addr           =>ma0_br_addr,
             o_br_en             =>ma0_br_en,
             o_wb_data           =>ma0_wb_data,
@@ -295,7 +301,9 @@ WB0: entity work.write_back
   Port map (
             i_clk       =>i_clk,
             i_rst       =>i_rst,
-                        
+            
+            i_stall         =>ma0_stall,
+            
             i_br_addr   =>ma0_br_addr,
             i_br_en     =>ma0_br_en,
                         

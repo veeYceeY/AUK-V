@@ -36,6 +36,8 @@ entity write_back is
             i_clk       : in std_logic;
             i_rst       : in std_logic;
             
+            i_stall           : in std_logic;
+            
             i_br_addr   : in std_logic_vector(31 downto 0);
             i_br_en     : in std_logic;
                 
@@ -73,7 +75,6 @@ begin
 process(i_clk,i_rst)
 begin
     if i_rst = '1' then
-    
         o_wb_data    <= (others =>'0')   ;
         o_wb_reg_sel <= (others =>'0')   ;
         o_wb_we      <= '0'              ;
@@ -81,13 +82,13 @@ begin
         o_br_en      <= '0'              ;
         
     elsif rising_edge(i_clk) then
-    
-        o_wb_data    <= i_wb_data      ;
-        o_wb_reg_sel <= i_wb_reg_sel   ;
-        o_wb_we      <= i_wb_we        ;
-        o_br_addr    <= i_br_addr      ;
-        o_br_en      <= i_br_en        ;
-        
+        if i_stall = '0' then
+            o_wb_data    <= i_wb_data      ;
+            o_wb_reg_sel <= i_wb_reg_sel   ;
+            o_wb_we      <= i_wb_we        ;
+            o_br_addr    <= i_br_addr      ;
+            o_br_en      <= i_br_en        ;
+        end if;
     end if;
 end process;
 

@@ -1,0 +1,6 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/memory_access.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'memory_access'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/sciv_core.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'sciv_core'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/veeyceey/Documents/workspace/github/SCiV/vivado/SCiV/SCiV.srcs/sim_1/new/tb_sciv_core.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'tb_sciv_core'

@@ -34,6 +34,8 @@ entity decode_uc is
             i_clk       : in std_logic;
             i_rst       : in std_logic;
             
+            i_stall           : in std_logic;
+            
             i_instr     : in std_logic_vector(31 downto 0);
             i_pc        : in std_logic_vector(31 downto 0);
             
@@ -419,30 +421,30 @@ begin
         o_rs2_fwsel     <= (others => '0')  ;
         
     elsif rising_edge(i_clk) then
-    
-        o_rs1           <= i_src1        ;
-        o_rs2           <= i_src2        ;
-        o_imm           <= imm           ;
-        o_pc            <= i_pc          ;
-        o_op1_sel       <= op1_sel       ;
-        o_op2_sel       <= op2_sel       ;
-        o_br_en         <= br_en         ;
-        o_br_type       <= br_type       ;
-        o_cmp_op1sel    <= cmp_op1sel    ;
-        o_alu_opsel     <= alu_op_sel    ;
-        o_exe_res_sel   <= exe_res_sel   ;
-        o_mem_store_type<= store_type    ;
-        o_mem_load_type <= mem_load_type ;
-        o_wb_en         <= wb_we         ;
-        o_wb_reg        <= rd            ;
-        o_wb_data_sel   <= wb_data_sel   ;
-        o_mem_en        <= mem_en        ;
-        o_mem_we        <= mem_we        ;
-        o_mem_data      <= i_src2        ;
-        o_op_sign       <= op_sign       ; 
-        o_rs1_fwsel     <= rs1_fwsel     ;
-        o_rs2_fwsel     <= rs2_fwsel     ;
-        
+        if i_stall = '0' then
+            o_rs1           <= i_src1        ;
+            o_rs2           <= i_src2        ;
+            o_imm           <= imm           ;
+            o_pc            <= i_pc          ;
+            o_op1_sel       <= op1_sel       ;
+            o_op2_sel       <= op2_sel       ;
+            o_br_en         <= br_en         ;
+            o_br_type       <= br_type       ;
+            o_cmp_op1sel    <= cmp_op1sel    ;
+            o_alu_opsel     <= alu_op_sel    ;
+            o_exe_res_sel   <= exe_res_sel   ;
+            o_mem_store_type<= store_type    ;
+            o_mem_load_type <= mem_load_type ;
+            o_wb_en         <= wb_we         ;
+            o_wb_reg        <= rd            ;
+            o_wb_data_sel   <= wb_data_sel   ;
+            o_mem_en        <= mem_en        ;
+            o_mem_we        <= mem_we        ;
+            o_mem_data      <= i_src2        ;
+            o_op_sign       <= op_sign       ; 
+            o_rs1_fwsel     <= rs1_fwsel     ;
+            o_rs2_fwsel     <= rs2_fwsel     ;
+        end if;
     end if;
 end process;
 

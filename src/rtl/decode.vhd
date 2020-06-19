@@ -30,6 +30,8 @@ entity decode is
             i_clk           : in std_logic;
             i_rst           : in std_logic;
             
+            i_stall           : in std_logic;
+            
             i_instr         : in std_logic_vector(31 downto 0);
             i_pc            : in std_logic_vector(31 downto 0);
             
@@ -97,7 +99,8 @@ DU0: entity work.decode_uc
     port map(
             i_clk             => i_clk           ,
             i_rst             => i_rst           , 
-                                
+            
+            i_stall           => i_stall         ,       
             i_instr           => i_instr         ,
             i_pc              => i_pc            ,
                                 

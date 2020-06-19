@@ -35,7 +35,7 @@ entity memory_access is
   Port ( 
             i_clk : std_logic;
             i_rst : std_logic;
-            
+                        
             i_exe_res           : in std_logic_vector(31 downto 0);
             
             i_br_addr           : in std_logic_vector(31 downto 0);
@@ -45,6 +45,8 @@ entity memory_access is
             i_mem_addr          : in std_logic_vector(31 downto 0);
             i_mem_we            : in std_logic;
             i_mem_en            : in std_logic;
+            i_mem_we_p            : in std_logic;
+            i_mem_en_p            : in std_logic;
             i_wb_data_sel       : in std_logic;
             i_wb_reg_sel        : in std_logic_vector(4 downto 0);
             i_wb_we             : in std_logic;
@@ -54,6 +56,7 @@ entity memory_access is
             
             o_data_mem_en       : out std_logic;
             o_data_mem_we       : out std_logic;
+            
             o_data_mem_data     : out std_logic_vector(31 downto 0);
             o_data_mem_addr     : out std_logic_vector(31 downto 0);
             o_data_mem_strobe   : out std_logic_vector(3 downto 0);
@@ -142,8 +145,21 @@ mem_strobe_rd <= "0001" when i_load_type = x"0" else
 wb_data <= i_exe_res when i_wb_data_sel = '0' else mem_data_rd;
 mem_strobe <= mem_strobe_rd when i_mem_we = '0' else mem_strobe_wr;
 
-stall <= not i_data_mem_valid when i_mem_we = '1';
+--stall <= '0';--not i_data_mem_valid when i_mem_we = '1';
+process(i_clk,i_rst)
+begin
+    if i_rst = '1' then
+        stall <= '0';
+    elsif rising_edge(i_clk) then
+        if i_mem_en_p = '1' and i_mem_we_p = '0' then
+            stall <= '1';
+        elsif i_data_mem_valid = '1' then
+            stall <= '0';
+        end if;
+    end if;
+end process;
 
+o_stall <= stall;
 --o_data_mem_en     <= '0'            when i_rst = '1' else i_mem_en          when rising_edge(i_clk);
 --o_data_mem_we     <= '0'            when i_rst = '1' else i_mem_we          when rising_edge(i_clk);
 --o_data_mem_addr   <= (others =>'0') when i_rst = '1' else i_mem_addr        when rising_edge(i_clk);
@@ -167,29 +183,27 @@ begin
         o_data_mem_addr   <= (others =>'0')   ;
         o_data_mem_strobe <= (others =>'0')   ;
         o_data_mem_data   <= (others =>'0')   ;
-        o_stall           <= '0'              ;
+        --o_stall           <= '0'              ;
         o_br_addr         <= (others =>'0')   ;
         o_br_en           <= '0'              ;
         o_wb_data         <= (others =>'0')   ;
         o_wb_reg_sel      <= (others =>'0')   ;
         o_wb_we           <= '0'              ;
-        o_wb_we           <= '0'              ;
         
     elsif rising_edge(i_clk) then
-    
-        o_data_mem_en     <= i_mem_en          ;
-        o_data_mem_we     <= i_mem_we          ;
-        o_data_mem_addr   <= i_mem_addr        ;
-        o_data_mem_strobe <= mem_strobe        ;
-        o_data_mem_data   <= mem_data_wr       ;
-        o_stall           <= i_data_mem_valid  ;
-        o_br_addr         <= i_br_addr         ;
-        o_br_en           <= i_br_en           ;
-        o_wb_data         <= wb_data           ;
-        o_wb_reg_sel      <= i_wb_reg_sel      ;
-        o_wb_we           <= i_wb_we           ;
-        o_wb_we           <= i_wb_we           ;
-        
+            o_data_mem_en     <= i_mem_en          ;
+            o_data_mem_we     <= i_mem_we          ;
+            o_data_mem_addr   <= i_mem_addr        ;
+            o_data_mem_strobe <= mem_strobe        ;
+            o_data_mem_data   <= mem_data_wr       ;
+        if stall = '0' then
+            --o_stall           <= i_data_mem_valid  ;
+            o_br_addr         <= i_br_addr         ;
+            o_br_en           <= i_br_en           ;
+            o_wb_data         <= wb_data           ;
+            o_wb_reg_sel      <= i_wb_reg_sel      ;
+            o_wb_we           <= i_wb_we           ;
+        end if;
     end if;
 end process;
 

@@ -33,6 +33,8 @@ entity execute is
             i_clk           : in std_logic;
             i_rst           : in std_logic;
             
+            i_stall           : in std_logic;
+            
             i_rs1           : in std_logic_vector(31 downto 0);
             i_rs2           : in std_logic_vector(31 downto 0);
             
@@ -230,19 +232,20 @@ begin
         o_store_type    <= (others => '0')   ;
         
     elsif rising_edge(i_clk) then
-    
-        o_br_addr       <= branch_addr     ;
-        o_br_en         <= br_en           ;
-        o_exe_res       <= exe_result      ;
-        o_mem_wr_data   <= i_mem_wr_data   ;
-        o_mem_addr      <= mem_address     ;
-        o_mem_we        <= i_mem_we        ;
-        o_wb_data_sel   <= i_wb_data_sel   ;
-        o_wb_reg_sel    <= i_wb_reg_sel    ;
-        o_wb_we         <= i_wb_we         ;
-        o_mem_en        <= i_mem_en        ;
-        o_load_type     <= i_load_type     ;
-        o_store_type    <= i_store_type    ;
+        if i_stall='0' then
+            o_br_addr       <= branch_addr     ;
+            o_br_en         <= br_en           ;
+            o_exe_res       <= exe_result      ;
+            o_mem_wr_data   <= i_mem_wr_data   ;
+            o_mem_addr      <= mem_address     ;
+            o_mem_we        <= i_mem_we        ;
+            o_wb_data_sel   <= i_wb_data_sel   ;
+            o_wb_reg_sel    <= i_wb_reg_sel    ;
+            o_wb_we         <= i_wb_we         ;
+            o_mem_en        <= i_mem_en        ;
+            o_load_type     <= i_load_type     ;
+            o_store_type    <= i_store_type    ;
+        end if;
         
     end if;
 end process;
