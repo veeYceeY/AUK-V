@@ -1,0 +1,33 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Tue Aug 18 16:59:36 2020
+[*]
+[dumpfile] "/home/veeyceey/Documents/workspace/github/SCiV/src/sim/Example_system/simdump.vcd"
+[dumpfile_mtime] "Tue Aug 18 16:48:02 2020"
+[dumpfile_size] 3447994
+[savefile] "/home/veeyceey/Documents/workspace/github/SCiV/src/sim/Example_system/codmem.gtkw"
+[timestart] 1421380000
+[size] 1890 1018
+[pos] -1 -1
+*-23.000000 1424810000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_sciv_core.
+[treeopen] tb_sciv_core.sc0.
+[treeopen] tb_sciv_core.sc0.sc0.
+[sst_width] 197
+[signals_width] 198
+[sst_expanded] 1
+[sst_vpaned_height] 304
+@22
+tb_sciv_core.sc0.sc0.cm0.i_addr[31:0]
+@28
+tb_sciv_core.sc0.sc0.cm0.i_en
+@22
+tb_sciv_core.sc0.sc0.cm0.o_data[31:0]
+@28
+tb_sciv_core.sc0.sc0.cm0.o_valid
+@22
+tb_sciv_core.sc0.sc0.sc0.i_code_mem_data[31:0]
+@29
+tb_sciv_core.sc0.sc0.sc0.i_code_mem_valid
+[pattern_trace] 1
+[pattern_trace] 0

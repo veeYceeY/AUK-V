@@ -24,6 +24,7 @@ Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
+Compiling package std.env
 Compiling package ieee.std_logic_arith
 Compiling package ieee.std_logic_unsigned
 Compiling architecture fetch_no_bp of entity xil_defaultlib.fetch [fetch_default]
@@ -37,5 +38,12 @@ Compiling architecture behavioral of entity xil_defaultlib.memory_access [memory
 Compiling architecture behavioral of entity xil_defaultlib.write_back [write_back_default]
 Compiling architecture behave of entity xil_defaultlib.reg_file [reg_file_default]
 Compiling architecture behavioral of entity xil_defaultlib.sciv_core [sciv_core_default]
+Compiling architecture behave of entity xil_defaultlib.code_mem [code_mem_default]
+Compiling architecture behave of entity xil_defaultlib.mem_interconnect [mem_interconnect_default]
+Compiling architecture behave of entity xil_defaultlib.ram [ram_default]
+Compiling architecture beh of entity xil_defaultlib.sciv_base_system [sciv_base_system_default]
+Compiling architecture behave of entity xil_defaultlib.reg_if [reg_if_default]
+Compiling architecture behave of entity xil_defaultlib.gpio [gpio_default]
+Compiling architecture beh of entity xil_defaultlib.sciv_example_system [sciv_example_system_default]
 Compiling architecture behavioral of entity xil_defaultlib.tb_sciv_core
 Built simulation snapshot tb_sciv_core_behav

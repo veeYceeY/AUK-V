@@ -74,7 +74,7 @@ anded <= (i_rs1 and i_rs2);
 xored <= (i_rs1 xor i_rs2);
 
 zero <= x"00000000";
-sign <= x"00000000" when i_rs1(31) = '0' else x"ffffffff";
+sign <= x"00000000" when i_rs1(31) = '0' else x"00000000";
 ref <= zero when i_rs1(31)='0' else sign;
 --shiftleft <= i_rs1((31-1) downto 0 )   & zero((1-1) downto 0) when shamt=1 else 
 --shiftright_logic <= zero(shamt-1 downto 0) & i_rs1((31) downto shamt);

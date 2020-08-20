@@ -144,8 +144,8 @@ signal op1_sel          : std_logic_vector(1 downto 0);
 signal imm_sel          : std_logic_vector(2 downto 0);
 signal op_sign          : std_logic;
 
-type buff_type is array(2 downto 0) of std_logic_vector(5 downto 0);
-signal fw_buff : buff_type;
+type bu00_type is array(2 downto 0) of std_logic_vector(5 downto 0);
+signal fw_bu00 : bu00_type;
 
 
 signal rs1_fwsel : std_logic_vector(1 downto 0);
@@ -162,14 +162,14 @@ rs1 <= instr(19 downto 15);
 rs2 <= instr(24 downto 20);
 funct7 <= instr(31 downto 25);
 imms_i <=    x"00000" & instr(31 downto 20)                                                                when instr(31) = '0' else    
-            x"fffff" & instr(31 downto 20);
+            x"0000f" & instr(31 downto 20);
 imms_s <=    x"00000" & instr(31 downto 25) & instr(11 downto 7)                                           when instr(31) = '0' else    
-            x"fffff" & instr(31 downto 25) & instr(11 downto 7);
+            x"0000f" & instr(31 downto 25) & instr(11 downto 7);
 imms_u <=    instr(31 downto 12) & x"000";
 imms_b <=    "000" & x"0000" & instr(31) & instr(7) & instr(30 downto 25) & instr(11 downto 8) & '0'       when instr(31) = '0' else    
-            "111" & x"ffff" & instr(31) & instr(7) & instr(30 downto 25) & instr(11 downto 8) & '0';
+            "111" & x"0000" & instr(31) & instr(7) & instr(30 downto 25) & instr(11 downto 8) & '0';
 imms_j <=    "000" & x"00" & instr(31 )  & instr(19 downto 12) & instr(20) & instr( 30 downto 21)  & '0'   when instr(31) = '0' else    
-            "111" & x"ff" & instr(31 )  & instr(19 downto 12) & instr(20) & instr( 30 downto 21)  & '0';
+            "111" & x"00" & instr(31 )  & instr(19 downto 12) & instr(20) & instr( 30 downto 21)  & '0';
 
 immu_i <=    x"00000" & instr(31 downto 20);
 immu_s <=    x"00000" & instr(31 downto 25) & instr(11 downto 7) ;
@@ -223,36 +223,36 @@ imm <=  imm_u when imm_sel = x"0" else
 process(i_clk,i_rst)
 begin
 if i_rst ='1' then
-    fw_buff(0) <= (others => '0');
-    fw_buff(1) <= (others => '0');
-    fw_buff(2) <= (others => '0');
+    fw_bu00(0) <= (others => '0');
+    fw_bu00(1) <= (others => '0');
+    fw_bu00(2) <= (others => '0');
 elsif rising_edge(i_clk) then
-    fw_buff(0) <= rd & wb_we;
-    fw_buff(1) <= fw_buff(0);
-    fw_buff(2) <= fw_buff(1);
+    fw_bu00(0) <= rd & wb_we;
+    fw_bu00(1) <= fw_bu00(0);
+    fw_bu00(2) <= fw_bu00(1);
 end if;
 end process;
 
-rs1_fwsel <=    "01" when fw_buff(0)(5 downto 1) = rs1 and fw_buff(0)(0) ='1'else
-                "10" when fw_buff(1)(5 downto 1) = rs1 and fw_buff(1)(0) ='1'else
-                "11" when fw_buff(2)(5 downto 1) = rs1 and fw_buff(2)(0) ='1'else
+rs1_fwsel <=    "01" when fw_bu00(0)(5 downto 1) = rs1 and fw_bu00(0)(0) ='1'else
+                "10" when fw_bu00(1)(5 downto 1) = rs1 and fw_bu00(1)(0) ='1'else
+                "11" when fw_bu00(2)(5 downto 1) = rs1 and fw_bu00(2)(0) ='1'else
                 "00";
                 
-rs2_fwsel <=    "01" when fw_buff(0)(5 downto 1) = rs2 and fw_buff(0)(0) ='1'else
-                "10" when fw_buff(1)(5 downto 1) = rs2 and fw_buff(1)(0) ='1'else
-                "11" when fw_buff(2)(5 downto 1) = rs2 and fw_buff(2)(0) ='1'else
+rs2_fwsel <=    "01" when fw_bu00(0)(5 downto 1) = rs2 and fw_bu00(0)(0) ='1'else
+                "10" when fw_bu00(1)(5 downto 1) = rs2 and fw_bu00(1)(0) ='1'else
+                "11" when fw_bu00(2)(5 downto 1) = rs2 and fw_bu00(2)(0) ='1'else
                 "00";
---rs1_fwsel <=    "01" when fw_buff(0)(5 downto 1) = rs1 and op1_sel = 0 and fw_buff(0)(0) ='1'else
---                "10" when fw_buff(1)(5 downto 1) = rs1 and op1_sel = 0 and fw_buff(1)(0) ='1'else
---                "11" when fw_buff(2)(5 downto 1) = rs1 and op1_sel = 0 and fw_buff(2)(0) ='1'else
+--rs1_fwsel <=    "01" when fw_bu00(0)(5 downto 1) = rs1 and op1_sel = 0 and fw_bu00(0)(0) ='1'else
+--                "10" when fw_bu00(1)(5 downto 1) = rs1 and op1_sel = 0 and fw_bu00(1)(0) ='1'else
+--                "11" when fw_bu00(2)(5 downto 1) = rs1 and op1_sel = 0 and fw_bu00(2)(0) ='1'else
 --                "00";
                 
---rs2_fwsel <=    "01" when fw_buff(0)(5 downto 1) = rs2 and (op2_sel = 0  or cmp_op1sel = '0') and fw_buff(0)(0) ='1'else
---                "10" when fw_buff(1)(5 downto 1) = rs2 and (op2_sel = 0  or cmp_op1sel = '0') and fw_buff(1)(0) ='1'else
---                "11" when fw_buff(2)(5 downto 1) = rs2 and (op2_sel = 0  or cmp_op1sel = '0') and fw_buff(2)(0) ='1'else
+--rs2_fwsel <=    "01" when fw_bu00(0)(5 downto 1) = rs2 and (op2_sel = 0  or cmp_op1sel = '0') and fw_bu00(0)(0) ='1'else
+--                "10" when fw_bu00(1)(5 downto 1) = rs2 and (op2_sel = 0  or cmp_op1sel = '0') and fw_bu00(1)(0) ='1'else
+--                "11" when fw_bu00(2)(5 downto 1) = rs2 and (op2_sel = 0  or cmp_op1sel = '0') and fw_bu00(2)(0) ='1'else
 --                "00";
 
---fw_mm     <=    '1' when fw_buff(1)(19 downto 15) = fw_buff(0)(1 downto 15)  and op2_sel = 0 and fw_buff(0)(0) ='1'else
+--fw_mm     <=    '1' when fw_bu00(1)(19 downto 15) = fw_bu00(0)(1 downto 15)  and op2_sel = 0 and fw_bu00(0)(0) ='1'else
 --                '0';
 
 ------------------------------------------------------
@@ -279,6 +279,8 @@ begin
                 uc_addr <= x"09";
             elsif funct3 = "111" then
                 uc_addr <= x"0a";
+            else
+                uc_addr <= x"00";
             end if;
     elsif opcode = "0000011" then
             if funct3 = "000" then
@@ -291,6 +293,8 @@ begin
                 uc_addr <= x"0e";
             elsif funct3 = "101" then
                 uc_addr <= x"0f";
+            else
+                uc_addr <= x"00";
             end if;
     elsif opcode = "0100011" then
             if funct3 = "000" then
@@ -299,62 +303,68 @@ begin
                 uc_addr <= x"11";
             elsif funct3 = "010" then
                 uc_addr <= x"12";
+            else
+                uc_addr <= x"00";
             end if;
     elsif opcode = "0010011" then
-            if funct7(5) = '0' then
-                if funct3 = "000" then
-                    uc_addr <= x"13";
-                elsif funct3 = "001" then
-                    uc_addr <= x"19";
-                elsif funct3 = "010" then
-                    uc_addr <= x"14";
-                elsif funct3 = "011" then
-                    uc_addr <= x"15";
-                elsif funct3 = "100" then
-                    uc_addr <= x"16";
-                elsif funct3 = "101" then
-                    uc_addr <= x"1a";
-                elsif funct3 = x"110" then
-                    uc_addr <= x"17";
-                elsif funct3 = "111" then
-                    uc_addr <= x"18";
-                end if;
-             else
-                if funct3 = x"101" then
+            if funct3 = "000" then
+                uc_addr <= x"13";
+            elsif funct3 = "001" then
+                uc_addr <= x"19";
+            elsif funct3 = "010" then
+                uc_addr <= x"14";
+            elsif funct3 = "011" then
+                uc_addr <= x"15";
+            elsif funct3 = "100" then
+                uc_addr <= x"16";
+            elsif funct3 = x"110" then
+                uc_addr <= x"17";
+            elsif funct3 = "111" then
+                uc_addr <= x"18";
+            elsif funct3 = x"101" then
+                if funct7(5) = '0' then
                     uc_addr <= x"1b";
+                else
+                    uc_addr <= x"1a";
                 end if;
-             end if;
+            else
+                uc_addr <= x"00";
+            end if;
     elsif opcode = "0110011" then
-            if funct7(5) = '0' then
-                if funct3 = "000" then
+            if funct3 = "000" then
+                if funct7(5) = '0' then
                     uc_addr <= x"1c";
-                elsif funct3 = "001" then
-                    uc_addr <= x"1e";
-                elsif funct3 = "010" then
-                    uc_addr <= x"1f";
-                elsif funct3 = "011" then
-                    uc_addr <= x"20";
-                elsif funct3 = "100" then
-                    uc_addr <= x"21";
-                elsif funct3 = "101" then
-                    uc_addr <= x"22";
-                elsif funct3 = "110" then
-                    uc_addr <= x"24";
-                elsif funct3 = "111" then
-                    uc_addr <= x"25";
-                end if;
-             else
-                if funct3 = "000" then
+                else
                     uc_addr <= x"1d";
-                elsif funct3 = "101" then
+                end if;
+            elsif funct3 = "001" then
+                uc_addr <= x"1e";
+            elsif funct3 = "010" then
+                uc_addr <= x"1f";
+            elsif funct3 = "011" then
+                uc_addr <= x"20";
+            elsif funct3 = "100" then
+                uc_addr <= x"21";
+            elsif funct3 = "101" then
+                if funct7(5) = '0' then
+                    uc_addr <= x"22";
+                else
                     uc_addr <= x"23";
                 end if;
-             end if;
+            elsif funct3 = "110" then
+                uc_addr <= x"24";
+            elsif funct3 = "111" then
+                uc_addr <= x"25";
+            else
+                uc_addr <= x"00";
+            end if;
     elsif opcode = "0001111" then
             if funct3 = "000" then
                 uc_addr <= x"26";
             elsif funct3 = "001" then
                 uc_addr <= x"27";
+            else
+                uc_addr <= x"00";
             end if;
     elsif opcode = "1110011" then
             if imm_i(0) = '0' then
@@ -362,6 +372,9 @@ begin
             else
                 uc_addr <= x"29";
             end if;
+        
+    else
+        uc_addr <= x"00";
     end if;
 end process;
 

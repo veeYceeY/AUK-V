@@ -103,9 +103,9 @@ signal stall : std_logic;
 begin
 
 b_sign <=   x"00" when i_data_mem_data(7) = '0' else
-            x"ff";
+            x"00";
 h_sign <=   x"00" when i_data_mem_data(15) = '0' else
-            x"ff";
+            x"00";
 
 
 mem_data_rd_sb <= b_sign & b_sign & b_sign & i_data_mem_data(7 downto 0);

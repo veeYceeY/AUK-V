@@ -1,0 +1,76 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Tue Aug 18 16:11:56 2020
+[*]
+[dumpfile] "/home/veeyceey/Documents/workspace/github/SCiV/src/sim/Example_system/simdump.vcd"
+[dumpfile_mtime] "Tue Aug 18 15:55:12 2020"
+[dumpfile_size] 913143
+[savefile] "/home/veeyceey/Documents/workspace/github/SCiV/src/sim/Example_system/base_ss.gtkw"
+[timestart] 85400000
+[size] 1000 600
+[pos] 968 65
+*-25.000000 199900000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_sciv_core.
+[treeopen] tb_sciv_core.sc0.
+[treeopen] tb_sciv_core.sc0.sc0.
+[sst_width] 197
+[signals_width] 214
+[sst_expanded] 1
+[sst_vpaned_height] 158
+@22
+tb_sciv_core.sc0.sc0.cm0_code_mem_data[31:0]
+@28
+tb_sciv_core.sc0.sc0.cm0_code_mem_valid
+tb_sciv_core.sc0.sc0.i_clk
+@22
+tb_sciv_core.sc0.sc0.i_data[31:0]
+@28
+tb_sciv_core.sc0.sc0.i_rst
+tb_sciv_core.sc0.sc0.i_valid
+@22
+tb_sciv_core.sc0.sc0.mc0_data_in[31:0]
+tb_sciv_core.sc0.sc0.mc0_ram_addr[31:0]
+@28
+tb_sciv_core.sc0.sc0.mc0_ram_clk
+@22
+tb_sciv_core.sc0.sc0.mc0_ram_data[31:0]
+@28
+tb_sciv_core.sc0.sc0.mc0_ram_en
+tb_sciv_core.sc0.sc0.mc0_ram_rst
+@22
+tb_sciv_core.sc0.sc0.mc0_ram_strobe[3:0]
+@28
+tb_sciv_core.sc0.sc0.mc0_ram_we
+tb_sciv_core.sc0.sc0.mc0_valid
+@22
+tb_sciv_core.sc0.sc0.o_addr[31:0]
+@28
+tb_sciv_core.sc0.sc0.o_clk
+@22
+tb_sciv_core.sc0.sc0.o_data[31:0]
+@28
+tb_sciv_core.sc0.sc0.o_en
+tb_sciv_core.sc0.sc0.o_rst
+@22
+tb_sciv_core.sc0.sc0.o_strobe[3:0]
+@28
+tb_sciv_core.sc0.sc0.o_we
+@22
+tb_sciv_core.sc0.sc0.rm0_ram_data[31:0]
+@29
+tb_sciv_core.sc0.sc0.rm0_ram_valid
+@22
+tb_sciv_core.sc0.sc0.sc0_addr[31:0]
+tb_sciv_core.sc0.sc0.sc0_code_mem_addr[31:0]
+@28
+tb_sciv_core.sc0.sc0.sc0_code_mem_en
+@22
+tb_sciv_core.sc0.sc0.sc0_data_out[31:0]
+@28
+tb_sciv_core.sc0.sc0.sc0_en
+@22
+tb_sciv_core.sc0.sc0.sc0_strobe[3:0]
+@28
+tb_sciv_core.sc0.sc0.sc0_we
+[pattern_trace] 1
+[pattern_trace] 0
