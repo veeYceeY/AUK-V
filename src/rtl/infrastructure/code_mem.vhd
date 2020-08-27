@@ -61,72 +61,74 @@ begin
 -- mem(35) <= "0000000" & "00000" &"00000" &"000" & "00000" & "0110011";
 
 
-mem(0) <= x"00812e23";
-mem(1) <= x"02010413";
-mem(2) <= x"00a00793";
-mem(3) <= x"fef42623";
-mem(4) <= x"03000793";
-mem(5) <= x"fef42423";
-mem(6) <= x"fe040793";
-mem(7) <= x"fef42223";
-mem(8) <= x"fe442783";
-mem(9) <= x"00800713";
-mem(10)<= x"00e7a023";
-mem(11)<= x"0000006f";
-mem(12)<= x"fe010113";
-mem(13)<= x"fe010113";
-mem(14)<= x"fe010113";
-mem(15)<= x"fe010113";
-mem(16)<= x"fe010113";
+mem(0) <= x"03000413";
+
+mem(1) <= x"04000793";
+mem(2) <= x"fef42623";
+
+mem(3) <= x"04400793";
+mem(4) <= x"fef42423";
+
+mem(5) <= x"04800793";
+mem(6) <= x"fef42223";
+
+mem(7) <= x"fe842783";
+mem(8) <= x"00a00713";
+mem(9) <= x"00e7a023";
+
+mem(10)<= x"fec42783";
+mem(11)<= x"00300713";
+mem(12)<= x"00e7a023";
+
+mem(13)<= x"fec42783";
+mem(14)<= x"0007a703";
+mem(15)<= x"fe842783";
+mem(16)<= x"0007a783";
+mem(17)<= x"00f70733";
+mem(18)<= x"fe442783";
+mem(19)<= x"00e7a023";
+mem(20)<= x"0000006f";
+mem(21)<= x"0000006f";
+mem(22)<= x"0000006f";
+mem(23)<= x"0000006f";
+mem(24)<= x"0000006f";
+mem(25)<= x"0000006f";
+mem(26)<= x"0000006f";
+mem(27)<= x"0000006f";
+mem(28)<= x"0000006f";
+mem(29)<= x"0000006f";
+mem(30)<= x"0000006f";
+mem(31)<= x"0000006f";
+mem(32)<= x"0000006f";
+mem(33)<= x"0000006f";
+mem(34)<= x"0000006f";
+mem(35)<= x"0000006f";
+mem(36)<= x"0000006f";
+mem(37)<= x"0000006f";
+mem(38)<= x"0000006f";
+mem(39)<= x"0000006f";
 
     o_data <= mem(to_integer(unsigned(( i_addr(31 downto 2)))));
     o_valid<='1';
 end behave;
 
-
--- 10108:	fe010113          	addi	sp,sp,-32
---    1010c:	00812e23          	sw	s0,28(sp)
---    10110:	02010413          	addi	s0,sp,32
--- /home/veeyceey/eclipse-workspace/td/Debug/../src/main.cpp:26
---  // cout << "Hello RISC-V World!" << endl;
---   int gpio;
---   int *ptr;
---   int a,b,c;
---   b=10;
---    10114:	00a00793          	li	a5,10
---    10118:	fef42623          	sw	a5,-20(s0)
--- /home/veeyceey/eclipse-workspace/td/Debug/../src/main.cpp:27
---   a=48;
---    1011c:	03000793          	li	a5,48
---    10120:	fef42423          	sw	a5,-24(s0)
--- /home/veeyceey/eclipse-workspace/td/Debug/../src/main.cpp:29
---   //c=a*b;
---   ptr =&gpio;
---    10124:	fe040793          	addi	a5,s0,-32
---    10128:	fef42223          	sw	a5,-28(s0)
--- /home/veeyceey/eclipse-workspace/td/Debug/../src/main.cpp:30
---   *ptr=0x0008;
---    1012c:	fe442783          	lw	a5,-28(s0)
---    10130:	00800713          	li	a4,8
---    10134:	00e7a023          	sw	a4,0(a5)
--- /home/veeyceey/eclipse-workspace/td/Debug/../src/main.cpp:31 (discriminator 1)
---   while(1){}
---    10138:	0000006f          	j	10138 <main+0x30>
-
-
---    00812e23
---    02010413
---    00a00793
---    fef42623
---    03000793
---    fef42423
---    fe040793
---    fef42223
---    fe442783
---    00800713
---    00e7a023
---    0000006f
-
-
-
-
+--   10114:	01000793          	li	a5,16
+--   10118:	fef42623          	sw	a5,-20(s0)
+--   1011c:	01400793          	li	a5,20
+--   10120:	fef42423          	sw	a5,-24(s0)
+--   10124:	01800793          	li	a5,24
+--   10128:	fef42223          	sw	a5,-28(s0)
+--   1012c:	fe842783          	lw	a5,-24(s0)
+--   10130:	00a00713          	li	a4,10
+--   10134:	00e7a023          	sw	a4,0(a5)
+--   10138:	fec42783          	lw	a5,-20(s0)
+--   1013c:	00300713          	li	a4,3
+--   10140:	00e7a023          	sw	a4,0(a5)
+--   10144:	fec42783          	lw	a5,-20(s0)
+--   10148:	0007a703          	lw	a4,0(a5)
+--   1014c:	fe842783          	lw	a5,-24(s0)
+--   10150:	0007a783          	lw	a5,0(a5)
+--   10154:	00f70733          	add	a4,a4,a5
+--   10158:	fe442783          	lw	a5,-28(s0)
+--   1015c:	00e7a023          	sw	a4,0(a5)
+--   10160:	0000006f          	j	10160 <main+0

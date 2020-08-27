@@ -128,6 +128,7 @@ architecture behave of execute is
     signal rs1 : std_logic_vector(31 downto 0);
     signal rs2 : std_logic_vector(31 downto 0);
     signal cmp_op1 : std_logic_vector(31 downto 0);
+    signal mem_data : std_logic_vector(31 downto 0);
 begin
 
 rs1 <=  i_rs1 when i_rs1_fwsel = "00"  else
@@ -202,6 +203,11 @@ mem_address <=  alu0_result;
 br_en<= cmp_result and i_br_en;
 
 
+mem_data <=  i_mem_wr_data when i_rs2_fwsel = "00"  else
+        i_fw_ee when i_rs2_fwsel = "01" else
+        i_fw_me when i_rs2_fwsel = "10" else
+        i_fw_we;
+
 --o_br_addr       <= (others => '0')  when i_rst = '1' else branch_addr       when rising_edge(i_clk);
 --o_br_en         <= '0'              when i_rst = '1' else br_en             when rising_edge(i_clk);
 --o_exe_res       <= (others => '0')  when i_rst = '1' else exe_result        when rising_edge(i_clk);
@@ -237,7 +243,7 @@ begin
             o_br_addr       <= branch_addr     ;
             o_br_en         <= br_en           ;
             o_exe_res       <= exe_result      ;
-            o_mem_wr_data   <= i_mem_wr_data   ;
+            o_mem_wr_data   <= mem_data   ;
             o_mem_addr      <= mem_address     ;
             o_mem_we        <= i_mem_we        ;
             o_wb_data_sel   <= i_wb_data_sel   ;

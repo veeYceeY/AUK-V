@@ -1,7 +1,5 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/execute.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'execute'
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/sciv_core.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'sciv_core'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'code_mem'
 INFO: [VRFC 10-163] Analyzing VHDL file "/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/system/sciv_base_system.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'sciv_base_system'
 INFO: [VRFC 10-163] Analyzing VHDL file "/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/system/sciv_example_system.vhd" into library xil_defaultlib

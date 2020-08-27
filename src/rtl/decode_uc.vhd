@@ -162,14 +162,14 @@ rs1 <= instr(19 downto 15);
 rs2 <= instr(24 downto 20);
 funct7 <= instr(31 downto 25);
 imms_i <=    x"00000" & instr(31 downto 20)                                                                when instr(31) = '0' else    
-            x"0000f" & instr(31 downto 20);
+            x"fffff" & instr(31 downto 20);
 imms_s <=    x"00000" & instr(31 downto 25) & instr(11 downto 7)                                           when instr(31) = '0' else    
-            x"0000f" & instr(31 downto 25) & instr(11 downto 7);
+            x"fffff" & instr(31 downto 25) & instr(11 downto 7);
 imms_u <=    instr(31 downto 12) & x"000";
 imms_b <=    "000" & x"0000" & instr(31) & instr(7) & instr(30 downto 25) & instr(11 downto 8) & '0'       when instr(31) = '0' else    
-            "111" & x"0000" & instr(31) & instr(7) & instr(30 downto 25) & instr(11 downto 8) & '0';
+            "111" & x"ffff" & instr(31) & instr(7) & instr(30 downto 25) & instr(11 downto 8) & '0';
 imms_j <=    "000" & x"00" & instr(31 )  & instr(19 downto 12) & instr(20) & instr( 30 downto 21)  & '0'   when instr(31) = '0' else    
-            "111" & x"00" & instr(31 )  & instr(19 downto 12) & instr(20) & instr( 30 downto 21)  & '0';
+            "111" & x"ff" & instr(31 )  & instr(19 downto 12) & instr(20) & instr( 30 downto 21)  & '0';
 
 immu_i <=    x"00000" & instr(31 downto 20);
 immu_s <=    x"00000" & instr(31 downto 25) & instr(11 downto 7) ;
@@ -227,9 +227,11 @@ if i_rst ='1' then
     fw_bu00(1) <= (others => '0');
     fw_bu00(2) <= (others => '0');
 elsif rising_edge(i_clk) then
-    fw_bu00(0) <= rd & wb_we;
-    fw_bu00(1) <= fw_bu00(0);
-    fw_bu00(2) <= fw_bu00(1);
+    if i_stall = '0' then
+        fw_bu00(0) <= rd & wb_we;
+        fw_bu00(1) <= fw_bu00(0);
+        fw_bu00(2) <= fw_bu00(1);
+    end if;
 end if;
 end process;
 
@@ -242,6 +244,24 @@ rs2_fwsel <=    "01" when fw_bu00(0)(5 downto 1) = rs2 and fw_bu00(0)(0) ='1'els
                 "10" when fw_bu00(1)(5 downto 1) = rs2 and fw_bu00(1)(0) ='1'else
                 "11" when fw_bu00(2)(5 downto 1) = rs2 and fw_bu00(2)(0) ='1'else
                 "00";
+                
+   
+   
+-- rs1_fwsel <=    "01" when fw_bu00(0)(5 downto 1) = rs1 else --and fw_bu00(0)(0) ='1'else  
+--                 "10" when fw_bu00(1)(5 downto 1) = rs1 else --and fw_bu00(1)(0) ='1'else  
+--                 "11" when fw_bu00(2)(5 downto 1) = rs1 else --and fw_bu00(2)(0) ='1'else  
+--                 "00";  
+                   
+-- rs2_fwsel <=    "01" when fw_bu00(0)(5 downto 1) = rs2 else --and fw_bu00(0)(0) ='1'else  
+--                 "10" when fw_bu00(1)(5 downto 1) = rs2 else --and fw_bu00(1)(0) ='1'else  
+--                 "11" when fw_bu00(2)(5 downto 1) = rs2 else --and fw_bu00(2)(0) ='1'else               
+                
+                
+                
+                
+                
+                
+                
 --rs1_fwsel <=    "01" when fw_bu00(0)(5 downto 1) = rs1 and op1_sel = 0 and fw_bu00(0)(0) ='1'else
 --                "10" when fw_bu00(1)(5 downto 1) = rs1 and op1_sel = 0 and fw_bu00(1)(0) ='1'else
 --                "11" when fw_bu00(2)(5 downto 1) = rs1 and op1_sel = 0 and fw_bu00(2)(0) ='1'else

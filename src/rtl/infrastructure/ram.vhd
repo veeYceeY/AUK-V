@@ -27,7 +27,7 @@ signal mem : mem_type;
 signal data : std_logic_vector(31 downto 0);
 signal addr : std_logic_vector(8 downto 0);
 begin
-    addr <= i_addr(8 downto 0);
+    addr <= i_addr(10 downto 2);
     data <= mem(to_integer(unsigned((addr))));
     process(i_clk,i_rst)
     begin
@@ -52,6 +52,6 @@ begin
         end if;
     end process;
 
-    o_data <= mem(to_integer(unsigned((addr))));
-    o_valid <= '1';
+    o_data <= mem(to_integer(unsigned((addr)))) when rising_edge(i_clk);
+    o_valid <= i_en and (not i_we) when rising_edge(i_clk);
 end behave;

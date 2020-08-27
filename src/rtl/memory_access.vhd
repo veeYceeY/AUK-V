@@ -100,6 +100,8 @@ signal mem_data_wr_sw : std_logic_vector(31 downto 0);
 signal mem_data_rd_ub : std_logic_vector(31 downto 0);
 signal mem_data_rd_uh : std_logic_vector(31 downto 0);
 signal stall : std_logic;
+signal stall_state : std_logic;
+signal stall_d0: std_logic;
 begin
 
 b_sign <=   x"00" when i_data_mem_data(7) = '0' else
@@ -130,16 +132,16 @@ mem_data_wr <= i_mem_wr_data;
 --                mem_data_wr_sw when i_store_type = x"2" else
 --                mem_data_wr_sw;
                 
-mem_strobe_wr <= "0001" when i_store_type = x"0" else
-                 "0011" when i_store_type = x"1" else
-                 "1111" when i_store_type = x"2" else
+mem_strobe_wr <= "0001" when i_store_type = "00" else
+                 "0011" when i_store_type = "01" else
+                 "1111" when i_store_type = "10" else
                  "0000";
                  
-mem_strobe_rd <= "0001" when i_load_type = x"0" else
-                 "0011" when i_load_type = x"1" else
-                 "1111" when i_load_type = x"2" else
-                 "0001" when i_load_type = x"3" else
-                 "0011" when i_load_type = x"4" else
+mem_strobe_rd <= "0001" when i_load_type = "000" else
+                 "0011" when i_load_type = "001" else
+                 "1111" when i_load_type = "010" else
+                 "0001" when i_load_type = "011" else
+                 "0011" when i_load_type = "100" else
                  "0000";
                  
 wb_data <= i_exe_res when i_wb_data_sel = '0' else mem_data_rd;
@@ -150,15 +152,26 @@ process(i_clk,i_rst)
 begin
     if i_rst = '1' then
         stall <= '0';
+        stall_state <= '0';
     elsif rising_edge(i_clk) then
-        if i_mem_en_p = '1' and i_mem_we_p = '0' then
-            stall <= '1';
-        elsif i_data_mem_valid = '1' then
-            stall <= '0';
+        if stall_state='0' then
+            if i_mem_en_p = '1' and i_mem_we_p = '0' then
+                stall_state<='1';
+                stall <= '1';
+            else
+                stall <= '0';
+            end if;
+        else
+            if i_data_mem_valid = '1' then
+                stall_state<='0';
+                stall <= '0';
+            else
+                stall <= '1';
+            end if;
         end if;
     end if;
 end process;
-
+stall_d0 <= stall when rising_edge(i_clk);
 o_stall <= stall;
 --o_data_mem_en     <= '0'            when i_rst = '1' else i_mem_en          when rising_edge(i_clk);
 --o_data_mem_we     <= '0'            when i_rst = '1' else i_mem_we          when rising_edge(i_clk);
@@ -191,7 +204,7 @@ begin
         o_wb_we           <= '0'              ;
         
     elsif rising_edge(i_clk) then
-            o_data_mem_en     <= i_mem_en          ;
+            o_data_mem_en     <= i_mem_en and (not stall_d0);
             o_data_mem_we     <= i_mem_we          ;
             o_data_mem_addr   <= i_mem_addr        ;
             o_data_mem_strobe <= mem_strobe        ;

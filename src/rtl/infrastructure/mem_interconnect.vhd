@@ -47,32 +47,53 @@ entity mem_interconnect is
 end mem_interconnect;
 
 architecture behave of mem_interconnect is
-
+signal addr : std_logic_vector(31 downto 0);
 begin
-    process(i_en,i_port0_valid,i_port0_data,i_port1_valid,i_port1_data,i_addr)
-    begin
-       if i_addr < MAX_LIMIT then
-            o_port0_en        <= i_en;
-            o_valid         <= i_port0_valid;
-            o_data          <= i_port0_data;
 
+    process(i_clk,i_rst)begin
+        if i_rst='1' then
+            addr      <= (others => '0');
+        elsif rising_edge(i_clk) then
+            if i_en = '1' then
+                addr<= i_addr;
+            end if;
+        end if;
+    end process;
+
+
+    process(i_en,i_port0_valid,i_port0_data,i_strobe,i_data,i_addr,i_we,i_port1_valid,i_port1_data)
+    begin
+       if addr < x"7000000f" then
+            o_port0_en        <= i_en;
+            o_valid           <= i_port0_valid;
+            o_data            <= i_port0_data;
+
+            o_port0_we        <= i_we;
+            o_port0_addr      <= i_addr;
+            o_port0_data      <= i_data;
+            o_port0_strobe    <= i_strobe;
+            
             o_port1_en     <='0'    ;
+            o_port1_we     <= '0';
+            o_port1_addr   <= (others => '0');
+            o_port1_data   <= (others => '0');
+            o_port1_strobe <= (others => '0');
        else
             o_port1_en     <=i_en    ;
             o_valid         <=i_port1_valid ;
             o_data          <=i_port1_data  ;
+            o_port1_we     <= i_we;
+            o_port1_addr   <= i_addr-x"7000000f";
+            o_port1_data   <= i_data;
+            o_port1_strobe <= i_strobe;
 
             o_port0_en        <= '0';
+            o_port0_we        <= '0';
+            o_port0_addr      <= (others => '0');
+            o_port0_data      <= (others => '0');
+            o_port0_strobe    <= (others => '0');
        end if;
 
     end process;
 
-    o_port0_we        <= i_we;
-    o_port0_addr      <= i_addr;
-    o_port0_data      <= i_data;
-    o_port0_strobe    <= i_strobe;
-    o_port1_we     <= i_we;
-    o_port1_addr   <= i_addr-x"7000000f";
-    o_port1_data   <= i_data;
-    o_port1_strobe <= i_strobe;
 end behave;

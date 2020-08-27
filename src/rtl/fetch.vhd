@@ -64,14 +64,14 @@ end process;
 o_addr <= pc;
 o_instr <= i_data;
 --o_pc <= (others =>'0') when i_rst = '1' else pc when rising_edge(i_clk);
-process(i_clk,i_rst)
+process(i_stall,pc,i_rst)
 begin
     if i_rst='1' then
         o_pc <= (others => '0');
-    elsif rising_edge(i_clk) then
-        if i_stall = '0' then
+    else --if rising_edge(i_clk) then
+        --if i_stall = '0' then
             o_pc <= pc;
-        end if;            
+        --end if;            
     end if;
 end process;
 end fetch_no_bp;

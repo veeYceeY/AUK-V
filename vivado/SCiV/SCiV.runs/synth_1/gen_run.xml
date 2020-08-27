@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1596464553">
-  <File Type="REPORTS-TCL" Name="sciv_example_system_reports.tcl"/>
   <File Type="PA-TCL" Name="sciv_example_system.tcl"/>
   <File Type="RDS-DCP" Name="sciv_example_system.dcp"/>
+  <File Type="REPORTS-TCL" Name="sciv_example_system_reports.tcl"/>
   <File Type="RDS-RDS" Name="sciv_example_system.vds"/>
   <File Type="RDS-UTIL-PB" Name="sciv_example_system_utilization_synth.pb"/>
   <File Type="RDS-UTIL" Name="sciv_example_system_utilization_synth.rpt"/>

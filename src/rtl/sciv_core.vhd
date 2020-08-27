@@ -282,7 +282,7 @@ MA0: entity work.memory_access
             o_data_mem_addr     =>o_data_mem_addr,
             o_data_mem_strobe   =>o_data_mem_strobe,
             i_data_mem_data     =>i_data_mem_data,
-            i_data_mem_valid    =>'1',
+            i_data_mem_valid    =>i_data_mem_valid,
             o_data_mem_data     =>o_data_mem_data,
             o_stall             =>ma0_stall,                   
             o_br_addr           =>ma0_br_addr,
