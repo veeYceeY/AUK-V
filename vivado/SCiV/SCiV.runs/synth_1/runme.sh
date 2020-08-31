@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/veeyceey/Documents/workspace/github/SCiV/vivado/SCiV/SCiV.runs/synth_1'
+HD_PWD='/home/veeyceey/Documents/workspace/github/AUK-V/vivado/SCiV/SCiV.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

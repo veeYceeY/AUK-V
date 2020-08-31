@@ -34,7 +34,7 @@ begin
     ri0:entity work.reg_if 
         port map(
                 i_clk    => i_clk,
-                i_rst    => i_clk,
+                i_rst    => i_rst,
     
                 i_en     => i_en     ,
                 i_we     => i_we     ,

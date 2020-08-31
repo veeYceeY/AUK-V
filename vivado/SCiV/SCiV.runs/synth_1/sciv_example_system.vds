@@ -2,12 +2,12 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Mon Aug  3 19:52:36 2020
-# Process ID: 2639646
-# Current directory: /home/veeyceey/Documents/workspace/github/SCiV/vivado/SCiV/SCiV.runs/synth_1
+# Start of session at: Mon Aug 31 19:38:13 2020
+# Process ID: 342899
+# Current directory: /home/veeyceey/Documents/workspace/github/AUK-V/vivado/SCiV/SCiV.runs/synth_1
 # Command line: vivado -log sciv_example_system.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source sciv_example_system.tcl
-# Log file: /home/veeyceey/Documents/workspace/github/SCiV/vivado/SCiV/SCiV.runs/synth_1/sciv_example_system.vds
-# Journal file: /home/veeyceey/Documents/workspace/github/SCiV/vivado/SCiV/SCiV.runs/synth_1/vivado.jou
+# Log file: /home/veeyceey/Documents/workspace/github/AUK-V/vivado/SCiV/SCiV.runs/synth_1/sciv_example_system.vds
+# Journal file: /home/veeyceey/Documents/workspace/github/AUK-V/vivado/SCiV/SCiV.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
 source sciv_example_system.tcl -notrace
 Command: synth_design -top sciv_example_system -part xc7z020clg400-1 -flatten_hierarchy none
@@ -15,125 +15,186 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 2639931 
+INFO: Helper process launched with PID 343128 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1720.375 ; gain = 215.457 ; free physical = 192 ; free virtual = 16379
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1720.250 ; gain = 215.457 ; free physical = 5983 ; free virtual = 21071
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'sciv_example_system' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/system/sciv_example_system.vhd:25]
-INFO: [Synth 8-638] synthesizing module 'sciv_base_system' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/system/sciv_base_system.vhd:29]
-INFO: [Synth 8-638] synthesizing module 'sciv_core' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/sciv_core.vhd:57]
-INFO: [Synth 8-638] synthesizing module 'fetch' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/fetch.vhd:46]
-INFO: [Synth 8-256] done synthesizing module 'fetch' (1#1) [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/fetch.vhd:46]
-INFO: [Synth 8-638] synthesizing module 'decode' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/decode.vhd:88]
-INFO: [Synth 8-638] synthesizing module 'decode_uc' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/decode_uc.vhd:92]
-WARNING: [Synth 8-614] signal 'imm_i' is read in the process but is not in the sensitivity list [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/decode_uc.vhd:259]
-INFO: [Synth 8-256] done synthesizing module 'decode_uc' (2#1) [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/decode_uc.vhd:92]
-INFO: [Synth 8-638] synthesizing module 'microcode_mem' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:46]
-WARNING: [Synth 8-3848] Net u_mem[64] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[63] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[62] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[61] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[60] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[59] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[58] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[57] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[56] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[55] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[54] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[53] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[52] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[51] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[50] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[49] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[48] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[47] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[46] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[45] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[44] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[43] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-WARNING: [Synth 8-3848] Net u_mem[42] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:48]
-INFO: [Synth 8-256] done synthesizing module 'microcode_mem' (3#1) [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd:46]
-INFO: [Synth 8-256] done synthesizing module 'decode' (4#1) [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/decode.vhd:88]
-INFO: [Synth 8-638] synthesizing module 'execute' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/execute.vhd:97]
-INFO: [Synth 8-638] synthesizing module 'alu' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/alu.vhd:45]
-INFO: [Synth 8-256] done synthesizing module 'alu' (5#1) [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/alu.vhd:45]
-INFO: [Synth 8-638] synthesizing module 'comp' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/comp.vhd:46]
-INFO: [Synth 8-256] done synthesizing module 'comp' (6#1) [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/comp.vhd:46]
-INFO: [Synth 8-256] done synthesizing module 'execute' (7#1) [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/execute.vhd:97]
-INFO: [Synth 8-638] synthesizing module 'memory_access' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/memory_access.vhd:78]
-INFO: [Synth 8-256] done synthesizing module 'memory_access' (8#1) [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/memory_access.vhd:78]
-INFO: [Synth 8-638] synthesizing module 'write_back' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/write_back.vhd:59]
-INFO: [Synth 8-256] done synthesizing module 'write_back' (9#1) [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/write_back.vhd:59]
-INFO: [Synth 8-638] synthesizing module 'reg_file' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/reg_file.vhd:47]
-INFO: [Synth 8-256] done synthesizing module 'reg_file' (10#1) [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/reg_file.vhd:47]
-INFO: [Synth 8-256] done synthesizing module 'sciv_core' (11#1) [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/sciv_core.vhd:57]
-INFO: [Synth 8-638] synthesizing module 'code_mem' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:18]
-WARNING: [Synth 8-3848] Net mem[63] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[62] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[61] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[60] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[59] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[58] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[57] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[56] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[55] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[54] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[53] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[52] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[51] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[50] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[49] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[48] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[47] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[46] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[45] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[44] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[43] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[42] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[41] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[40] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[39] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[38] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[37] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net mem[36] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:20]
-WARNING: [Synth 8-3848] Net o_valid in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:13]
-INFO: [Synth 8-256] done synthesizing module 'code_mem' (12#1) [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd:18]
-INFO: [Synth 8-638] synthesizing module 'mem_interconnect' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/mem_interconnect.vhd:49]
+INFO: [Synth 8-638] synthesizing module 'sciv_example_system' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/system/sciv_example_system.vhd:25]
+INFO: [Synth 8-638] synthesizing module 'sciv_base_system' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/system/sciv_base_system.vhd:29]
+INFO: [Synth 8-638] synthesizing module 'sciv_core' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/sciv_core.vhd:57]
+INFO: [Synth 8-638] synthesizing module 'fetch' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/fetch.vhd:46]
+INFO: [Synth 8-256] done synthesizing module 'fetch' (1#1) [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/fetch.vhd:46]
+INFO: [Synth 8-638] synthesizing module 'decode' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/decode.vhd:89]
+INFO: [Synth 8-638] synthesizing module 'decode_uc' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/decode_uc.vhd:92]
+WARNING: [Synth 8-614] signal 'imm_i' is read in the process but is not in the sensitivity list [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/decode_uc.vhd:376]
+INFO: [Synth 8-256] done synthesizing module 'decode_uc' (2#1) [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/decode_uc.vhd:92]
+INFO: [Synth 8-638] synthesizing module 'microcode_mem' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:46]
+WARNING: [Synth 8-3848] Net u_mem[64] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[63] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[62] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[61] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[60] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[59] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[58] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[57] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[56] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[55] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[54] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[53] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[52] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[51] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[50] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[49] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[48] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[47] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[46] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[45] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[44] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[43] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+WARNING: [Synth 8-3848] Net u_mem[42] in module/entity microcode_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:48]
+INFO: [Synth 8-256] done synthesizing module 'microcode_mem' (3#1) [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd:46]
+INFO: [Synth 8-256] done synthesizing module 'decode' (4#1) [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/decode.vhd:89]
+INFO: [Synth 8-638] synthesizing module 'execute' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/execute.vhd:97]
+INFO: [Synth 8-638] synthesizing module 'alu' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/alu.vhd:45]
+INFO: [Synth 8-256] done synthesizing module 'alu' (5#1) [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/alu.vhd:45]
+INFO: [Synth 8-638] synthesizing module 'comp' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/comp.vhd:46]
+INFO: [Synth 8-256] done synthesizing module 'comp' (6#1) [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/comp.vhd:46]
+INFO: [Synth 8-256] done synthesizing module 'execute' (7#1) [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/execute.vhd:97]
+INFO: [Synth 8-638] synthesizing module 'memory_access' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/memory_access.vhd:78]
+INFO: [Synth 8-256] done synthesizing module 'memory_access' (8#1) [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/memory_access.vhd:78]
+INFO: [Synth 8-638] synthesizing module 'write_back' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/write_back.vhd:59]
+INFO: [Synth 8-256] done synthesizing module 'write_back' (9#1) [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/write_back.vhd:59]
+INFO: [Synth 8-638] synthesizing module 'reg_file' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/reg_file.vhd:47]
+INFO: [Synth 8-256] done synthesizing module 'reg_file' (10#1) [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/reg_file.vhd:47]
+INFO: [Synth 8-256] done synthesizing module 'sciv_core' (11#1) [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/sciv_core.vhd:57]
+INFO: [Synth 8-638] synthesizing module 'code_mem' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:18]
+WARNING: [Synth 8-3848] Net mem[2047] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2046] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2045] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2044] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2043] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2042] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2041] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2040] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2039] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2038] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2037] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2036] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2035] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2034] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2033] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2032] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2031] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2030] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2029] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2028] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2027] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2026] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2025] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2024] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2023] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2022] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2021] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2020] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2019] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2018] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2017] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2016] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2015] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2014] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2013] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2012] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2011] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2010] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2009] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2008] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2007] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2006] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2005] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2004] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2003] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2002] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2001] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[2000] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1999] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1998] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1997] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1996] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1995] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1994] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1993] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1992] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1991] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1990] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1989] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1988] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1987] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1986] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1985] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1984] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1983] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1982] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1981] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1980] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1979] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1978] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1977] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1976] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1975] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1974] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1973] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1972] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+WARNING: [Synth 8-3848] Net mem[1971] in module/entity code_mem does not have driver. [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:20]
+INFO: [Common 17-14] Message 'Synth 8-3848' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-256] done synthesizing module 'code_mem' (12#1) [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd:18]
+INFO: [Synth 8-638] synthesizing module 'mem_interconnect' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/mem_interconnect.vhd:49]
 	Parameter MAX_LIMIT bound to: 4096 - type: integer 
-WARNING: [Synth 8-614] signal 'i_addr' is read in the process but is not in the sensitivity list [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/mem_interconnect.vhd:52]
-WARNING: [Synth 8-614] signal 'i_en' is read in the process but is not in the sensitivity list [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/mem_interconnect.vhd:52]
-WARNING: [Synth 8-614] signal 'i_port0_valid' is read in the process but is not in the sensitivity list [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/mem_interconnect.vhd:52]
-WARNING: [Synth 8-614] signal 'i_port0_data' is read in the process but is not in the sensitivity list [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/mem_interconnect.vhd:52]
-WARNING: [Synth 8-614] signal 'i_port1_valid' is read in the process but is not in the sensitivity list [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/mem_interconnect.vhd:52]
-WARNING: [Synth 8-614] signal 'i_port1_data' is read in the process but is not in the sensitivity list [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/mem_interconnect.vhd:52]
-WARNING: [Synth 8-3848] Net o_port0_clk in module/entity mem_interconnect does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/mem_interconnect.vhd:24]
-WARNING: [Synth 8-3848] Net o_port0_rst in module/entity mem_interconnect does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/mem_interconnect.vhd:25]
-WARNING: [Synth 8-3848] Net o_port1_clk in module/entity mem_interconnect does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/mem_interconnect.vhd:35]
-WARNING: [Synth 8-3848] Net o_port1_rst in module/entity mem_interconnect does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/mem_interconnect.vhd:36]
-INFO: [Synth 8-256] done synthesizing module 'mem_interconnect' (13#1) [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/mem_interconnect.vhd:49]
-INFO: [Synth 8-638] synthesizing module 'ram' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/ram.vhd:24]
-WARNING: [Synth 8-3848] Net o_valid in module/entity ram does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/ram.vhd:18]
-INFO: [Synth 8-256] done synthesizing module 'ram' (14#1) [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/ram.vhd:24]
-INFO: [Synth 8-256] done synthesizing module 'sciv_base_system' (15#1) [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/system/sciv_base_system.vhd:29]
-INFO: [Synth 8-638] synthesizing module 'gpio' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/peripherals/gpio.vhd:28]
-INFO: [Synth 8-638] synthesizing module 'reg_if' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/peripherals/reg_if.vhd:28]
-WARNING: [Synth 8-3848] Net o_valid in module/entity reg_if does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/peripherals/reg_if.vhd:18]
-INFO: [Synth 8-256] done synthesizing module 'reg_if' (16#1) [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/peripherals/reg_if.vhd:28]
-INFO: [Synth 8-256] done synthesizing module 'gpio' (17#1) [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/peripherals/gpio.vhd:28]
-WARNING: [Synth 8-3848] Net rm0_gpio_valid in module/entity sciv_example_system does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/system/sciv_example_system.vhd:43]
-WARNING: [Synth 8-3848] Net rm0_gpio_data in module/entity sciv_example_system does not have driver. [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/system/sciv_example_system.vhd:42]
-INFO: [Synth 8-256] done synthesizing module 'sciv_example_system' (18#1) [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/system/sciv_example_system.vhd:25]
-WARNING: [Synth 8-3331] design reg_if has unconnected port o_valid
-WARNING: [Synth 8-3331] design reg_if has unconnected port i_en
-WARNING: [Synth 8-3331] design gpio has unconnected port i_rst
+INFO: [Synth 8-256] done synthesizing module 'mem_interconnect' (13#1) [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/mem_interconnect.vhd:49]
+INFO: [Synth 8-638] synthesizing module 'ram' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/ram.vhd:24]
+INFO: [Synth 8-256] done synthesizing module 'ram' (14#1) [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/ram.vhd:24]
+INFO: [Synth 8-256] done synthesizing module 'sciv_base_system' (15#1) [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/system/sciv_base_system.vhd:29]
+INFO: [Synth 8-638] synthesizing module 'gpio' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/peripherals/gpio.vhd:28]
+INFO: [Synth 8-638] synthesizing module 'reg_if' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/peripherals/reg_if.vhd:28]
+INFO: [Synth 8-256] done synthesizing module 'reg_if' (16#1) [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/peripherals/reg_if.vhd:28]
+INFO: [Synth 8-256] done synthesizing module 'gpio' (17#1) [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/peripherals/gpio.vhd:28]
+INFO: [Synth 8-256] done synthesizing module 'sciv_example_system' (18#1) [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/system/sciv_example_system.vhd:25]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[31]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[30]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[29]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[28]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[27]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[26]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[25]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[24]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[23]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[22]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[21]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[20]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[19]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[18]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[17]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[16]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[15]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[14]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[13]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[12]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[11]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[10]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[9]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[8]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[7]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[6]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[5]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[4]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[3]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[2]
+WARNING: [Synth 8-3331] design reg_if has unconnected port i_addr[1]
 WARNING: [Synth 8-3331] design mem_interconnect has unconnected port o_port0_clk
 WARNING: [Synth 8-3331] design mem_interconnect has unconnected port o_port0_rst
 WARNING: [Synth 8-3331] design mem_interconnect has unconnected port o_port1_clk
 WARNING: [Synth 8-3331] design mem_interconnect has unconnected port o_port1_rst
 WARNING: [Synth 8-3331] design mem_interconnect has unconnected port i_clk
 WARNING: [Synth 8-3331] design mem_interconnect has unconnected port i_rst
-WARNING: [Synth 8-3331] design ram has unconnected port o_valid
-WARNING: [Synth 8-3331] design ram has unconnected port i_en
 WARNING: [Synth 8-3331] design ram has unconnected port i_addr[31]
 WARNING: [Synth 8-3331] design ram has unconnected port i_addr[30]
 WARNING: [Synth 8-3331] design ram has unconnected port i_addr[29]
@@ -155,13 +216,8 @@ WARNING: [Synth 8-3331] design ram has unconnected port i_addr[14]
 WARNING: [Synth 8-3331] design ram has unconnected port i_addr[13]
 WARNING: [Synth 8-3331] design ram has unconnected port i_addr[12]
 WARNING: [Synth 8-3331] design ram has unconnected port i_addr[11]
-WARNING: [Synth 8-3331] design ram has unconnected port i_addr[10]
-WARNING: [Synth 8-3331] design ram has unconnected port i_addr[9]
-WARNING: [Synth 8-3331] design ram has unconnected port i_addr[8]
-WARNING: [Synth 8-3331] design ram has unconnected port i_addr[7]
-WARNING: [Synth 8-3331] design ram has unconnected port i_addr[6]
-WARNING: [Synth 8-3331] design ram has unconnected port i_addr[5]
-WARNING: [Synth 8-3331] design code_mem has unconnected port o_valid
+WARNING: [Synth 8-3331] design ram has unconnected port i_addr[1]
+WARNING: [Synth 8-3331] design ram has unconnected port i_addr[0]
 WARNING: [Synth 8-3331] design code_mem has unconnected port i_en
 WARNING: [Synth 8-3331] design code_mem has unconnected port i_addr[31]
 WARNING: [Synth 8-3331] design code_mem has unconnected port i_addr[30]
@@ -182,18 +238,8 @@ WARNING: [Synth 8-3331] design code_mem has unconnected port i_addr[16]
 WARNING: [Synth 8-3331] design code_mem has unconnected port i_addr[15]
 WARNING: [Synth 8-3331] design code_mem has unconnected port i_addr[14]
 WARNING: [Synth 8-3331] design code_mem has unconnected port i_addr[13]
-WARNING: [Synth 8-3331] design code_mem has unconnected port i_addr[12]
-WARNING: [Synth 8-3331] design code_mem has unconnected port i_addr[11]
-WARNING: [Synth 8-3331] design code_mem has unconnected port i_addr[10]
-WARNING: [Synth 8-3331] design code_mem has unconnected port i_addr[9]
-WARNING: [Synth 8-3331] design code_mem has unconnected port i_addr[8]
-WARNING: [Synth 8-3331] design code_mem has unconnected port i_addr[7]
-WARNING: [Synth 8-3331] design code_mem has unconnected port i_addr[6]
-WARNING: [Synth 8-3331] design memory_access has unconnected port i_load_type[2]
-WARNING: [Synth 8-3331] design memory_access has unconnected port i_load_type[1]
-WARNING: [Synth 8-3331] design memory_access has unconnected port i_load_type[0]
-WARNING: [Synth 8-3331] design memory_access has unconnected port i_store_type[1]
-WARNING: [Synth 8-3331] design memory_access has unconnected port i_store_type[0]
+WARNING: [Synth 8-3331] design code_mem has unconnected port i_addr[1]
+WARNING: [Synth 8-3331] design code_mem has unconnected port i_addr[0]
 WARNING: [Synth 8-3331] design alu has unconnected port i_clk
 WARNING: [Synth 8-3331] design microcode_mem has unconnected port i_addr[7]
 WARNING: [Synth 8-3331] design decode_uc has unconnected port i_data[31]
@@ -201,38 +247,42 @@ WARNING: [Synth 8-3331] design decode_uc has unconnected port i_data[30]
 WARNING: [Synth 8-3331] design decode_uc has unconnected port i_data[29]
 WARNING: [Synth 8-3331] design decode_uc has unconnected port i_data[28]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1783.125 ; gain = 278.207 ; free physical = 258 ; free virtual = 16388
+Finished Synthesize : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1956.859 ; gain = 452.066 ; free physical = 5826 ; free virtual = 20922
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1795.000 ; gain = 290.082 ; free physical = 257 ; free virtual = 16390
+Finished Constraint Validation : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1968.734 ; gain = 463.941 ; free physical = 5859 ; free virtual = 20953
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1803.004 ; gain = 298.086 ; free physical = 257 ; free virtual = 16390
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1976.738 ; gain = 471.945 ; free physical = 5859 ; free virtual = 20953
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg400-1
-INFO: [Synth 8-4471] merging register 'o_mem_data_reg[31:0]' into 'o_rs2_reg[31:0]' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/decode_uc.vhd:418]
-WARNING: [Synth 8-327] inferring latch for variable 'uc_addr_reg' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/decode_uc.vhd:182]
-WARNING: [Synth 8-327] inferring latch for variable 'imm_reg' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/decode_uc.vhd:214]
-WARNING: [Synth 8-327] inferring latch for variable 'result_reg' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/alu.vhd:195]
-WARNING: [Synth 8-327] inferring latch for variable 'shiftright_logic_reg' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/alu.vhd:122]
-WARNING: [Synth 8-327] inferring latch for variable 'shiftleft_reg' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/alu.vhd:88]
-WARNING: [Synth 8-327] inferring latch for variable 'shiftright_arith_reg' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/alu.vhd:155]
-WARNING: [Synth 8-327] inferring latch for variable 'cmp_result_reg' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/execute.vhd:183]
-WARNING: [Synth 8-327] inferring latch for variable 'operand1_reg' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/execute.vhd:144]
-WARNING: [Synth 8-327] inferring latch for variable 'operand2_reg' [/home/veeyceey/Documents/workspace/github/SCiV/src/rtl/execute.vhd:149]
+INFO: [Synth 8-4471] merging register 'o_wb_reg_reg[4:0]' into 'fw_bu00_reg[0][4:0]' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/decode_uc.vhd:544]
+INFO: [Synth 8-4471] merging register 'o_mem_data_reg[31:0]' into 'o_rs2_reg[31:0]' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/decode_uc.vhd:548]
+WARNING: [Synth 8-327] inferring latch for variable 'imm_reg' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/decode_uc.vhd:222]
+WARNING: [Synth 8-327] inferring latch for variable 'result_reg' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/alu.vhd:195]
+WARNING: [Synth 8-327] inferring latch for variable 'shiftright_logic_reg' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/alu.vhd:122]
+WARNING: [Synth 8-327] inferring latch for variable 'shiftleft_reg' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/alu.vhd:88]
+WARNING: [Synth 8-327] inferring latch for variable 'cmp_result_reg' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/execute.vhd:184]
+WARNING: [Synth 8-327] inferring latch for variable 'operand1_reg' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/execute.vhd:145]
+WARNING: [Synth 8-327] inferring latch for variable 'operand2_reg' [/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/execute.vhd:150]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1831.895 ; gain = 326.977 ; free physical = 189 ; free virtual = 16288
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:43 ; elapsed = 00:00:43 . Memory (MB): peak = 2017.613 ; gain = 512.820 ; free physical = 5672 ; free virtual = 20773
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
++------+-------------------------+------------+----------+
+|      |RTL Partition            |Replication |Instances |
++------+-------------------------+------------+----------+
+|1     |muxpart__15_code_mem     |           1|     64842|
+|2     |ram__GB0                 |           1|     29827|
+|3     |ram__GB1                 |           1|      8942|
+|4     |sciv_base_system__GC0    |           1|     10953|
+|5     |sciv_example_system__GC0 |           1|       794|
++------+-------------------------+------------+----------+
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -241,40 +291,36 @@ Detailed RTL Component Info :
 +---Adders : 
 	   3 Input     32 Bit       Adders := 1     
 	   2 Input     32 Bit       Adders := 3     
+	   2 Input      4 Bit       Adders := 1     
 +---XORs : 
 	   2 Input     32 Bit         XORs := 1     
 +---Registers : 
-	               32 Bit    Registers := 49    
-	                6 Bit    Registers := 3     
-	                5 Bit    Registers := 4     
-	                4 Bit    Registers := 2     
-	                3 Bit    Registers := 3     
+	               32 Bit    Registers := 561   
+	                5 Bit    Registers := 6     
+	                4 Bit    Registers := 3     
+	                3 Bit    Registers := 4     
 	                2 Bit    Registers := 7     
-	                1 Bit    Registers := 19    
-+---RAMs : 
-	             1024 Bit         RAMs := 1     
+	                1 Bit    Registers := 26    
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 31    
-	  32 Input     32 Bit        Muxes := 3     
-	   4 Input     32 Bit        Muxes := 6     
-	   3 Input      8 Bit        Muxes := 1     
-	  11 Input      8 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 31    
-	   7 Input      8 Bit        Muxes := 3     
-	   6 Input      8 Bit        Muxes := 3     
-	   4 Input      8 Bit        Muxes := 2     
-	   8 Input      8 Bit        Muxes := 1     
-	   5 Input      8 Bit        Muxes := 1     
-	   9 Input      8 Bit        Muxes := 2     
-	   2 Input      6 Bit        Muxes := 1     
-	  32 Input      5 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 4     
+	   2 Input     32 Bit        Muxes := 42    
+	  32 Input     32 Bit        Muxes := 2     
+	   4 Input     32 Bit        Muxes := 3     
+	  10 Input      6 Bit        Muxes := 1     
+	   7 Input      6 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+	   4 Input      5 Bit        Muxes := 1     
+	   7 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 10    
+	   7 Input      4 Bit        Muxes := 1     
+	   5 Input      4 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 5     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 565   
 	   6 Input      1 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 43    
 	   8 Input      1 Bit        Muxes := 1     
 	  33 Input      1 Bit        Muxes := 1     
-	   4 Input      1 Bit        Muxes := 4     
-	   3 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 6     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -282,33 +328,39 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
+Module ram 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 513   
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 512   
 Module fetch 
 Detailed RTL Component Info : 
-+---Registers : 
-	               32 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
 Module decode_uc 
 Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
 +---Registers : 
 	               32 Bit    Registers := 4     
-	                6 Bit    Registers := 3     
-	                5 Bit    Registers := 1     
-	                4 Bit    Registers := 1     
-	                3 Bit    Registers := 2     
+	                5 Bit    Registers := 3     
+	                4 Bit    Registers := 2     
+	                3 Bit    Registers := 3     
 	                2 Bit    Registers := 6     
-	                1 Bit    Registers := 7     
+	                1 Bit    Registers := 10    
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 16    
-	   3 Input      8 Bit        Muxes := 1     
-	  11 Input      8 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 31    
-	   7 Input      8 Bit        Muxes := 3     
-	   6 Input      8 Bit        Muxes := 3     
-	   4 Input      8 Bit        Muxes := 2     
-	   8 Input      8 Bit        Muxes := 1     
-	   5 Input      8 Bit        Muxes := 1     
-	   9 Input      8 Bit        Muxes := 2     
-	   2 Input      6 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 4     
+	   2 Input     32 Bit        Muxes := 17    
+	  10 Input      6 Bit        Muxes := 1     
+	   7 Input      6 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+	   4 Input      5 Bit        Muxes := 1     
+	   7 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 5     
+	   7 Input      4 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 5     
+	   2 Input      1 Bit        Muxes := 8     
 	   6 Input      1 Bit        Muxes := 1     
 Module alu 
 Detailed RTL Component Info : 
@@ -318,8 +370,7 @@ Detailed RTL Component Info :
 	   2 Input     32 Bit         XORs := 1     
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 2     
-	  32 Input     32 Bit        Muxes := 3     
-	  32 Input      5 Bit        Muxes := 1     
+	  32 Input     32 Bit        Muxes := 2     
 	   2 Input      1 Bit        Muxes := 1     
 	   8 Input      1 Bit        Muxes := 1     
 	  33 Input      1 Bit        Muxes := 1     
@@ -338,8 +389,8 @@ Detailed RTL Component Info :
 	                2 Bit    Registers := 1     
 	                1 Bit    Registers := 5     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 4     
-	   4 Input     32 Bit        Muxes := 4     
+	   2 Input     32 Bit        Muxes := 8     
+	   4 Input     32 Bit        Muxes := 3     
 	   4 Input      1 Bit        Muxes := 4     
 	   2 Input      1 Bit        Muxes := 2     
 Module memory_access 
@@ -348,10 +399,14 @@ Detailed RTL Component Info :
 	               32 Bit    Registers := 4     
 	                5 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
-	                1 Bit    Registers := 5     
+	                1 Bit    Registers := 7     
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 1     
+	   5 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
 Module write_back 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -364,28 +419,31 @@ Detailed RTL Component Info :
 	               32 Bit    Registers := 32    
 +---Muxes : 
 	   2 Input      1 Bit        Muxes := 32    
+Module mem_interconnect__1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 5     
+	   2 Input      4 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 1     
 Module mem_interconnect 
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     32 Bit       Adders := 1     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 5     
+	   2 Input      4 Bit        Muxes := 2     
 	   2 Input      1 Bit        Muxes := 1     
-Module ram 
-Detailed RTL Component Info : 
-+---RAMs : 
-	             1024 Bit         RAMs := 1     
-+---Muxes : 
-	   2 Input     32 Bit        Muxes := 2     
-	   4 Input     32 Bit        Muxes := 2     
 Module reg_if 
 Detailed RTL Component Info : 
 +---Registers : 
 	               32 Bit    Registers := 2     
+	                1 Bit    Registers := 1     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 4     
-	   3 Input      1 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 2     
+	   4 Input      1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -403,17 +461,6 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-WARNING: [Synth 8-3331] design reg_if has unconnected port o_valid
-WARNING: [Synth 8-3331] design reg_if has unconnected port i_en
-WARNING: [Synth 8-3331] design gpio has unconnected port i_rst
-WARNING: [Synth 8-3331] design mem_interconnect has unconnected port o_port0_clk
-WARNING: [Synth 8-3331] design mem_interconnect has unconnected port o_port0_rst
-WARNING: [Synth 8-3331] design mem_interconnect has unconnected port o_port1_clk
-WARNING: [Synth 8-3331] design mem_interconnect has unconnected port o_port1_rst
-WARNING: [Synth 8-3331] design mem_interconnect has unconnected port i_clk
-WARNING: [Synth 8-3331] design mem_interconnect has unconnected port i_rst
-WARNING: [Synth 8-3331] design ram has unconnected port o_valid
-WARNING: [Synth 8-3331] design ram has unconnected port i_en
 WARNING: [Synth 8-3331] design ram has unconnected port i_addr[31]
 WARNING: [Synth 8-3331] design ram has unconnected port i_addr[30]
 WARNING: [Synth 8-3331] design ram has unconnected port i_addr[29]
@@ -427,232 +474,43 @@ WARNING: [Synth 8-3331] design ram has unconnected port i_addr[22]
 WARNING: [Synth 8-3331] design ram has unconnected port i_addr[21]
 WARNING: [Synth 8-3331] design ram has unconnected port i_addr[20]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-6851] RAM (mem_reg) has partial Byte Wide Write Enable pattern, however no output register found in fanout of RAM. Recommended to use supported Byte Wide Write Enable template. 
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[6]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[6]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[7]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[7]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[8]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[8]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[9]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[9]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[10]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[10]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[11]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[11]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[12]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[12]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[13]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[13]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[14]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[14]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[15]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[15]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[16]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[16]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[17]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[17]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[18]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[18]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[19]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[19]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[20]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[20]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[21]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[21]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[22]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[22]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[23]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[23]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[24]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[24]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[25]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[25]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[26]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[26]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[27]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[27]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[28]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[28]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[29]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[29]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[30]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[30]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[31]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_br_type_reg[2]' (FDCE) to 'SC0/SC0/DE0/DU0/o_exe_res_sel_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[9] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[12] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[14] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[15] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[16] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[17] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[18] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[19] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[20] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[21] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[22] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[23] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[24] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[25] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[26] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[27] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[28] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[29] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[30] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[31] )
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[1]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[1]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[25]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[26]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[26]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[27]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[27]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[28]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[28]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[29]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[29]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[0]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[0]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[2]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[2]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[3]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[3]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[4]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[4]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/EX0/o_br_addr_reg[5]' (FDCE) to 'SC0/SC0/EX0/o_mem_addr_reg[5]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_imm_reg[25]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_imm_reg[26]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_imm_reg[27]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_imm_reg[28]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_imm_reg[29]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_op2_sel_reg[0]' (FDCE) to 'SC0/SC0/DE0/DU0/o_alu_opsel_reg[3]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/DE0/DU0/o_wb_en_reg' (FDCE) to 'SC0/i_0/SC0/DE0/DU0/wb_we_buff_reg[0]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/DE0/DU0/o_op2_sel_reg[0]' (FDCE) to 'SC0/i_0/SC0/DE0/DU0/o_alu_opsel_reg[3]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/DE0/DU0/o_br_type_reg[2]' (FDCE) to 'SC0/i_0/SC0/DE0/DU0/o_exe_res_sel_reg[0]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/DE0/DU0/\o_alu_opsel_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/FE0/i_0/\pc_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/DE0/DU0/\uc_addr_reg[6] )
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/MA0/o_data_mem_strobe_reg[0]' (FDC) to 'SC0/SC0/MA0/o_data_mem_strobe_reg[1]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/MA0/o_data_mem_strobe_reg[1]' (FDC) to 'SC0/SC0/MA0/o_data_mem_strobe_reg[2]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/MA0/o_data_mem_strobe_reg[2]' (FDC) to 'SC0/SC0/MA0/o_data_mem_strobe_reg[3]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/MA0/\o_data_mem_strobe_reg[3] )
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[5]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[7]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[8]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[9]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[10]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[11]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[12]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[13]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[14]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[18]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[15]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[16]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[17]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[19]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[20]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[21]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[22]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[23]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[24]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[30]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[31]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[4]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[4]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[3]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[0]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[3]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[3]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[1]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/DE0/DU0/\imm_reg[1] )
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/fw_buff_reg[0][5]' (FDC) to 'SC0/SC0/DE0/DU0/fw_buff_reg[1][4]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/fw_buff_reg[0][4]' (FDC) to 'SC0/SC0/DE0/DU0/fw_buff_reg[1][4]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/fw_buff_reg[0][2]' (FDC) to 'SC0/SC0/DE0/DU0/fw_buff_reg[1][4]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/fw_buff_reg[0][1]' (FDC) to 'SC0/SC0/DE0/DU0/fw_buff_reg[1][4]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/fw_buff_reg[1][4]' (FDC) to 'SC0/SC0/DE0/DU0/fw_buff_reg[1][1]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/fw_buff_reg[1][5]' (FDC) to 'SC0/SC0/DE0/DU0/fw_buff_reg[1][1]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/fw_buff_reg[1][1]' (FDC) to 'SC0/SC0/DE0/DU0/fw_buff_reg[1][2]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/DE0/DU0/\fw_buff_reg[1][2] )
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/fw_buff_reg[2][4]' (FDC) to 'SC0/SC0/DE0/DU0/fw_buff_reg[2][5]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/fw_buff_reg[2][5]' (FDC) to 'SC0/SC0/DE0/DU0/fw_buff_reg[2][2]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/fw_buff_reg[2][1]' (FDC) to 'SC0/SC0/DE0/DU0/fw_buff_reg[2][2]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/fw_buff_reg[2][2]' (FDC) to 'SC0/SC0/DE0/DU0/fw_buff_reg[1][2]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_wb_reg_reg[0]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[5]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_wb_reg_reg[1]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[5]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_wb_reg_reg[3]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[5]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_wb_reg_reg[4]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[5]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_alu_opsel_reg[3]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[5]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_pc_reg[0]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[5]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_pc_reg[1]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[5]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_pc_reg[2]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[5]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_pc_reg[3]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[5]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_pc_reg[4]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[5]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_pc_reg[5]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[5]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_pc_reg[6]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[5]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_pc_reg[7]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[5]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_pc_reg[8]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[5]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_pc_reg[9]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[5]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_pc_reg[10]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[5]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_pc_reg[11]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[5]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_pc_reg[12]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[5]'
-INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_pc_reg[13]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[5]'
-INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/DE0/DU0/\o_rs1_reg[31] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/DE0/DU0/\uc_addr_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/DE0/DU0/\uc_addr_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/DE0/DU0/\uc_addr_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/DE0/DU0/\uc_addr_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/DE0/DU0/\uc_addr_reg[1] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (SC0/SC0/DE0/DU0/\uc_addr_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/DE0/DU0/\imm_reg[6] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (SC0/SC0/DE0/DU0/\imm_reg[18] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/DE0/DU0/\imm_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/DE0/DU0/\fw_buff_reg[1][2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][9] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][12] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][14] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][15] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][16] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][17] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][18] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][19] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][20] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][21] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][22] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][23] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][24] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][25] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][26] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][27] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][28] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][29] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][30] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (IO0/ri0/\mem_reg[1][31] )
-WARNING: [Synth 8-3332] Sequential element (uc_addr_reg[7]) is unused and will be removed from module decode_uc.
-WARNING: [Synth 8-3332] Sequential element (uc_addr_reg[6]) is unused and will be removed from module decode_uc.
-WARNING: [Synth 8-3332] Sequential element (uc_addr_reg[5]) is unused and will be removed from module decode_uc.
-WARNING: [Synth 8-3332] Sequential element (uc_addr_reg[4]) is unused and will be removed from module decode_uc.
-WARNING: [Synth 8-3332] Sequential element (uc_addr_reg[3]) is unused and will be removed from module decode_uc.
-WARNING: [Synth 8-3332] Sequential element (uc_addr_reg[2]) is unused and will be removed from module decode_uc.
-WARNING: [Synth 8-3332] Sequential element (uc_addr_reg[1]) is unused and will be removed from module decode_uc.
-WARNING: [Synth 8-3332] Sequential element (uc_addr_reg[0]) is unused and will be removed from module decode_uc.
-WARNING: [Synth 8-3332] Sequential element (imm_reg[18]) is unused and will be removed from module decode_uc.
-WARNING: [Synth 8-3332] Sequential element (imm_reg[6]) is unused and will be removed from module decode_uc.
-WARNING: [Synth 8-3332] Sequential element (imm_reg[2]) is unused and will be removed from module decode_uc.
-WARNING: [Synth 8-3332] Sequential element (imm_reg[1]) is unused and will be removed from module decode_uc.
-WARNING: [Synth 8-3332] Sequential element (result_reg[31]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[30]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[29]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[28]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[27]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[26]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[25]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[24]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[23]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[22]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[21]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[20]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[19]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[18]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[17]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[16]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[15]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[14]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[13]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[12]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[11]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[10]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[9]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[8]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[7]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[6]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[5]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[4]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[3]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[2]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[1]) is unused and will be removed from module alu.
-WARNING: [Synth 8-3332] Sequential element (result_reg[0]) is unused and will be removed from module alu.
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[1]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[1]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[0]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[0]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[2]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[2]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[3]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[3]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[4]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[4]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[5]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[5]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[6]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[6]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[7]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[7]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[8]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[8]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[9]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[9]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[10]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[10]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[11]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[11]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[12]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[12]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[13]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[13]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[14]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[14]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[15]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[15]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[16]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[16]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[17]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[17]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[18]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[18]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[19]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[19]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[20]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[20]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[21]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[21]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[22]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[22]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[23]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[23]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[24]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[24]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[25]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[25]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[26]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[26]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[27]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[27]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[28]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[28]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[29]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[29]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[30]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[30]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/EX0/o_br_addr_reg[31]' (FDCE) to 'SC0/i_0/SC0/EX0/o_mem_addr_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/MA0/o_data_mem_strobe_reg[2]' (FDC) to 'SC0/i_0/SC0/MA0/o_data_mem_strobe_reg[3]'
 WARNING: [Synth 8-3332] Sequential element (shiftright_logic_reg[31]) is unused and will be removed from module alu.
 WARNING: [Synth 8-3332] Sequential element (shiftright_logic_reg[30]) is unused and will be removed from module alu.
 WARNING: [Synth 8-3332] Sequential element (shiftright_logic_reg[29]) is unused and will be removed from module alu.
@@ -709,34 +567,102 @@ WARNING: [Synth 8-3332] Sequential element (shiftleft_reg[11]) is unused and wil
 WARNING: [Synth 8-3332] Sequential element (shiftleft_reg[10]) is unused and will be removed from module alu.
 WARNING: [Synth 8-3332] Sequential element (shiftleft_reg[9]) is unused and will be removed from module alu.
 WARNING: [Synth 8-3332] Sequential element (shiftleft_reg[8]) is unused and will be removed from module alu.
+WARNING: [Synth 8-3332] Sequential element (shiftleft_reg[7]) is unused and will be removed from module alu.
+WARNING: [Synth 8-3332] Sequential element (shiftleft_reg[6]) is unused and will be removed from module alu.
+WARNING: [Synth 8-3332] Sequential element (shiftleft_reg[5]) is unused and will be removed from module alu.
+WARNING: [Synth 8-3332] Sequential element (shiftleft_reg[4]) is unused and will be removed from module alu.
+WARNING: [Synth 8-3332] Sequential element (shiftleft_reg[3]) is unused and will be removed from module alu.
+WARNING: [Synth 8-3332] Sequential element (shiftleft_reg[2]) is unused and will be removed from module alu.
+WARNING: [Synth 8-3332] Sequential element (shiftleft_reg[1]) is unused and will be removed from module alu.
+WARNING: [Synth 8-3332] Sequential element (shiftleft_reg[0]) is unused and will be removed from module alu.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[31]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[30]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[29]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[28]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[27]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[26]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[25]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[24]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[23]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[22]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[21]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[20]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[19]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[18]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[17]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[16]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[15]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[14]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[13]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[12]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[11]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[10]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[9]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[8]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[7]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[6]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[5]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[4]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[3]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[2]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[1]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand1_reg[0]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand2_reg[31]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand2_reg[30]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand2_reg[29]) is unused and will be removed from module execute.
+WARNING: [Synth 8-3332] Sequential element (operand2_reg[28]) is unused and will be removed from module execute.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/DE0/DU0/imm_reg[27]' (LD) to 'SC0/i_0/SC0/DE0/DU0/imm_reg[28]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/DE0/DU0/imm_reg[28]' (LD) to 'SC0/i_0/SC0/DE0/DU0/imm_reg[29]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/DE0/DU0/imm_reg[29]' (LD) to 'SC0/i_0/SC0/DE0/DU0/imm_reg[30]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/DE0/DU0/\fw_bu00_reg[0][4] )
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/DE0/DU0/o_imm_reg[27]' (FDCE) to 'SC0/i_0/SC0/DE0/DU0/o_imm_reg[28]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/DE0/DU0/o_imm_reg[28]' (FDCE) to 'SC0/i_0/SC0/DE0/DU0/o_imm_reg[29]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/DE0/DU0/o_imm_reg[29]' (FDCE) to 'SC0/i_0/SC0/DE0/DU0/o_imm_reg[30]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/DE0/DU0/fw_bu00_reg[1][4]' (FDCE) to 'SC0/i_0/SC0/DE0/DU0/fw_bu00_reg[2][4]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/DE0/DU0/fw_bu00_reg[0][4]' (FDCE) to 'SC0/i_0/SC0/DE0/DU0/fw_bu00_reg[2][4]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (SC0/SC0/DE0/DU0/\fw_bu00_reg[2][4] )
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/DE0/DU0/imm_reg[16]' (LD) to 'SC0/i_0/SC0/DE0/DU0/imm_reg[17]'
+INFO: [Synth 8-3886] merging instance 'SC0/i_0/SC0/DE0/DU0/o_imm_reg[16]' (FDCE) to 'SC0/i_0/SC0/DE0/DU0/o_imm_reg[17]'
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1952.301 ; gain = 447.383 ; free physical = 172 ; free virtual = 16142
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:26 ; elapsed = 00:01:29 . Memory (MB): peak = 2122.816 ; gain = 618.023 ; free physical = 5581 ; free virtual = 20715
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
++------+-------------------------+------------+----------+
+|      |RTL Partition            |Replication |Instances |
++------+-------------------------+------------+----------+
+|1     |muxpart__15_code_mem     |           1|       224|
+|2     |ram__GB0                 |           1|     29121|
+|3     |ram__GB1                 |           1|      5196|
+|4     |sciv_base_system__GC0    |           1|      5414|
+|5     |sciv_example_system__GC0 |           1|       383|
++------+-------------------------+------------+----------+
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1952.301 ; gain = 447.383 ; free physical = 170 ; free virtual = 16142
+Finished Timing Optimization : Time (s): cpu = 00:01:26 ; elapsed = 00:01:30 . Memory (MB): peak = 2122.816 ; gain = 618.023 ; free physical = 5581 ; free virtual = 20715
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
++------+-------------------------+------------+----------+
+|      |RTL Partition            |Replication |Instances |
++------+-------------------------+------------+----------+
+|1     |muxpart__15_code_mem     |           1|       224|
+|2     |ram__GB0                 |           1|     29121|
+|3     |ram__GB1                 |           1|      5196|
+|4     |sciv_base_system__GC0    |           1|      5414|
+|5     |sciv_example_system__GC0 |           1|       383|
++------+-------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/imm_reg[31]' (LD) to 'SC0/SC0/DE0/DU0/imm_reg[30]'
+INFO: [Synth 8-3886] merging instance 'SC0/SC0/DE0/DU0/o_imm_reg[31]' (FDCE) to 'SC0/SC0/DE0/DU0/o_imm_reg[30]'
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1952.301 ; gain = 447.383 ; free physical = 171 ; free virtual = 16142
+Finished Technology Mapping : Time (s): cpu = 00:01:33 ; elapsed = 00:01:37 . Memory (MB): peak = 2132.152 ; gain = 627.359 ; free physical = 5598 ; free virtual = 20733
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -754,13 +680,13 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1952.301 ; gain = 447.383 ; free physical = 175 ; free virtual = 16136
+Finished IO Insertion : Time (s): cpu = 00:01:40 ; elapsed = 00:01:43 . Memory (MB): peak = 2132.152 ; gain = 627.359 ; free physical = 5597 ; free virtual = 20733
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1952.301 ; gain = 447.383 ; free physical = 175 ; free virtual = 16136
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:40 ; elapsed = 00:01:44 . Memory (MB): peak = 2132.152 ; gain = 627.359 ; free physical = 5597 ; free virtual = 20733
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -779,7 +705,7 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1952.301 ; gain = 447.383 ; free physical = 175 ; free virtual = 16136
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:40 ; elapsed = 00:01:44 . Memory (MB): peak = 2132.152 ; gain = 627.359 ; free physical = 5597 ; free virtual = 20733
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -792,39 +718,76 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+-----+------+
-|      |Cell |Count |
-+------+-----+------+
-|1     |OBUF |    32|
-+------+-----+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    58|
+|3     |LUT1   |    26|
+|4     |LUT2   |   371|
+|5     |LUT3   |   237|
+|6     |LUT4   |   336|
+|7     |LUT5   |   379|
+|8     |LUT6   |  5521|
+|9     |MUXF7  |  2243|
+|10    |MUXF8  |  1024|
+|11    |FDCE   | 17440|
+|12    |FDPE   |     2|
+|13    |FDRE   |    35|
+|14    |LD     |    28|
+|15    |IBUF   |    34|
+|16    |OBUF   |    32|
++------+-------+------+
 
 Report Instance Areas: 
-+------+---------+-------+------+
-|      |Instance |Module |Cells |
-+------+---------+-------+------+
-|1     |top      |       |    32|
-+------+---------+-------+------+
++------+-------------+--------------------+------+
+|      |Instance     |Module              |Cells |
++------+-------------+--------------------+------+
+|1     |top          |                    | 27767|
+|2     |  SC0        |sciv_base_system    | 27458|
+|3     |    CM0      |code_mem            |    27|
+|4     |    rm0      |ram                 | 24931|
+|5     |    SC0      |sciv_core           |  2323|
+|6     |      FE0    |fetch               |   106|
+|7     |      DE0    |decode              |   320|
+|8     |        DU0  |decode_uc           |   295|
+|9     |        MC0  |microcode_mem       |    25|
+|10    |      EX0    |execute             |   836|
+|11    |        ALU0 |alu                 |   415|
+|12    |        CP0  |comp                |   104|
+|13    |      MA0    |memory_access       |   179|
+|14    |      WB0    |write_back          |    33|
+|15    |      RF0    |reg_file            |   848|
+|16    |    MC0      |mem_interconnect__1 |   177|
+|17    |  MC0        |mem_interconnect    |    85|
+|18    |  IO0        |gpio                |   157|
+|19    |    ri0      |reg_if              |   157|
++------+-------------+--------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1952.301 ; gain = 447.383 ; free physical = 175 ; free virtual = 16136
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:40 ; elapsed = 00:01:44 . Memory (MB): peak = 2132.152 ; gain = 627.359 ; free physical = 5597 ; free virtual = 20733
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 435 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1952.301 ; gain = 447.383 ; free physical = 175 ; free virtual = 16136
-Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1952.309 ; gain = 447.383 ; free physical = 175 ; free virtual = 16136
+Synthesis finished with 0 errors, 0 critical warnings and 2324 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:40 ; elapsed = 00:01:44 . Memory (MB): peak = 2132.152 ; gain = 627.359 ; free physical = 5599 ; free virtual = 20735
+Synthesis Optimization Complete : Time (s): cpu = 00:01:40 ; elapsed = 00:01:44 . Memory (MB): peak = 2132.160 ; gain = 627.359 ; free physical = 5599 ; free virtual = 20735
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1963.207 ; gain = 0.000 ; free physical = 219 ; free virtual = 16200
+Netlist sorting complete. Time (s): cpu = 00:00:00.30 ; elapsed = 00:00:00.31 . Memory (MB): peak = 2132.160 ; gain = 0.000 ; free physical = 5657 ; free virtual = 20796
+INFO: [Netlist 29-17] Analyzing 3353 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'sciv_example_system' is not ideal for floorplanning, since the cellview 'ram' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2029.988 ; gain = 0.000 ; free physical = 168 ; free virtual = 16122
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2208.992 ; gain = 0.000 ; free physical = 5586 ; free virtual = 20726
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 28 instances were transformed.
+  LD => LDCE: 28 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-228 Infos, 276 Warnings, 0 Critical Warnings and 0 Errors encountered.
+101 Infos, 309 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 2029.988 ; gain = 549.051 ; free physical = 299 ; free virtual = 16255
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2029.988 ; gain = 0.000 ; free physical = 299 ; free virtual = 16255
+synth_design: Time (s): cpu = 00:01:50 ; elapsed = 00:01:53 . Memory (MB): peak = 2208.992 ; gain = 728.180 ; free physical = 5737 ; free virtual = 20877
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2208.992 ; gain = 0.000 ; free physical = 5737 ; free virtual = 20877
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint '/home/veeyceey/Documents/workspace/github/SCiV/vivado/SCiV/SCiV.runs/synth_1/sciv_example_system.dcp' has been generated.
+INFO: [Common 17-1381] The checkpoint '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/SCiV/SCiV.runs/synth_1/sciv_example_system.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file sciv_example_system_utilization_synth.rpt -pb sciv_example_system_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Aug  3 19:53:32 2020...
+INFO: [Common 17-206] Exiting Vivado at Mon Aug 31 19:40:25 2020...

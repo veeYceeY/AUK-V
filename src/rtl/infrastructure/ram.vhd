@@ -22,12 +22,12 @@ entity ram is
 end ram;
 
 architecture behave of ram is
-type mem_type is array(4095 downto 0) of std_logic_vector(31 downto 0);
+type mem_type is array(511 downto 0) of std_logic_vector(31 downto 0);
 signal mem : mem_type;
 signal data : std_logic_vector(31 downto 0);
-signal addr : std_logic_vector(11 downto 0);
+signal addr : std_logic_vector(8 downto 0);
 begin
-    addr <= i_addr(13 downto 2);
+    addr <= i_addr(10 downto 2);
     data <= mem(to_integer(unsigned((addr))));
     process(i_clk,i_rst)
     begin

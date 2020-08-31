@@ -17,6 +17,7 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-336454-SCiMOS/incrSyn
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 set_msg_config -id {Synth 8-256} -limit 10000
@@ -26,32 +27,32 @@ create_project -in_memory -part xc7z020clg400-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /home/veeyceey/Documents/workspace/github/SCiV/vivado/SCiV/SCiV.cache/wt [current_project]
-set_property parent.project_path /home/veeyceey/Documents/workspace/github/SCiV/vivado/SCiV/SCiV.xpr [current_project]
+set_property webtalk.parent_dir /home/veeyceey/Documents/workspace/github/AUK-V/vivado/SCiV/SCiV.cache/wt [current_project]
+set_property parent.project_path /home/veeyceey/Documents/workspace/github/AUK-V/vivado/SCiV/SCiV.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property board_part myir.com:mys-7z020:part0:2.1 [current_project]
 set_property ip_output_repo /home/veeyceey/Documents/workspace/github/SCiV/vivado/SCiV/SCiV.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib {
-  /home/veeyceey/Documents/workspace/github/SCiV/src/rtl/alu.vhd
-  /home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/code_mem.vhd
-  /home/veeyceey/Documents/workspace/github/SCiV/src/rtl/comp.vhd
-  /home/veeyceey/Documents/workspace/github/SCiV/src/rtl/decode_uc.vhd
-  /home/veeyceey/Documents/workspace/github/SCiV/src/rtl/microcode_mem.vhd
-  /home/veeyceey/Documents/workspace/github/SCiV/src/rtl/decode.vhd
-  /home/veeyceey/Documents/workspace/github/SCiV/src/rtl/execute.vhd
-  /home/veeyceey/Documents/workspace/github/SCiV/src/rtl/fetch.vhd
-  /home/veeyceey/Documents/workspace/github/SCiV/src/rtl/peripherals/reg_if.vhd
-  /home/veeyceey/Documents/workspace/github/SCiV/src/rtl/peripherals/gpio.vhd
-  /home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/mem_interconnect.vhd
-  /home/veeyceey/Documents/workspace/github/SCiV/src/rtl/memory_access.vhd
-  /home/veeyceey/Documents/workspace/github/SCiV/src/rtl/infrastructure/ram.vhd
-  /home/veeyceey/Documents/workspace/github/SCiV/src/rtl/reg_file.vhd
-  /home/veeyceey/Documents/workspace/github/SCiV/src/rtl/write_back.vhd
-  /home/veeyceey/Documents/workspace/github/SCiV/src/rtl/sciv_core.vhd
-  /home/veeyceey/Documents/workspace/github/SCiV/src/rtl/system/sciv_base_system.vhd
-  /home/veeyceey/Documents/workspace/github/SCiV/src/rtl/system/sciv_example_system.vhd
+  /home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/alu.vhd
+  /home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/code_mem.vhd
+  /home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/comp.vhd
+  /home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/decode_uc.vhd
+  /home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/microcode_mem.vhd
+  /home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/decode.vhd
+  /home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/execute.vhd
+  /home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/fetch.vhd
+  /home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/peripherals/reg_if.vhd
+  /home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/peripherals/gpio.vhd
+  /home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/mem_interconnect.vhd
+  /home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/memory_access.vhd
+  /home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/ram.vhd
+  /home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/reg_file.vhd
+  /home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/write_back.vhd
+  /home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/sciv_core.vhd
+  /home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/system/sciv_base_system.vhd
+  /home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/system/sciv_example_system.vhd
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

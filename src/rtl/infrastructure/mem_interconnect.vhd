@@ -63,7 +63,7 @@ begin
 
     process(i_en,i_port0_valid,i_port0_data,i_strobe,i_data,i_addr,i_we,i_port1_valid,i_port1_data)
     begin
-       if addr < x"7000000f" then
+       if i_addr < MAX_LIMIT then
             o_port0_en        <= i_en;
             o_valid           <= i_port0_valid;
             o_data            <= i_port0_data;
@@ -83,7 +83,7 @@ begin
             o_valid         <=i_port1_valid ;
             o_data          <=i_port1_data  ;
             o_port1_we     <= i_we;
-            o_port1_addr   <= i_addr-x"7000000f";
+            o_port1_addr   <= i_addr-MAX_LIMIT;
             o_port1_data   <= i_data;
             o_port1_strobe <= i_strobe;
 
