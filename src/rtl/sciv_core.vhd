@@ -124,17 +124,22 @@ signal wb0_br_en: std_logic;
 signal de0_rs1_fwsel : std_logic_vector(1 downto 0);
 signal de0_rs2_fwsel : std_logic_vector(1 downto 0);
 signal de0_cmp_op1sel : std_logic;
+signal fetch_stall : std_logic;
+signal de0_stall : std_logic;
 begin
 
 --ma0_stall<= '0';
 o_code_mem_en<='1';
+
+fetch_stall <= de0_stall or ma0_stall;
+
 
 FE0: entity work.fetch  
         port map (
                 i_clk           =>i_clk,
                 i_rst           =>i_rst,
                                 
-                i_stall         =>ma0_stall,
+                i_stall         =>fetch_stall,
                 i_branch_addr   =>ma0_br_addr,
                 i_branch_en     =>ma0_br_en,  
                                  
@@ -187,7 +192,8 @@ DE0: entity work.decode
             o_mem_en        =>de0_mem_en,
             o_mem_we        =>de0_mem_we,
             --o_mem_addr   :=>
-            o_mem_data      =>de0_mem_data
+            o_mem_data      =>de0_mem_data,
+            o_stall           =>de0_stall
             
             
             

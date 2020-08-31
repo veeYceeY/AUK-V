@@ -80,8 +80,8 @@ entity decode_uc is
             o_mem_en     : out std_logic;
             o_mem_we     : out std_logic;
             --o_mem_addr   : out std_logic_vector(31 downto 0);
-            o_mem_data   : out std_logic_vector(31 downto 0)
-            
+            o_mem_data   : out std_logic_vector(31 downto 0);
+            o_stall: out std_logic
             
             
     );
@@ -144,16 +144,24 @@ signal op1_sel          : std_logic_vector(1 downto 0);
 signal imm_sel          : std_logic_vector(2 downto 0);
 signal op_sign          : std_logic;
 
-type bu00_type is array(2 downto 0) of std_logic_vector(5 downto 0);
+type bu00_type is array(2 downto 0) of std_logic_vector(4 downto 0);
+type src_bu_type is array(1 downto 0) of std_logic_vector(4 downto 0);
 signal fw_bu00 : bu00_type;
+signal src_bu : src_bu_type;
 
 
+signal wb_we_buff : std_logic_vector(2 downto 0);
 signal rs1_fwsel : std_logic_vector(1 downto 0);
 signal rs2_fwsel: std_logic_vector(1 downto 0);
 signal fw_mm: std_logic;
-
+signal bubble_end: std_logic;
+signal bubble: std_logic;
+signal mem_wr: std_logic;
+signal stall: std_logic;
+signal stall_d: std_logic;
+signal bubble_count: std_logic_vector(3 downto 0);
 begin
-instr<= i_instr;
+instr<= i_instr when stall_d='0' else x"00000033";
 
 opcode <= instr(6 downto 0);
 rd <= instr(11 downto 7);
@@ -179,7 +187,7 @@ immu_j <=    "000" & x"00" & instr(31)  & instr(19 downto 12) & instr(20) & inst
 
 imm_r <=    x"000000" & "000" & rs2;
 
-o_uc_addr        <= uc_addr;
+o_uc_addr        <= uc_addr;--
 uc               <= i_data;
 store_type       <=uc(1 downto 0);
 wb_we            <=uc(2);
@@ -218,7 +226,7 @@ imm <=  imm_u when imm_sel = x"0" else
         imm_r when imm_sel = x"4" else
         imm_s when imm_sel = x"5" ;
         
------------------------data forwarding---------------
+-----------------------data forwardingc exec---------------
 
 process(i_clk,i_rst)
 begin
@@ -226,26 +234,115 @@ if i_rst ='1' then
     fw_bu00(0) <= (others => '0');
     fw_bu00(1) <= (others => '0');
     fw_bu00(2) <= (others => '0');
+    wb_we_buff <= (others=> '0');
 elsif rising_edge(i_clk) then
     if i_stall = '0' then
-        fw_bu00(0) <= rd & wb_we;
+        fw_bu00(0) <= rd ;
         fw_bu00(1) <= fw_bu00(0);
         fw_bu00(2) <= fw_bu00(1);
+        wb_we_buff(0) <= wb_we;
+        wb_we_buff(1) <= wb_we_buff(0);
+        wb_we_buff(2) <= wb_we_buff(1);
     end if;
 end if;
 end process;
 
-rs1_fwsel <=    "01" when fw_bu00(0)(5 downto 1) = rs1 and fw_bu00(0)(0) ='1'else
-                "10" when fw_bu00(1)(5 downto 1) = rs1 and fw_bu00(1)(0) ='1'else
-                "11" when fw_bu00(2)(5 downto 1) = rs1 and fw_bu00(2)(0) ='1'else
+--process(i_clk,i_rst)
+--begin
+--if i_rst ='1' then
+--    src_bu(0) <= (others => '0');
+--    src_bu(1) <= (others => '0');
+--elsif rising_edge(i_clk) then
+--    if i_stall = '0' then
+--        src_bu(0) <= rd;
+--        src_bu(1) <= src_bu(0);
+--        src_bu(2) <= src_bu(1);
+--    end if;
+--end if;
+--end process;
+
+rs1_fwsel <=    "01" when fw_bu00(0) = rs1 and wb_we_buff(0) ='1'else
+                "10" when fw_bu00(1) = rs1 and wb_we_buff(1) ='1'else
+                "11" when fw_bu00(2) = rs1 and wb_we_buff(2) ='1'else
                 "00";
                 
-rs2_fwsel <=    "01" when fw_bu00(0)(5 downto 1) = rs2 and fw_bu00(0)(0) ='1'else
-                "10" when fw_bu00(1)(5 downto 1) = rs2 and fw_bu00(1)(0) ='1'else
-                "11" when fw_bu00(2)(5 downto 1) = rs2 and fw_bu00(2)(0) ='1'else
+rs2_fwsel <=    "01" when fw_bu00(0) = rs2 and wb_we_buff(0) ='1'else
+                "10" when fw_bu00(1) = rs2 and wb_we_buff(1) ='1'else
+                "11" when fw_bu00(2) = rs2 and wb_we_buff(2) ='1'else
                 "00";
                 
-   
+--mem_fwsel <=    "01" when fw_bu00(0)(5 downto 1) = rs2 and fw_bu00(0)(0) ='1'else
+--                "10" when fw_bu00(1)(5 downto 1) = rs2 and fw_bu00(1)(0) ='1'else
+--                "11" when fw_bu00(2)(5 downto 1) = rs2 and fw_bu00(2)(0) ='1'else
+--                "00";
+mem_wr<='1' when mem_en='1' and mem_we='0'else '0';
+process(i_clk,i_rst)
+begin
+    if i_rst ='1' then
+        stall_d<='0';
+    elsif rising_edge(i_clk) then
+        stall_d<=stall;
+    end if;
+end process;
+
+process(i_clk,i_rst)
+begin
+if i_rst ='1' then
+    bubble_count<=x"0";
+    bubble_end<='0';
+    bubble<='0';
+elsif rising_edge(i_clk) then
+    if i_stall = '0' then
+        if bubble_count="0" then
+            if mem_wr='1' then
+                bubble_count<=x"0";
+                bubble_end<='1';
+                bubble<='1';
+            elsif br_en='1' then
+                bubble_count<=x"3";
+                bubble<='1';
+                --bubble<='1';
+            else
+                bubble_end<='0';
+                bubble<='0';
+            end if;
+        else
+            if bubble_count=2 then
+                bubble_end<='1';
+                bubble<='0';
+            end if;
+            if bubble_count=1 then
+                bubble_end<='0';
+                bubble<='0';
+            end if;
+            bubble_count<=bubble_count-1;
+        end if;
+    end if;
+end if;
+end process;
+
+
+
+stall<=(mem_wr or br_en or bubble) and (not bubble_end) and (not i_stall);
+--stall<='0';
+o_stall<=stall;
+-----------------------data forwardingc memaccess---------------            
+
+--process(i_clk,i_rst)
+--begin
+--if i_rst ='1' then
+--    fw_bu00(0) <= (others => '0');
+--    fw_bu00(1) <= (others => '0');
+--    fw_bu00(2) <= (others => '0');
+--elsif rising_edge(i_clk) then
+--    if i_stall = '0' then
+--        fw_bu00(0) <= rd & wb_we;
+--        fw_bu00(1) <= fw_bu00(0);
+--        fw_bu00(2) <= fw_bu00(1);
+--    end if;
+--end if;
+--end process;
+
    
 -- rs1_fwsel <=    "01" when fw_bu00(0)(5 downto 1) = rs1 else --and fw_bu00(0)(0) ='1'else  
 --                 "10" when fw_bu00(1)(5 downto 1) = rs1 else --and fw_bu00(1)(0) ='1'else  

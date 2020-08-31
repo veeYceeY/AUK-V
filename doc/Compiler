@@ -1,0 +1,5 @@
+
+make clean
+./configure --with-arch=rv32i --prefix=/opt/riscv32i
+make -j 12 newlib
+

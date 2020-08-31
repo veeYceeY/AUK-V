@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="44" Path="/home/veeyceey/Documents/workspace/github/SCiV/vivado/SCiV/SCiV.xpr">
+<Project Version="7" Minor="44" Path="/home/veeyceey/Documents/workspace/github/AUK-V/vivado/SCiV/SCiV.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="93eb4bf201354d728bcfd11a6bab2a78"/>
@@ -23,7 +23,7 @@
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
-    <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
+    <Option Name="IPOutputRepo" Val="/home/veeyceey/Documents/workspace/github/SCiV/vivado/SCiV/SCiV.cache/ip"/>
     <Option Name="IPCachePermission" Val="read"/>
     <Option Name="IPCachePermission" Val="write"/>
     <Option Name="EnableCoreContainer" Val="FALSE"/>
@@ -32,7 +32,7 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="mys-7z020"/>
-    <Option Name="WTXSimLaunchSim" Val="487"/>
+    <Option Name="WTXSimLaunchSim" Val="580"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -249,6 +249,11 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/tb_sciv_core_behav3.wcfg">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="tb_sciv_core"/>
@@ -264,6 +269,7 @@
         <Option Name="XSimWcfgFile" Val="$PPRDIR/tb_sciv_core_behav1_forwarding.wcfg"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/tb_sciv_core_behav1.wcfg"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/tb_sciv_core_behav1.wcfg"/>
+        <Option Name="XSimWcfgFile" Val="$PPRDIR/tb_sciv_core_behav3.wcfg"/>
       </Config>
     </FileSet>
     <FileSet Name="utils_1" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">

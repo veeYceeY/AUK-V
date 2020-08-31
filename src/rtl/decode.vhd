@@ -76,7 +76,8 @@ entity decode is
             o_mem_en        : out std_logic;
             o_mem_we        : out std_logic;
             --o_mem_addr   : out std_logic_vector(31 downto 0);
-            o_mem_data      : out std_logic_vector(31 downto 0)
+            o_mem_data      : out std_logic_vector(31 downto 0);
+            o_stall: out std_logic
             
             
             
@@ -145,7 +146,8 @@ DU0: entity work.decode_uc
             o_mem_en          => o_mem_en        ,
             o_mem_we          => o_mem_we        ,
             --o_mem_addr      => --o_mem_addr    ,
-            o_mem_data        => o_mem_data      
+            o_mem_data        => o_mem_data      ,
+            o_stall           =>o_stall
            
             
             
