@@ -1,4 +1,0 @@
-Running: xsim.dir/sciv_example_system_behav/xsimk -simmode gui -wdb sciv_example_system_behav.wdb -simrunnum 0 -socket 56721
-Design successfully loaded
-Design Loading Memory Usage: 33848 KB (Peak: 33848 KB)
-Design Loading CPU Usage: 70 ms

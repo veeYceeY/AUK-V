@@ -1,6 +1,0 @@
-vhdl xil_defaultlib  \
-"../../../bd/example_led/ip/example_led_sciv_example_system_0_0/sim/example_led_sciv_example_system_0_0.vhd" \
-"../../../bd/example_led/ip/example_led_ila_0_0/sim/example_led_ila_0_0.vhd" \
-"../../../bd/example_led/sim/example_led.vhd" \
-
-nosort
