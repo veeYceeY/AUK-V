@@ -261,14 +261,14 @@ end process;
 --end if;
 --end process;
 
-rs1_fwsel <=    "01" when fw_bu00(0) = rs1 and wb_we_buff(0) ='1'else
-                "10" when fw_bu00(1) = rs1 and wb_we_buff(1) ='1'else
-                "11" when fw_bu00(2) = rs1 and wb_we_buff(2) ='1'else
+rs1_fwsel <=    "01" when fw_bu00(0) = rs1 and wb_we_buff(0) ='1' and rs1 /=x"00000000" else
+                "10" when fw_bu00(1) = rs1 and wb_we_buff(1) ='1'and rs1 /=x"00000000" else
+                "11" when fw_bu00(2) = rs1 and wb_we_buff(2) ='1'and rs1 /=x"00000000" else
                 "00";
                 
-rs2_fwsel <=    "01" when fw_bu00(0) = rs2 and wb_we_buff(0) ='1'else
-                "10" when fw_bu00(1) = rs2 and wb_we_buff(1) ='1'else
-                "11" when fw_bu00(2) = rs2 and wb_we_buff(2) ='1'else
+rs2_fwsel <=    "01" when fw_bu00(0) = rs2 and wb_we_buff(0) ='1'and rs2 /=x"00000000" else
+                "10" when fw_bu00(1) = rs2 and wb_we_buff(1) ='1'and rs2 /=x"00000000" else
+                "11" when fw_bu00(2) = rs2 and wb_we_buff(2) ='1'and rs2 /=x"00000000" else
                 "00";
                 
 --mem_fwsel <=    "01" when fw_bu00(0)(5 downto 1) = rs2 and fw_bu00(0)(0) ='1'else

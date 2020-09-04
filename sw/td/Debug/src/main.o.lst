@@ -1,0 +1,438 @@
+   1              		.file	"main.cpp"
+   2              		.option nopic
+   3              		.attribute arch, "rv32i2p0"
+   4              		.attribute unaligned_access, 0
+   5              		.attribute stack_align, 16
+   6              		.text
+   7              	.Ltext0:
+   8              		.globl	__mulsi3
+   9              		.section	.text.main,"ax",@progbits
+  10              		.align	2
+  11              		.globl	main
+  13              	main:
+  14              	.LFB0:
+  15              		.file 1 "../src/main.cpp"
+   1:../src/main.cpp **** //============================================================================
+   2:../src/main.cpp **** // Name        : main.cpp
+   3:../src/main.cpp **** // Author      : veeYceeY
+   4:../src/main.cpp **** // Version     :
+   5:../src/main.cpp **** // Copyright   : Your copyright notice
+   6:../src/main.cpp **** // Description : Hello RISC-V World in C++
+   7:../src/main.cpp **** //============================================================================
+   8:../src/main.cpp **** 
+   9:../src/main.cpp **** //#include <iostream>
+  10:../src/main.cpp **** //using namespace std;
+  11:../src/main.cpp **** 
+  12:../src/main.cpp **** //
+  13:../src/main.cpp **** // Demonstrate how to print a greeting message on standard output
+  14:../src/main.cpp **** // and exit.
+  15:../src/main.cpp **** //
+  16:../src/main.cpp **** // WARNING: This is a build-only project. Do not try to run it on a
+  17:../src/main.cpp **** // physical board, since it lacks the device specific startup.
+  18:../src/main.cpp **** //
+  19:../src/main.cpp **** 
+  20:../src/main.cpp **** int main()
+  21:../src/main.cpp **** {
+  16              		.loc 1 21 1
+  17              		.cfi_startproc
+  18 0000 130101FD 		addi	sp,sp,-48
+  19              		.cfi_def_cfa_offset 48
+  20 0004 23261102 		sw	ra,44(sp)
+  21 0008 23248102 		sw	s0,40(sp)
+  22              		.cfi_offset 1, -4
+  23              		.cfi_offset 8, -8
+  24 000c 13040103 		addi	s0,sp,48
+  25              		.cfi_def_cfa 8, 0
+  22:../src/main.cpp ****  // cout << "Hello RISC-V World!" << endl;
+  23:../src/main.cpp ****   int gpio;
+  24:../src/main.cpp ****   int *ptr;
+  25:../src/main.cpp ****   int a,b,c;
+  26:../src/main.cpp ****   b=10;
+  26              		.loc 1 26 4
+  27 0010 9307A000 		li	a5,10
+  28 0014 2326F4FE 		sw	a5,-20(s0)
+  27:../src/main.cpp ****   a=48;
+  29              		.loc 1 27 4
+  30 0018 93070003 		li	a5,48
+  31 001c 2324F4FE 		sw	a5,-24(s0)
+  28:../src/main.cpp ****   c=a*b;
+  32              		.loc 1 28 4
+  33 0020 8325C4FE 		lw	a1,-20(s0)
+  34 0024 032584FE 		lw	a0,-24(s0)
+  35 0028 97000000 		call	__mulsi3
+  35      E7800000 
+  36 0030 93070500 		mv	a5,a0
+  37 0034 2322F4FE 		sw	a5,-28(s0)
+  29:../src/main.cpp ****   ptr =&gpio;
+  38              		.loc 1 29 7
+  39 0038 9307C4FD 		addi	a5,s0,-36
+  40 003c 2320F4FE 		sw	a5,-32(s0)
+  30:../src/main.cpp ****   *ptr=0x516f;
+  41              		.loc 1 30 7
+  42 0040 832704FE 		lw	a5,-32(s0)
+  43 0044 37570000 		li	a4,20480
+  44 0048 1307F716 		addi	a4,a4,367
+  45 004c 23A0E700 		sw	a4,0(a5)
+  46              	.L2:
+  31:../src/main.cpp ****   while(1){}
+  47              		.loc 1 31 3 discriminator 1
+  48 0050 6F000000 		j	.L2
+  49              		.cfi_endproc
+  50              	.LFE0:
+  52              		.text
+  53              	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.cpp
+              main.s:13     .text.main:0000000000000000 main
+              main.s:17     .text.main:0000000000000000 .L0 
+              main.s:18     .text.main:0000000000000000 .L0 
+              main.s:19     .text.main:0000000000000004 .L0 
+              main.s:22     .text.main:000000000000000c .L0 
+              main.s:23     .text.main:000000000000000c .L0 
+              main.s:25     .text.main:0000000000000010 .L0 
+              main.s:27     .text.main:0000000000000010 .L0 
+              main.s:30     .text.main:0000000000000018 .L0 
+              main.s:33     .text.main:0000000000000020 .L0 
+              main.s:39     .text.main:0000000000000038 .L0 
+              main.s:42     .text.main:0000000000000040 .L0 
+              main.s:48     .text.main:0000000000000050 .L0 
+              main.s:49     .text.main:0000000000000054 .L0 
+              main.s:52     .text.main:0000000000000054 .L0 
+              main.s:46     .text.main:0000000000000050 .L2
+              main.s:135    .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+              main.s:1536   .debug_str:00000000000011c5 .LASF323
+              main.s:1492   .debug_str:0000000000000efe .LASF324
+              main.s:1632   .debug_str:0000000000001794 .LASF325
+              main.s:252    .debug_ranges:0000000000000000 .Ldebug_ranges0
+              main.s:1234   .debug_line:0000000000000000 .Ldebug_line0
+              main.s:258    .debug_macro:0000000000000000 .Ldebug_macro0
+              main.s:1868   .debug_str:00000000000025bc .LASF326
+              main.s:14     .text.main:0000000000000000 .LFB0
+              main.s:50     .text.main:0000000000000054 .LFE0
+              main.s:1836   .debug_str:00000000000023f2 .LASF322
+              main.s:55     .debug_info:0000000000000000 .Ldebug_info0
+              main.s:1682   .debug_str:0000000000001a94 .LASF0
+              main.s:1528   .debug_str:0000000000001145 .LASF1
+              main.s:1756   .debug_str:0000000000001f27 .LASF2
+              main.s:1780   .debug_str:00000000000020b2 .LASF3
+              main.s:1322   .debug_str:0000000000000529 .LASF4
+              main.s:1482   .debug_str:0000000000000e92 .LASF5
+              main.s:1470   .debug_str:0000000000000dc7 .LASF6
+              main.s:1548   .debug_str:00000000000012fc .LASF7
+              main.s:1308   .debug_str:0000000000000429 .LASF8
+              main.s:1696   .debug_str:0000000000001b7e .LASF9
+              main.s:1286   .debug_str:00000000000002dc .LASF10
+              main.s:1742   .debug_str:0000000000001e2c .LASF11
+              main.s:1458   .debug_str:0000000000000d56 .LASF12
+              main.s:1832   .debug_str:00000000000023cc .LASF13
+              main.s:1774   .debug_str:000000000000205f .LASF14
+              main.s:1842   .debug_str:000000000000244b .LASF15
+              main.s:1564   .debug_str:00000000000013c2 .LASF16
+              main.s:1752   .debug_str:0000000000001ef5 .LASF17
+              main.s:1452   .debug_str:0000000000000d1c .LASF18
+              main.s:1518   .debug_str:00000000000010c4 .LASF19
+              main.s:1676   .debug_str:0000000000001a22 .LASF20
+              main.s:1420   .debug_str:0000000000000b64 .LASF21
+              main.s:1466   .debug_str:0000000000000d9f .LASF22
+              main.s:1246   .debug_str:0000000000000079 .LASF23
+              main.s:1798   .debug_str:00000000000021dd .LASF24
+              main.s:1562   .debug_str:00000000000013a9 .LASF25
+              main.s:1688   .debug_str:0000000000001afa .LASF26
+              main.s:1508   .debug_str:0000000000001012 .LASF27
+              main.s:1684   .debug_str:0000000000001a9f .LASF28
+              main.s:1396   .debug_str:00000000000009ad .LASF29
+              main.s:1402   .debug_str:0000000000000a05 .LASF30
+              main.s:1256   .debug_str:0000000000000139 .LASF31
+              main.s:1338   .debug_str:000000000000064a .LASF32
+              main.s:1634   .debug_str:00000000000017be .LASF33
+              main.s:1762   .debug_str:0000000000001f96 .LASF34
+              main.s:1834   .debug_str:00000000000023df .LASF35
+              main.s:1690   .debug_str:0000000000001b17 .LASF36
+              main.s:1516   .debug_str:00000000000010a6 .LASF37
+              main.s:1444   .debug_str:0000000000000c98 .LASF38
+              main.s:1510   .debug_str:000000000000102c .LASF39
+              main.s:1302   .debug_str:00000000000003d9 .LASF40
+              main.s:1364   .debug_str:00000000000007b3 .LASF41
+              main.s:1394   .debug_str:0000000000000993 .LASF42
+              main.s:1416   .debug_str:0000000000000b0a .LASF43
+              main.s:1404   .debug_str:0000000000000a32 .LASF44
+              main.s:1566   .debug_str:00000000000013d3 .LASF45
+              main.s:1362   .debug_str:0000000000000796 .LASF46
+              main.s:1782   .debug_str:00000000000020c4 .LASF47
+              main.s:1636   .debug_str:00000000000017d9 .LASF48
+              main.s:1272   .debug_str:000000000000020e .LASF49
+              main.s:1670   .debug_str:00000000000019de .LASF50
+              main.s:1406   .debug_str:0000000000000a4a .LASF51
+              main.s:1706   .debug_str:0000000000001bf7 .LASF52
+              main.s:1694   .debug_str:0000000000001b5b .LASF53
+              main.s:1862   .debug_str:0000000000002566 .LASF54
+              main.s:1692   .debug_str:0000000000001b32 .LASF55
+              main.s:1260   .debug_str:0000000000000168 .LASF56
+              main.s:1350   .debug_str:00000000000006c6 .LASF57
+              main.s:1346   .debug_str:0000000000000699 .LASF58
+              main.s:1408   .debug_str:0000000000000a69 .LASF59
+              main.s:1806   .debug_str:0000000000002270 .LASF60
+              main.s:1558   .debug_str:0000000000001369 .LASF61
+              main.s:1760   .debug_str:0000000000001f75 .LASF62
+              main.s:1810   .debug_str:00000000000022ca .LASF63
+              main.s:1368   .debug_str:000000000000080b .LASF64
+              main.s:1856   .debug_str:0000000000002519 .LASF65
+              main.s:1352   .debug_str:00000000000006f3 .LASF66
+              main.s:1728   .debug_str:0000000000001d5a .LASF67
+              main.s:1602   .debug_str:00000000000015e0 .LASF68
+              main.s:1666   .debug_str:00000000000019b4 .LASF69
+              main.s:1542   .debug_str:00000000000012c4 .LASF70
+              main.s:1612   .debug_str:0000000000001676 .LASF71
+              main.s:1584   .debug_str:00000000000014d5 .LASF72
+              main.s:1442   .debug_str:0000000000000c7a .LASF73
+              main.s:1276   .debug_str:000000000000024d .LASF74
+              main.s:1570   .debug_str:000000000000140a .LASF75
+              main.s:1788   .debug_str:0000000000002135 .LASF76
+              main.s:1258   .debug_str:000000000000014e .LASF77
+              main.s:1704   .debug_str:0000000000001bd8 .LASF78
+              main.s:1714   .debug_str:0000000000001c8c .LASF79
+              main.s:1348   .debug_str:00000000000006b0 .LASF80
+              main.s:1304   .debug_str:00000000000003fb .LASF81
+              main.s:1574   .debug_str:0000000000001440 .LASF82
+              main.s:1850   .debug_str:00000000000024a9 .LASF83
+              main.s:1288   .debug_str:00000000000002ef .LASF84
+              main.s:1848   .debug_str:0000000000002490 .LASF85
+              main.s:1658   .debug_str:000000000000192b .LASF86
+              main.s:1414   .debug_str:0000000000000aea .LASF87
+              main.s:1242   .debug_str:0000000000000048 .LASF88
+              main.s:1828   .debug_str:0000000000002391 .LASF89
+              main.s:1262   .debug_str:0000000000000190 .LASF90
+              main.s:1596   .debug_str:000000000000159e .LASF91
+              main.s:1722   .debug_str:0000000000001d02 .LASF92
+              main.s:1744   .debug_str:0000000000001e3f .LASF93
+              main.s:1560   .debug_str:000000000000138b .LASF94
+              main.s:1764   .debug_str:0000000000001fab .LASF95
+              main.s:1526   .debug_str:0000000000001136 .LASF96
+              main.s:1290   .debug_str:0000000000000306 .LASF97
+              main.s:1796   .debug_str:00000000000021c6 .LASF98
+              main.s:1546   .debug_str:00000000000012e9 .LASF99
+              main.s:1674   .debug_str:0000000000001a0e .LASF100
+              main.s:1826   .debug_str:000000000000237a .LASF101
+              main.s:1844   .debug_str:0000000000002462 .LASF102
+              main.s:1480   .debug_str:0000000000000e6b .LASF103
+              main.s:1678   .debug_str:0000000000001a35 .LASF104
+              main.s:1652   .debug_str:00000000000018cf .LASF105
+              main.s:1336   .debug_str:0000000000000631 .LASF106
+              main.s:1464   .debug_str:0000000000000d8f .LASF107
+              main.s:1668   .debug_str:00000000000019c3 .LASF108
+              main.s:1426   .debug_str:0000000000000ba0 .LASF109
+              main.s:1344   .debug_str:0000000000000687 .LASF110
+              main.s:1360   .debug_str:0000000000000784 .LASF111
+              main.s:1576   .debug_str:000000000000145e .LASF112
+              main.s:1398   .debug_str:00000000000009d4 .LASF113
+              main.s:1746   .debug_str:0000000000001e5c .LASF114
+              main.s:1264   .debug_str:00000000000001b6 .LASF115
+              main.s:1648   .debug_str:00000000000018a3 .LASF116
+              main.s:1846   .debug_str:000000000000247b .LASF117
+              main.s:1438   .debug_str:0000000000000c2a .LASF118
+              main.s:1412   .debug_str:0000000000000ac6 .LASF119
+              main.s:1662   .debug_str:0000000000001962 .LASF120
+              main.s:1616   .debug_str:00000000000016a1 .LASF121
+              main.s:1268   .debug_str:00000000000001d9 .LASF122
+              main.s:1582   .debug_str:00000000000014c1 .LASF123
+              main.s:1720   .debug_str:0000000000001ce4 .LASF124
+              main.s:1800   .debug_str:00000000000021ec .LASF125
+              main.s:1446   .debug_str:0000000000000cc0 .LASF126
+              main.s:1820   .debug_str:0000000000002337 .LASF127
+              main.s:1422   .debug_str:0000000000000b78 .LASF128
+              main.s:1866   .debug_str:00000000000025a2 .LASF129
+              main.s:1494   .debug_str:0000000000000f0e .LASF130
+              main.s:1424   .debug_str:0000000000000b8d .LASF131
+              main.s:1392   .debug_str:000000000000097d .LASF132
+              main.s:1592   .debug_str:0000000000001570 .LASF133
+              main.s:1472   .debug_str:0000000000000dd8 .LASF134
+              main.s:1876   .debug_str:0000000000002613 .LASF135
+              main.s:1468   .debug_str:0000000000000db9 .LASF136
+              main.s:1600   .debug_str:00000000000015c9 .LASF137
+              main.s:1644   .debug_str:000000000000186f .LASF138
+              main.s:1524   .debug_str:0000000000001127 .LASF139
+              main.s:1374   .debug_str:000000000000086a .LASF140
+              main.s:1700   .debug_str:0000000000001ba8 .LASF141
+              main.s:1432   .debug_str:0000000000000beb .LASF142
+              main.s:1300   .debug_str:00000000000003c0 .LASF143
+              main.s:1356   .debug_str:000000000000071b .LASF144
+              main.s:1254   .debug_str:0000000000000124 .LASF145
+              main.s:1864   .debug_str:0000000000002589 .LASF146
+              main.s:1236   .debug_str:0000000000000000 .LASF147
+              main.s:1858   .debug_str:0000000000002545 .LASF148
+              main.s:1626   .debug_str:0000000000001752 .LASF149
+              main.s:1672   .debug_str:00000000000019fe .LASF150
+              main.s:1642   .debug_str:000000000000184d .LASF151
+              main.s:1638   .debug_str:00000000000017fb .LASF152
+              main.s:1880   .debug_str:0000000000002649 .LASF153
+              main.s:1732   .debug_str:0000000000001db7 .LASF154
+              main.s:1270   .debug_str:00000000000001f1 .LASF155
+              main.s:1540   .debug_str:00000000000012ad .LASF156
+              main.s:1538   .debug_str:000000000000128f .LASF157
+              main.s:1488   .debug_str:0000000000000ed0 .LASF158
+              main.s:1770   .debug_str:000000000000202c .LASF159
+              main.s:1240   .debug_str:0000000000000030 .LASF160
+              main.s:1776   .debug_str:0000000000002072 .LASF161
+              main.s:1802   .debug_str:0000000000002219 .LASF162
+              main.s:1382   .debug_str:00000000000008f3 .LASF163
+              main.s:1388   .debug_str:0000000000000943 .LASF164
+              main.s:1754   .debug_str:0000000000001f07 .LASF165
+              main.s:1448   .debug_str:0000000000000cd8 .LASF166
+              main.s:1390   .debug_str:0000000000000963 .LASF167
+              main.s:1436   .debug_str:0000000000000c16 .LASF168
+              main.s:1606   .debug_str:0000000000001604 .LASF169
+              main.s:1702   .debug_str:0000000000001bc8 .LASF170
+              main.s:1608   .debug_str:0000000000001620 .LASF171
+              main.s:1740   .debug_str:0000000000001e16 .LASF172
+              main.s:1324   .debug_str:000000000000053b .LASF173
+              main.s:1478   .debug_str:0000000000000e55 .LASF174
+              main.s:1266   .debug_str:00000000000001c9 .LASF175
+              main.s:1580   .debug_str:00000000000014ad .LASF176
+              main.s:1454   .debug_str:0000000000000d33 .LASF177
+              main.s:1496   .debug_str:0000000000000f31 .LASF178
+              main.s:1824   .debug_str:0000000000002361 .LASF179
+              main.s:1530   .debug_str:0000000000001159 .LASF180
+              main.s:1460   .debug_str:0000000000000d69 .LASF181
+              main.s:1556   .debug_str:0000000000001353 .LASF182
+              main.s:1620   .debug_str:00000000000016e4 .LASF183
+              main.s:1664   .debug_str:0000000000001978 .LASF184
+              main.s:1520   .debug_str:00000000000010d7 .LASF185
+              main.s:1252   .debug_str:00000000000000ea .LASF186
+              main.s:1578   .debug_str:000000000000146f .LASF187
+              main.s:1384   .debug_str:0000000000000912 .LASF188
+              main.s:1736   .debug_str:0000000000001de4 .LASF189
+              main.s:1486   .debug_str:0000000000000eb8 .LASF190
+              main.s:1354   .debug_str:0000000000000707 .LASF191
+              main.s:1554   .debug_str:0000000000001344 .LASF192
+              main.s:1274   .debug_str:0000000000000235 .LASF193
+              main.s:1882   .debug_str:0000000000002674 .LASF194
+              main.s:1604   .debug_str:00000000000015ef .LASF195
+              main.s:1294   .debug_str:0000000000000333 .LASF196
+              main.s:1552   .debug_str:000000000000132d .LASF197
+              main.s:1498   .debug_str:0000000000000f48 .LASF198
+              main.s:1410   .debug_str:0000000000000a81 .LASF199
+              main.s:1358   .debug_str:0000000000000744 .LASF200
+              main.s:1532   .debug_str:000000000000116d .LASF201
+              main.s:1588   .debug_str:000000000000150a .LASF202
+              main.s:1534   .debug_str:00000000000011b0 .LASF203
+              main.s:1310   .debug_str:000000000000043e .LASF204
+              main.s:1822   .debug_str:0000000000002349 .LASF205
+              main.s:1306   .debug_str:0000000000000413 .LASF206
+              main.s:1786   .debug_str:0000000000002125 .LASF207
+              main.s:1450   .debug_str:0000000000000d02 .LASF208
+              main.s:1512   .debug_str:000000000000104f .LASF209
+              main.s:1656   .debug_str:0000000000001914 .LASF210
+              main.s:1280   .debug_str:000000000000027d .LASF211
+              main.s:1504   .debug_str:0000000000000fe6 .LASF212
+              main.s:1778   .debug_str:000000000000209a .LASF213
+              main.s:1378   .debug_str:00000000000008a1 .LASF214
+              main.s:1730   .debug_str:0000000000001d78 .LASF215
+              main.s:1298   .debug_str:0000000000000386 .LASF216
+              main.s:1758   .debug_str:0000000000001f39 .LASF217
+              main.s:1418   .debug_str:0000000000000b23 .LASF218
+              main.s:1874   .debug_str:00000000000025fd .LASF219
+              main.s:1380   .debug_str:00000000000008db .LASF220
+              main.s:1718   .debug_str:0000000000001ccb .LASF221
+              main.s:1490   .debug_str:0000000000000ee8 .LASF222
+              main.s:1244   .debug_str:0000000000000069 .LASF223
+              main.s:1852   .debug_str:00000000000024c5 .LASF224
+              main.s:1550   .debug_str:0000000000001312 .LASF225
+              main.s:1430   .debug_str:0000000000000bd5 .LASF226
+              main.s:1586   .debug_str:00000000000014f2 .LASF227
+              main.s:1614   .debug_str:0000000000001689 .LASF228
+              main.s:1854   .debug_str:00000000000024de .LASF229
+              main.s:1366   .debug_str:00000000000007cb .LASF230
+              main.s:1514   .debug_str:000000000000106b .LASF231
+              main.s:1440   .debug_str:0000000000000c3c .LASF232
+              main.s:1808   .debug_str:0000000000002288 .LASF233
+              main.s:1342   .debug_str:0000000000000670 .LASF234
+              main.s:1474   .debug_str:0000000000000dfd .LASF235
+              main.s:1790   .debug_str:0000000000002156 .LASF236
+              main.s:1734   .debug_str:0000000000001dce .LASF237
+              main.s:1812   .debug_str:00000000000022ec .LASF238
+              main.s:1888   .debug_str:00000000000026be .LASF239
+              main.s:1630   .debug_str:0000000000001778 .LASF240
+              main.s:1434   .debug_str:0000000000000bff .LASF241
+              main.s:1886   .debug_str:00000000000026a5 .LASF242
+              main.s:1622   .debug_str:000000000000171b .LASF243
+              main.s:1640   .debug_str:0000000000001811 .LASF244
+              main.s:1686   .debug_str:0000000000001ab9 .LASF245
+              main.s:1296   .debug_str:000000000000034a .LASF246
+              main.s:1326   .debug_str:000000000000055c .LASF247
+              main.s:1748   .debug_str:0000000000001e73 .LASF248
+              main.s:1238   .debug_str:0000000000000019 .LASF249
+              main.s:1522   .debug_str:000000000000110e .LASF250
+              main.s:1340   .debug_str:0000000000000656 .LASF251
+              main.s:1726   .debug_str:0000000000001d42 .LASF252
+              main.s:1860   .debug_str:0000000000002554 .LASF253
+              main.s:1386   .debug_str:0000000000000927 .LASF254
+              main.s:1376   .debug_str:0000000000000883 .LASF255
+              main.s:1572   .debug_str:0000000000001427 .LASF256
+              main.s:1830   .debug_str:00000000000023b1 .LASF257
+              main.s:1650   .debug_str:00000000000018b5 .LASF258
+              main.s:1794   .debug_str:0000000000002187 .LASF259
+              main.s:1838   .debug_str:00000000000023f7 .LASF260
+              main.s:1804   .debug_str:0000000000002231 .LASF261
+              main.s:1250   .debug_str:00000000000000a9 .LASF262
+              main.s:1680   .debug_str:0000000000001a4e .LASF263
+              main.s:1544   .debug_str:00000000000012d1 .LASF264
+              main.s:1484   .debug_str:0000000000000e9e .LASF265
+              main.s:1312   .debug_str:0000000000000455 .LASF266
+              main.s:1598   .debug_str:00000000000015b2 .LASF267
+              main.s:1594   .debug_str:000000000000158c .LASF268
+              main.s:1870   .debug_str:00000000000025c1 .LASF269
+              main.s:1316   .debug_str:00000000000004b3 .LASF270
+              main.s:1278   .debug_str:0000000000000265 .LASF271
+              main.s:1568   .debug_str:00000000000013f0 .LASF272
+              main.s:1710   .debug_str:0000000000001c5a .LASF273
+              main.s:1610   .debug_str:0000000000001638 .LASF274
+              main.s:1314   .debug_str:0000000000000470 .LASF275
+              main.s:1784   .debug_str:00000000000020e7 .LASF276
+              main.s:1318   .debug_str:00000000000004d0 .LASF277
+              main.s:1708   .debug_str:0000000000001c15 .LASF278
+              main.s:1660   .debug_str:000000000000194a .LASF279
+              main.s:1724   .debug_str:0000000000001d28 .LASF280
+              main.s:1766   .debug_str:0000000000001fd0 .LASF281
+              main.s:1712   .debug_str:0000000000001c74 .LASF282
+              main.s:1818   .debug_str:0000000000002325 .LASF283
+              main.s:1248   .debug_str:000000000000008d .LASF284
+              main.s:1332   .debug_str:00000000000005f9 .LASF285
+              main.s:1646   .debug_str:000000000000188a .LASF286
+              main.s:1738   .debug_str:0000000000001dfb .LASF287
+              main.s:1334   .debug_str:0000000000000617 .LASF288
+              main.s:1750   .debug_str:0000000000001eb6 .LASF289
+              main.s:1502   .debug_str:0000000000000fa2 .LASF290
+              main.s:1476   .debug_str:0000000000000e16 .LASF291
+              main.s:1768   .debug_str:0000000000001feb .LASF292
+              main.s:1330   .debug_str:00000000000005b3 .LASF293
+              main.s:1320   .debug_str:0000000000000511 .LASF294
+              main.s:1500   .debug_str:0000000000000f88 .LASF295
+              main.s:1716   .debug_str:0000000000001cb0 .LASF296
+              main.s:1772   .debug_str:000000000000204a .LASF297
+              main.s:1698   .debug_str:0000000000001b91 .LASF298
+              main.s:1884   .debug_str:000000000000268e .LASF299
+              main.s:1462   .debug_str:0000000000000d7f .LASF300
+              main.s:1878   .debug_str:000000000000262b .LASF301
+              main.s:1624   .debug_str:0000000000001734 .LASF302
+              main.s:1654   .debug_str:00000000000018f2 .LASF303
+              main.s:1284   .debug_str:00000000000002ba .LASF304
+              main.s:1370   .debug_str:000000000000082d .LASF305
+              main.s:1590   .debug_str:0000000000001551 .LASF306
+              main.s:1618   .debug_str:00000000000016c7 .LASF307
+              main.s:1816   .debug_str:0000000000002307 .LASF308
+              main.s:1400   .debug_str:00000000000009e6 .LASF309
+              main.s:1282   .debug_str:0000000000000296 .LASF310
+              main.s:1872   .debug_str:00000000000025dc .LASF311
+              main.s:1428   .debug_str:0000000000000bb9 .LASF312
+              main.s:1372   .debug_str:000000000000084e .LASF313
+              main.s:1456   .debug_str:0000000000000d41 .LASF314
+              main.s:1292   .debug_str:000000000000031f .LASF315
+              main.s:1792   .debug_str:0000000000002170 .LASF316
+              main.s:1814   .debug_str:00000000000022fd .LASF317
+              main.s:1840   .debug_str:000000000000243b .LASF318
+              main.s:1506   .debug_str:0000000000000ff9 .LASF319
+              main.s:1328   .debug_str:000000000000059b .LASF320
+              main.s:1628   .debug_str:000000000000176e .LASF321
+
+UNDEFINED SYMBOLS
+__mulsi3

@@ -1,0 +1,10 @@
+verilog xil_defaultlib --include "../../../../AUK-V.srcs/sources_1/bd/example_led/ipshared/ec67/hdl" --include "../../../../AUK-V.srcs/sources_1/bd/example_led/ipshared/8c62/hdl" --include "../../../../AUK-V.srcs/sources_1/bd/example_led/ip/example_led_processing_system7_0_0" --include "../../../../AUK-V.srcs/sources_1/bd/example_led/ipshared/1b7e/hdl/verilog" --include "../../../../AUK-V.srcs/sources_1/bd/example_led/ipshared/122e/hdl/verilog" --include "../../../../AUK-V.srcs/sources_1/bd/example_led/ipshared/6887/hdl/verilog" --include "../../../../AUK-V.srcs/sources_1/bd/example_led/ipshared/9623/hdl/verilog" --include "../../../../AUK-V.srcs/sources_1/bd/example_led/ipshared/c923" \
+"../../../bd/example_led/ip/example_led_processing_system7_0_0/sim/example_led_processing_system7_0_0.v" \
+"../../../bd/example_led/ip/example_led_xlconstant_0_0/sim/example_led_xlconstant_0_0.v" \
+"../../../bd/example_led/ip/example_led_util_vector_logic_0_0/sim/example_led_util_vector_logic_0_0.v" \
+"../../../bd/example_led/ip/example_led_clk_wiz_0_1/example_led_clk_wiz_0_1_clk_wiz.v" \
+"../../../bd/example_led/ip/example_led_clk_wiz_0_1/example_led_clk_wiz_0_1.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

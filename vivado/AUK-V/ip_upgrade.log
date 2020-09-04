@@ -1,0 +1,79 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Thu Sep  3 22:22:05 2020
+| Host         : SCiMOS running 64-bit Ubuntu 20.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'example_led_xlconstant_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of example_led_xlconstant_0_0 (xilinx.com:ip:xlconstant:1.1 (Rev. 6)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Thu Sep  3 22:22:04 2020
+| Host         : SCiMOS running 64-bit Ubuntu 20.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'example_led_sciv_example_system_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of example_led_sciv_example_system_0_0 (xilinx.com:module_ref:sciv_example_system:1.0 (Rev. 1)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Thu Sep  3 22:22:04 2020
+| Host         : SCiMOS running 64-bit Ubuntu 20.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'example_led_ila_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of example_led_ila_0_0 (xilinx.com:ip:ila:6.2) from (Rev. 10) to (Rev. 9)
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Thu Sep  3 22:22:04 2020
+| Host         : SCiMOS running 64-bit Ubuntu 20.04.1 LTS
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'example_led_clk_wiz_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of example_led_clk_wiz_0_1 (xilinx.com:ip:clk_wiz:6.0) from (Rev. 4) to (Rev. 3)
+

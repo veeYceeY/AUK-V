@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Thu Sep  3 14:25:19 2020
+# Process ID: 3506157
+# Current directory: /home/veeyceey/Documents/workspace/github/AUK-V/vivado/SCiV/SCiV.runs/impl_1
+# Command line: vivado -log example_led_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source example_led_wrapper.tcl -notrace
+# Log file: /home/veeyceey/Documents/workspace/github/AUK-V/vivado/SCiV/SCiV.runs/impl_1/example_led_wrapper.vdi
+# Journal file: /home/veeyceey/Documents/workspace/github/AUK-V/vivado/SCiV/SCiV.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source example_led_wrapper.tcl -notrace

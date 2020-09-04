@@ -16,8 +16,10 @@ entity code_mem is
 end code_mem;
 
 architecture behave of code_mem is
-type mem_type is array(2047 downto 0) of std_logic_vector(31 downto 0);
+attribute rom_style : string;
+type mem_type is array(511 downto 0) of std_logic_vector(31 downto 0);
 signal mem : mem_type;
+attribute rom_style of mem : signal is "block";
 
 begin
 --mem(0) <=x"03000413";
@@ -43,60 +45,72 @@ begin
 --mem(20)<=x"0000006F";
 
 --working woith loops ---------
-mem(0) <=x"00000033";
-mem(1) <=x"00000033";
-mem(2) <=x"00000033";
-mem(3) <=x"00000033";
-mem(4) <=x"00000033";
-mem(5) <=x"00000033";
-mem(6) <=x"03000413";
-mem(7) <=x"04000793";
-mem(8) <=x"FEF42623";
-mem(9) <=x"04400793";
-mem(10)<=x"FEF42423";
-mem(11)<=x"04800793";
-mem(12)<=x"FEF42223";
-mem(13)<=x"FEC42783";
-mem(14)<=x"00400713";
-mem(15)<=x"00E7A023";
-mem(16)<=x"FE842783";
-mem(17)<=x"00A00713";
-mem(18)<=x"00E7A023";
-mem(19)<=x"FEC42783";
-mem(20)<=x"0007A703";
-mem(21)<=x"FE842783";
-mem(22)<=x"0007A783";
-mem(23)<=x"00F70733";
-mem(24)<=x"FE442783";
-mem(25)<=x"00E7A023";
-mem(26)<=x"000017B7";
-mem(27)<=x"00178793";
-mem(28)<=x"FEF42023";
-mem(29)<=x"FE042783";
-mem(30)<=x"05600713";
-mem(31)<=x"00E7A023";
-mem(32)<=x"0000006F";
-mem(33)<=x"0000006F";
-mem(34)<=x"0000006F";
-mem(35)<=x"0000006F";
-mem(36)<=x"0000006F";
-mem(37)<=x"0000006F";
-mem(38)<=x"0000006F";
-mem(39)<=x"0000006F";
-mem(40)<=x"0000006F";
-mem(41)<=x"0000006F";
-mem(42)<=x"0000006F";
-mem(43)<=x"0000006F";
-mem(44)<=x"0000006F";
-mem(45)<=x"0000006F";
-mem(46)<=x"0000006F";
-mem(47)<=x"0000006F";
-mem(49)<=x"0000006F";
-mem(50)<=x"0000006F";
-mem(51)<=x"0000006F";
-mem(52)<=x"0000006F";
-mem(53)<=x"0000006F";
-mem(54)<=x"0000006F";
+mem(54)<=x"03000413";--
+mem(55)<=x"04000793";
+mem(56)<=x"FEF42023";
+mem(57)<=x"04400793";
+mem(58)<=x"FCF42E23";
+mem(59)<=x"04800793";
+mem(60)<=x"FCF42C23";
+mem(61)<=x"FE042783";
+mem(62)<=x"00500713";
+mem(63)<=x"00E7A023";
+mem(64)<=x"FDC42783";
+mem(65)<=x"00A00713";
+mem(66)<=x"00E7A023";
+mem(67)<=x"FE042783";
+mem(68)<=x"0007A703";
+mem(69)<=x"FDC42783";
+mem(70)<=x"0007A783";
+mem(71)<=x"00F70733";
+mem(72)<=x"FD842783";
+mem(73)<=x"00E7A023";
+mem(74)<=x"000017B7";
+mem(75)<=x"00178793";
+mem(76)<=x"FCF42A23";
+mem(77)<=x"FD442783";
+mem(78)<=x"08600713";
+mem(79)<=x"00E7A023";
+mem(80)<=x"FE042623";
+mem(81)<=x"FEC42703";
+mem(82)<=x"0007A7B7";
+mem(83)<=x"11F78793";
+mem(84)<=x"00E7CA63";
+mem(85)<=x"FEC42783";
+mem(86)<=x"00178793";
+mem(87)<=x"FEF42623";
+mem(88)<=x"FE5FF06F";
+mem(89)<=x"FD442783";
+mem(90)<=x"04500713";
+mem(91)<=x"00E7A023";
+mem(92)<=x"FE042423";
+mem(93)<=x"FE842703";
+mem(94)<=x"0007A7B7";
+mem(95)<=x"11F78793";
+mem(96)<=x"00E7CA63";
+mem(97)<=x"FE842783";
+mem(98)<=x"00178793";
+mem(99)<=x"FEF42423";
+mem(100)<=x"FE5FF06F";
+mem(101)<=x"FD442783";
+mem(102)<=x"07600713";
+mem(103)<=x"00E7A023";
+mem(104)<=x"FE042223";
+mem(105)<=x"FE442703";
+mem(106)<=x"0007A7B7";
+mem(107)<=x"11F78793";
+mem(108)<=x"00E7CA63";
+mem(109)<=x"FE442783";
+mem(110)<=x"00178793";
+mem(111)<=x"FEF42223";
+mem(112)<=x"FE5FF06F";
+mem(113)<=x"FD442783";
+mem(114)<=x"0E300713";
+mem(115)<=x"00E7A023";
+mem(116)<=x"F71FF06F";
+
+
+
 
 
 --mem(0) <=x"03000413";

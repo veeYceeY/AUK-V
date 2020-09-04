@@ -1,7 +1,3 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/infrastructure/ram.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'ram'
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/system/sciv_base_system.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'sciv_base_system'
 INFO: [VRFC 10-163] Analyzing VHDL file "/home/veeyceey/Documents/workspace/github/AUK-V/src/rtl/system/sciv_example_system.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'sciv_example_system'
 INFO: [VRFC 10-163] Analyzing VHDL file "/home/veeyceey/Documents/workspace/github/AUK-V/src/tb/example_system/tb_sciv_core.vhd" into library xil_defaultlib

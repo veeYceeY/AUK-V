@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1598882890">
-  <File Type="VDS-TIMING-PB" Name="sciv_example_system_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="sciv_example_system_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="sciv_example_system.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="sciv_example_system_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="sciv_example_system_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="sciv_example_system_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="sciv_example_system.vds"/>
-  <File Type="REPORTS-TCL" Name="sciv_example_system_reports.tcl"/>
-  <File Type="PA-TCL" Name="sciv_example_system.tcl"/>
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1599123236">
+  <File Type="PA-TCL" Name="example_led_wrapper.tcl"/>
+  <File Type="REPORTS-TCL" Name="example_led_wrapper_reports.tcl"/>
+  <File Type="RDS-RDS" Name="example_led_wrapper.vds"/>
+  <File Type="RDS-DCP" Name="example_led_wrapper.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="example_led_wrapper_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="example_led_wrapper_utilization_synth.rpt"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../../src/rtl/alu.vhd">
@@ -119,6 +116,19 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/bd/example_led/example_led.bd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/example_led/hdl/example_led_wrapper.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../../../peripherals/fifo.vhd">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
@@ -171,12 +181,19 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="sciv_example_system"/>
+      <Option Name="TopModule" Val="example_led_wrapper"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
     <Filter Type="Constrs"/>
+    <File Path="$PPRDIR/../../boards/zturn/system.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
     <Config>
+      <Option Name="TargetConstrsFile" Val="$PPRDIR/../../boards/zturn/system.xdc"/>
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
   </FileSet>
@@ -192,4 +209,9 @@
       <Option Id="FlattenHierarchy">1</Option>
     </Step>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="example_led_processing_system7_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="example_led_sciv_example_system_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="example_led_util_vector_logic_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="example_led_ila_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="example_led_clk_wiz_0_1"/>
 </GenRun>

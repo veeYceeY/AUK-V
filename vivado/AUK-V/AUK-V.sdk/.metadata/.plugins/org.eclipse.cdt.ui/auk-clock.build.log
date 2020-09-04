@@ -1,0 +1,8 @@
+08:37:31 **** Incremental Build of configuration Debug for project auk-clock ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+
+08:37:32 Build Finished (took 773ms)
+

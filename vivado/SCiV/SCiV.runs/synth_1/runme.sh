@@ -36,4 +36,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log sciv_example_system.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source sciv_example_system.tcl
+EAStep vivado -log example_led_wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source example_led_wrapper.tcl

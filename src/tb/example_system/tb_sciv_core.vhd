@@ -33,7 +33,7 @@ signal code_mem_data   : std_logic_vector(31 downto 0);
 signal code_mem_valid  : std_logic;
 
 signal sc0_porta   : std_logic_vector(31 downto 0);
-signal sc0_portb   : std_logic_vector(31 downto 0);
+signal sc0_portb   : std_logic_vector(2 downto 0);
 
 signal code_mem : mem_type;
 signal data_mem : mem_type;
@@ -106,8 +106,8 @@ begin
     rst<= '1';
     wait for 100 ns;
     rst<='0';
-    wait for 5000000 ns;
-    std.env.finish;
+    wait;
+--    std.env.finish;
 end process;
 
 

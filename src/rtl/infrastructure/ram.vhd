@@ -22,17 +22,20 @@ entity ram is
 end ram;
 
 architecture behave of ram is
-type mem_type is array(511 downto 0) of std_logic_vector(31 downto 0);
+
+attribute rom_style : string;
+type mem_type is array(31 downto 0) of std_logic_vector(31 downto 0);
 signal mem : mem_type;
+attribute rom_style of mem : signal is "block";
 signal data : std_logic_vector(31 downto 0);
-signal addr : std_logic_vector(8 downto 0);
+signal addr : std_logic_vector(4 downto 0);
 begin
-    addr <= i_addr(10 downto 2);
+    addr <= i_addr(6 downto 2);
     data <= mem(to_integer(unsigned((addr))));
     process(i_clk,i_rst)
     begin
         if i_rst = '1' then
-            for i in 0 to 511 loop
+            for i in 0 to 31 loop
                 mem(i) <= (others => '0');
             end loop;
         elsif rising_edge(i_clk) then

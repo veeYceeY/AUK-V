@@ -17,7 +17,7 @@ entity sciv_example_system is
 
 
         i_port_a: in std_logic_vector(31 downto 0);
-        o_port_b: out std_logic_vector(31 downto 0)
+        o_port_b: out std_logic_vector(2 downto 0)
     );
 
 end sciv_example_system;
@@ -63,6 +63,7 @@ signal mc0_uart_addr    : std_logic_vector(31 downto 0);
 signal mc0_uart_data    : std_logic_vector(31 downto 0);
 signal mc0_uart_strobe  : std_logic_vector(3 downto 0);
 signal mc0_uart_valid   : std_logic;
+signal port_b    : std_logic_vector(31 downto 0);
 
 
 begin
@@ -136,11 +137,11 @@ IO0: entity work.gpio
                 o_valid  => io0_gpio_valid ,
                 o_data   => io0_gpio_data  ,
                 i_port_a => i_port_a,
-                o_port_b => o_port_b
+                o_port_b => port_b
         );
             
 
-
+o_port_b<=port_b(2 downto 0);
 
 
 
