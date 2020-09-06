@@ -1131,22 +1131,22 @@
         "xci_name": "example_led_clk_wiz_0_1",
         "parameters": {
           "CLKOUT1_JITTER": {
-            "value": "290.478"
+            "value": "130.958"
           },
           "CLKOUT1_PHASE_ERROR": {
-            "value": "133.882"
+            "value": "98.575"
           },
           "CLKOUT1_REQUESTED_OUT_FREQ": {
-            "value": "10.000"
+            "value": "100.000"
           },
           "MMCM_CLKFBOUT_MULT_F": {
-            "value": "15.625"
+            "value": "10.000"
           },
           "MMCM_CLKOUT0_DIVIDE_F": {
-            "value": "78.125"
+            "value": "10.000"
           },
           "MMCM_DIVCLK_DIVIDE": {
-            "value": "2"
+            "value": "1"
           },
           "RESET_PORT": {
             "value": "resetn"
@@ -1212,7 +1212,7 @@
                 "value_src": "ip_prop"
               },
               "FREQ_HZ": {
-                "value": "10000000",
+                "value": "100000000",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -1239,16 +1239,16 @@
       }
     },
     "interface_nets": {
-      "processing_system7_0_DDR": {
-        "interface_ports": [
-          "DDR",
-          "processing_system7_0/DDR"
-        ]
-      },
       "processing_system7_0_FIXED_IO": {
         "interface_ports": [
           "FIXED_IO",
           "processing_system7_0/FIXED_IO"
+        ]
+      },
+      "processing_system7_0_DDR": {
+        "interface_ports": [
+          "DDR",
+          "processing_system7_0/DDR"
         ]
       }
     },
