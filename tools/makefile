@@ -17,6 +17,8 @@ LST:
 	$(TPATH)$(PREFIX)-objdump --source --all-headers --demangle --line-numbers --wide "main.elf" > "main.lst"
 ROM:
 	python3 rom_gen.py main.hex
-all: ASM GCC LINK VERILOG IHEX LST ROM
+COPY_CODEMEM:
+	cp -f code_mem.vhd ../src/rtl/infrastructure/
+all: ASM GCC LINK VERILOG IHEX LST ROM COPY_CODEMEM
 
 

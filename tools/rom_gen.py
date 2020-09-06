@@ -86,7 +86,7 @@ line=""
 line=f.read()
 cline=""
 vfile=""
-vf=open("codemem.v","w")
+vf=open("code_mem.vhd","w")
 vfile+="----------------------------------------------------------------------------------\n"
 vfile+="-- Company:  SCiMOS\n"
 vfile+="-- Engineer: Veeyceey\n"
@@ -110,7 +110,7 @@ vfile+="------------------------------------------------------------------------
 vfile+="library ieee;\n"
 vfile+="use ieee.std_logic_1164.all;\n"
 vfile+="use ieee.std_logic_unsigned.all;\n"
-vfile+="use ieee.std_logic_arith.all;\n"
+vfile+="--use ieee.std_logic_arith.all;\n"
 vfile+="use ieee.numeric_std.all;\n\n\n"
 
 
