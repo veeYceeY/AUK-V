@@ -19,6 +19,12 @@ ROM:
 	python3 rom_gen.py main.hex
 COPY_CODEMEM:
 	cp -f code_mem.vhd ../src/rtl/infrastructure/
-all: ASM GCC LINK VERILOG IHEX LST ROM COPY_CODEMEM
+SIMULATE:
+	cd ../src/sim/Example_system/ && make all
+wave_view:
+	cd ../src/sim/Example_system/ && make view 
+rom: ASM GCC LINK VERILOG IHEX LST ROM COPY_CODEMEM
+sim: ASM GCC LINK VERILOG IHEX LST ROM SIMULATE 
 
+all: rom
 

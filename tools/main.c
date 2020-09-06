@@ -36,13 +36,13 @@ int main()
   //*ptr=*a+*ptr;
 
   while(1){
-	  for (int i=0;i<200000;i++){
+	  for (int i=0;i<200;i++){
 	    }
 	  led(gpio,0x45);
-	  for (int i=0;i<300000;i++){
+	  for (int i=0;i<300;i++){
 	    }
 	  led(gpio,0x76);
-	  for (int i=0;i<200000;i++){
+	  for (int i=0;i<200;i++){
 	    }
 	  led(gpio,0xe3);
   }
