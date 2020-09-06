@@ -51,8 +51,8 @@ process(i_clk,i_rst)
 begin
 if i_rst = '1' then
     --pc <= x"000001f8";
-    pc <= x"000000D8";
-    --pc <= x"00000000";
+    --pc <= x"000000D8";--54
+    pc <= x"00000018";
 elsif rising_edge(i_clk) then
     if  i_stall='0' and i_valid='1'then
         if i_branch_en = '1' then

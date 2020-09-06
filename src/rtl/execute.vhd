@@ -185,7 +185,8 @@ cmp_result <=   cp0_eq when i_br_type_sel = "000" else
                 cp0_ne when i_br_type_sel = "001" else
                 cp0_lt when i_br_type_sel = "010" else
                 cp0_ge when i_br_type_sel = "011" else
-                '1' when i_br_type_sel = "100" ;
+                '1'    when i_br_type_sel = "100" else 
+                '0';
 
 set_result <= x"0000000" & "000" & cmp_result;
 
