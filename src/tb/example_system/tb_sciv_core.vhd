@@ -106,7 +106,7 @@ begin
     rst<= '1';
     wait for 100 ns;
     rst<='0';
-    wait 50000 ns;
+    wait for 50000 ns;
     std.env.finish;
 end process;
 
