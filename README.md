@@ -12,3 +12,9 @@
 ## Running simulation
     cd tools
     make sim  
+
+## Todo
+    Add AXI interface -- started
+    Add support for exceptions
+    Branch prediction
+    
