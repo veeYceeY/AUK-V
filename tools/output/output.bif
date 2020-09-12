@@ -1,0 +1,6 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]/home/veeyceey/Documents/workspace/github/AUK-V/tools/output/arm.elf
+	/home/veeyceey/Documents/workspace/github/AUK-V/tools/output/fpga.bit
+}
