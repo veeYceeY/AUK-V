@@ -34,9 +34,9 @@ compile_tb:
 simulate:
 	echo "Starting simulations..."
 	ghdl -e -frelaxed-rules --ieee=synopsys --std=08  --work=scivlib tb_sciv_core
-	ghdl -r -frelaxed-rules --ieee=synopsys --std=08 --work=scivlib tb_sciv_core --vcd=simdump.vcd 
+	ghdl -r -frelaxed-rules --ieee=synopsys --std=08 --work=scivlib tb_sciv_core --wave=simdump.ghw 
 
 view:
-	gtkwave simdump.vcd
+	gtkwave simdump.ghw
 
 all: compile_rtl compile_tb simulate view

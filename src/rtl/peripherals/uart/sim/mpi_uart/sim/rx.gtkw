@@ -1,0 +1,54 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Fri Jun 26 15:48:12 2020
+[*]
+[dumpfile] "/home/veeyceey/Documents/workspace/github/SCiSOC/soc/peripherals/uart/sim/tb_uart.vcd"
+[dumpfile_mtime] "Fri Jun 26 15:44:54 2020"
+[dumpfile_size] 354542
+[savefile] "/home/veeyceey/Documents/workspace/github/SCiSOC/soc/peripherals/uart/sim/rx.gtkw"
+[timestart] 1357000000
+[size] 1000 600
+[pos] 203 294
+*-28.000000 1743000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_uart.
+[treeopen] tb_uart.i_test_harness.
+[treeopen] tb_uart.i_test_harness.i_uart.
+[treeopen] tb_uart.i_test_harness.i_uart.uart0.
+[sst_width] 197
+[signals_width] 258
+[sst_expanded] 1
+[sst_vpaned_height] 158
+@28
+tb_uart.i_test_harness.i_uart.uart0.rx0.err
+tb_uart.i_test_harness.i_uart.uart0.rx0.i_clk
+tb_uart.i_test_harness.i_uart.uart0.rx0.i_en
+tb_uart.i_test_harness.i_uart.uart0.rx0.i_parity
+tb_uart.i_test_harness.i_uart.uart0.rx0.i_rst
+tb_uart.i_test_harness.i_uart.uart0.rx0.i_rx
+@22
+tb_uart.i_test_harness.i_uart.uart0.tx0.i_txdata[7:0]
+tb_uart.i_test_harness.i_uart.uart0.rx0.o_rxdata[7:0]
+@28
+tb_uart.i_test_harness.i_uart.uart0.rx0.o_rxvalid
+tb_uart.i_test_harness.i_uart.uart0.rx0.parity
+@22
+tb_uart.i_test_harness.i_uart.uart0.rx0.count[7:0]
+@28
+tb_uart.i_test_harness.i_uart.uart0.rx0.rx
+@22
+tb_uart.i_test_harness.i_uart.uart0.rx0.rx_buff[7:0]
+@29
+tb_uart.i_test_harness.i_uart.uart0.rx0.rx_cdc1
+@28
+tb_uart.i_test_harness.i_uart.uart0.rx0.i_baud_clk
+@22
+tb_uart.i_test_harness.i_uart.uart0.rx0.rx_data[7:0]
+tb_uart.i_test_harness.i_uart.uart0.rx0.rx_data_cdc0[7:0]
+tb_uart.i_test_harness.i_uart.uart0.rx0.rx_data_cdc1[7:0]
+@28
+tb_uart.i_test_harness.i_uart.uart0.rx0.rx_valid
+tb_uart.i_test_harness.i_uart.uart0.rx0.rx_valid_cdc0
+tb_uart.i_test_harness.i_uart.uart0.rx0.rx_valid_cdc1
+tb_uart.i_test_harness.i_uart.uart0.rx0.rx_cdc0
+[pattern_trace] 1
+[pattern_trace] 0

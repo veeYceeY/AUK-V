@@ -1,0 +1,65 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Fri Jun 26 16:33:44 2020
+[*]
+[dumpfile] "/home/veeyceey/Documents/workspace/github/SCiSOC/soc/peripherals/uart/sim/tb_uart.vcd"
+[dumpfile_mtime] "Fri Jun 26 16:33:08 2020"
+[dumpfile_size] 463777
+[savefile] "/home/veeyceey/Documents/workspace/github/SCiSOC/soc/peripherals/uart/sim/cfg0.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-33.000000 1299000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_uart.
+[treeopen] tb_uart.i_test_harness.
+[treeopen] tb_uart.i_test_harness.i_uart.
+[sst_width] 197
+[signals_width] 134
+[sst_expanded] 1
+[sst_vpaned_height] 158
+@22
+tb_uart.i_test_harness.i_uart.cfg0.cfg0[31:0]
+@28
+tb_uart.i_test_harness.i_uart.cfg0.clr_drdy
+tb_uart.i_test_harness.i_uart.cfg0.i_clk
+@22
+tb_uart.i_test_harness.i_uart.cfg0.i_raddr[31:0]
+@28
+tb_uart.i_test_harness.i_uart.cfg0.i_rea
+tb_uart.i_test_harness.i_uart.cfg0.i_rst
+@22
+tb_uart.i_test_harness.i_uart.cfg0.i_rxdata[7:0]
+@28
+tb_uart.i_test_harness.i_uart.cfg0.i_rxdrdy
+tb_uart.i_test_harness.i_uart.cfg0.i_txdone
+@22
+tb_uart.i_test_harness.i_uart.cfg0.i_waddr[31:0]
+tb_uart.i_test_harness.i_uart.cfg0.i_wdata[31:0]
+@28
+tb_uart.i_test_harness.i_uart.cfg0.i_wea
+@22
+tb_uart.i_test_harness.i_uart.cfg0.mem0[31:0]
+tb_uart.i_test_harness.i_uart.cfg0.mem1[31:0]
+tb_uart.i_test_harness.i_uart.cfg0.mem2[31:0]
+tb_uart.i_test_harness.i_uart.cfg0.mem3[31:0]
+tb_uart.i_test_harness.i_uart.cfg0.o_baud[4:0]
+@28
+tb_uart.i_test_harness.i_uart.cfg0.o_parity
+@22
+tb_uart.i_test_harness.i_uart.cfg0.o_rdata[31:0]
+tb_uart.i_test_harness.i_uart.cfg0.o_txdata[7:0]
+@28
+tb_uart.i_test_harness.i_uart.cfg0.o_txen
+tb_uart.i_test_harness.i_uart.cfg0.o_uart_en
+@22
+tb_uart.i_test_harness.i_uart.cfg0.rdata[31:0]
+tb_uart.i_test_harness.i_uart.cfg0.status[31:0]
+tb_uart.i_test_harness.i_uart.cfg0.tx_data[31:0]
+@28
+tb_uart.i_test_harness.i_uart.cfg0.tx_data_write
+tb_uart.i_test_harness.i_uart.cfg0.tx_en
+tb_uart.i_test_harness.i_uart.cfg0.txdone0
+tb_uart.i_test_harness.i_uart.cfg0.txdone1
+tb_uart.i_test_harness.i_uart.cfg0.txdone_lth
+[pattern_trace] 1
+[pattern_trace] 0

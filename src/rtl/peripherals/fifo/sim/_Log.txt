@@ -1,0 +1,305 @@
+UVVM: ID_CONSTRUCTOR                     0.0 ns  SBI_VVC,1                      VVC instantiated.
+UVVM: ID_CONSTRUCTOR_SUB                 0.0 ns  SBI_VVC,1                      Command queue instantiated and will give a warning when reaching 1000 elements in queue.
+UVVM: ID_CONSTRUCTOR_SUB                 0.0 ns  SBI_VVC,1                      Result queue instantiated and will give a warning when reaching 1000 elements in queue.
+UVVM: ID_CONSTRUCTOR                     0.0 ns  SBI_VVC,2                      VVC instantiated.
+UVVM: ID_CONSTRUCTOR_SUB                 0.0 ns  SBI_VVC,2                      Command queue instantiated and will give a warning when reaching 1000 elements in queue.
+UVVM: ID_CONSTRUCTOR_SUB                 0.0 ns  SBI_VVC,2                      Result queue instantiated and will give a warning when reaching 1000 elements in queue.
+UVVM: ID_CONSTRUCTOR                     0.0 ns  CLOCK_GENERATOR_VVC,1          VVC instantiated.
+UVVM: ID_CONSTRUCTOR_SUB                 0.0 ns  CLOCK_GENERATOR_VVC,1          Command queue instantiated and will give a warning when reaching 1000 elements in queue.
+UVVM: ID_CONSTRUCTOR_SUB                 0.0 ns  CLOCK_GENERATOR_VVC,1          Result queue instantiated and will give a warning when reaching 1000 elements in queue.
+UVVM: ID_CONSTRUCTOR                     0.0 ns  CLOCK_GENERATOR_VVC,1          VVC instantiated.
+UVVM: ID_CONSTRUCTOR_SUB                 0.0 ns  CLOCK_GENERATOR_VVC,1          Command queue instantiated and will give a warning when reaching 1000 elements in queue.
+UVVM: ID_CONSTRUCTOR_SUB                 0.0 ns  CLOCK_GENERATOR_VVC,1          Result queue instantiated and will give a warning when reaching 1000 elements in queue.
+UVVM: ID_CMD_INTERPRETER_WAIT            0.0 ns  CLOCK_GENERATOR_VVC,1            ..Interpreter: Waiting for command
+UVVM: ID_CMD_INTERPRETER_WAIT            0.0 ns  CLOCK_GENERATOR_VVC,1            ..Interpreter: Waiting for command
+UVVM: ID_CMD_INTERPRETER_WAIT            0.0 ns  SBI_VVC,2                        ..Interpreter: Waiting for command
+UVVM: ID_CMD_INTERPRETER_WAIT            0.0 ns  SBI_VVC,1                        ..Interpreter: Waiting for command
+UVVM: ID_CTRL                            0.0 ns  SBI_VVC_SB,2                   enable() => SB enabled. 'SBI VVC SB Enabled'
+UVVM: ID_CTRL                            0.0 ns  SBI_VVC_SB,2                   config() => config applied to SB. 
+UVVM: ID_CTRL                            0.0 ns  SBI_VVC_SB,2                   enable_log_msg() => message id id_data enabled.
+UVVM: ID_CTRL                            0.0 ns  SBI_VVC_SB,1                   enable() => SB enabled. 'SBI VVC SB Enabled'
+UVVM: ID_CTRL                            0.0 ns  SBI_VVC_SB,1                   config() => config applied to SB. 
+UVVM: ID_CTRL                            0.0 ns  SBI_VVC_SB,1                   enable_log_msg() => message id id_data enabled.
+UVVM: ID_CMD_EXECUTOR_WAIT               0.0 ns  CLOCK_GENERATOR_VVC,1            ..Executor: Waiting for command
+UVVM: ID_CMD_EXECUTOR_WAIT               0.0 ns  CLOCK_GENERATOR_VVC,1            ..Executor: Waiting for command
+UVVM: ID_UVVM_SEND_CMD                   0.0 ns  TB seq.(uvvm)                  ->start_clock(CLOCK_GENERATOR_VVC,1): 'Start clock generator'. [1]
+UVVM: ID_CMD_EXECUTOR_WAIT               0.0 ns  SBI_VVC,1                        ..Executor: Waiting for command
+UVVM: ID_CMD_EXECUTOR_WAIT               0.0 ns  SBI_VVC,2                        ..Executor: Waiting for command
+UVVM: ID_CMD_INTERPRETER                 0.0 ns  CLOCK_GENERATOR_VVC,1            start_clock(CLOCK_GENERATOR_VVC,1). Command received  [1]
+UVVM: ID_CMD_INTERPRETER                 0.0 ns  CLOCK_GENERATOR_VVC,1            start_clock(CLOCK_GENERATOR_VVC,1). Command received  [1]
+UVVM: ID_UVVM_CMD_ACK                    0.0 ns  TB seq.(uvvm)                      ACK received.   [1]
+UVVM: ID_CMD_EXECUTOR                    0.0 ns  CLOCK_GENERATOR_VVC,1            start_clock(CLOCK_GENERATOR_VVC,1) - Will be executed  [1]
+UVVM: ID_CMD_EXECUTOR                    0.0 ns  CLOCK_GENERATOR_VVC,1            start_clock(CLOCK_GENERATOR_VVC,1) - Will be executed  [1]
+UVVM: ID_CLOCK_GEN                       0.0 ns  CLOCK_GENERATOR_VVC,1          Clock RdClock started
+UVVM: ID_CLOCK_GEN                       0.0 ns  CLOCK_GENERATOR_VVC,1          Clock RdClock started
+UVVM:      
+UVVM:      --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+UVVM:      ***  REPORT OF GLOBAL CTRL ***
+UVVM:      --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+UVVM:                                IGNORE    STOP_LIMIT
+UVVM:                NOTE         :  REGARD         0
+UVVM:                TB_NOTE      :  REGARD         0
+UVVM:                WARNING      :  REGARD         0
+UVVM:                TB_WARNING   :  REGARD         0
+UVVM:                MANUAL_CHECK :  REGARD         0
+UVVM:                ERROR        :  REGARD         1
+UVVM:                TB_ERROR     :  REGARD         1
+UVVM:                FAILURE      :  REGARD         1
+UVVM:                TB_FAILURE   :  REGARD         1
+UVVM:      --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+UVVM:      
+UVVM:      
+UVVM:      --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+UVVM:      ***  REPORT OF MSG ID PANEL ***
+UVVM:      --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+UVVM:                ID                             Status
+UVVM:                ------------------------       ------
+UVVM:                ID_UTIL_BURIED               : DISABLED
+UVVM:                ID_BITVIS_DEBUG              : DISABLED
+UVVM:                ID_UTIL_SETUP                : ENABLED
+UVVM:                ID_LOG_MSG_CTRL              : ENABLED
+UVVM:                ID_ALERT_CTRL                : ENABLED
+UVVM:                ID_FINISH_OR_STOP            : ENABLED
+UVVM:                ID_CLOCK_GEN                 : ENABLED
+UVVM:                ID_GEN_PULSE                 : ENABLED
+UVVM:                ID_BLOCKING                  : ENABLED
+UVVM:                ID_WATCHDOG                  : ENABLED
+UVVM:                ID_POS_ACK                   : ENABLED
+UVVM:                ID_LOG_HDR                   : ENABLED
+UVVM:                ID_LOG_HDR_LARGE             : ENABLED
+UVVM:                ID_LOG_HDR_XL                : ENABLED
+UVVM:                ID_SEQUENCER                 : ENABLED
+UVVM:                ID_SEQUENCER_SUB             : ENABLED
+UVVM:                ID_BFM                       : ENABLED
+UVVM:                ID_BFM_WAIT                  : ENABLED
+UVVM:                ID_BFM_POLL                  : ENABLED
+UVVM:                ID_BFM_POLL_SUMMARY          : ENABLED
+UVVM:                ID_TERMINATE_CMD             : ENABLED
+UVVM:                ID_SEGMENT_INITIATE          : ENABLED
+UVVM:                ID_SEGMENT_COMPLETE          : ENABLED
+UVVM:                ID_SEGMENT_HDR               : ENABLED
+UVVM:                ID_SEGMENT_DATA              : ENABLED
+UVVM:                ID_PACKET_INITIATE           : ENABLED
+UVVM:                ID_PACKET_PREAMBLE           : ENABLED
+UVVM:                ID_PACKET_COMPLETE           : ENABLED
+UVVM:                ID_PACKET_HDR                : ENABLED
+UVVM:                ID_PACKET_DATA               : ENABLED
+UVVM:                ID_PACKET_CHECKSUM           : ENABLED
+UVVM:                ID_PACKET_GAP                : ENABLED
+UVVM:                ID_FRAME_INITIATE            : ENABLED
+UVVM:                ID_FRAME_COMPLETE            : ENABLED
+UVVM:                ID_FRAME_HDR                 : ENABLED
+UVVM:                ID_FRAME_DATA                : ENABLED
+UVVM:                ID_COVERAGE_MAKEBIN          : DISABLED
+UVVM:                ID_COVERAGE_ADDBIN           : DISABLED
+UVVM:                ID_COVERAGE_ICOVER           : DISABLED
+UVVM:                ID_COVERAGE_CONFIG           : ENABLED
+UVVM:                ID_COVERAGE_SUMMARY          : ENABLED
+UVVM:                ID_COVERAGE_HOLES            : ENABLED
+UVVM:                ID_UVVM_SEND_CMD             : ENABLED
+UVVM:                ID_UVVM_CMD_ACK              : ENABLED
+UVVM:                ID_UVVM_CMD_RESULT           : ENABLED
+UVVM:                ID_CMD_INTERPRETER           : ENABLED
+UVVM:                ID_CMD_INTERPRETER_WAIT      : ENABLED
+UVVM:                ID_IMMEDIATE_CMD             : ENABLED
+UVVM:                ID_IMMEDIATE_CMD_WAIT        : ENABLED
+UVVM:                ID_CMD_EXECUTOR              : ENABLED
+UVVM:                ID_CMD_EXECUTOR_WAIT         : ENABLED
+UVVM:                ID_NEW_HVVC_CMD_SEQ          : ENABLED
+UVVM:                ID_INSERTED_DELAY            : ENABLED
+UVVM:                ID_OLD_AWAIT_COMPLETION      : ENABLED
+UVVM:                ID_AWAIT_COMPLETION          : ENABLED
+UVVM:                ID_AWAIT_COMPLETION_LIST     : ENABLED
+UVVM:                ID_AWAIT_COMPLETION_WAIT     : ENABLED
+UVVM:                ID_AWAIT_COMPLETION_END      : ENABLED
+UVVM:                ID_UVVM_DATA_QUEUE           : ENABLED
+UVVM:                ID_CONSTRUCTOR               : ENABLED
+UVVM:                ID_CONSTRUCTOR_SUB           : ENABLED
+UVVM:                ID_VVC_ACTIVITY              : ENABLED
+UVVM:                ID_MONITOR                   : ENABLED
+UVVM:                ID_MONITOR_ERROR             : ENABLED
+UVVM:                ID_DATA                      : ENABLED
+UVVM:                ID_CTRL                      : ENABLED
+UVVM:                ID_FILE_OPEN_CLOSE           : ENABLED
+UVVM:                ID_FILE_PARSER               : ENABLED
+UVVM:                ID_SPEC_COV                  : ENABLED
+UVVM:      --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+UVVM:      
+UVVM: ID_LOG_MSG_CTRL                    0.0 ns  TB seq.                        disable_log_msg(ALL_MESSAGES). 
+UVVM: ID_LOG_MSG_CTRL                    0.0 ns  TB seq.                        enable_log_msg(ID_LOG_HDR). 
+UVVM: ID_LOG_MSG_CTRL                    0.0 ns  TB seq.                        enable_log_msg(ID_SEQUENCER). 
+UVVM: ID_LOG_MSG_CTRL                    0.0 ns  TB seq.                        enable_log_msg(ID_UVVM_SEND_CMD). 
+UVVM: ID_UVVM_SEND_CMD                   0.0 ns  TB seq.(uvvm)                  ->disable_log_msg(SBI_VVC,1, ALL_MESSAGES): . [2]
+UVVM: ID_CMD_INTERPRETER_WAIT            0.0 ns  CLOCK_GENERATOR_VVC,1            ..Interpreter: Waiting for command
+UVVM: ID_CMD_INTERPRETER_WAIT            0.0 ns  CLOCK_GENERATOR_VVC,1            ..Interpreter: Waiting for command
+UVVM: ID_CMD_EXECUTOR_WAIT               0.0 ns  CLOCK_GENERATOR_VVC,1            ..Executor: Waiting for command
+UVVM: ID_CMD_EXECUTOR_WAIT               0.0 ns  CLOCK_GENERATOR_VVC,1            ..Executor: Waiting for command
+UVVM: ID_CMD_INTERPRETER                 0.0 ns  SBI_VVC,1                        disable_log_msg(SBI_VVC,1, ALL_MESSAGES). Command received  [2]
+UVVM: ID_LOG_MSG_CTRL                    0.0 ns  SBI_VVC,1                      disable_log_msg(ALL_MESSAGES). ' [2]'
+UVVM: ID_UVVM_SEND_CMD                   0.0 ns  TB seq.(uvvm)                  ->enable_log_msg(SBI_VVC,1, ID_BFM): . [3]
+UVVM: ID_LOG_MSG_CTRL                    0.0 ns  SBI_VVC,1                      enable_log_msg(ID_BFM). ' [3]'
+UVVM: ID_UVVM_SEND_CMD                   0.0 ns  TB seq.(uvvm)                  ->enable_log_msg(SBI_VVC,1, ID_FINISH_OR_STOP): . [4]
+UVVM: ID_LOG_MSG_CTRL                    0.0 ns  SBI_VVC,1                      enable_log_msg(ID_FINISH_OR_STOP). ' [4]'
+UVVM: ID_UVVM_SEND_CMD                   0.0 ns  TB seq.(uvvm)                  ->disable_log_msg(SBI_VVC,2, ALL_MESSAGES): . [5]
+UVVM: ID_CMD_INTERPRETER                 0.0 ns  SBI_VVC,2                        disable_log_msg(SBI_VVC,2, ALL_MESSAGES). Command received  [5]
+UVVM: ID_LOG_MSG_CTRL                    0.0 ns  SBI_VVC,2                      disable_log_msg(ALL_MESSAGES). ' [5]'
+UVVM: ID_UVVM_SEND_CMD                   0.0 ns  TB seq.(uvvm)                  ->enable_log_msg(SBI_VVC,2, ID_BFM): . [6]
+UVVM: ID_LOG_MSG_CTRL                    0.0 ns  SBI_VVC,2                      enable_log_msg(ID_BFM). ' [6]'
+UVVM: ID_UVVM_SEND_CMD                   0.0 ns  TB seq.(uvvm)                  ->enable_log_msg(SBI_VVC,2, ID_FINISH_OR_STOP): . [7]
+UVVM: ID_LOG_MSG_CTRL                    0.0 ns  SBI_VVC,2                      enable_log_msg(ID_FINISH_OR_STOP). ' [7]'
+UVVM: 
+UVVM: 
+UVVM: ID_LOG_HDR                         0.0 ns  TB seq.                        Starting simulation of TB for UART using VVCs
+UVVM: -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+UVVM: ID_SEQUENCER                       0.0 ns  TB seq.                        Wait 10 clock period for reset to be turned off
+UVVM: 
+UVVM: 
+UVVM: ID_LOG_HDR                       100.0 ns  TB seq.                        Configure UART VVC 1
+UVVM: -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+UVVM: 
+UVVM: 
+UVVM: ID_LOG_HDR                       100.0 ns  TB seq.                        Check register defaults 
+UVVM: -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+UVVM: 
+UVVM: 
+UVVM: ID_LOG_HDR                       100.0 ns  TB seq.                        Check simple transmit
+UVVM: -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [8]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [9]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [10]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [11]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [12]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [13]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [14]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [15]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [16]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [17]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [18]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [19]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [20]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [21]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [22]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [23]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [24]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [25]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [26]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [27]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [28]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [29]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [30]
+UVVM: ID_UVVM_SEND_CMD                 100.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [31]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [32]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [33]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [34]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [35]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [36]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [37]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [38]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [39]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [40]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [41]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [42]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [43]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [44]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [45]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [46]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [47]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [48]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [49]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [50]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [51]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [52]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [53]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [54]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [55]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [56]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [57]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [58]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [59]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [60]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [61]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TB seq.(uvvm)                  ->sbi_write(SBI_VVC,1, x"2", x"55"): 'TX_DATA'. [62]
+UVVM: ID_UVVM_SEND_CMD                 300.0 ns  TX_DATA                        ->sbi_read(SBI_VVC,2, x"2"): '01010101'. [63]
+UVVM: 
+UVVM: 
+UVVM: ID_LOG_HDR                       300.0 ns  TB seq.                        Check simple receive
+UVVM: -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+UVVM: ID_BFM                          1250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [8]
+UVVM: ID_BFM                          1250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"00". '01010101'  [20]
+UVVM: ID_BFM                          2250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [9]
+UVVM: ID_BFM                          2250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"00". '01010101'  [21]
+UVVM: ID_BFM                          3250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [10]
+UVVM: ID_BFM                          3250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [22]
+UVVM: ID_BFM                          4250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [11]
+UVVM: ID_BFM                          4250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [23]
+UVVM: ID_BFM                          5250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [12]
+UVVM: ID_BFM                          5250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [24]
+UVVM: ID_BFM                          6250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [13]
+UVVM: ID_BFM                          6250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [25]
+UVVM: ID_BFM                          7250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [14]
+UVVM: ID_BFM                          7250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [26]
+UVVM: ID_BFM                          8250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [15]
+UVVM: ID_BFM                          8250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [27]
+UVVM: ID_BFM                          9250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [16]
+UVVM: ID_BFM                          9250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [28]
+UVVM: ID_BFM                         10250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [17]
+UVVM: ID_BFM                         10250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [29]
+UVVM: ID_BFM                         11250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [18]
+UVVM: ID_BFM                         11250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [30]
+UVVM: ID_BFM                         12250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [19]
+UVVM: ID_BFM                         12250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [31]
+UVVM: ID_BFM                         13250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [32]
+UVVM: ID_BFM                         13250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [44]
+UVVM: ID_BFM                         14250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [33]
+UVVM: ID_BFM                         14250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [45]
+UVVM: ID_BFM                         15250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [34]
+UVVM: ID_BFM                         15250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [46]
+UVVM: ID_BFM                         16250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [35]
+UVVM: ID_BFM                         16250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [47]
+UVVM: ID_BFM                         17250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [36]
+UVVM: ID_BFM                         17250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [50]
+UVVM: ID_BFM                         18250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [37]
+UVVM: ID_BFM                         18250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [51]
+UVVM: ID_BFM                         19250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [38]
+UVVM: ID_BFM                         19250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [52]
+UVVM: ID_BFM                         20250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [39]
+UVVM: ID_BFM                         20250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [53]
+UVVM: ID_BFM                         21250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [40]
+UVVM: ID_BFM                         21250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [54]
+UVVM: ID_BFM                         22250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [41]
+UVVM: ID_BFM                         22250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [57]
+UVVM: ID_BFM                         23250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [42]
+UVVM: ID_BFM                         23250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [58]
+UVVM: ID_BFM                         24250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [43]
+UVVM: ID_BFM                         24250.0 ns  SBI_VVC,2                      sbi_read(A:x"2")=> x"55". '01010101'  [63]
+UVVM: ID_BFM                         25250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [48]
+UVVM: ID_BFM                         26250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [49]
+UVVM: ID_BFM                         27250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [55]
+UVVM: ID_BFM                         28250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [56]
+UVVM: ID_BFM                         29250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [59]
+UVVM: ID_BFM                         30250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [60]
+UVVM: ID_BFM                         31250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [61]
+UVVM: ID_BFM                         32250.0 ns  SBI_VVC,1                      sbi_write(A:x"2", x"55") completed. 'TX_DATA'  [62]
+UVVM:      
+UVVM:      ====================================================================================================================================================================
+UVVM:      *** FINAL SUMMARY OF ALL ALERTS ***
+UVVM:      ====================================================================================================================================================================
+UVVM:                                REGARDED   EXPECTED  IGNORED      Comment?
+UVVM:                NOTE         :      0         0         0         ok
+UVVM:                TB_NOTE      :      0         0         0         ok
+UVVM:                WARNING      :      0         0         0         ok
+UVVM:                TB_WARNING   :      0         0         0         ok
+UVVM:                MANUAL_CHECK :      0         0         0         ok
+UVVM:                ERROR        :      0         0         0         ok
+UVVM:                TB_ERROR     :      0         0         0         ok
+UVVM:                FAILURE      :      0         0         0         ok
+UVVM:                TB_FAILURE   :      0         0         0         ok
+UVVM:      ====================================================================================================================================================================
+UVVM:      >> Simulation SUCCESS: No mismatch between counted and expected serious alerts
+UVVM:      ====================================================================================================================================================================
+UVVM:      
+UVVM:      
+UVVM: 
+UVVM: 
+UVVM: ID_LOG_HDR                     33250.0 ns  TB seq.                        SIMULATION COMPLETED
+UVVM: -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
