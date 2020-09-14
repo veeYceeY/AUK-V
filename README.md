@@ -1,4 +1,6 @@
 # AUK-V
+![Alt text](doc/arch.png?raw=true "Architecture")
+
 
     AUK-V is a RISC-V 32 bit machine for fpgas. It can Execute RV32I instructions
 
