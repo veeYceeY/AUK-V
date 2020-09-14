@@ -2,7 +2,7 @@
 ![Alt text](doc/arch.png?raw=true "Architecture")
 
 
-    AUK-V is a RISC-V 32 bit machine for fpgas. It can Execute RV32I instructions
+    AUK-V is a RISC-V 32 bit processor compatible with RV32I instructions
 
 ## Requirements for running simulation
 
