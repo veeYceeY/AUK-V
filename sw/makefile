@@ -3,29 +3,26 @@ TPATH := /opt/riscv32i/bin/
 PREFIX := riscv32-unknown-elf
 XSCT := /opt/vivado191/SDK/2019.1/bin/xsct/
 ASM: 
-	$(TPATH)$(PREFIX)-as  -march=rv32i start.S -o start.o
+	$(TPATH)$(PREFIX)-as  -march=rv32i bsp/start.S -o build/start.o
 
 GCC:
-	$(TPATH)$(PREFIX)-gcc -march=rv32i -Wall -Werror -mpreferred-stack-boundary=3  -ffreestanding -c main.c -o main.o 
+	$(TPATH)$(PREFIX)-gcc -march=rv32i -Wall -Werror -mpreferred-stack-boundary=3  -ffreestanding -c src/main.c -o build/main.o 
 LINK:
-	$(TPATH)$(PREFIX)-ld start.o main.o -T ldscript -o main.elf
+	$(TPATH)$(PREFIX)-ld build/start.o build/main.o -T bsp/ldscript -o build/main.elf
 VERILOG:
-	$(TPATH)$(PREFIX)-objcopy -O verilog  main.elf  main.v
+	$(TPATH)$(PREFIX)-objcopy -O verilog  build/main.elf  build/main.v
 IHEX:
-	$(TPATH)$(PREFIX)-objcopy -O ihex  main.elf  main.hex
+	$(TPATH)$(PREFIX)-objcopy -O ihex  build/main.elf  build/main.hex
 LST:
-	$(TPATH)$(PREFIX)-objdump --source --all-headers --demangle  --line-numbers --wide "main.elf" > "main.lst"
+	$(TPATH)$(PREFIX)-objdump --source --all-headers --demangle  --line-numbers --wide "build/main.elf" > "build/main.lst"
 ROM:
-	python3 rom_gen.py main.hex
-COPY_CODEMEM:
-	cp -f code_mem.vhd ../src/rtl/infrastructure/
-SIMULATE:
-	cd ../src/sim/Example_system/ && make all
-wave_view:
-	cd ../src/sim/Example_system/ && make view 
+	python3 ../tools/rom_gen.py ./build/main.hex
 rom: ASM GCC LINK VERILOG IHEX LST ROM COPY_CODEMEM
-sim: ASM GCC LINK VERILOG IHEX LST ROM COPY_CODEMEM SIMULATE 
 
+
+COPY_CODEMEM:
+	cp -f build/code_mem.vhd ../src/rtl/infrastructure/
+	
 all: rom
 
 #FLASH:
