@@ -18,25 +18,29 @@ int main()
   //int gpio;
   int *gpio;
   int *a,*b,*c;
-  a=(int*)0x110;
-  b=(int*)0x114;
-  c=(int*)0x118;
+  int x,y,z;
+  a=&z;
+  b=&y;
+  c=&x;
+  //a=(int*)0x00010110;
+  //b=(int*)0x00010114;
+  //c=(int*)0x00010118;
   *a=5;
   *b=-10;
   *c=*a+*b;
-  gpio =(int*)4097;
+  gpio =(int*) 0x00100001;
   *gpio=0x86;
 
   //*ptr=*a+*ptr;
 
   while(1){
-	  for (int i=-100;i<200000;i++){
+	  for (int i=-100;i<100;i++){
 	    }
 	  led(gpio,0x45);
-	  for (int i=0;i<300000;i++){
+	  for (int i=0;i<200;i++){
 	    }
 	  led(gpio,0x76);
-	  for (int i=0;i<000000;i++){
+	  for (int i=0;i<300;i++){
 	    }
 	  led(gpio,0xe3);
   }

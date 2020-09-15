@@ -1,0 +1,24 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../../src/rtl/alu.vhd" \
+"../../../../../../src/rtl/infrastructure/code_mem.vhd" \
+"../../../../../../src/rtl/comp.vhd" \
+"../../../../../../src/rtl/decode_uc.vhd" \
+"../../../../../../src/rtl/microcode_mem.vhd" \
+"../../../../../../src/rtl/decode.vhd" \
+"../../../../../../src/rtl/execute.vhd" \
+"../../../../../../src/rtl/fetch.vhd" \
+"../../../../../../src/rtl/peripherals/reg_if.vhd" \
+"../../../../../../src/rtl/peripherals/gpio.vhd" \
+"../../../../../../src/rtl/memory_access.vhd" \
+"../../../../../../src/rtl/infrastructure/native_mem_interconnect.vhd" \
+"../../../../../../src/rtl/infrastructure/ram.vhd" \
+"../../../../../../src/rtl/reg_file.vhd" \
+"../../../../../../src/rtl/write_back.vhd" \
+"../../../../../../src/rtl/sciv_core.vhd" \
+"../../../../../../src/rtl/system/sciv_base_system_native.vhd" \
+"../../../../../../src/rtl/system/sciv_example_system_native.vhd" \
+"../../../../../../src/tb/example_system/tb_aukv_example_native.vhd" \
+
+# Do not sort compile order
+nosort

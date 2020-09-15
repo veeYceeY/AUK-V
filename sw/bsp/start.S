@@ -1,7 +1,7 @@
 # Initialize sp and jump to main. Loop incase main returns
 .global _start
 _start:
-    addi sp,zero,256
+    li sp,0x008007ff
     jal main
 here:
      j here
