@@ -1,0 +1,27 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../../src/rtl/alu.vhd" \
+"../../../../../../src/rtl/comp.vhd" \
+"../../../../../../src/rtl/decode_uc.vhd" \
+"../../../../../../src/rtl/microcode_mem.vhd" \
+"../../../../../../src/rtl/decode.vhd" \
+"../../../../../../src/rtl/execute.vhd" \
+"../../../../../../src/rtl/fetch.vhd" \
+"../../../../../../src/rtl/memory_access.vhd" \
+"../../../../../../src/rtl/infrastructure/pkg_aukv.vhd" \
+"../../../../../../src/rtl/reg_file.vhd" \
+"../../../../../../src/rtl/write_back.vhd" \
+"../../../../../../src/rtl/sciv_core.vhd" \
+"../../../../../../src/rtl/infrastructure/wb_master.vhd" \
+"../../../../../../src/rtl/infrastructure/wb_arbiter.vhd" \
+"../../../../../../src/rtl/system/sciv_core_wb.vhd" \
+"../../../../../../src/rtl/infrastructure/wb_interconnect.vhd" \
+"../../../../../../src/rtl/infrastructure/wb_oc_ram.vhd" \
+"../../../../../../src/rtl/infrastructure/wb_oc_rom.vhd" \
+"../../../../../../src/rtl/peripherals/wb_reg_if.vhd" \
+"../../../../../../src/rtl/peripherals/wb_gpio.vhd" \
+"../../../../../../src/rtl/system/sciv_example_system_wb.vhd" \
+"../../../../../../src/tb/example_system/tb_aukv_example_wb.vhd" \
+
+# Do not sort compile order
+nosort

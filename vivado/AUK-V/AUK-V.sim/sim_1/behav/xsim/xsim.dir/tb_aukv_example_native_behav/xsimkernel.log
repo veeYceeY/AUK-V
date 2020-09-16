@@ -1,7 +1,7 @@
-Running: xsim.dir/tb_aukv_example_native_behav/xsimk -simmode gui -wdb tb_aukv_example_native_behav.wdb -simrunnum 0 -socket 35003
+Running: xsim.dir/tb_aukv_example_native_behav/xsimk -simmode gui -wdb tb_aukv_example_native_behav.wdb -simrunnum 0 -socket 39761
 Design successfully loaded
 Design Loading Memory Usage: 33900 KB (Peak: 33900 KB)
-Design Loading CPU Usage: 10 ms
+Design Loading CPU Usage: 20 ms
 Simulation completed
 Simulation Memory Usage: 123836 KB (Peak: 173168 KB)
-Simulation CPU Usage: 850 ms
+Simulation CPU Usage: 920 ms

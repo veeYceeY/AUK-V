@@ -39,6 +39,7 @@ entity fetch is
                 
                 o_pc : out std_logic_vector(31 downto 0);
                 o_instr : out std_logic_vector(31 downto 0)
+                --o_instr_valid : out std_logic
         );
 
 end fetch;
@@ -54,17 +55,18 @@ if i_rst = '1' then
     --pc <= x"000000D8";--54
     pc <= x"00010018";
 elsif rising_edge(i_clk) then
-    if  i_stall='0' and i_valid='1'then
+    if  i_stall='0' then
         if i_branch_en = '1' then
             pc <= i_branch_addr;
-        else
+        elsif i_valid='1' then
             pc <= pc+4;
         end if;
     end if;
 end if;
 end process;
 o_addr <= pc;
-o_instr <= i_data;
+o_instr <= i_data when i_valid ='1' else x"00000033";
+--o_instr_valid <= i_valid;
 --o_pc <= (others =>'0') when i_rst = '1' else pc when rising_edge(i_clk);
 process(i_stall,pc,i_rst)
 begin
