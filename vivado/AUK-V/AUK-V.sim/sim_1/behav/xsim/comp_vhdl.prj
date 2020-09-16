@@ -1,6 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../../../src/rtl/comp.vhd" \
-
-# Do not sort compile order
-nosort
