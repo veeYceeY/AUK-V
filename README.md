@@ -9,14 +9,17 @@
     ghdl
     gtkwave
 ## Create code rom in vhdl 
-    cd tools
+    cd make/native
     make rom  
 ## Running simulation
-    cd tools
+    cd make/native
     make sim  
 
 ## Todo
-    Add AXI interface -- started
-    Add support for exceptions
+
+    CSR       -- on going
+    exceptions
+    Wishbone interface
+    AXI interface
     Branch prediction
     
