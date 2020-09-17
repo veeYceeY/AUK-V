@@ -126,6 +126,17 @@ signal de0_rs2_fwsel : std_logic_vector(1 downto 0);
 signal de0_cmp_op1sel : std_logic;
 signal fetch_stall : std_logic;
 signal de0_stall : std_logic;
+
+signal de0_csr_sel   : std_logic;
+signal de0_csr_we    : std_logic;
+signal de0_csr_rd    : std_logic;
+signal de0_csr_data  : std_logic_vector(31 downto 0);
+signal de0_csr_addr  : std_logic_vector(11 downto 0);
+signal de0_csr_op    : std_logic_vector(1 downto 0);
+signal csr0_csr_data  : std_logic_vector(31 downto 0);
+
+
+
 begin
 
 --ma0_stall<= '0';
@@ -193,7 +204,16 @@ DE0: entity work.decode
             o_mem_we        =>de0_mem_we,
             --o_mem_addr   :=>
             o_mem_data      =>de0_mem_data,
-            o_stall           =>de0_stall
+            o_stall           =>de0_stall,
+
+        o_csr_sel       => de0_csr_sel   ,
+        o_csr_we        => de0_csr_we    ,
+        o_csr_rd        => de0_csr_rd    ,
+        o_csr_data      => de0_csr_data  ,
+        o_csr_addr      => de0_csr_addr,
+        o_csr_op        => de0_csr_op    ,
+        i_csr_data        => csr0_csr_data    
+                
             
             
             
@@ -344,6 +364,23 @@ RF0: entity work.reg_file
             o_rs2       =>rf0_rs2
     );
 
+
+
+    csr0: entity work.csr_file  
+    port map(
+            i_clk       =>i_clk,
+            i_rst       =>i_rst,
+            
+            i_rd_addr  =>de0_csr_addr,
+            i_wr_addr  =>de0_csr_addr,
+                        
+            i_wr_data   =>de0_csr_data,
+            i_we        =>de0_csr_we,
+            i_rd        =>de0_csr_rd,
+                        
+            i_op       =>de0_csr_op,
+            o_data       =>csr0_csr_data
+    );
 
 
 

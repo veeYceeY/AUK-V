@@ -23,6 +23,7 @@ compile_rtl:
 	ghdl -a -frelaxed-rules --ieee=synopsys --std=08 -Wno-hide -Wno-shared --work=scivlib ../../rtl/decode.vhd
 	ghdl -a -frelaxed-rules --ieee=synopsys --std=08 -Wno-hide -Wno-shared --work=scivlib ../../rtl/memory_access.vhd
 	ghdl -a -frelaxed-rules --ieee=synopsys --std=08 -Wno-hide -Wno-shared --work=scivlib ../../rtl/reg_file.vhd
+	ghdl -a -frelaxed-rules --ieee=synopsys --std=08 -Wno-hide -Wno-shared --work=scivlib ../../rtl/csr_file.vhd
 	ghdl -a -frelaxed-rules --ieee=synopsys --std=08 -Wno-hide -Wno-shared --work=scivlib ../../rtl/write_back.vhd
 	ghdl -a -frelaxed-rules --ieee=synopsys --std=08 -Wno-hide -Wno-shared --work=scivlib ../../rtl/sciv_core.vhd
 
@@ -41,3 +42,5 @@ view:
 	gtkwave simdump.ghw
 
 all: compile_rtl compile_tb simulate view
+clean:
+	rm simdump.ghw 

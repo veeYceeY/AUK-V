@@ -77,7 +77,16 @@ entity decode is
             o_mem_we        : out std_logic;
             --o_mem_addr   : out std_logic_vector(31 downto 0);
             o_mem_data      : out std_logic_vector(31 downto 0);
-            o_stall: out std_logic
+            o_stall: out std_logic;
+
+
+            o_csr_sel   : out std_logic;
+            o_csr_we    : out std_logic;
+            o_csr_rd    : out std_logic;
+            o_csr_data  : out std_logic_vector(31 downto 0);
+            o_csr_addr  : out std_logic_vector(11 downto 0);
+            o_csr_op    : out std_logic_vector(1 downto 0);
+            i_csr_data    : in std_logic_vector(31 downto 0)
             
             
             
@@ -98,59 +107,64 @@ begin
 
 DU0: entity work.decode_uc
     port map(
-            i_clk             => i_clk           ,
-            i_rst             => i_rst           , 
-            
-            i_stall           => i_stall         ,       
-            i_instr           => i_instr         ,
-            i_pc              => i_pc            ,
-                                
-            o_uc_addr         => uc_addr       ,
-            i_data            => data          ,
-                                
-            --i_stall         => --i_stall       ,
-            --i_br_en         => --i_br_en       ,
-            --i_br_addr       => --i_br_addr     ,
-                                
-            o_src1_addr       => o_src1_addr     ,
-            o_src2_addr       => o_src2_addr     ,
-            i_src1            => i_src1          ,
-            i_src2            => i_src2          ,
-                                
-                               
-            o_rs1             => o_rs1           ,
-            o_rs2             => o_rs2           ,
-            o_imm             => o_imm           ,
-            o_pc              => o_pc            ,
-                                
-            o_rs1_fwsel       => o_rs1_fwsel     ,
-            o_rs2_fwsel       => o_rs2_fwsel     ,
-            
-            o_cmp_op1sel      => o_cmp_op1sel,
-            o_op1_sel         => o_op1_sel       ,
-            o_op2_sel         => o_op2_sel       ,
-                                
-            o_br_en           => o_br_en         ,
-            o_br_type         => o_br_type       ,
-            --o_br_addr_sel     => o_br_addr_sel   ,
-                                
-            o_alu_opsel       => o_alu_opsel     ,
-            o_op_sign         => o_op_sign       ,                    
-            o_exe_res_sel     => o_exe_res_sel   ,
-                                
-            o_mem_store_type  => o_mem_store_type    ,
-            o_mem_load_type   => o_mem_load_type ,
-            o_wb_en           => o_wb_en         ,
-            o_wb_reg          => o_wb_reg        ,
-            o_wb_data_sel     => o_wb_data_sel    ,
-            o_mem_en          => o_mem_en        ,
-            o_mem_we          => o_mem_we        ,
-            --o_mem_addr      => --o_mem_addr    ,
-            o_mem_data        => o_mem_data      ,
-            o_stall           =>o_stall
-           
-            
-            
+        i_clk             => i_clk           ,
+        i_rst             => i_rst           , 
+        
+        i_stall           => i_stall         ,       
+        i_instr           => i_instr         ,
+        i_pc              => i_pc            ,
+                        
+        o_uc_addr         => uc_addr       ,
+        i_data            => data          ,
+                        
+        --i_stall         => --i_stall       ,
+        --i_br_en         => --i_br_en       ,
+        --i_br_addr       => --i_br_addr     ,
+                        
+        o_src1_addr       => o_src1_addr     ,
+        o_src2_addr       => o_src2_addr     ,
+        i_src1            => i_src1          ,
+        i_src2            => i_src2          ,
+                        
+                        
+        o_rs1             => o_rs1           ,
+        o_rs2             => o_rs2           ,
+        o_imm             => o_imm           ,
+        o_pc              => o_pc            ,
+                        
+        o_rs1_fwsel       => o_rs1_fwsel     ,
+        o_rs2_fwsel       => o_rs2_fwsel     ,
+        
+        o_cmp_op1sel      => o_cmp_op1sel,
+        o_op1_sel         => o_op1_sel       ,
+        o_op2_sel         => o_op2_sel       ,
+                        
+        o_br_en           => o_br_en         ,
+        o_br_type         => o_br_type       ,
+        --o_br_addr_sel     => o_br_addr_sel   ,
+                        
+        o_alu_opsel       => o_alu_opsel     ,
+        o_op_sign         => o_op_sign       ,                    
+        o_exe_res_sel     => o_exe_res_sel   ,
+                        
+        o_mem_store_type  => o_mem_store_type    ,
+        o_mem_load_type   => o_mem_load_type ,
+        o_wb_en           => o_wb_en         ,
+        o_wb_reg          => o_wb_reg        ,
+        o_wb_data_sel     => o_wb_data_sel    ,
+        o_mem_en          => o_mem_en        ,
+        o_mem_we          => o_mem_we        ,
+        --o_mem_addr      => --o_mem_addr    ,
+        o_mem_data        => o_mem_data      ,
+        o_stall           =>o_stall,
+
+        o_csr_rd       =>o_csr_rd   ,
+        o_csr_we        =>o_csr_we    ,
+        o_csr_data      =>o_csr_data  ,
+        o_csr_addr      =>o_csr_addr  ,
+        o_csr_op        =>o_csr_op    ,
+        i_csr_data      =>i_csr_data    
+             
     );
 MC0: entity work.microcode_mem  
   Port map (

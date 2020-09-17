@@ -11,3 +11,5 @@ wave_view:
 sim: ROM SIMULATE 
 
 all: sim
+clean:
+	cd ../../src/sim/Example_system/ && make clean 

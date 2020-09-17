@@ -84,6 +84,9 @@ ref <= zero when i_rs1(31)='0' else sign;
 --shiftright_logic <= x"00000000";
 --shiftright_arith <= x"00000000";
 
+--shiftleft       <= std_logic_vector(shift_left(unsigned(i_rs1),shamt));
+--shiftright_logic<= std_logic_vector(shift_right(unsigned(i_rs1),shamt));
+--shiftright_arith<= std_logic_vector(unsigned(shift_right(signed(i_rs1),shamt)));
 
 shiftleft <= i_rs1((31-0) downto 0 )                           when shamt=0 else 
              i_rs1((31-1) downto 0 )   & zero((1-1) downto 0)  when shamt=1 else 

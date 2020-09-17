@@ -81,7 +81,15 @@ entity decode_uc is
             o_mem_we     : out std_logic;
             --o_mem_addr   : out std_logic_vector(31 downto 0);
             o_mem_data   : out std_logic_vector(31 downto 0);
-            o_stall: out std_logic
+            o_stall: out std_logic;
+
+            
+            o_csr_rd   : out std_logic;
+            o_csr_we    : out std_logic;
+            o_csr_data  : out std_logic_vector(31 downto 0);
+            o_csr_addr  : out std_logic_vector(11 downto 0);
+            o_csr_op    : out std_logic_vector(1 downto 0);
+            i_csr_data    : in std_logic_vector(31 downto 0)
             
             
     );
@@ -160,6 +168,18 @@ signal mem_wr: std_logic;
 signal stall: std_logic;
 signal stall_d: std_logic;
 signal bubble_count: std_logic_vector(3 downto 0);
+
+signal csr_sel   : std_logic;
+signal csr_we    : std_logic;
+signal csr_data  : std_logic_vector(31 downto 0);
+signal csr_address  : std_logic_vector(11 downto 0);
+signal csr_d_type : std_logic;
+signal csr_rd : std_logic;
+signal csr_op    : std_logic_vector(1 downto 0);
+
+
+
+
 begin
 instr<= i_instr when stall_d='0' else x"00000033";
 
@@ -186,9 +206,9 @@ immu_b <=    "000" & x"0000" & instr(31) & instr(7) & instr(30 downto 25) & inst
 immu_j <=    "000" & x"00" & instr(31)  & instr(19 downto 12) & instr(20) & instr( 30 downto 21)  & '0';
 
 imm_r <=    x"000000" & "000" & rs2;
-
+csr_address<=instr(31 downto 20) ;
 o_uc_addr        <= uc_addr;--
-uc               <= i_data;
+--uc               <= i_data;
 store_type       <=uc(1 downto 0);
 wb_we            <=uc(2);
 wb_data_sel      <=uc(3);
@@ -204,11 +224,25 @@ op2_sel          <=uc(21 downto 20);
 op1_sel          <=uc(23 downto 22);
 imm_sel          <=uc(26 downto 24);
 op_sign          <=uc(27);
-
+csr_op          <= uc(29 downto 28);
+csr_d_type       <= uc(30);
+csr_sel          <= uc(31);
 o_src1_addr     <= rs1;
 o_src2_addr     <= rs2;
 
 
+
+
+csr_we <= '1' when csr_sel = '1' and ((csr_op = "01" and rs1 /="00000") or csr_op(1) = '1')  else '0';
+csr_rd <= '1' when csr_sel = '1' and ((csr_op(1) = '1' and rd /="00000")or csr_op = "01") else '0';
+--csr_wb_en <= csr_en;
+csr_data <= i_src1 when csr_d_type = '0' else x"000000"&"000"&rs1;
+
+o_csr_rd   <=csr_rd   ;
+o_csr_we    <=csr_we    ;
+o_csr_data  <=csr_data  ;
+o_csr_op    <=csr_op    ;
+o_csr_addr<= csr_address; -- after 1 ns;
 
 
 
@@ -224,7 +258,9 @@ imm <=  imm_u when imm_sel = x"0" else
         imm_j when imm_sel = x"2" else
         imm_b when imm_sel = x"3" else
         imm_r when imm_sel = x"4" else
-        imm_s when imm_sel = x"5" ;
+        imm_s when imm_sel = x"5" else
+        i_csr_data when imm_sel = x"6" else
+        x"00000000"    ;
         
 -----------------------data forwardingc exec---------------
 
@@ -377,72 +413,100 @@ process(opcode,funct3,funct7)
 begin
     if opcode = "0110111" then
         uc_addr <= x"01";
+        uc  <= "00001000111000000000000000000100";
     elsif opcode = "0010111" then
         uc_addr <= x"02";
+        uc  <= "00001000101000000000000000000100";
     elsif opcode = "1101111" then
         uc_addr <= x"03";
+        uc  <= "00001010101000000101001000000100";
     elsif opcode = "1100111" then
         uc_addr <= x"04";
+        uc  <= "00001001001000000101001000000100";
     elsif opcode = "1100011" then
             if funct3 = "000" then
                 uc_addr <= x"05";
+                uc  <= "00001011101000000000001000000000";
             elsif funct3 = "001" then
                 uc_addr <= x"06";
+                uc  <= "00001011101000000000011000000000";
             elsif funct3 = "100" then
                 uc_addr <= x"07";
+                uc  <= "00001011101000000000101000000000";
             elsif funct3 = "101" then
                 uc_addr <= x"08";
+                uc  <= "00001011101000000000111000000000";
             elsif funct3 = "110" then
                 uc_addr <= x"09";
+                uc  <= "00000011101000000000101000000000";
             elsif funct3 = "111" then
                 uc_addr <= x"0a";
+                uc  <= "00000011101000000000111000000000";
             else
                 uc_addr <= x"00";
+                uc  <= "00000000000000000000000000000000";
             end if;
     elsif opcode = "0000011" then
             if funct3 = "000" then
                 uc_addr <= x"0b";
+                uc  <= "00001001001000000000000000011100";
             elsif funct3 = "001" then
                 uc_addr <= x"0c";
+                uc  <= "00001001001000000000000001011100";
             elsif funct3 = "010" then
                 uc_addr <= x"0d";
+                uc  <= "00001001001000000000000010011100";
             elsif funct3 = "100" then
                 uc_addr <= x"0e";
+                uc  <= "00000001001000000000000011011100";
             elsif funct3 = "101" then
                 uc_addr <= x"0f";
+                uc  <= "00000001001000000000000100011100";
             else
                 uc_addr <= x"00";
             end if;
     elsif opcode = "0100011" then
             if funct3 = "000" then
                 uc_addr <= x"10";
+                uc  <= "00001101001000000000000000110000";
             elsif funct3 = "001" then
                 uc_addr <= x"11";
+                uc  <= "00001101001000000000000000110001";
             elsif funct3 = "010" then
                 uc_addr <= x"12";
+                uc  <= "00001101001000000000000000110010";
             else
                 uc_addr <= x"00";
             end if;
     elsif opcode = "0010011" then
             if funct3 = "000" then
                 uc_addr <= x"13";
+                uc  <= "00001001001000000000000000000100";
             elsif funct3 = "001" then
                 uc_addr <= x"19";
+                uc  <= "00001100001001010000000000000100";
             elsif funct3 = "010" then
                 uc_addr <= x"14";
+                uc  <= "00001001001000011010000000000100";
             elsif funct3 = "011" then
                 uc_addr <= x"15";
+                uc  <= "00000001001000011010000000000100";
             elsif funct3 = "100" then
                 uc_addr <= x"16";
+                uc  <= "00001001001000100000000000000100";
             elsif funct3 = x"110" then
                 uc_addr <= x"17";
+                uc  <= "00001001001000110000000000000100";
             elsif funct3 = "111" then
                 uc_addr <= x"18";
+                uc  <= "00001001001001000000000000000100";
             elsif funct3 = x"101" then
                 if funct7(5) = '0' then
                     uc_addr <= x"1b";
+                    uc  <= "00001100001001110000000000000100";
                 else
                     uc_addr <= x"1a";
+                    uc  <= "00001100001001100000000000000100";
                 end if;
             else
                 uc_addr <= x"00";
@@ -451,50 +515,94 @@ begin
             if funct3 = "000" then
                 if funct7(5) = '0' then
                     uc_addr <= x"1c";
+                    uc  <= "00001000000000000000000000000100";
                 else
                     uc_addr <= x"1d";
+                    uc  <= "00001000000000010000000000000100";
                 end if;
             elsif funct3 = "001" then
                 uc_addr <= x"1e";
+                uc  <= "00001000000001010000000000000100";
             elsif funct3 = "010" then
                 uc_addr <= x"1f";
+                uc  <= "00001000000000001000000000000100";
             elsif funct3 = "011" then
                 uc_addr <= x"20";
+                uc  <= "00000000000000001000000000000100";
             elsif funct3 = "100" then
                 uc_addr <= x"21";
+                uc  <= "00001000000000100000000000000100";
             elsif funct3 = "101" then
                 if funct7(5) = '0' then
                     uc_addr <= x"22";
+                    uc  <= "00001000000001100000000000000100";
                 else
                     uc_addr <= x"23";
+                    uc  <= "00001000000001110000000000000100";
                 end if;
             elsif funct3 = "110" then
                 uc_addr <= x"24";
+                uc  <= "00001000000001000000000000000100";
             elsif funct3 = "111" then
                 uc_addr <= x"25";
+                uc  <= "00001000000000110000000000000100";
             else
                 uc_addr <= x"00";
             end if;
     elsif opcode = "0001111" then
             if funct3 = "000" then
                 uc_addr <= x"26";
+                uc  <= "00001000101000000000000000000000";
             elsif funct3 = "001" then
                 uc_addr <= x"27";
+                uc  <= "00001000101000000000000000000000";
             else
                 uc_addr <= x"00";
             end if;
     elsif opcode = "1110011" then
-            if imm_i(0) = '0' then
-                uc_addr <= x"28";
+            if funct3 = "000" then
+                if imm_i(0) = '0' then
+                    uc_addr <= x"28";
+                    uc  <= "00001000101000000000000000000000";
+                else
+                    uc_addr <= x"29";
+                    uc  <= "00001000101000000000000000000000";
+                end if;
+            elsif funct3 = "001" then
+                uc  <= "10011110111000000000000000000100";
+                uc_addr <= x"2a";
+            elsif funct3 = "010" then
+                uc  <= "10101110111000000000000000000100";
+                uc_addr <= x"2b";
+            elsif funct3 = "011" then
+                uc  <= "10111110111000000000000000000100";
+                uc_addr <= x"2c";
+            elsif funct3 = "101" then
+                uc  <= "11011110111000000000000000000100";
+                uc_addr <= x"2d";
+            elsif funct3 = "110" then
+                uc  <= "11101110111000000000000000000100";
+                uc_addr <= x"2e";
+            elsif funct3 = "111" then
+                uc  <= "11111110111000000000000000000100";
+                uc_addr <= x"2f";
             else
-                uc_addr <= x"29";
+            uc_addr <= x"00";
             end if;
-        
     else
         uc_addr <= x"00";
     end if;
 end process;
 
+
+
+--00001000111000000000000000000100
+--10010000000000000000000000000100
+--10100000000000000000000000000100
+--10110000000000000000000000000100
+--11010000000000000000000000000100
+--11100000000000000000000000000100
+--11110000000000000000000000000100
 
 --o_rs1           <= (others =>'0') when i_rst = '1' else i_src1      when rising_edge(i_clk);
 --o_rs2           <= (others =>'0') when i_rst = '1' else i_src2      when rising_edge(i_clk);

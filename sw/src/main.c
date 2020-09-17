@@ -9,7 +9,7 @@
 //#include <iostream>
 //using namespace std;
 
-
+#include <stdint.h>
 //
 void led(int* gpio,int val);
 
@@ -19,6 +19,7 @@ int main()
   int *gpio;
   int *a,*b,*c;
   int x,y,z;
+  register uint32_t temp = 0x86;
   a=&z;
   b=&y;
   c=&x;
@@ -30,7 +31,15 @@ int main()
   *c=*a+*b;
   gpio =(int*) 0x00100001;
   *gpio=0x86;
-
+  asm volatile("csrs mie, %[temp]\n":: [temp] "r" (temp));
+  temp = 0x84;
+  asm volatile("nop\n");
+  asm volatile("nop\n");
+  asm volatile("nop\n");
+  asm volatile("nop\n");
+  asm volatile("nop\n");
+  asm volatile("nop\n");
+  asm volatile("csrc mie, %[temp]\n":: [temp] "r" (temp));
   //*ptr=*a+*ptr;
 
   while(1){

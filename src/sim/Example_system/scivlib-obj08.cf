@@ -1,70 +1,73 @@
 v 4
-file . "../../rtl/system/sciv_base_system_native.vhd" "a6ae2243a09027cf22792b027f984d299ba1319b" "20200916121657.134":
-  entity sciv_base_system_native at 3( 2) + 0 on 3093;
-  architecture beh of sciv_base_system_native at 29( 664) + 0 on 3094;
-file . "../../rtl/system/sciv_example_system_native.vhd" "65ddf109ccc7a0a9d6c8c0f7afcebae5562e051c" "20200916121657.149":
-  entity sciv_example_system_native at 3( 2) + 0 on 3095;
-  architecture beh of sciv_example_system_native at 25( 394) + 0 on 3096;
-file . "../../rtl/infrastructure/native_mem_interconnect.vhd" "b746fe73940be8dbe6404943afe1428136258069" "20200916121656.976":
-  entity native_mem_interconnect at 1( 0) + 0 on 3063;
-  architecture behave of native_mem_interconnect at 71( 2688) + 0 on 3064;
+file . "../../rtl/system/sciv_base_system_native.vhd" "a6ae2243a09027cf22792b027f984d299ba1319b" "20200917165051.855":
+  entity sciv_base_system_native at 3( 2) + 0 on 4197;
+  architecture beh of sciv_base_system_native at 29( 664) + 0 on 4198;
+file . "../../rtl/system/sciv_example_system_native.vhd" "65ddf109ccc7a0a9d6c8c0f7afcebae5562e051c" "20200917165051.869":
+  entity sciv_example_system_native at 3( 2) + 0 on 4199;
+  architecture beh of sciv_example_system_native at 25( 394) + 0 on 4200;
+file . "../../rtl/infrastructure/native_mem_interconnect.vhd" "b746fe73940be8dbe6404943afe1428136258069" "20200917165051.681":
+  entity native_mem_interconnect at 1( 0) + 0 on 4165;
+  architecture behave of native_mem_interconnect at 71( 2688) + 0 on 4166;
 file . "../../tb/example_system/tb_sciv_core.vhd" "02eb5acb2cfadff9e8e4747ca591cb6803e2b332" "20200915170653.570":
   entity tb_sciv_core at 2( 1) + 0 on 2503;
   architecture behavioral of tb_sciv_core at 18( 410) + 0 on 2504;
 file . "../../rtl/system/sciv_base_system.vhd" "4ae29128636f3d0d93f97eb6380775cbfc335671" "20200915172042.821":
   entity sciv_base_system at 3( 2) + 0 on 2619;
   architecture beh of sciv_base_system at 29( 650) + 0 on 2620;
-file . "../../rtl/write_back.vhd" "7dee30b7cd9018135757a49df58323966d99e8f5" "20200916121657.108":
-  entity write_back at 22( 478) + 0 on 3089;
-  architecture behavioral of write_back at 59( 1626) + 0 on 3090;
-file . "../../rtl/memory_access.vhd" "a1ee70cb0ed2b0fa88d64ba564f4732f1b7a9f2d" "20200916121657.091":
-  entity memory_access at 22( 482) + 0 on 3085;
-  architecture behavioral of memory_access at 78( 2689) + 0 on 3086;
-file . "../../rtl/decode_uc.vhd" "34ea930c0f2652f00318684f677c4495b2b30b96" "20200916121657.072":
-  entity decode_uc at 27( 592) + 0 on 3081;
-  architecture behave of decode_uc at 92( 3001) + 0 on 3082;
-file . "../../rtl/fetch.vhd" "e3efeafe85b0cc9b825e666be3a7adcff7002803" "20200916121657.053":
-  entity fetch at 22( 479) + 0 on 3077;
-  architecture fetch_no_bp of fetch at 47( 1208) + 0 on 3078;
-file . "../../rtl/comp.vhd" "e4e697de1325fbcd2df7cb82f28a963c0d773b05" "20200916121657.033":
-  entity comp at 22( 473) + 0 on 3073;
-  architecture behavioral of comp at 46( 1115) + 0 on 3074;
-file . "../../rtl/peripherals/gpio.vhd" "54f192c2901cd7a7e1b5a4cad8cb68e0c436af60" "20200916121657.009":
-  entity gpio at 1( 0) + 0 on 3069;
-  architecture behave of gpio at 28( 721) + 0 on 3070;
-file . "../../rtl/infrastructure/mem_interconnect.vhd" "9c18328c3d5710c19101289ec16d59a925a6a3fd" "20200916121656.986":
-  entity mem_interconnect at 1( 0) + 0 on 3065;
-  architecture behave of mem_interconnect at 49( 1724) + 0 on 3066;
-file . "../../rtl/infrastructure/code_mem.vhd" "a1b9cf6c6d72f250dae9fc04160bdea3fd7942c4" "20200916121656.953":
-  entity code_mem at 23( 480) + 0 on 3059;
-  architecture behave of code_mem at 38( 845) + 0 on 3060;
-file . "../../rtl/alu.vhd" "4bf9d3f0300e8d0ce7b8f7453eae8501497ac535" "20200916121657.023":
-  entity alu at 24( 484) + 0 on 3071;
-  architecture behavioral of alu at 45( 1021) + 0 on 3072;
-file . "../../rtl/infrastructure/ram.vhd" "102274e579a0d2eaafd43b1eb4fc5c18acc4d665" "20200916121656.964":
-  entity ram at 1( 0) + 0 on 3061;
-  architecture behave of ram at 24( 592) + 0 on 3062;
-file . "../../rtl/peripherals/reg_if.vhd" "a7c1be59d5abc6299ffab5d6e43fd6dc75ba2291" "20200916121656.998":
-  entity reg_if at 1( 0) + 0 on 3067;
-  architecture behave of reg_if at 28( 727) + 0 on 3068;
-file . "../../rtl/execute.vhd" "cfe7f86378abf7401d9e1070fdc1b96538534efd" "20200916121657.045":
-  entity execute at 23( 483) + 0 on 3075;
-  architecture behave of execute at 97( 3201) + 0 on 3076;
-file . "../../rtl/microcode_mem.vhd" "e752861f9e6911ff2208d77ab94d9bd208d1a61b" "20200916121657.062":
-  entity microcode_mem at 23( 484) + 0 on 3079;
-  architecture behavioral of microcode_mem at 46( 1063) + 0 on 3080;
-file . "../../rtl/decode.vhd" "7370bb2ac181c4d98ef8d71f847fa64c29ca3f7f" "20200916121657.084":
-  entity decode at 22( 479) + 0 on 3083;
-  architecture behave of decode at 89( 3003) + 0 on 3084;
-file . "../../rtl/reg_file.vhd" "feefb8c8a8333d095e6e5a373368bad3b2901242" "20200916121657.102":
-  entity reg_file at 23( 480) + 0 on 3087;
-  architecture behave of reg_file at 47( 1150) + 0 on 3088;
-file . "../../rtl/sciv_core.vhd" "c4d823bdd0d4e7e10fcd3bf2908abab96a43fd66" "20200916121657.122":
-  entity sciv_core at 22( 479) + 0 on 3091;
-  architecture behavioral of sciv_core at 57( 1654) + 0 on 3092;
+file . "../../rtl/write_back.vhd" "7dee30b7cd9018135757a49df58323966d99e8f5" "20200917165051.828":
+  entity write_back at 22( 478) + 0 on 4193;
+  architecture behavioral of write_back at 59( 1626) + 0 on 4194;
+file . "../../rtl/memory_access.vhd" "a1ee70cb0ed2b0fa88d64ba564f4732f1b7a9f2d" "20200917165051.799":
+  entity memory_access at 22( 482) + 0 on 4187;
+  architecture behavioral of memory_access at 78( 2689) + 0 on 4188;
+file . "../../rtl/decode_uc.vhd" "0f5d06eb08b3f266dac4d04a796590905eeb797b" "20200917165051.781":
+  entity decode_uc at 27( 592) + 0 on 4183;
+  architecture behave of decode_uc at 100( 3340) + 0 on 4184;
+file . "../../rtl/fetch.vhd" "e3efeafe85b0cc9b825e666be3a7adcff7002803" "20200917165051.761":
+  entity fetch at 22( 479) + 0 on 4179;
+  architecture fetch_no_bp of fetch at 47( 1208) + 0 on 4180;
+file . "../../rtl/comp.vhd" "e4e697de1325fbcd2df7cb82f28a963c0d773b05" "20200917165051.740":
+  entity comp at 22( 473) + 0 on 4175;
+  architecture behavioral of comp at 46( 1115) + 0 on 4176;
+file . "../../rtl/peripherals/gpio.vhd" "54f192c2901cd7a7e1b5a4cad8cb68e0c436af60" "20200917165051.716":
+  entity gpio at 1( 0) + 0 on 4171;
+  architecture behave of gpio at 28( 721) + 0 on 4172;
+file . "../../rtl/infrastructure/mem_interconnect.vhd" "9c18328c3d5710c19101289ec16d59a925a6a3fd" "20200917165051.693":
+  entity mem_interconnect at 1( 0) + 0 on 4167;
+  architecture behave of mem_interconnect at 49( 1724) + 0 on 4168;
+file . "../../rtl/infrastructure/code_mem.vhd" "efa15c961b697c95def2ab847fd66dff9fcb8cc4" "20200917165051.659":
+  entity code_mem at 23( 480) + 0 on 4161;
+  architecture behave of code_mem at 38( 845) + 0 on 4162;
+file . "../../rtl/alu.vhd" "e6b3efd306cf03b687c0305973d146b5061caf81" "20200917165051.730":
+  entity alu at 24( 484) + 0 on 4173;
+  architecture behavioral of alu at 45( 1021) + 0 on 4174;
+file . "../../rtl/infrastructure/ram.vhd" "102274e579a0d2eaafd43b1eb4fc5c18acc4d665" "20200917165051.670":
+  entity ram at 1( 0) + 0 on 4163;
+  architecture behave of ram at 24( 592) + 0 on 4164;
+file . "../../rtl/peripherals/reg_if.vhd" "a7c1be59d5abc6299ffab5d6e43fd6dc75ba2291" "20200917165051.704":
+  entity reg_if at 1( 0) + 0 on 4169;
+  architecture behave of reg_if at 28( 727) + 0 on 4170;
+file . "../../rtl/execute.vhd" "cfe7f86378abf7401d9e1070fdc1b96538534efd" "20200917165051.753":
+  entity execute at 23( 483) + 0 on 4177;
+  architecture behave of execute at 97( 3201) + 0 on 4178;
+file . "../../rtl/microcode_mem.vhd" "e752861f9e6911ff2208d77ab94d9bd208d1a61b" "20200917165051.770":
+  entity microcode_mem at 23( 484) + 0 on 4181;
+  architecture behavioral of microcode_mem at 46( 1063) + 0 on 4182;
+file . "../../rtl/decode.vhd" "95cc477e32fe57ace59f5a9a3a2e6ac95e5e0413" "20200917165051.793":
+  entity decode at 22( 479) + 0 on 4185;
+  architecture behave of decode at 98( 3372) + 0 on 4186;
+file . "../../rtl/reg_file.vhd" "feefb8c8a8333d095e6e5a373368bad3b2901242" "20200917165051.811":
+  entity reg_file at 23( 480) + 0 on 4189;
+  architecture behave of reg_file at 47( 1150) + 0 on 4190;
+file . "../../rtl/sciv_core.vhd" "2aabff9041fee52b6cc1fe5241bea73174fa3994" "20200917165051.843":
+  entity sciv_core at 22( 479) + 0 on 4195;
+  architecture behavioral of sciv_core at 57( 1654) + 0 on 4196;
 file . "../../rtl/system/sciv_example_system.vhd" "128d6c7aa52043ef7417c69ae9d7a9408fb2ad3a" "20200915170653.559":
   entity sciv_example_system at 3( 2) + 0 on 2501;
   architecture beh of sciv_example_system at 25( 380) + 0 on 2502;
-file . "../../tb/example_system/tb_aukv_example_native.vhd" "461d07e037b2e07c36719851cc98e2465fffe656" "20200916121657.162":
-  entity tb_aukv_example_native at 2( 1) + 0 on 3097;
-  architecture behavioral of tb_aukv_example_native at 18( 430) + 0 on 3098;
+file . "../../tb/example_system/tb_aukv_example_native.vhd" "461d07e037b2e07c36719851cc98e2465fffe656" "20200917165051.881":
+  entity tb_aukv_example_native at 2( 1) + 0 on 4201;
+  architecture behavioral of tb_aukv_example_native at 18( 430) + 0 on 4202;
+file . "../../rtl/csr_file.vhd" "438eec7145b8a46ed8391bc1b1ca872497b63ac4" "20200917165051.822":
+  entity csr_file at 23( 480) + 0 on 4191;
+  architecture behave of csr_file at 47( 1124) + 0 on 4192;
