@@ -84,10 +84,12 @@ entity decode_uc is
             o_stall: out std_logic;
 
             
+            o_csr_sel   : out std_logic;
             o_csr_rd   : out std_logic;
             o_csr_we    : out std_logic;
             o_csr_data  : out std_logic_vector(31 downto 0);
-            o_csr_addr  : out std_logic_vector(11 downto 0);
+            o_csr_wr_addr  : out std_logic_vector(11 downto 0);
+            o_csr_rd_addr  : out std_logic_vector(11 downto 0);
             o_csr_op    : out std_logic_vector(1 downto 0);
             i_csr_data    : in std_logic_vector(31 downto 0)
             
@@ -237,12 +239,13 @@ csr_we <= '1' when csr_sel = '1' and ((csr_op = "01" and rs1 /="00000") or csr_o
 csr_rd <= '1' when csr_sel = '1' and ((csr_op(1) = '1' and rd /="00000")or csr_op = "01") else '0';
 --csr_wb_en <= csr_en;
 csr_data <= i_src1 when csr_d_type = '0' else x"000000"&"000"&rs1;
-
+o_csr_sel  <=csr_sel;
 o_csr_rd   <=csr_rd   ;
 o_csr_we    <=csr_we    ;
 o_csr_data  <=csr_data  ;
 o_csr_op    <=csr_op    ;
-o_csr_addr<= csr_address; -- after 1 ns;
+o_csr_rd_addr<= csr_address; -- after 1 ns;
+o_csr_wr_addr<= csr_address; -- after 1 ns;
 
 
 
