@@ -19,7 +19,6 @@ int main()
   int *gpio;
   int *a,*b,*c;
   int x,y,z;
-  register uint32_t temp = 0x86;
   a=&z;
   b=&y;
   c=&x;
@@ -31,15 +30,17 @@ int main()
   *c=*a+*b;
   gpio =(int*) 0x00100001;
   *gpio=0x86;
+  register uint32_t temp = 0x86;
+  register uint32_t temp2 = 0x84;
   asm volatile("csrs mie, %[temp]\n":: [temp] "r" (temp));
-  temp = 0x84;
-  asm volatile("nop\n");
-  asm volatile("nop\n");
-  asm volatile("nop\n");
-  asm volatile("nop\n");
-  asm volatile("nop\n");
-  asm volatile("nop\n");
-  asm volatile("csrc mie, %[temp]\n":: [temp] "r" (temp));
+  //temp = 0x84;
+  //asm volatile("nop\n");
+  //asm volatile("nop\n");
+  //asm volatile("nop\n");
+  //asm volatile("nop\n");
+  //asm volatile("nop\n");
+  //asm volatile("nop\n");
+  asm volatile("csrc mie, %[temp2]\n":: [temp2] "r" (temp2));
   //*ptr=*a+*ptr;
 
   while(1){

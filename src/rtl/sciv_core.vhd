@@ -130,13 +130,20 @@ signal de0_stall : std_logic;
 signal de0_csr_sel   : std_logic;
 signal de0_csr_we    : std_logic;
 signal de0_csr_rd    : std_logic;
-signal de0_csr_data  : std_logic_vector(31 downto 0);
+signal de0_csr_wr_data  : std_logic_vector(31 downto 0);
 signal de0_csr_wr_addr  : std_logic_vector(11 downto 0);
 signal de0_csr_rd_addr  : std_logic_vector(11 downto 0);
 signal de0_csr_op    : std_logic_vector(1 downto 0);
 signal csr0_csr_data  : std_logic_vector(31 downto 0);
 
-
+    
+signal ex0_csr_rd      : std_logic;
+signal ex0_csr_we      : std_logic;
+signal ex0_csr_wr_data : std_logic_vector(31 downto 0);
+signal ex0_csr_wr_addr : std_logic_vector(11 downto 0);
+signal ex0_csr_rd_addr : std_logic_vector(11 downto 0);
+signal ex0_csr_op      : std_logic_vector(1 downto 0);
+signal csr0_csr_rd_data: std_logic_vector(31 downto 0);
 
 begin
 
@@ -213,11 +220,11 @@ DE0: entity work.decode_uc
         o_csr_sel       => de0_csr_sel   ,
         o_csr_we        => de0_csr_we    ,
         o_csr_rd        => de0_csr_rd    ,
-        o_csr_data      => de0_csr_data  ,
+        --o_csr_wr_data      => de0_csr_wr_data  ,
         o_csr_wr_addr      => de0_csr_wr_addr,
         o_csr_rd_addr      => de0_csr_rd_addr,
-        o_csr_op        => de0_csr_op    ,
-        i_csr_data        => csr0_csr_data    
+        o_csr_op        => de0_csr_op    
+        --i_csr_data        => csr0_csr_data    
       
             
     );
@@ -229,15 +236,15 @@ DE0: entity work.decode_uc
             i_clk       =>i_clk,
             i_rst       =>i_rst,
             
-            i_rd_addr   =>de0_csr_rd_addr,
-            i_wr_addr   =>de0_csr_wr_addr,
+            i_rd_addr   =>ex0_csr_rd_addr,
+            i_wr_addr   =>ex0_csr_wr_addr,
                         
-            i_data      =>de0_csr_data,
-            i_we        =>de0_csr_we,
-            i_rd        =>de0_csr_rd,
+            i_data      =>ex0_csr_wr_data,
+            i_we        =>ex0_csr_we,
+            i_rd        =>ex0_csr_rd,
                         
-            i_op        =>de0_csr_op,
-            o_data      =>csr0_csr_data
+            i_op        =>ex0_csr_op,
+            o_data      =>csr0_csr_rd_data
     );
 
 
@@ -301,7 +308,21 @@ EX0: entity work.execute
             o_wb_reg_sel    =>ex0_wb_reg_sel   ,
             o_wb_we         =>ex0_wb_we        ,
             o_load_type     =>ex0_load_type    ,
-            o_store_type    =>ex0_store_type    
+            o_store_type    =>ex0_store_type   ,
+            
+            i_csr_sel      =>de0_csr_sel     ,
+            i_csr_rd       =>de0_csr_rd      ,
+            i_csr_we       =>de0_csr_we      ,
+            i_csr_wr_addr  =>de0_csr_wr_addr ,
+            i_csr_rd_addr  =>de0_csr_rd_addr ,
+            i_csr_op       =>de0_csr_op      ,
+            o_csr_rd       =>ex0_csr_rd      ,
+            o_csr_we       =>ex0_csr_we      ,
+            o_csr_wr_data  =>ex0_csr_wr_data ,
+            o_csr_wr_addr  =>ex0_csr_wr_addr ,
+            o_csr_rd_addr  =>ex0_csr_rd_addr ,
+            o_csr_op       =>ex0_csr_op      ,
+            i_csr_rd_data  =>csr0_csr_rd_data  
             
          );
 

@@ -155,7 +155,7 @@ end process;
 process(i_clk,i_rst)
 begin
 if i_rst = '1' then
-  mcause<=x"00005000";
+  mcause<=x"00000000";
 elsif rising_edge(i_clk) then
     if i_we = '1' then
       if i_wr_addr = x"342" then

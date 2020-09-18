@@ -87,11 +87,11 @@ entity decode_uc is
             o_csr_sel   : out std_logic;
             o_csr_rd   : out std_logic;
             o_csr_we    : out std_logic;
-            o_csr_data  : out std_logic_vector(31 downto 0);
+            --o_csr_wr_data  : out std_logic_vector(31 downto 0);
             o_csr_wr_addr  : out std_logic_vector(11 downto 0);
             o_csr_rd_addr  : out std_logic_vector(11 downto 0);
-            o_csr_op    : out std_logic_vector(1 downto 0);
-            i_csr_data    : in std_logic_vector(31 downto 0)
+            o_csr_op    : out std_logic_vector(1 downto 0)
+            --i_csr_data    : in std_logic_vector(31 downto 0)
             
             
     );
@@ -180,6 +180,7 @@ signal csr_rd : std_logic;
 signal csr_op    : std_logic_vector(1 downto 0);
 
 
+signal rs1_csr  : std_logic_vector(31 downto 0);
 
 
 begin
@@ -232,20 +233,50 @@ csr_sel          <= uc(31);
 o_src1_addr     <= rs1;
 o_src2_addr     <= rs2;
 
-
+rs1_csr<= csr_data when csr_sel = '1' else i_src1;
 
 
 csr_we <= '1' when csr_sel = '1' and ((csr_op = "01" and rs1 /="00000") or csr_op(1) = '1')  else '0';
 csr_rd <= '1' when csr_sel = '1' and ((csr_op(1) = '1' and rd /="00000")or csr_op = "01") else '0';
 --csr_wb_en <= csr_en;
 csr_data <= i_src1 when csr_d_type = '0' else x"000000"&"000"&rs1;
-o_csr_sel  <=csr_sel;
-o_csr_rd   <=csr_rd   ;
-o_csr_we    <=csr_we    ;
-o_csr_data  <=csr_data  ;
-o_csr_op    <=csr_op    ;
-o_csr_rd_addr<= csr_address; -- after 1 ns;
-o_csr_wr_addr<= csr_address; -- after 1 ns;
+
+--o_csr_sel  <=csr_sel;
+--o_csr_rd   <=csr_rd   ;
+--o_csr_we    <=csr_we    ;
+--o_csr_data  <=csr_data  ;
+--o_csr_op    <=csr_op    ;
+--o_csr_rd_addr<= csr_address; -- after 1 ns;
+--o_csr_wr_addr<= csr_address; -- after 1 ns;
+
+
+
+process(i_clk,i_rst)
+begin
+    if i_rst = '1' then
+    
+        o_csr_sel       <='0'       ;
+        o_csr_rd        <='0'        ;
+        o_csr_we        <='0'        ;
+        --o_csr_wr_data   <=(others => '0')     ;
+        o_csr_wr_addr   <=(others => '0')     ;
+        o_csr_rd_addr   <=(others => '0')     ;
+        o_csr_op        <=(others => '0')          ;
+       
+        
+    elsif rising_edge(i_clk) then
+        if i_stall='0' then
+            o_csr_sel       <=csr_sel       ;
+            o_csr_rd        <=csr_rd        ;
+            o_csr_we        <=csr_we        ;
+            o_csr_wr_addr   <=csr_address   ;
+            o_csr_rd_addr   <=csr_address   ;
+            o_csr_op        <=csr_op        ;
+        end if;
+        
+    end if;
+end process;
+
 
 
 
@@ -262,7 +293,7 @@ imm <=  imm_u when imm_sel = x"0" else
         imm_b when imm_sel = x"3" else
         imm_r when imm_sel = x"4" else
         imm_s when imm_sel = x"5" else
-        i_csr_data when imm_sel = x"6" else
+        x"00000000" when imm_sel = x"6" else
         x"00000000"    ;
         
 -----------------------data forwardingc exec---------------
@@ -663,7 +694,7 @@ begin
         
     elsif rising_edge(i_clk) then
         if i_stall = '0' then
-            o_rs1           <= i_src1        ;
+            o_rs1           <= rs1_csr        ;
             o_rs2           <= i_src2        ;
             o_imm           <= imm           ;
             o_pc            <= i_pc          ;

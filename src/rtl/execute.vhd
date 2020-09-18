@@ -87,7 +87,25 @@ entity execute is
             o_wb_we         : out std_logic;
             
             o_load_type     : out std_logic_vector(2 downto 0);
-            o_store_type     : out std_logic_vector(1 downto 0)
+            o_store_type     : out std_logic_vector(1 downto 0);
+            
+            i_csr_sel       : in std_logic;
+            i_csr_rd        : in std_logic;
+            i_csr_we        : in std_logic;
+            --i_csr_wr_data  : in std_logic_vector(31 downto 0);
+            i_csr_wr_addr   : in std_logic_vector(11 downto 0);
+            i_csr_rd_addr   : in std_logic_vector(11 downto 0);
+            i_csr_op        : in std_logic_vector(1 downto 0);
+            
+            --o_csr_sel       : out std_logic;
+            o_csr_rd        : out std_logic;
+            o_csr_we        : out std_logic;
+            o_csr_wr_data   : out std_logic_vector(31 downto 0);
+            o_csr_wr_addr   : out std_logic_vector(11 downto 0);
+            o_csr_rd_addr   : out std_logic_vector(11 downto 0);
+            o_csr_op        : out std_logic_vector(1 downto 0);
+            i_csr_rd_data   : in std_logic_vector(31 downto 0)
+            
             
          );
 
@@ -129,7 +147,56 @@ architecture behave of execute is
     signal rs2 : std_logic_vector(31 downto 0);
     signal cmp_op1 : std_logic_vector(31 downto 0);
     signal mem_data : std_logic_vector(31 downto 0);
+    signal csr_wr_data : std_logic_vector(31 downto 0);
+    signal wb_data : std_logic_vector(31 downto 0);
+    
 begin
+
+
+
+process(i_clk,i_rst)
+begin
+    if i_rst = '1' then
+    
+        o_csr_rd        <='0'       ;
+        o_csr_we        <='0'        ;
+        o_csr_wr_data   <=(others => '0')     ;
+        o_csr_wr_addr   <=(others => '0')     ;
+        o_csr_rd_addr   <=(others => '0')     ;
+        o_csr_op        <=(others => '0')          ;
+       
+        
+    elsif rising_edge(i_clk) then
+        if i_stall='0' then
+           --o_csr_sel       <=i_csr_sel       ;
+            o_csr_rd        <=i_csr_rd        ;
+            o_csr_we        <=i_csr_we        ;
+            o_csr_wr_data   <=rs1   ;
+            o_csr_wr_addr   <=i_csr_wr_addr   ;
+            o_csr_rd_addr   <=i_csr_rd_addr   ;
+            o_csr_op        <=i_csr_op        ;
+        end if;
+        
+    end if;
+end process;
+
+--o_csr_rd        <=i_csr_rd        ;
+--o_csr_we        <=i_csr_we        ;
+--o_csr_wr_data   <=rs1   ;
+--o_csr_wr_addr   <=i_csr_wr_addr   ;
+--o_csr_rd_addr   <=i_csr_rd_addr   ;
+--o_csr_op        <=i_csr_op        ;
+
+
+
+
+
+
+
+
+wb_data <= i_csr_rd_data when i_csr_sel ='1' else exe_result;
+
+
 
 rs1 <=  i_rs1 when i_rs1_fwsel = "00"  else
         i_fw_ee when i_rs1_fwsel = "01" else
@@ -243,7 +310,7 @@ begin
         if i_stall='0' then
             o_br_addr       <= branch_addr     ;
             o_br_en         <= br_en           ;
-            o_exe_res       <= exe_result      ;
+            o_exe_res       <= wb_data      ;
             o_mem_wr_data   <= mem_data   ;
             o_mem_addr      <= mem_address     ;
             o_mem_we        <= i_mem_we        ;
