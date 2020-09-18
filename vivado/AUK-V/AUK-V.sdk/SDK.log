@@ -1,0 +1,1024 @@
+19:31:41 INFO  : Registering command handlers for SDK TCF services
+19:31:43 INFO  : Launching XSCT server: xsct -n -interactive /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/temp_xsdb_launch_script.tcl
+19:31:47 INFO  : XSCT server has started successfully.
+19:31:47 INFO  : Successfully done setting XSCT server connection channel  
+19:31:47 INFO  : Successfully done setting SDK workspace  
+19:31:47 INFO  : Restoring global repository preferences: 
+		 /home/veeyceey/Documents/workspace/linux-zynq/scratch/device-tree-xlnx
+19:31:47 INFO  : Processing command line option -hwspec /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf.
+19:34:06 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+19:34:06 INFO  : 'fpga -state' command is executed.
+19:34:06 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:34:06 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+19:34:06 INFO  : 'jtag frequency' command is executed.
+19:34:06 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+19:34:06 INFO  : Context for 'APU' is selected.
+19:34:07 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+19:34:07 INFO  : 'configparams force-mem-access 1' command is executed.
+19:34:07 INFO  : Context for 'APU' is selected.
+19:34:07 INFO  : 'stop' command is executed.
+19:34:07 INFO  : 'ps7_init' command is executed.
+19:34:07 INFO  : 'ps7_post_config' command is executed.
+19:34:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:34:08 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+19:34:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:34:08 INFO  : The application '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/auk-clock/Debug/auk-clock.elf' is downloaded to processor 'ps7_cortexa9_0'.
+19:34:08 INFO  : 'configparams force-mem-access 0' command is executed.
+19:34:08 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+dow /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/auk-clock/Debug/auk-clock.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+19:34:08 INFO  : Memory regions updated for context APU
+19:34:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:34:08 INFO  : 'con' command is executed.
+19:34:08 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+con
+----------------End of Script----------------
+
+19:34:08 INFO  : Launch script is exported to file '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_auk-clock.elf_on_local.tcl'
+19:34:54 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:34:54 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+19:35:03 INFO  : FPGA configured successfully with bitstream "/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/example_led_wrapper.bit"
+20:45:59 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1599146142000,  Project:1599141568000
+20:45:59 INFO  : Project example_led_wrapper_hw_platform_0's source hardware specification located at /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+20:46:08 INFO  : Copied contents of /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf into /example_led_wrapper_hw_platform_0/system.hdf.
+20:46:13 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+20:46:14 INFO  : 
+20:46:15 INFO  : Updating hardware inferred compiler options for auk-clock.
+20:46:15 INFO  : Clearing existing target manager status.
+20:46:15 INFO  : Closing and re-opening the MSS file of ther project auk-clock_bsp
+20:46:15 INFO  : Closing and re-opening the MSS file of ther project auk-clock_bsp
+20:46:15 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+20:46:17 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+20:46:50 INFO  : Disconnected from the channel tcfchan#1.
+20:46:51 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+20:46:51 INFO  : 'fpga -state' command is executed.
+20:46:51 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:46:52 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+20:46:52 INFO  : 'jtag frequency' command is executed.
+20:46:52 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+20:46:52 INFO  : Context for 'APU' is selected.
+20:46:52 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+20:46:52 INFO  : 'configparams force-mem-access 1' command is executed.
+20:46:52 INFO  : Context for 'APU' is selected.
+20:46:52 INFO  : 'stop' command is executed.
+20:46:52 ERROR : Memory read error at 0xF8000B54. Invalid DAP IDCODE. Invalid DAP ACK value: 0
+20:46:52 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+----------------End of Script----------------
+
+20:47:04 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+20:47:04 INFO  : 'fpga -state' command is executed.
+20:47:07 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:47:08 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+20:47:08 INFO  : 'jtag frequency' command is executed.
+20:47:08 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+20:47:08 INFO  : Context for 'APU' is selected.
+20:47:08 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+20:47:08 INFO  : 'configparams force-mem-access 1' command is executed.
+20:47:08 INFO  : Context for 'APU' is selected.
+20:47:08 INFO  : 'stop' command is executed.
+20:47:09 INFO  : 'ps7_init' command is executed.
+20:47:09 INFO  : 'ps7_post_config' command is executed.
+20:47:09 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:47:09 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+20:47:09 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:47:10 INFO  : The application '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/auk-clock/Debug/auk-clock.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:47:10 INFO  : 'configparams force-mem-access 0' command is executed.
+20:47:10 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+dow /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/auk-clock/Debug/auk-clock.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:47:10 INFO  : Memory regions updated for context APU
+20:47:10 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:47:10 INFO  : 'con' command is executed.
+20:47:10 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+con
+----------------End of Script----------------
+
+20:47:10 INFO  : Launch script is exported to file '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_auk-clock.elf_on_local.tcl'
+20:47:38 INFO  : Disconnected from the channel tcfchan#2.
+20:48:06 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+20:48:06 INFO  : 'fpga -state' command is executed.
+20:48:08 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:48:08 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+20:48:08 INFO  : 'jtag frequency' command is executed.
+20:48:08 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+20:48:08 INFO  : Context for 'APU' is selected.
+20:48:08 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+20:48:08 INFO  : 'configparams force-mem-access 1' command is executed.
+20:48:08 INFO  : Context for 'APU' is selected.
+20:48:08 INFO  : 'stop' command is executed.
+20:48:08 ERROR : Memory write error at 0xF8000B58. Invalid DAP IDCODE. Invalid DAP ACK value: 0
+20:48:08 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+----------------End of Script----------------
+
+20:48:19 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+20:48:19 INFO  : 'fpga -state' command is executed.
+20:48:20 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:48:20 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+20:48:20 INFO  : 'jtag frequency' command is executed.
+20:48:20 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+20:48:20 INFO  : Context for 'APU' is selected.
+20:48:20 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+20:48:20 INFO  : 'configparams force-mem-access 1' command is executed.
+20:48:20 INFO  : Context for 'APU' is selected.
+20:48:21 INFO  : 'stop' command is executed.
+20:48:22 INFO  : 'ps7_init' command is executed.
+20:48:22 INFO  : 'ps7_post_config' command is executed.
+20:48:22 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:48:22 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+20:48:22 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:48:22 INFO  : The application '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/auk-clock/Debug/auk-clock.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:48:22 INFO  : 'configparams force-mem-access 0' command is executed.
+20:48:22 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+dow /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/auk-clock/Debug/auk-clock.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:48:23 INFO  : Memory regions updated for context APU
+20:48:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:48:23 INFO  : 'con' command is executed.
+20:48:23 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+con
+----------------End of Script----------------
+
+20:48:23 INFO  : Launch script is exported to file '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_auk-clock.elf_on_local.tcl'
+20:48:30 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:48:30 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+20:48:39 INFO  : FPGA configured successfully with bitstream "/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/example_led_wrapper.bit"
+21:08:13 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1599147236000,  Project:1599146142000
+21:08:13 INFO  : Project example_led_wrapper_hw_platform_0's source hardware specification located at /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+21:08:26 INFO  : Copied contents of /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf into /example_led_wrapper_hw_platform_0/system.hdf.
+21:08:31 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+21:08:32 INFO  : 
+21:08:33 INFO  : Updating hardware inferred compiler options for auk-clock.
+21:08:33 INFO  : Clearing existing target manager status.
+21:08:33 INFO  : Closing and re-opening the MSS file of ther project auk-clock_bsp
+21:08:34 INFO  : Closing and re-opening the MSS file of ther project auk-clock_bsp
+21:08:34 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+21:08:36 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+21:09:09 INFO  : Disconnected from the channel tcfchan#3.
+21:09:14 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+21:09:14 INFO  : 'fpga -state' command is executed.
+21:09:14 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:09:15 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+21:09:15 INFO  : 'jtag frequency' command is executed.
+21:09:15 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:09:15 INFO  : Context for 'APU' is selected.
+21:09:15 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+21:09:15 INFO  : 'configparams force-mem-access 1' command is executed.
+21:09:15 INFO  : Context for 'APU' is selected.
+21:09:15 INFO  : 'stop' command is executed.
+21:09:15 ERROR : Memory write error at 0xF8000B54. Invalid DAP IDCODE. Invalid DAP ACK value: 0
+21:09:15 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+----------------End of Script----------------
+
+21:09:20 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+21:09:20 INFO  : 'fpga -state' command is executed.
+21:09:22 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:09:22 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+21:09:22 INFO  : 'jtag frequency' command is executed.
+21:09:22 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:09:22 INFO  : Context for 'APU' is selected.
+21:09:22 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+21:09:22 INFO  : 'configparams force-mem-access 1' command is executed.
+21:09:22 INFO  : Context for 'APU' is selected.
+21:09:22 INFO  : 'stop' command is executed.
+21:09:23 INFO  : 'ps7_init' command is executed.
+21:09:23 INFO  : 'ps7_post_config' command is executed.
+21:09:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:09:23 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:09:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:09:23 INFO  : The application '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/auk-clock/Debug/auk-clock.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:09:23 INFO  : 'configparams force-mem-access 0' command is executed.
+21:09:23 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+dow /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/auk-clock/Debug/auk-clock.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:09:23 INFO  : Memory regions updated for context APU
+21:09:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:09:23 INFO  : 'con' command is executed.
+21:09:23 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+con
+----------------End of Script----------------
+
+21:09:23 INFO  : Launch script is exported to file '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_auk-clock.elf_on_local.tcl'
+21:09:31 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:09:31 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+21:09:40 INFO  : FPGA configured successfully with bitstream "/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/example_led_wrapper.bit"
+21:34:39 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1599149004000,  Project:1599147236000
+21:34:39 INFO  : Project example_led_wrapper_hw_platform_0's source hardware specification located at /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+21:34:47 INFO  : Copied contents of /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf into /example_led_wrapper_hw_platform_0/system.hdf.
+21:34:53 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+21:34:54 INFO  : 
+21:34:55 INFO  : Updating hardware inferred compiler options for auk-clock.
+21:34:55 INFO  : Clearing existing target manager status.
+21:34:55 INFO  : Closing and re-opening the MSS file of ther project auk-clock_bsp
+21:34:55 INFO  : Closing and re-opening the MSS file of ther project auk-clock_bsp
+21:34:55 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+21:34:57 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+21:35:43 INFO  : Disconnected from the channel tcfchan#4.
+21:35:50 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+21:35:50 INFO  : 'fpga -state' command is executed.
+21:35:50 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:35:50 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+21:35:50 INFO  : 'jtag frequency' command is executed.
+21:35:50 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:35:50 INFO  : Context for 'APU' is selected.
+21:35:50 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+21:35:50 INFO  : 'configparams force-mem-access 1' command is executed.
+21:35:50 INFO  : Context for 'APU' is selected.
+21:35:50 INFO  : 'stop' command is executed.
+21:35:50 ERROR : Memory read error at 0xF8000B58. Invalid DAP IDCODE. Invalid DAP ACK value: 0
+21:35:50 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+----------------End of Script----------------
+
+21:36:01 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+21:36:01 INFO  : 'fpga -state' command is executed.
+21:36:05 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:36:05 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+21:36:05 INFO  : 'jtag frequency' command is executed.
+21:36:05 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:36:05 INFO  : Context for 'APU' is selected.
+21:36:05 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+21:36:05 INFO  : 'configparams force-mem-access 1' command is executed.
+21:36:05 INFO  : Context for 'APU' is selected.
+21:36:05 INFO  : 'stop' command is executed.
+21:36:06 INFO  : 'ps7_init' command is executed.
+21:36:06 INFO  : 'ps7_post_config' command is executed.
+21:36:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:36:07 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:36:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:36:07 INFO  : The application '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/auk-clock/Debug/auk-clock.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:36:07 INFO  : 'configparams force-mem-access 0' command is executed.
+21:36:07 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+dow /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/auk-clock/Debug/auk-clock.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:36:07 INFO  : Memory regions updated for context APU
+21:36:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:36:07 INFO  : 'con' command is executed.
+21:36:07 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+con
+----------------End of Script----------------
+
+21:36:07 INFO  : Launch script is exported to file '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_auk-clock.elf_on_local.tcl'
+21:36:14 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:36:14 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+21:36:23 INFO  : FPGA configured successfully with bitstream "/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/example_led_wrapper.bit"
+22:37:28 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1599152829000,  Project:1599149004000
+22:37:28 INFO  : Project example_led_wrapper_hw_platform_0's source hardware specification located at /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+22:37:45 INFO  : Copied contents of /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf into /example_led_wrapper_hw_platform_0/system.hdf.
+22:37:51 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+22:37:52 INFO  : 
+22:37:52 INFO  : Updating hardware inferred compiler options for auk-clock.
+22:37:52 INFO  : Clearing existing target manager status.
+22:37:52 INFO  : Closing and re-opening the MSS file of ther project auk-clock_bsp
+22:37:53 INFO  : Closing and re-opening the MSS file of ther project auk-clock_bsp
+22:37:53 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+22:37:55 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+22:38:56 INFO  : Disconnected from the channel tcfchan#5.
+22:38:57 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+22:38:57 INFO  : 'fpga -state' command is executed.
+22:38:57 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:38:57 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+22:38:57 INFO  : 'jtag frequency' command is executed.
+22:38:57 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+22:38:57 INFO  : Context for 'APU' is selected.
+22:38:57 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+22:38:57 INFO  : 'configparams force-mem-access 1' command is executed.
+22:38:57 INFO  : Context for 'APU' is selected.
+22:38:57 INFO  : 'stop' command is executed.
+22:38:58 INFO  : 'ps7_init' command is executed.
+22:38:58 INFO  : 'ps7_post_config' command is executed.
+22:38:59 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:38:59 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+22:38:59 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:38:59 INFO  : The application '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/auk-clock/Debug/auk-clock.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:38:59 INFO  : 'configparams force-mem-access 0' command is executed.
+22:38:59 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+dow /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/auk-clock/Debug/auk-clock.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:38:59 INFO  : Memory regions updated for context APU
+22:38:59 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:38:59 INFO  : 'con' command is executed.
+22:38:59 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+con
+----------------End of Script----------------
+
+22:38:59 INFO  : Launch script is exported to file '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_auk-clock.elf_on_local.tcl'
+08:26:04 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1599188133000,  Project:1599152829000
+08:26:04 INFO  : Project example_led_wrapper_hw_platform_0's source hardware specification located at /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+08:26:45 INFO  : Copied contents of /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf into /example_led_wrapper_hw_platform_0/system.hdf.
+08:26:50 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+08:26:51 INFO  : 
+08:26:52 INFO  : Updating hardware inferred compiler options for auk-clock.
+08:26:52 INFO  : Clearing existing target manager status.
+08:26:52 INFO  : Closing and re-opening the MSS file of ther project auk-clock_bsp
+08:26:53 INFO  : Closing and re-opening the MSS file of ther project auk-clock_bsp
+08:26:53 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+08:26:55 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+08:27:31 INFO  : Disconnected from the channel tcfchan#6.
+08:28:07 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+08:28:07 INFO  : 'fpga -state' command is executed.
+08:28:09 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:28:09 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+08:28:09 INFO  : 'jtag frequency' command is executed.
+08:28:09 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:28:09 INFO  : Context for 'APU' is selected.
+08:28:10 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+08:28:10 INFO  : 'configparams force-mem-access 1' command is executed.
+08:28:10 INFO  : Context for 'APU' is selected.
+08:28:10 INFO  : 'stop' command is executed.
+08:28:10 ERROR : Memory write error at 0xF800071C. Invalid DAP IDCODE. Invalid DAP ACK value: 7
+08:28:10 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+----------------End of Script----------------
+
+08:28:17 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+08:28:17 INFO  : 'fpga -state' command is executed.
+08:28:20 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:28:20 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+08:28:20 INFO  : 'jtag frequency' command is executed.
+08:28:20 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:28:20 INFO  : Context for 'APU' is selected.
+08:28:20 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+08:28:20 INFO  : 'configparams force-mem-access 1' command is executed.
+08:28:20 INFO  : Context for 'APU' is selected.
+08:28:20 INFO  : 'stop' command is executed.
+08:28:20 ERROR : Memory read error at 0xF800071C. Invalid DAP IDCODE. Invalid DAP ACK value: 0
+08:28:20 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+----------------End of Script----------------
+
+08:28:40 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+08:28:40 INFO  : 'fpga -state' command is executed.
+08:28:44 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:28:44 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+08:28:44 INFO  : 'jtag frequency' command is executed.
+08:28:44 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:28:44 INFO  : Context for 'APU' is selected.
+08:28:44 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+08:28:44 INFO  : 'configparams force-mem-access 1' command is executed.
+08:28:45 INFO  : Context for 'APU' is selected.
+08:28:45 INFO  : 'stop' command is executed.
+08:28:45 ERROR : Memory read error at 0xF800071C. Invalid DAP IDCODE. Invalid DAP ACK value: 0
+08:28:45 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+----------------End of Script----------------
+
+08:29:07 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+08:29:07 INFO  : 'fpga -state' command is executed.
+08:29:09 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:29:09 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+08:29:09 INFO  : 'jtag frequency' command is executed.
+08:29:09 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:29:09 INFO  : Context for 'APU' is selected.
+08:29:09 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+08:29:09 INFO  : 'configparams force-mem-access 1' command is executed.
+08:29:09 INFO  : Context for 'APU' is selected.
+08:29:09 INFO  : 'stop' command is executed.
+08:29:09 ERROR : Memory write error at 0xF8000740. Invalid DAP IDCODE. Invalid DAP ACK value: 0
+08:29:09 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+----------------End of Script----------------
+
+08:29:18 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+08:29:18 INFO  : 'fpga -state' command is executed.
+08:29:23 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:29:23 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+08:29:23 INFO  : 'jtag frequency' command is executed.
+08:29:23 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:29:23 INFO  : Context for 'APU' is selected.
+08:29:24 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+08:29:24 INFO  : 'configparams force-mem-access 1' command is executed.
+08:29:24 INFO  : Context for 'APU' is selected.
+08:29:24 INFO  : 'stop' command is executed.
+08:29:24 ERROR : Memory write error at 0xF8000718. Invalid DAP IDCODE. Invalid DAP ACK value: 0
+08:29:24 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+----------------End of Script----------------
+
+08:30:00 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+08:30:00 INFO  : 'fpga -state' command is executed.
+08:30:00 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:30:00 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+08:30:00 INFO  : 'jtag frequency' command is executed.
+08:30:00 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:30:00 INFO  : Context for 'APU' is selected.
+08:30:00 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+08:30:00 INFO  : 'configparams force-mem-access 1' command is executed.
+08:30:00 INFO  : Context for 'APU' is selected.
+08:30:00 INFO  : 'stop' command is executed.
+08:30:00 ERROR : Memory read error at 0xF8000720. Invalid DAP IDCODE. Invalid DAP ACK value: 0
+08:30:00 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+----------------End of Script----------------
+
+08:30:10 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+08:30:10 INFO  : 'fpga -state' command is executed.
+08:30:13 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:30:13 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+08:30:13 INFO  : 'jtag frequency' command is executed.
+08:30:13 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:30:13 INFO  : Context for 'APU' is selected.
+08:30:13 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+08:30:13 INFO  : 'configparams force-mem-access 1' command is executed.
+08:30:13 INFO  : Context for 'APU' is selected.
+08:30:14 INFO  : 'stop' command is executed.
+08:30:14 ERROR : Memory write error at 0xF8000718. Invalid DAP IDCODE. Invalid DAP ACK value: 0
+08:30:14 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+----------------End of Script----------------
+
+08:31:41 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+08:31:41 INFO  : 'fpga -state' command is executed.
+08:31:41 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:31:41 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+08:31:41 INFO  : 'jtag frequency' command is executed.
+08:31:41 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:31:41 INFO  : Context for 'APU' is selected.
+08:31:41 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+08:31:41 INFO  : 'configparams force-mem-access 1' command is executed.
+08:31:41 INFO  : Context for 'APU' is selected.
+08:31:42 INFO  : 'stop' command is executed.
+08:31:42 ERROR : Memory read error at 0xF800071C. Invalid DAP IDCODE. Invalid DAP ACK value: 0
+08:31:42 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+----------------End of Script----------------
+
+08:32:17 INFO  : Registering command handlers for SDK TCF services
+08:32:19 INFO  : Launching XSCT server: xsct -n -interactive /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/temp_xsdb_launch_script.tcl
+08:32:22 INFO  : XSCT server has started successfully.
+08:32:23 INFO  : Successfully done setting XSCT server connection channel  
+08:32:23 INFO  : Successfully done setting SDK workspace  
+08:32:23 INFO  : Restoring global repository preferences: 
+		 /home/veeyceey/Documents/workspace/linux-zynq/scratch/device-tree-xlnx
+08:32:23 INFO  : Processing command line option -hwspec /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf.
+08:32:23 INFO  : Checking for hwspec changes in the project example_led_wrapper_hw_platform_0.
+08:32:41 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+08:32:41 INFO  : 'fpga -state' command is executed.
+08:32:43 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:32:43 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+08:32:43 INFO  : 'jtag frequency' command is executed.
+08:32:43 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:32:43 INFO  : Context for 'APU' is selected.
+08:32:43 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+08:32:43 INFO  : 'configparams force-mem-access 1' command is executed.
+08:32:43 INFO  : Context for 'APU' is selected.
+08:32:44 INFO  : 'stop' command is executed.
+08:32:44 ERROR : Memory write error at 0xF8000740. Invalid DAP IDCODE. Invalid DAP ACK value: 0
+08:32:44 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+----------------End of Script----------------
+
+08:36:54 INFO  : Registering command handlers for SDK TCF services
+08:36:56 INFO  : Launching XSCT server: xsct -n -interactive /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/temp_xsdb_launch_script.tcl
+08:36:59 INFO  : XSCT server has started successfully.
+08:36:59 INFO  : Successfully done setting XSCT server connection channel  
+08:36:59 INFO  : Successfully done setting SDK workspace  
+08:36:59 INFO  : Restoring global repository preferences: 
+		 /home/veeyceey/Documents/workspace/linux-zynq/scratch/device-tree-xlnx
+08:36:59 INFO  : Processing command line option -hwspec /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf.
+08:36:59 INFO  : Checking for hwspec changes in the project example_led_wrapper_hw_platform_0.
+08:37:34 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+08:37:34 INFO  : 'fpga -state' command is executed.
+08:37:36 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:37:37 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+08:37:37 INFO  : 'jtag frequency' command is executed.
+08:37:37 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:37:37 INFO  : Context for 'APU' is selected.
+08:37:37 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+08:37:37 INFO  : 'configparams force-mem-access 1' command is executed.
+08:37:37 INFO  : Context for 'APU' is selected.
+08:37:37 INFO  : 'stop' command is executed.
+08:37:38 INFO  : 'ps7_init' command is executed.
+08:37:38 INFO  : 'ps7_post_config' command is executed.
+08:37:38 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:37:38 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+08:37:38 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:37:39 INFO  : The application '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/auk-clock/Debug/auk-clock.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:37:39 INFO  : 'configparams force-mem-access 0' command is executed.
+08:37:39 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+dow /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/auk-clock/Debug/auk-clock.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+08:37:39 INFO  : Memory regions updated for context APU
+08:37:39 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:37:39 INFO  : 'con' command is executed.
+08:37:39 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+con
+----------------End of Script----------------
+
+08:37:39 INFO  : Launch script is exported to file '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_auk-clock.elf_on_local.tcl'
+17:44:20 INFO  : Registering command handlers for SDK TCF services
+17:44:22 INFO  : Launching XSCT server: xsct -n -interactive /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/temp_xsdb_launch_script.tcl
+17:44:26 INFO  : XSCT server has started successfully.
+17:44:26 INFO  : Successfully done setting XSCT server connection channel  
+17:44:27 INFO  : Successfully done setting SDK workspace  
+17:44:27 INFO  : Restoring global repository preferences: 
+		 /home/veeyceey/Documents/workspace/linux-zynq/scratch/device-tree-xlnx
+17:44:33 INFO  : Processing command line option -hwspec /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf.
+17:44:33 INFO  : Checking for hwspec changes in the project example_led_wrapper_hw_platform_0.
+17:44:37 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+17:44:37 INFO  : 'fpga -state' command is executed.
+17:44:40 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:44:40 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+17:44:40 INFO  : 'jtag frequency' command is executed.
+17:44:40 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+17:44:40 INFO  : Context for 'APU' is selected.
+17:44:40 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+17:44:40 INFO  : 'configparams force-mem-access 1' command is executed.
+17:44:40 INFO  : Context for 'APU' is selected.
+17:44:40 INFO  : 'stop' command is executed.
+17:44:41 ERROR : Memory write error at 0xF8000718. Invalid DAP IDCODE. Invalid DAP ACK value: 0
+17:44:41 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+----------------End of Script----------------
+
+17:47:43 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+17:47:43 INFO  : 'fpga -state' command is executed.
+17:47:47 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:47:47 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+17:47:47 INFO  : 'jtag frequency' command is executed.
+17:47:47 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+17:47:47 INFO  : Context for 'APU' is selected.
+17:47:47 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+17:47:47 INFO  : 'configparams force-mem-access 1' command is executed.
+17:47:47 INFO  : Context for 'APU' is selected.
+17:47:47 INFO  : 'stop' command is executed.
+17:47:48 ERROR : Memory read error at 0xF8000730. Invalid DAP IDCODE. Invalid DAP ACK value: 0
+17:47:48 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+----------------End of Script----------------
+
+17:48:16 INFO  : Registering command handlers for SDK TCF services
+17:48:18 INFO  : Launching XSCT server: xsct -n -interactive /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/temp_xsdb_launch_script.tcl
+17:48:21 INFO  : XSCT server has started successfully.
+17:48:22 INFO  : Successfully done setting XSCT server connection channel  
+17:48:22 INFO  : Successfully done setting SDK workspace  
+17:48:22 INFO  : Restoring global repository preferences: 
+		 /home/veeyceey/Documents/workspace/linux-zynq/scratch/device-tree-xlnx
+17:48:22 INFO  : Processing command line option -hwspec /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf.
+17:48:22 INFO  : Checking for hwspec changes in the project example_led_wrapper_hw_platform_0.
+17:48:40 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+17:48:40 INFO  : 'fpga -state' command is executed.
+17:48:42 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:48:42 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+17:48:42 INFO  : 'jtag frequency' command is executed.
+17:48:42 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+17:48:42 INFO  : Context for 'APU' is selected.
+17:48:42 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+17:48:42 INFO  : 'configparams force-mem-access 1' command is executed.
+17:48:42 INFO  : Context for 'APU' is selected.
+17:48:42 INFO  : 'stop' command is executed.
+17:48:42 ERROR : Invalid DAP IDCODE. Invalid DAP ACK value: 7
+17:48:42 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+----------------End of Script----------------
+
+17:49:55 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:49:55 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+17:50:04 INFO  : FPGA configured successfully with bitstream "/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/example_led_wrapper.bit"
+17:50:14 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+17:50:14 INFO  : 'fpga -state' command is executed.
+17:50:14 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:50:14 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+17:50:14 INFO  : 'jtag frequency' command is executed.
+17:50:14 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+17:50:14 INFO  : Context for 'APU' is selected.
+17:50:14 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+17:50:14 INFO  : 'configparams force-mem-access 1' command is executed.
+17:50:14 INFO  : Context for 'APU' is selected.
+17:50:14 INFO  : 'stop' command is executed.
+17:50:14 ERROR : Memory read error at 0xF8000728. Invalid DAP IDCODE. Invalid DAP ACK value: 0
+17:50:14 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+----------------End of Script----------------
+
+17:51:07 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+17:51:07 INFO  : 'fpga -state' command is executed.
+17:51:10 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:51:10 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+17:51:10 INFO  : 'jtag frequency' command is executed.
+17:51:10 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+17:51:10 INFO  : Context for 'APU' is selected.
+17:51:10 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+17:51:10 INFO  : 'configparams force-mem-access 1' command is executed.
+17:51:10 INFO  : Context for 'APU' is selected.
+17:51:11 INFO  : 'stop' command is executed.
+17:51:11 ERROR : Memory write error at 0xF800071C. Invalid DAP IDCODE. Invalid DAP ACK value: 0
+17:51:11 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+----------------End of Script----------------
+
+17:51:48 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+17:51:48 INFO  : 'fpga -state' command is executed.
+17:51:50 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:51:50 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+17:51:50 INFO  : 'jtag frequency' command is executed.
+17:51:50 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+17:51:50 INFO  : Context for 'APU' is selected.
+17:51:50 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+17:51:50 INFO  : 'configparams force-mem-access 1' command is executed.
+17:51:50 INFO  : Context for 'APU' is selected.
+17:51:50 INFO  : 'stop' command is executed.
+17:51:51 INFO  : 'ps7_init' command is executed.
+17:51:54 INFO  : 'ps7_post_config' command is executed.
+17:51:54 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+17:51:54 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+17:51:54 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+17:51:55 INFO  : The application '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/auk-clock/Debug/auk-clock.elf' is downloaded to processor 'ps7_cortexa9_0'.
+17:51:55 INFO  : 'configparams force-mem-access 0' command is executed.
+17:51:55 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+dow /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/auk-clock/Debug/auk-clock.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+17:51:55 INFO  : Memory regions updated for context APU
+17:51:55 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+17:51:55 INFO  : 'con' command is executed.
+17:51:55 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+con
+----------------End of Script----------------
+
+17:51:55 INFO  : Launch script is exported to file '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_auk-clock.elf_on_local.tcl'
+18:19:15 INFO  : Disconnected from the channel tcfchan#1.
+18:19:26 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+18:19:26 INFO  : 'fpga -state' command is executed.
+18:19:27 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:19:27 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+18:19:27 INFO  : 'jtag frequency' command is executed.
+18:19:27 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:19:27 INFO  : Context for 'APU' is selected.
+18:19:30 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+18:19:30 INFO  : 'configparams force-mem-access 1' command is executed.
+18:19:30 INFO  : Context for 'APU' is selected.
+18:19:30 INFO  : 'stop' command is executed.
+18:19:30 ERROR : Memory read error at 0xF8000798. Invalid DAP IDCODE. Invalid DAP ACK value: 0
+18:19:30 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+----------------End of Script----------------
+
+18:20:38 INFO  : Registering command handlers for SDK TCF services
+18:20:40 INFO  : Launching XSCT server: xsct -n -interactive /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/temp_xsdb_launch_script.tcl
+18:20:44 INFO  : XSCT server has started successfully.
+18:20:44 INFO  : Successfully done setting XSCT server connection channel  
+18:20:45 INFO  : Successfully done setting SDK workspace  
+18:20:45 INFO  : Restoring global repository preferences: 
+		 /home/veeyceey/Documents/workspace/linux-zynq/scratch/device-tree-xlnx
+18:20:45 INFO  : Processing command line option -hwspec /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf.
+18:20:45 INFO  : Checking for hwspec changes in the project example_led_wrapper_hw_platform_0.
+18:21:12 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+18:21:12 INFO  : 'fpga -state' command is executed.
+18:21:14 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:21:14 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+18:21:14 INFO  : 'jtag frequency' command is executed.
+18:21:14 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:21:14 INFO  : Context for 'APU' is selected.
+18:21:14 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+18:21:14 INFO  : 'configparams force-mem-access 1' command is executed.
+18:21:14 INFO  : Context for 'APU' is selected.
+18:21:14 INFO  : 'stop' command is executed.
+18:21:15 INFO  : 'ps7_init' command is executed.
+18:21:15 INFO  : 'ps7_post_config' command is executed.
+18:21:15 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:21:15 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+18:21:15 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:21:15 INFO  : The application '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/auk-clock/Debug/auk-clock.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:21:15 INFO  : 'configparams force-mem-access 0' command is executed.
+18:21:15 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+dow /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/auk-clock/Debug/auk-clock.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+18:21:16 INFO  : Memory regions updated for context APU
+18:21:16 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:21:16 INFO  : 'con' command is executed.
+18:21:16 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+con
+----------------End of Script----------------
+
+18:21:16 INFO  : Launch script is exported to file '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_auk-clock.elf_on_local.tcl'
+19:49:40 INFO  : Disconnected from the channel tcfchan#1.
+19:49:41 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+19:49:41 INFO  : 'fpga -state' command is executed.
+19:49:42 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:49:42 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+19:49:42 INFO  : 'jtag frequency' command is executed.
+19:49:42 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+19:49:42 INFO  : Context for 'APU' is selected.
+19:49:45 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+19:49:45 INFO  : 'configparams force-mem-access 1' command is executed.
+19:49:45 INFO  : Context for 'APU' is selected.
+19:49:45 INFO  : 'stop' command is executed.
+19:49:46 INFO  : 'ps7_init' command is executed.
+19:49:46 INFO  : 'ps7_post_config' command is executed.
+19:49:46 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:49:46 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+19:49:46 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:49:47 INFO  : The application '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/auk-clock/Debug/auk-clock.elf' is downloaded to processor 'ps7_cortexa9_0'.
+19:49:47 INFO  : 'configparams force-mem-access 0' command is executed.
+19:49:47 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+dow /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/auk-clock/Debug/auk-clock.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+19:49:47 INFO  : Memory regions updated for context APU
+19:49:47 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:49:47 INFO  : 'con' command is executed.
+19:49:47 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+con
+----------------End of Script----------------
+
+19:49:47 INFO  : Launch script is exported to file '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_auk-clock.elf_on_local.tcl'
+00:16:33 ERROR : Unable to load properties file .sdkproject for project auk-clock_bsp.
+00:16:35 INFO  : Disconnected from the channel tcfchan#2.
+01:05:37 INFO  : Registering command handlers for SDK TCF services
+01:05:39 INFO  : Launching XSCT server: xsct -n -interactive /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/temp_xsdb_launch_script.tcl
+01:05:42 INFO  : XSCT server has started successfully.
+01:05:42 INFO  : Successfully done setting XSCT server connection channel  
+01:05:43 INFO  : Successfully done setting SDK workspace  
+01:05:43 INFO  : Restoring global repository preferences: 
+		 /home/veeyceey/Documents/workspace/linux-zynq/scratch/device-tree-xlnx
+01:05:43 INFO  : Processing command line option -hwspec /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf.
+01:05:43 INFO  : Checking for hwspec changes in the project example_led_wrapper_hw_platform_0.
