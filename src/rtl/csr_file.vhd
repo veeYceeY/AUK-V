@@ -200,7 +200,7 @@ end process;
 process(i_clk,i_rst)
 begin
 if i_rst = '1' then
-  --mcause<=x"00000000";
+    mtvec<=x"00000001";
 elsif rising_edge(i_clk) then
     if exception_lth = '1' then
         --mcause<=mcause_tmp;
@@ -228,7 +228,7 @@ end process;
 process(i_clk,i_rst)
 begin
 if i_rst = '1' then
-  --mcause<=x"00000000";
+  mtval<=x"00000000";
 elsif rising_edge(i_clk) then
     if exception_lth = '1' then
         mtval<=mtval_tmp;

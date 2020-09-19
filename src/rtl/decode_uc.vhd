@@ -368,7 +368,7 @@ if i_rst ='1' then
 elsif rising_edge(i_clk) then
     if i_stall = '0' then
         if bubble_count="0" then
-            if mem_wr='1' then
+            if mem_wr= (not mem_wr)  then
                 bubble_count<=x"0";
                 bubble_end<='1';
                 bubble<='1';

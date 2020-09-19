@@ -191,11 +191,11 @@ process(i_clk,i_rst)
 begin
     if i_rst = '1' then
     
-        o_data_mem_en     <= '0'              ;
-        o_data_mem_we     <= '0'              ;
-        o_data_mem_addr   <= (others =>'0')   ;
-        o_data_mem_strobe <= (others =>'0')   ;
-        o_data_mem_data   <= (others =>'0')   ;
+        --o_data_mem_en     <= '0'              ;
+        --o_data_mem_we     <= '0'              ;
+        --o_data_mem_addr   <= (others =>'0')   ;
+        --o_data_mem_strobe <= (others =>'0')   ;
+        --o_data_mem_data   <= (others =>'0')   ;
         --o_stall           <= '0'              ;
         o_br_addr         <= (others =>'0')   ;
         o_br_en           <= '0'              ;
@@ -204,11 +204,11 @@ begin
         o_wb_we           <= '0'              ;
         
     elsif rising_edge(i_clk) then
-            o_data_mem_en     <= i_mem_en and (not stall_d0);
-            o_data_mem_we     <= i_mem_we          ;
-            o_data_mem_addr   <= i_mem_addr        ;
-            o_data_mem_strobe <= mem_strobe        ;
-            o_data_mem_data   <= mem_data_wr       ;
+            --o_data_mem_en     <= i_mem_en and (not stall_d0);
+            --o_data_mem_we     <= i_mem_we          ;
+            --o_data_mem_addr   <= i_mem_addr        ;
+            --o_data_mem_strobe <= mem_strobe        ;
+            --o_data_mem_data   <= mem_data_wr       ;
         if stall = '0' then
             --o_stall           <= i_data_mem_valid  ;
             o_br_addr         <= i_br_addr         ;
@@ -220,5 +220,10 @@ begin
     end if;
 end process;
 
+o_data_mem_en     <= i_mem_en and (not stall_d0);
+o_data_mem_we     <= i_mem_we          ;
+o_data_mem_addr   <= i_mem_addr        ;
+o_data_mem_strobe <= mem_strobe        ;
+o_data_mem_data   <= mem_data_wr       ;
 
 end Behavioral;
