@@ -1,4 +1,4 @@
-01:06:56 **** Build of configuration Debug for project auk-clock ****
+22:44:26 **** Auto Build of configuration Debug for project auk-clock ****
 make pre-build main-build 
 a9-linaro-pre-build-step
  
@@ -24,5 +24,5 @@ arm-none-eabi-size auk-clock.elf  |tee "auk-clock.elf.size"
 Finished building: auk-clock.elf.size
  
 
-01:06:57 Build Finished (took 1s.68ms)
+22:44:27 Build Finished (took 988ms)
 

@@ -1022,3 +1022,28 @@ con
 		 /home/veeyceey/Documents/workspace/linux-zynq/scratch/device-tree-xlnx
 01:05:43 INFO  : Processing command line option -hwspec /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf.
 01:05:43 INFO  : Checking for hwspec changes in the project example_led_wrapper_hw_platform_0.
+22:42:23 INFO  : Registering command handlers for SDK TCF services
+22:42:25 INFO  : Launching XSCT server: xsct -n -interactive /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/temp_xsdb_launch_script.tcl
+22:42:28 INFO  : XSCT server has started successfully.
+22:42:28 INFO  : Successfully done setting XSCT server connection channel  
+22:42:29 INFO  : Successfully done setting SDK workspace  
+22:42:29 INFO  : Restoring global repository preferences: 
+		 /home/veeyceey/Documents/workspace/linux-zynq/scratch/device-tree-xlnx
+22:42:29 INFO  : Processing command line option -hwspec /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf.
+22:42:29 INFO  : Checking for hwspec changes in the project example_led_wrapper_hw_platform_0.
+22:42:35 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1600399483000,  Project:1599188133000
+22:42:35 INFO  : The hardware specification for project 'example_led_wrapper_hw_platform_0' is different from /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf.
+22:42:37 INFO  : Copied contents of /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf into /example_led_wrapper_hw_platform_0/system.hdf.
+22:42:42 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+22:42:43 INFO  : 
+22:42:44 INFO  : Updating hardware inferred compiler options for auk-clock.
+22:42:44 INFO  : Clearing existing target manager status.
+22:43:59 INFO  : Launching XSCT server: xsct -n -interactive /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/temp_xsdb_launch_script.tcl
+22:44:02 INFO  : XSCT server has started successfully.
+22:44:02 INFO  : Successfully done setting XSCT server connection channel  
+22:44:02 INFO  : Successfully done setting SDK workspace  
+22:44:02 INFO  : Restoring global repository preferences: 
+		 /home/veeyceey/Documents/workspace/linux-zynq/scratch/device-tree-xlnx
+22:44:09 INFO  : Registering command handlers for SDK TCF services
+22:44:09 INFO  : Processing command line option -hwspec /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf.
+22:44:10 INFO  : Checking for hwspec changes in the project example_led_wrapper_hw_platform_0.
