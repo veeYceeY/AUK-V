@@ -1,6 +1,8 @@
 *.html linguist-detectable=false
 *.xml linguist-detectable=false
+vivado/*.c linguist-detectable=false
 *.c linguist-detectable=true
+*.h linguist-detectable=true
 *.s linguist-detectable=true
 *.S linguist-detectable=true
 *.vhd linguist-detectable=true
