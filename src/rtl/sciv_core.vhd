@@ -254,6 +254,7 @@ DE0: entity work.decode_uc
             i_rd_addr   =>ex0_csr_rd_addr,
             i_wr_addr   =>ex0_csr_wr_addr,
             i_pc       =>fe0_pc,
+            i_instr       =>fe0_instr,
             o_mtvec       =>csr0_mtvec,
             i_exception_id=> exception_id,
             i_exception=> exception,

@@ -37,6 +37,7 @@ entity csr_file is
 
 
             i_pc : in std_logic_vector(31 downto 0);
+            i_instr : in std_logic_vector(31 downto 0);
             o_mtvec: out std_logic_vector(31 downto 0);
 
             i_wr_addr : in std_logic_vector(11 downto 0);
@@ -63,6 +64,10 @@ signal mtvec : std_logic_vector(31 downto 0);
 signal exception_d1 : std_logic;
 signal exception_lth : std_logic;
 signal mcause_tmp : std_logic_vector(31 downto 0);
+signal mtval_tmp : std_logic_vector(31 downto 0);
+signal mtval : std_logic_vector(31 downto 0);
+
+signal instr_d1 : std_logic_vector(31 downto 0);
 
 begin
 
@@ -81,6 +86,9 @@ exception_lth<= (not exception_d1) and i_exception;
 mcause_tmp<=    x"00000002" when i_exception_id =x"1" else
                 x"00000000";
 
+instr_d1 <= i_instr when rising_edge(i_clk);
+mtval_tmp<=    instr_d1 when i_exception_id =x"1" else
+x"00000000";
 
 
 
@@ -217,6 +225,34 @@ end process;
 
 
 
+process(i_clk,i_rst)
+begin
+if i_rst = '1' then
+  --mcause<=x"00000000";
+elsif rising_edge(i_clk) then
+    if exception_lth = '1' then
+        mtval<=mtval_tmp;
+    else
+        if i_we = '1' then
+            if i_wr_addr = x"343" then
+                if i_op="00" then
+                    mtval<=mtval;
+                elsif i_op="01" then
+                    mtval <= i_data ;
+                elsif i_op="10" then
+                    mtval <= mtval or i_data ;
+                elsif i_op="11" then
+                    mtval <= mtval and (not i_data) ;
+                end if;
+            end if;
+        end if;
+    end if;
+end if;
+
+end process;
+
+
+
 
 
 o_mtvec<=mtvec(31 downto 2) & "00";
@@ -228,6 +264,7 @@ o_data <=   mie         when i_rd='1' and i_rd_addr = x"304" else
             mstatus     when i_rd='1' and i_rd_addr = x"300" else
             mepc        when i_rd='1' and i_rd_addr = x"341" else
             mcause      when i_rd='1' and i_rd_addr = x"342" else
+            mtval       when i_rd='1' and i_rd_addr = x"343" else
             x"00000000";
 
 end behave;
