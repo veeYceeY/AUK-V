@@ -144,6 +144,7 @@ vfile=vfile+"    mem("+str(int(parse.addr))+")<=x"+c+"00000033"+c+";\n"
 parse.addr+=1
 vfile=vfile+"    mem("+str(int(parse.addr))+")<=x"+c+"00000033"+c+";\n"
 parse.addr+=1
+#parse.addr=256/4
 try:
     while i<len(line)-1:
         i+=1

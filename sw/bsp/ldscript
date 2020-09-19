@@ -5,7 +5,7 @@ MEMORY
      *
      * We must tell that to the linker so that it can do relocation correctly.
      */
-    ram : ORIGIN = 0x0018, LENGTH = 0x1020
+    ram : ORIGIN = 0x00010018, LENGTH = 0x1020
 }
 
 SECTIONS

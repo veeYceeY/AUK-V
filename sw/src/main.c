@@ -13,6 +13,12 @@
 //
 void led(int* gpio,int val);
 
+
+void exception_handler(uint32_t cause, void * epc, void * saved_sp);
+
+
+
+
 int main()
 {
   //int gpio;
@@ -58,4 +64,10 @@ int main()
 
 void led(int* gpio,int val){
   *gpio=val;
+}
+
+
+void exception_handler(uint32_t cause, void * epc, void * saved_sp)
+{
+	
 }

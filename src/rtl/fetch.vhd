@@ -31,7 +31,9 @@ entity fetch is
                 
                 i_stall : in std_logic;
                 i_branch_addr : in std_logic_vector(31 downto 0);
+                i_evec_addr : in std_logic_vector(31 downto 0);
                 i_branch_en : in std_logic;
+                i_exception : in std_logic;
                 
                 o_addr : out std_logic_vector(31 downto 0);
                 i_data : std_logic_vector(31 downto 0);
@@ -46,7 +48,26 @@ end fetch;
 
 architecture fetch_no_bp of fetch is 
 signal pc : std_logic_vector(31 downto 0);
+signal exception_d1 : std_logic;
+signal exception_lth : std_logic;
+
 begin
+
+
+process(i_clk,i_rst)
+begin
+if i_rst = '1' then
+    exception_d1<='0';
+elsif rising_edge(i_clk) then
+    --pc<=i_pc;
+   exception_d1 <= i_exception;
+end if;
+end process;
+
+exception_lth<= (not exception_d1) and i_exception;
+
+
+
 
 process(i_clk,i_rst)
 begin
@@ -56,7 +77,9 @@ if i_rst = '1' then
     pc <= x"00010018";
 elsif rising_edge(i_clk) then
     if  i_stall='0' then
-        if i_branch_en = '1' then
+        if exception_lth = '1' then 
+            pc<= i_evec_addr;
+        elsif i_branch_en = '1' then
             pc <= i_branch_addr;
         elsif i_valid='1' then
             pc <= pc+4;

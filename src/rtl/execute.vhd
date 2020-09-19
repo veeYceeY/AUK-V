@@ -154,38 +154,38 @@ begin
 
 
 
-process(i_clk,i_rst)
-begin
-    if i_rst = '1' then
-    
-        o_csr_rd        <='0'       ;
-        o_csr_we        <='0'        ;
-        o_csr_wr_data   <=(others => '0')     ;
-        o_csr_wr_addr   <=(others => '0')     ;
-        o_csr_rd_addr   <=(others => '0')     ;
-        o_csr_op        <=(others => '0')          ;
-       
-        
-    elsif rising_edge(i_clk) then
-        if i_stall='0' then
-           --o_csr_sel       <=i_csr_sel       ;
-            o_csr_rd        <=i_csr_rd        ;
-            o_csr_we        <=i_csr_we        ;
-            o_csr_wr_data   <=rs1   ;
-            o_csr_wr_addr   <=i_csr_wr_addr   ;
-            o_csr_rd_addr   <=i_csr_rd_addr   ;
-            o_csr_op        <=i_csr_op        ;
-        end if;
-        
-    end if;
-end process;
+--process(i_clk,i_rst)
+--begin
+--    if i_rst = '1' then
+--    
+--        o_csr_rd        <='0'       ;
+--        o_csr_we        <='0'        ;
+--        o_csr_wr_data   <=(others => '0')     ;
+--        o_csr_wr_addr   <=(others => '0')     ;
+--        o_csr_rd_addr   <=(others => '0')     ;
+--        o_csr_op        <=(others => '0')          ;
+--       
+--        
+--    elsif rising_edge(i_clk) then
+--        if i_stall='0' then
+--           --o_csr_sel       <=i_csr_sel       ;
+--            o_csr_rd        <=i_csr_rd        ;
+--            o_csr_we        <=i_csr_we        ;
+--            o_csr_wr_data   <=rs1   ;
+--            o_csr_wr_addr   <=i_csr_wr_addr   ;
+--            o_csr_rd_addr   <=i_csr_rd_addr   ;
+--            o_csr_op        <=i_csr_op        ;
+--        end if;
+--        
+--    end if;
+--end process;
 
---o_csr_rd        <=i_csr_rd        ;
---o_csr_we        <=i_csr_we        ;
---o_csr_wr_data   <=rs1   ;
---o_csr_wr_addr   <=i_csr_wr_addr   ;
---o_csr_rd_addr   <=i_csr_rd_addr   ;
---o_csr_op        <=i_csr_op        ;
+o_csr_rd        <=i_csr_rd        ;
+o_csr_we        <=i_csr_we        ;
+o_csr_wr_data   <=rs1   ;
+o_csr_wr_addr   <=i_csr_wr_addr   ;
+o_csr_rd_addr   <=i_csr_rd_addr   ;
+o_csr_op        <=i_csr_op        ;
 
 
 
@@ -259,7 +259,8 @@ set_result <= x"0000000" & "000" & cmp_result;
 
 next_instr_addr <= i_pc+FOUR32;
 
-branch_addr <=  alu0_result when i_br_addr_sel = '0' else
+branch_addr <=  i_csr_rd_data when i_csr_sel ='1' else
+                alu0_result when i_br_addr_sel = '0' else
                 i_imm;
 
 exe_result  <=  alu0_result when i_res_sel = "00" else

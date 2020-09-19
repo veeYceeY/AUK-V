@@ -144,7 +144,12 @@ signal ex0_csr_wr_addr : std_logic_vector(11 downto 0);
 signal ex0_csr_rd_addr : std_logic_vector(11 downto 0);
 signal ex0_csr_op      : std_logic_vector(1 downto 0);
 signal csr0_csr_rd_data: std_logic_vector(31 downto 0);
+signal csr0_mtvec: std_logic_vector(31 downto 0);
 
+signal de0_except_ill_instr      : std_logic;
+signal exception      : std_logic;
+signal exception_id      : std_logic_vector(7 downto 0);
+signal exception_arr      : std_logic_vector(7 downto 0);
 begin
 
 --ma0_stall<= '0';
@@ -152,6 +157,7 @@ o_code_mem_en<='1';
 
 fetch_stall <= de0_stall or ma0_stall;
 
+exception <= de0_except_ill_instr;
 
 FE0: entity work.fetch  
         port map (
@@ -160,7 +166,9 @@ FE0: entity work.fetch
                                 
                 i_stall         =>fetch_stall,
                 i_branch_addr   =>ma0_br_addr,
+                i_evec_addr    =>csr0_mtvec,
                 i_branch_en     =>ma0_br_en,  
+                i_exception     =>exception,  
                                  
                 o_addr          =>o_code_mem_addr,
                 i_data          =>i_code_mem_data,
@@ -223,14 +231,21 @@ DE0: entity work.decode_uc
         --o_csr_wr_data      => de0_csr_wr_data  ,
         o_csr_wr_addr      => de0_csr_wr_addr,
         o_csr_rd_addr      => de0_csr_rd_addr,
-        o_csr_op        => de0_csr_op    
-        --i_csr_data        => csr0_csr_data    
+        o_csr_op           => de0_csr_op    ,
+        o_except_ill_instr => de0_except_ill_instr    
       
             
     );
 
-
-
+    exception_arr(0)<=de0_except_ill_instr;
+    exception_arr(1)<='0';
+    exception_arr(2)<='0';
+    exception_arr(3)<='0';
+    exception_arr(4)<='0';
+    exception_arr(5)<='0';
+    exception_arr(6)<='0';
+    exception_arr(7)<='0';
+    exception_id <= exception_arr;
     csr0: entity work.csr_file  
     port map(
             i_clk       =>i_clk,
@@ -238,7 +253,10 @@ DE0: entity work.decode_uc
             
             i_rd_addr   =>ex0_csr_rd_addr,
             i_wr_addr   =>ex0_csr_wr_addr,
-                        
+            i_pc       =>fe0_pc,
+            o_mtvec       =>csr0_mtvec,
+            i_exception_id=> exception_id,
+            i_exception=> exception,
             i_data      =>ex0_csr_wr_data,
             i_we        =>ex0_csr_we,
             i_rd        =>ex0_csr_rd,

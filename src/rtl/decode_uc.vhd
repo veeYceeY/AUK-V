@@ -82,7 +82,7 @@ entity decode_uc is
             --o_mem_addr   : out std_logic_vector(31 downto 0);
             o_mem_data   : out std_logic_vector(31 downto 0);
             o_stall: out std_logic;
-
+            o_except_ill_instr : out std_logic;
             
             o_csr_sel   : out std_logic;
             o_csr_rd   : out std_logic;
@@ -181,6 +181,7 @@ signal csr_op    : std_logic_vector(1 downto 0);
 
 
 signal rs1_csr  : std_logic_vector(31 downto 0);
+signal except_ill_instr  : std_logic;
 
 
 begin
@@ -209,7 +210,7 @@ immu_b <=    "000" & x"0000" & instr(31) & instr(7) & instr(30 downto 25) & inst
 immu_j <=    "000" & x"00" & instr(31)  & instr(19 downto 12) & instr(20) & instr( 30 downto 21)  & '0';
 
 imm_r <=    x"000000" & "000" & rs2;
-csr_address<=instr(31 downto 20) ;
+csr_address<=x"341" when uc_addr = x"30" else instr(31 downto 20) ;
 o_uc_addr        <= uc_addr;--
 --uc               <= i_data;
 store_type       <=uc(1 downto 0);
@@ -235,9 +236,10 @@ o_src2_addr     <= rs2;
 
 rs1_csr<= csr_data when csr_sel = '1' else i_src1;
 
+--10001110111000000001001000000000
 
 csr_we <= '1' when csr_sel = '1' and ((csr_op = "01" and rs1 /="00000") or csr_op(1) = '1')  else '0';
-csr_rd <= '1' when csr_sel = '1' and ((csr_op(1) = '1' and rd /="00000")or csr_op = "01") else '0';
+csr_rd <= '1' when csr_sel = '1' and ((csr_op(1) = '1' and rd /="00000")or csr_op = "01"or csr_op = "00") else '0';
 --csr_wb_en <= csr_en;
 csr_data <= i_src1 when csr_d_type = '0' else x"000000"&"000"&rs1;
 
@@ -262,10 +264,12 @@ begin
         o_csr_wr_addr   <=(others => '0')     ;
         o_csr_rd_addr   <=(others => '0')     ;
         o_csr_op        <=(others => '0')          ;
+        o_except_ill_instr        <='0'          ;
        
         
     elsif rising_edge(i_clk) then
         if i_stall='0' then
+            o_except_ill_instr<=except_ill_instr;
             o_csr_sel       <=csr_sel       ;
             o_csr_rd        <=csr_rd        ;
             o_csr_we        <=csr_we        ;
@@ -498,6 +502,7 @@ begin
                 uc  <= "00000001001000000000000100011100";
             else
                 uc_addr <= x"00";
+                uc  <= "00000000000000000000000000000000";
             end if;
     elsif opcode = "0100011" then
             if funct3 = "000" then
@@ -511,6 +516,7 @@ begin
                 uc  <= "00001101001000000000000000110010";
             else
                 uc_addr <= x"00";
+                uc  <= "00000000000000000000000000000000";
             end if;
     elsif opcode = "0010011" then
             if funct3 = "000" then
@@ -544,6 +550,7 @@ begin
                 end if;
             else
                 uc_addr <= x"00";
+                uc  <= "00000000000000000000000000000000";
             end if;
     elsif opcode = "0110011" then
             if funct3 = "000" then
@@ -582,6 +589,7 @@ begin
                 uc  <= "00001000000000110000000000000100";
             else
                 uc_addr <= x"00";
+                uc  <= "00000000000000000000000000000000";
             end if;
     elsif opcode = "0001111" then
             if funct3 = "000" then
@@ -592,15 +600,19 @@ begin
                 uc  <= "00001000101000000000000000000000";
             else
                 uc_addr <= x"00";
+                uc  <= "00000000000000000000000000000000";
             end if;
     elsif opcode = "1110011" then
             if funct3 = "000" then
-                if imm_i(0) = '0' then
+                if immu_i = x"00000000" then
                     uc_addr <= x"28";
                     uc  <= "00001000101000000000000000000000";
-                else
+                elsif immu_i = x"00000001" then
                     uc_addr <= x"29";
                     uc  <= "00001000101000000000000000000000";
+                elsif immu_i = x"00000302" then
+                    uc_addr <= x"30";
+                    uc  <= "10001110111000000001001000000000";
                 end if;
             elsif funct3 = "001" then
                 uc  <= "10011110111000000000000000000100";
@@ -622,13 +634,17 @@ begin
                 uc_addr <= x"2f";
             else
             uc_addr <= x"00";
+            uc  <= "00000000000000000000000000000000";
             end if;
     else
         uc_addr <= x"00";
+        uc  <= "00000000000000000000000000000000";
+        
     end if;
 end process;
 
 
+except_ill_instr<='1' when uc_addr <= x"00" and i_rst='0' else '0';
 
 --00001000111000000000000000000100
 --10010000000000000000000000000100
