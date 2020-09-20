@@ -35,19 +35,21 @@ entity fetch is
                 i_branch_en : in std_logic;
                 i_exception : in std_logic;
                 
+                o_en: out std_logic;
                 o_addr : out std_logic_vector(31 downto 0);
                 i_data : std_logic_vector(31 downto 0);
                 i_valid: std_logic;
                 
                 o_pc : out std_logic_vector(31 downto 0);
-                o_instr : out std_logic_vector(31 downto 0)
-                --o_instr_valid : out std_logic
+                o_instr : out std_logic_vector(31 downto 0);
+                o_instr_valid : out std_logic
         );
 
 end fetch;
 
 architecture fetch_no_bp of fetch is 
 signal pc : std_logic_vector(31 downto 0);
+signal instr : std_logic_vector(31 downto 0);
 signal exception_d1 : std_logic;
 signal exception_lth : std_logic;
 
@@ -67,7 +69,7 @@ end process;
 exception_lth<= (not exception_d1) and i_exception;
 
 
-
+o_en<= not i_rst;
 
 process(i_clk,i_rst)
 begin
@@ -88,17 +90,37 @@ elsif rising_edge(i_clk) then
 end if;
 end process;
 o_addr <= pc;
-o_instr <= i_data when i_valid ='1' else x"00000033";
+instr <= i_data when i_valid ='1' else x"00000033";
+o_instr<=instr;
+o_instr_valid<=i_valid;
+o_pc <= pc;
 --o_instr_valid <= i_valid;
 --o_pc <= (others =>'0') when i_rst = '1' else pc when rising_edge(i_clk);
-process(i_stall,pc,i_rst)
-begin
-    if i_rst='1' then
-        o_pc <= (others => '0');
-    else --if rising_edge(i_clk) then
-        --if i_stall = '0' then
-            o_pc <= pc;
-        --end if;            
-    end if;
-end process;
+--process(i_clk,i_rst)
+--begin
+--    if i_rst='1' then
+--        o_pc <= x"00010018";
+--        o_instr_valid<='0';
+--        o_instr<=x"00000033";
+--    elsif rising_edge(i_clk) then
+--        if i_stall = '0' then
+--            o_pc <= pc;
+--            o_instr_valid<=i_valid;
+--            o_instr<=instr;
+--        end if;            
+--    end if;
+--end process;
+
+--process(i_stall,pc,i_rst)
+--begin
+--    if i_rst='1' then
+--        o_pc <= (others => '0');
+--    else --if rising_edge(i_clk) then
+--        --if i_stall = '0' then
+--            o_pc <= pc;
+--        --end if;            
+--    end if;
+--end process;
+
+
 end fetch_no_bp;

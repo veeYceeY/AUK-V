@@ -2,7 +2,7 @@
 .global _start
 _start:
     la t0,_exception_entry
-    #csrw mtvec,t0
+    csrw mtvec,t0
     li sp,0x008007ff
     jal main
 here:

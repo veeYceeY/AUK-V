@@ -49,11 +49,11 @@ begin
             if busy = '0' then
                 if i_m_wb.cyc ='1' then
                     busy <= '1';
-                    if i_m_wb.addr(31 downto 16) <x"0001" then -- Debug-s0
+                    if i_m_wb.addr <x"00010000" then -- Debug-s0
                         periph<=DEBUG;
                         --o_m_wb<=i_s0_wb;
 
-                        o_s0_wb.addr<=x"0000" & i_m_wb.addr(15 downto 0);
+                        o_s0_wb.addr<=i_m_wb.addr;
                         o_s0_wb.sel <=i_m_wb.sel;
                         o_s0_wb.cyc <=i_m_wb.cyc;
                         o_s0_wb.stb <=i_m_wb.stb;
@@ -65,12 +65,12 @@ begin
 --                        o_s3_wb<=idle_out_wb_master;
 --                        o_s4_wb<=idle_out_wb_master;
 --                        o_s5_wb<=idle_out_wb_master;
-                    elsif i_m_wb.addr(31 downto 16)<x"0200" then -- OCM-s1
+                    elsif i_m_wb.addr<x"00100000" then -- OCM-s1
                         periph<=ROM;
                         --o_m_wb<=i_s1_wb;
 --                        o_m_wb.data<=i_s1_wb.data;
 --                        o_m_wb.ack<=i_s1_wb.ack;
-                        o_s1_wb.addr<=x"0000" & i_m_wb.addr(15 downto 0);
+                        o_s1_wb.addr<=i_m_wb.addr-x"00010000";
                         o_s1_wb.sel <=i_m_wb.sel;
                         o_s1_wb.cyc <=i_m_wb.cyc;
                         o_s1_wb.stb <=i_m_wb.stb;
@@ -82,12 +82,12 @@ begin
 --                        o_s3_wb<=idle_out_wb_master;
 --                        o_s4_wb<=idle_out_wb_master;
 --                        o_s5_wb<=idle_out_wb_master;
-                    elsif i_m_wb.addr(31 downto 16)<x"2000" then -- periph-
-                        if i_m_wb.addr(15 downto 12)<x"0001" then --s2
+                    elsif i_m_wb.addr<x"00800000" then -- periph-
+                        if i_m_wb.addr<x"00100100" then --s2
                             periph<=GPIO;
                             --o_m_wb<=i_s2_wb;
 
-                            o_s2_wb.addr<=x"00000" & i_m_wb.addr(11 downto 0);
+                            o_s2_wb.addr<=i_m_wb.addr-x"00100000";
                             o_s2_wb.sel <=i_m_wb.sel;
                             o_s2_wb.cyc <=i_m_wb.cyc;
                             o_s2_wb.stb <=i_m_wb.stb;
@@ -99,11 +99,11 @@ begin
 --                            o_s3_wb<=idle_out_wb_master;
 --                            o_s4_wb<=idle_out_wb_master;
 --                            o_s5_wb<=idle_out_wb_master;
-                        elsif i_m_wb.addr(15 downto 12)<x"0002" then --s3
+                        elsif i_m_wb.addr<x"00100200" then --s3
                             periph<=S3;
                             --o_m_wb<=i_s3_wb;
 
-                            o_s3_wb.addr<=x"00000" & i_m_wb.addr(11 downto 0);
+                            o_s3_wb.addr<=i_m_wb.addr-x"00100100";
                             o_s3_wb.sel <=i_m_wb.sel;
                             o_s3_wb.cyc <=i_m_wb.cyc;
                             o_s3_wb.stb <=i_m_wb.stb;
@@ -119,7 +119,7 @@ begin
                             periph<=S4;
                             --o_m_wb<=i_s4_wb;
 
-                            o_s4_wb.addr<=x"00000" & i_m_wb.addr(11 downto 0);
+                            o_s4_wb.addr<=i_m_wb.addr-x"00100200";
                             o_s4_wb.sel <=i_m_wb.sel;
                             o_s4_wb.cyc <=i_m_wb.cyc;
                             o_s4_wb.stb <=i_m_wb.stb;
@@ -136,7 +136,7 @@ begin
                         periph<=RAM;
                         --o_m_wb<=i_s5_wb;
 
-                        o_s5_wb.addr<=i_m_wb.addr-x"20000000";
+                        o_s5_wb.addr<=i_m_wb.addr-x"00800000";
                         o_s5_wb.sel <=i_m_wb.sel;
                         o_s5_wb.cyc <=i_m_wb.cyc;
                         o_s5_wb.stb <=i_m_wb.stb;

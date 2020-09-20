@@ -1,8 +1,8 @@
-10:49:23 **** Incremental Build of configuration Debug for project auk-clock ****
+21:42:20 **** Incremental Build of configuration Debug for project auk-clock ****
 make pre-build main-build 
 a9-linaro-pre-build-step
  
 make: Nothing to be done for 'main-build'.
 
-10:49:24 Build Finished (took 823ms)
+21:42:20 Build Finished (took 816ms)
 

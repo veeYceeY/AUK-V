@@ -36,6 +36,7 @@ entity decode_uc is
             
             i_stall           : in std_logic;
             
+            i_instr_valid : in std_logic;
             i_instr     : in std_logic_vector(31 downto 0);
             i_pc        : in std_logic_vector(31 downto 0);
             

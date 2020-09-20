@@ -62,6 +62,7 @@ signal wb0_branch_en : std_logic;
 
 signal fe0_pc : std_logic_vector(31 downto 0);
 signal fe0_instr : std_logic_vector(31 downto 0);
+signal fe0_instr_valid : std_logic;
 
 signal de0_rs1_addr : std_logic_vector(4 downto 0);
 signal de0_rs2_addr : std_logic_vector(4 downto 0);
@@ -153,7 +154,7 @@ signal exception_arr      : std_logic_vector(7 downto 0);
 begin
 
 --ma0_stall<= '0';
-o_code_mem_en<='1';
+--o_code_mem_en<='1';
 
 fetch_stall <= de0_stall or ma0_stall;
 
@@ -170,11 +171,13 @@ FE0: entity work.fetch
                 i_branch_en     =>ma0_br_en,  
                 i_exception     =>exception,  
                                  
+                o_en            =>o_code_mem_en,
                 o_addr          =>o_code_mem_addr,
                 i_data          =>i_code_mem_data,
                 i_valid         =>i_code_mem_valid,
                 o_pc            =>fe0_pc,
-                o_instr         =>fe0_instr
+                o_instr         =>fe0_instr,
+                o_instr_valid   =>fe0_instr_valid
         );
 DE0: entity work.decode_uc
     port map (
@@ -182,6 +185,7 @@ DE0: entity work.decode_uc
             i_rst           =>i_rst,
             i_stall         =>ma0_stall,
             
+            i_instr_valid   =>fe0_instr_valid,
             i_instr         =>fe0_instr,
             i_pc            =>fe0_pc,
 

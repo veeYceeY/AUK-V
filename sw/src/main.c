@@ -38,9 +38,10 @@ int main()
   *gpio=0x86;
   led(gpio,0x86);
 
-  //register uint32_t temp = 0x86;
-  //register uint32_t temp2 = 0x84;
-  //asm volatile("csrs mie, %[temp]\n":: [temp] "r" (temp));
+  register uint32_t temp = 0x86;
+  register uint32_t temp2 = 0x84;
+  asm volatile("csrs mie, %[temp]\n":: [temp] "r" (temp));
+  asm volatile("csrc mie, %[temp2]\n":: [temp2] "r" (temp2));
   //temp = 0x84;
   //asm volatile("nop\n");
   //asm volatile("nop\n");
@@ -48,17 +49,16 @@ int main()
   //asm volatile("nop\n");
   //asm volatile("nop\n");
   //asm volatile("nop\n");
-  //asm volatile("csrc mie, %[temp2]\n":: [temp2] "r" (temp2));
   //*ptr=*a+*ptr;
 
   while(1){
-	  for (int i=-100;i<100000;i++){
+	  for (int i=-100;i<500000;i++){
 	    }
 	  led(gpio,0x45);
-	  for (int i=0;i<200000;i++){
+	  for (int i=0;i<500000;i++){
 	    }
 	  led(gpio,0x76);
-	  for (int i=0;i<300000;i++){
+	  for (int i=0;i<500000;i++){
 	    }
 	  led(gpio,0xe3);
   }
