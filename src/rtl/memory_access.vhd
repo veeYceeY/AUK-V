@@ -155,7 +155,7 @@ begin
         stall_state <= '0';
     elsif rising_edge(i_clk) then
         if stall_state='0' then
-            if i_mem_en_p = '1' and i_mem_we_p = '0' then
+            if i_mem_en_p = '1' then --and i_mem_we_p = '0' then
                 stall_state<='1';
                 stall <= '1';
             else
@@ -221,7 +221,7 @@ begin
 end process;
 
 o_data_mem_en     <= i_mem_en and (not stall_d0);
-o_data_mem_we     <= i_mem_we          ;
+o_data_mem_we     <= i_mem_we and (not stall_d0);
 o_data_mem_addr   <= i_mem_addr        ;
 o_data_mem_strobe <= mem_strobe        ;
 o_data_mem_data   <= mem_data_wr       ;

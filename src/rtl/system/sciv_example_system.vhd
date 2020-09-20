@@ -108,8 +108,8 @@ MC0:entity work.mem_interconnect
                 o_port0_addr      => mc0_gpio_addr  ,
                 o_port0_data      => mc0_gpio_data  ,
                 o_port0_strobe    => mc0_gpio_strobe,
-                i_port0_valid     => rm0_gpio_valid ,
-                i_port0_data      => rm0_gpio_data  ,
+                i_port0_valid     => io0_gpio_valid ,
+                i_port0_data      => io0_gpio_data  ,
 
                 o_port1_clk    => open,
                 o_port1_rst    => open,
@@ -119,8 +119,8 @@ MC0:entity work.mem_interconnect
                 o_port1_addr   => mc0_uart_addr  ,
                 o_port1_data   => mc0_uart_data  ,
                 o_port1_strobe => mc0_uart_strobe,
-                i_port1_valid  => io0_gpio_valid ,
-                i_port1_data   => io0_gpio_data  
+                i_port1_valid  => '0' ,
+                i_port1_data   => x"00000000"  
         );
     
 

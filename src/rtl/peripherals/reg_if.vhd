@@ -61,6 +61,6 @@ begin
 
     o_data <= mem(to_integer(unsigned((addr))));
 
-    o_valid <= i_en and (not i_we) when rising_edge(i_clk);
+    o_valid <= i_en  when rising_edge(i_clk); --and (not i_we) when rising_edge(i_clk);
     o_reg0 <= mem(1);
 end behave;

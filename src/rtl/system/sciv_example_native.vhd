@@ -10,7 +10,7 @@ use ieee.numeric_std.all;
 
 
 
-entity sciv_example_system_native is
+entity sciv_example_native is
     port(
         i_clk : in std_logic;
         i_rst : in std_logic;
@@ -20,9 +20,9 @@ entity sciv_example_system_native is
         o_port_b: out std_logic_vector(2 downto 0)
     );
 
-end sciv_example_system_native;
+end sciv_example_native;
 
-architecture beh of sciv_example_system_native is
+architecture beh of sciv_example_native is
 
 
 signal sc0_en        : std_logic;
@@ -134,7 +134,7 @@ MC0:entity work.native_mem_interconnect
                 o_port2_addr   => mc0_gpio_addr  ,
                 o_port2_data   => mc0_gpio_data  ,
                 o_port2_strobe => mc0_gpio_strobe,
-                i_port2_valid  => rm0_gpio_valid ,
+                i_port2_valid  => io0_gpio_valid ,
                 i_port2_data   => rm0_gpio_data  ,
 
                 o_port3_en     => mc0_ram_en    ,

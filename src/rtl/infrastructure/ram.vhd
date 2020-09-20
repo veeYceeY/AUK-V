@@ -54,5 +54,5 @@ begin
     end process;
 
     o_data <= mem(to_integer(unsigned((addr)))) when i_en ='1' and i_we= '0' and rising_edge(i_clk);
-    o_valid <= i_en and (not i_we) when rising_edge(i_clk);
+    o_valid <= i_en when rising_edge(i_clk); --and  (not i_we) when rising_edge(i_clk);
 end behave;

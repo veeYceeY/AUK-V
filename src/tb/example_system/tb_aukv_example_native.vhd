@@ -65,7 +65,7 @@ begin
 --  );
 
 
-SC0:entity work.sciv_example_system_native 
+SC0:entity work.sciv_example_native 
   Port map( 
             i_clk        =>clk,
             i_rst        =>rst,

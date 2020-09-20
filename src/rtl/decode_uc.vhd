@@ -349,7 +349,7 @@ rs2_fwsel <=    "01" when fw_bu00(0) = rs2 and wb_we_buff(0) ='1'and rs2 /=x"000
 --                "10" when fw_bu00(1)(5 downto 1) = rs2 and fw_bu00(1)(0) ='1'else
 --                "11" when fw_bu00(2)(5 downto 1) = rs2 and fw_bu00(2)(0) ='1'else
 --                "00";
-mem_wr<='1' when mem_en='1' and mem_we='0'else '0';
+mem_wr<='1' when mem_en='1' else '0'; --and mem_we='0'else '0';
 process(i_clk,i_rst)
 begin
     if i_rst ='1' then
@@ -368,7 +368,7 @@ if i_rst ='1' then
 elsif rising_edge(i_clk) then
     if i_stall = '0' then
         if bubble_count="0" then
-            if mem_wr= (not mem_wr)  then
+            if mem_wr= '1'  then
                 bubble_count<=x"0";
                 bubble_end<='1';
                 bubble<='1';
