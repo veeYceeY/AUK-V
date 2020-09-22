@@ -373,7 +373,7 @@ elsif rising_edge(i_clk) then
                 bubble_end<='1';
                 bubble<='1';
             elsif br_en='1' then
-                bubble_count<=x"3";
+                bubble_count<=x"2";
                 bubble<='1';
                 --bubble<='1';
             else

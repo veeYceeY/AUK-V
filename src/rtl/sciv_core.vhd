@@ -166,9 +166,9 @@ FE0: entity work.fetch
                 i_rst           =>i_rst,
                                 
                 i_stall         =>fetch_stall,
-                i_branch_addr   =>ma0_br_addr,
+                i_branch_addr   =>ex0_br_addr,
                 i_evec_addr    =>csr0_mtvec,
-                i_branch_en     =>ma0_br_en,  
+                i_branch_en     =>ex0_br_en,  
                 i_exception     =>exception,  
                                  
                 o_en            =>o_code_mem_en,
