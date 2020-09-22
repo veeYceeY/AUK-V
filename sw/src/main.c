@@ -52,7 +52,7 @@ int main()
   //*ptr=*a+*ptr;
 
   while(1){
-	  for (int i=-100;i<500000;i++){
+	  for (int i=-100;i<50000;i++){
 	    }
 	  led(gpio,0x45);
 	  for (int i=0;i<500000;i++){

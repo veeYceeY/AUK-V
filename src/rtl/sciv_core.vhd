@@ -288,7 +288,7 @@ EX0: entity work.execute
             
             i_fw_ee         =>ex0_exe_res,
             i_fw_me         =>ma0_wb_data,
-            i_fw_we         =>wb0_wb_data,
+            i_fw_we         =>x"00000000",
             
             i_imm           =>de0_imm,
             i_pc            =>de0_pc,
@@ -394,28 +394,28 @@ MA0: entity work.memory_access
 
 
 
-WB0: entity work.write_back 
-  Port map (
-            i_clk       =>i_clk,
-            i_rst       =>i_rst,
+--WB0: entity work.write_back 
+--  Port map (
+--            i_clk       =>i_clk,
+--            i_rst       =>i_rst,
             
-            i_stall         =>ma0_stall,
+--            i_stall         =>ma0_stall,
             
-            i_br_addr   =>ma0_br_addr,
-            i_br_en     =>ma0_br_en,
+--            i_br_addr   =>ma0_br_addr,
+--            i_br_en     =>ma0_br_en,
                         
-            i_wb_data   =>ma0_wb_data,
-            i_wb_reg_sel=>ma0_wb_reg_sel,
-            i_wb_we     =>ma0_wb_we,
+--            i_wb_data   =>ma0_wb_data,
+--            i_wb_reg_sel=>ma0_wb_reg_sel,
+--            i_wb_we     =>ma0_wb_we,
                         
                         
-            o_wb_data   =>wb0_wb_data,
-            o_wb_reg_sel=>wb0_wb_reg_sel,
-            o_wb_we     =>wb0_wb_we,
-            o_br_addr   =>wb0_br_addr,
-            o_br_en     =>wb0_branch_en
+--            o_wb_data   =>wb0_wb_data,
+--            o_wb_reg_sel=>wb0_wb_reg_sel,
+--            o_wb_we     =>wb0_wb_we,
+--            o_br_addr   =>wb0_br_addr,
+--            o_br_en     =>wb0_branch_en
                         
-   );
+--   );
 
 
 

@@ -182,6 +182,7 @@ signal csr_op    : std_logic_vector(1 downto 0);
 
 
 signal rs1_csr  : std_logic_vector(31 downto 0);
+signal rs1_csr_t  : std_logic_vector(31 downto 0);
 signal except_ill_instr  : std_logic;
 
 
@@ -232,11 +233,9 @@ op_sign          <=uc(27);
 csr_op          <= uc(29 downto 28);
 csr_d_type       <= uc(30);
 csr_sel          <= uc(31);
-o_src1_addr     <= rs1;
-o_src2_addr     <= rs2;
 
 rs1_csr<= csr_data when csr_sel = '1' else i_src1;
-
+--rs1_csr<=rs1_csr_t when rising_edge(i_clk);
 --10001110111000000001001000000000
 
 csr_we <= '1' when csr_sel = '1' and ((csr_op = "01" and rs1 /="00000") or csr_op(1) = '1')  else '0';
@@ -338,12 +337,12 @@ end process;
 
 rs1_fwsel <=    "01" when fw_bu00(0) = rs1 and wb_we_buff(0) ='1' and rs1 /=x"00000000" else
                 "10" when fw_bu00(1) = rs1 and wb_we_buff(1) ='1'and rs1 /=x"00000000" else
-                "11" when fw_bu00(2) = rs1 and wb_we_buff(2) ='1'and rs1 /=x"00000000" else
+                "00" when fw_bu00(2) = rs1 and wb_we_buff(2) ='1'and rs1 /=x"00000000" else
                 "00";
                 
 rs2_fwsel <=    "01" when fw_bu00(0) = rs2 and wb_we_buff(0) ='1'and rs2 /=x"00000000" else
                 "10" when fw_bu00(1) = rs2 and wb_we_buff(1) ='1'and rs2 /=x"00000000" else
-                "11" when fw_bu00(2) = rs2 and wb_we_buff(2) ='1'and rs2 /=x"00000000" else
+                "00" when fw_bu00(2) = rs2 and wb_we_buff(2) ='1'and rs2 /=x"00000000" else
                 "00";
                 
 --mem_fwsel <=    "01" when fw_bu00(0)(5 downto 1) = rs2 and fw_bu00(0)(0) ='1'else
@@ -681,13 +680,12 @@ except_ill_instr<='1' when uc_addr <= x"00" and i_rst='0' else '0';
 
 
 
-
 process(i_clk,i_rst)
 begin
     if i_rst = '1' then
     
-        o_rs1           <= (others =>'0')   ;
-        o_rs2           <= (others =>'0')   ;
+        --o_rs1           <= (others =>'0')   ;
+        --o_rs2           <= (others =>'0')   ;
         o_imm           <= (others =>'0')   ;
         o_pc            <= (others =>'0')   ;
         o_op1_sel       <= (others =>'0')   ;
@@ -704,15 +702,15 @@ begin
         o_wb_data_sel   <= '0'              ;
         o_mem_en        <= '0'              ;
         o_mem_we        <= '0'              ;
-        o_mem_data      <= (others =>'0')   ;
+        --o_mem_data      <= (others =>'0')   ;
         o_op_sign       <= '0'              ;
         o_rs1_fwsel     <= (others => '0')  ;
         o_rs2_fwsel     <= (others => '0')  ;
+            o_src1_addr     <= (others => '0') ;
+            o_src2_addr     <= (others => '0') ;
         
     elsif rising_edge(i_clk) then
         if i_stall = '0' then
-            o_rs1           <= rs1_csr        ;
-            o_rs2           <= i_src2        ;
             o_imm           <= imm           ;
             o_pc            <= i_pc          ;
             o_op1_sel       <= op1_sel       ;
@@ -729,13 +727,18 @@ begin
             o_wb_data_sel   <= wb_data_sel   ;
             o_mem_en        <= mem_en        ;
             o_mem_we        <= mem_we        ;
-            o_mem_data      <= i_src2        ;
             o_op_sign       <= op_sign       ; 
             o_rs1_fwsel     <= rs1_fwsel     ;
             o_rs2_fwsel     <= rs2_fwsel     ;
+            o_src1_addr     <= rs1;
+            o_src2_addr     <= rs2;
+
         end if;
     end if;
 end process;
 
+            o_rs1           <= rs1_csr        ;
+            o_rs2           <= i_src2        ;
+            o_mem_data      <= i_src2        ;
 
 end behave;
