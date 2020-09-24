@@ -1146,3 +1146,64 @@ con
 ----------------End of Script----------------
 
 21:42:32 INFO  : Launch script is exported to file '/home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_auk-clock.elf_on_local.tcl'
+21:09:26 INFO  : Registering command handlers for SDK TCF services
+21:09:28 INFO  : Launching XSCT server: xsct -n -interactive /home/veeyceey/Documents/workspace/board_tests/AUK-V/vivado/AUK-V/AUK-V.sdk/temp_xsdb_launch_script.tcl
+21:09:31 INFO  : XSCT server has started successfully.
+21:09:31 INFO  : Successfully done setting XSCT server connection channel  
+21:09:32 INFO  : Successfully done setting SDK workspace  
+21:09:32 INFO  : Restoring global repository preferences: 
+		 /home/veeyceey/Documents/workspace/linux-zynq/scratch/device-tree-xlnx
+21:09:32 INFO  : Processing command line option -hwspec /home/veeyceey/Documents/workspace/board_tests/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf.
+21:11:36 INFO  : Launching XSCT server: xsct -n -interactive /home/veeyceey/Documents/workspace/board_tests/AUK-V/vivado/AUK-V/AUK-V.sdk/temp_xsdb_launch_script.tcl
+21:11:39 INFO  : XSCT server has started successfully.
+21:11:44 INFO  : Successfully done setting XSCT server connection channel  
+21:11:44 INFO  : Successfully done setting SDK workspace  
+21:11:45 INFO  : Registering command handlers for SDK TCF services
+21:11:47 INFO  : Restoring global repository preferences: 
+		 /home/veeyceey/Documents/workspace/linux-zynq/scratch/device-tree-xlnx
+21:11:47 INFO  : Processing command line option -hwspec /home/veeyceey/Documents/workspace/board_tests/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper.hdf.
+21:11:48 INFO  : Checking for hwspec changes in the project example_led_wrapper_hw_platform_0.
+21:14:24 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0} -index 1' command is executed.
+21:14:24 INFO  : 'fpga -state' command is executed.
+21:14:26 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:14:27 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+21:14:27 INFO  : 'jtag frequency' command is executed.
+21:14:27 INFO  : Sourcing of '/home/veeyceey/Documents/workspace/board_tests/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:14:27 INFO  : Context for 'APU' is selected.
+21:14:27 INFO  : Hardware design information is loaded from '/home/veeyceey/Documents/workspace/board_tests/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf'.
+21:14:27 INFO  : 'configparams force-mem-access 1' command is executed.
+21:14:27 INFO  : Context for 'APU' is selected.
+21:14:27 INFO  : 'stop' command is executed.
+21:14:28 INFO  : 'ps7_init' command is executed.
+21:14:28 INFO  : 'ps7_post_config' command is executed.
+21:14:28 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:14:28 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+21:14:28 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:14:28 INFO  : The application '/home/veeyceey/Documents/workspace/board_tests/AUK-V/vivado/AUK-V/AUK-V.sdk/aukv/Debug/aukv.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:14:28 INFO  : 'configparams force-mem-access 0' command is executed.
+21:14:28 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/veeyceey/Documents/workspace/board_tests/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+loadhw -hw /home/veeyceey/Documents/workspace/board_tests/AUK-V/vivado/AUK-V/AUK-V.sdk/example_led_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+dow /home/veeyceey/Documents/workspace/board_tests/AUK-V/vivado/AUK-V/AUK-V.sdk/aukv/Debug/aukv.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:14:28 INFO  : Memory regions updated for context APU
+21:14:28 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:14:29 INFO  : 'con' command is executed.
+21:14:29 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB 00000000000000"} -index 0
+con
+----------------End of Script----------------
+
+21:14:29 INFO  : Launch script is exported to file '/home/veeyceey/Documents/workspace/board_tests/AUK-V/vivado/AUK-V/AUK-V.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_aukv.elf_on_local.tcl'

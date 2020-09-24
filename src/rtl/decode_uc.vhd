@@ -35,6 +35,7 @@ entity decode_uc is
             i_rst       : in std_logic;
             
             i_stall           : in std_logic;
+            i_flush           : in std_logic;
             
             i_instr_valid : in std_logic;
             i_instr     : in std_logic_vector(31 downto 0);
@@ -60,6 +61,8 @@ entity decode_uc is
             
             o_rs1_fwsel  : out std_logic_vector(1 downto 0);
             o_rs2_fwsel  : out std_logic_vector(1 downto 0);
+            
+            o_mem_fwsel  : out std_logic;
             
             o_cmp_op1sel : out std_logic;
             o_op1_sel    : out std_logic_vector(1 downto 0);
@@ -162,6 +165,10 @@ signal src_bu : src_bu_type;
 
 
 signal wb_we_buff : std_logic_vector(2 downto 0);
+signal wb_wr_buff : std_logic_vector(2 downto 0);
+signal wb_rd_buff : std_logic_vector(2 downto 0);
+signal mem_fwsel: std_logic;
+
 signal rs1_fwsel : std_logic_vector(1 downto 0);
 signal rs2_fwsel: std_logic_vector(1 downto 0);
 signal fw_mm: std_logic;
@@ -184,10 +191,11 @@ signal csr_op    : std_logic_vector(1 downto 0);
 signal rs1_csr  : std_logic_vector(31 downto 0);
 signal rs1_csr_t  : std_logic_vector(31 downto 0);
 signal except_ill_instr  : std_logic;
+signal stall_d1  : std_logic;
 
 
 begin
-instr<= i_instr when stall_d='0' else x"00000033";
+instr<= i_instr when i_flush='0' else x"00000033";
 
 opcode <= instr(6 downto 0);
 rd <= instr(11 downto 7);
@@ -311,16 +319,37 @@ if i_rst ='1' then
     wb_we_buff <= (others=> '0');
 elsif rising_edge(i_clk) then
     if i_stall = '0' then
-        fw_bu00(0) <= rd ;
-        fw_bu00(1) <= fw_bu00(0);
-        fw_bu00(2) <= fw_bu00(1);
-        wb_we_buff(0) <= wb_we;
-        wb_we_buff(1) <= wb_we_buff(0);
-        wb_we_buff(2) <= wb_we_buff(1);
+        if i_flush = '1' then
+            fw_bu00(0) <= (others => '0');
+            fw_bu00(1) <= (others => '0');
+            fw_bu00(2) <= (others => '0');
+            wb_we_buff <= (others=> '0');
+            wb_wr_buff <= (others=> '0');
+            
+        else
+            fw_bu00(0) <= rd ;
+            if mem_en = '1' and mem_we='1' then
+                fw_bu00(1) <= "00000";
+            else
+                fw_bu00(1) <= fw_bu00(0);
+            end if;
+            fw_bu00(2) <= fw_bu00(1);
+            wb_we_buff(0) <= wb_we;
+            wb_we_buff(1) <= wb_we_buff(0);
+            wb_we_buff(2) <= wb_we_buff(1);
+            wb_wr_buff(0) <= mem_en and (mem_we);
+            wb_wr_buff(1) <= wb_wr_buff(0);
+            wb_wr_buff(2) <= wb_wr_buff(1);
+            wb_rd_buff(0) <= mem_en and (not mem_we);
+            wb_rd_buff(1) <= wb_rd_buff(0);
+            wb_rd_buff(2) <= wb_rd_buff(1);
+        
+        end if;
     end if;
 end if;
 end process;
-
+mem_fwsel<= '1' when mem_en ='1' and rs2 = fw_bu00(0)  and wb_we_buff(0) ='1' and rs2 /=x"00000000" else '0';
+--wb_fwsel<= '1' when (mem_en and (not mem_we))='1' and rs2 = fw_bu00(0) and wb_rd_buff(1) = '1' and wb_we_buff(0) ='1' and rs2 /=x"00000000" else '0';
 --process(i_clk,i_rst)
 --begin
 --if i_rst ='1' then
@@ -334,15 +363,17 @@ end process;
 --    end if;
 --end if;
 --end process;
-
-rs1_fwsel <=    "01" when fw_bu00(0) = rs1 and wb_we_buff(0) ='1' and rs1 /=x"00000000" else
+stall_d1<= i_stall when rising_edge(i_clk);
+rs1_fwsel <=    "01" when fw_bu00(0) = rs1 and wb_we_buff(0) ='1' and rs1 /=x"00000000" else --and stall_d1 ='0' else
+                --"10" when fw_bu00(0) = rs1 and wb_we_buff(0) ='1' and rs1 /=x"00000000" and stall_d1 ='1' else
                 "10" when fw_bu00(1) = rs1 and wb_we_buff(1) ='1'and rs1 /=x"00000000" else
-                "00" when fw_bu00(2) = rs1 and wb_we_buff(2) ='1'and rs1 /=x"00000000" else
+                "11" when fw_bu00(2) = rs1 and wb_we_buff(2) ='1'and rs1 /=x"00000000" else
                 "00";
                 
-rs2_fwsel <=    "01" when fw_bu00(0) = rs2 and wb_we_buff(0) ='1'and rs2 /=x"00000000" else
+rs2_fwsel <=    "01" when fw_bu00(0) = rs2 and wb_we_buff(0) ='1'and rs2 /=x"00000000" else --and stall_d1 ='0' else
+                --"10" when fw_bu00(0) = rs2 and wb_we_buff(0) ='1'and rs2 /=x"00000000" and stall_d1 ='1' else
                 "10" when fw_bu00(1) = rs2 and wb_we_buff(1) ='1'and rs2 /=x"00000000" else
-                "00" when fw_bu00(2) = rs2 and wb_we_buff(2) ='1'and rs2 /=x"00000000" else
+                "11" when fw_bu00(2) = rs2 and wb_we_buff(2) ='1'and rs2 /=x"00000000" else
                 "00";
                 
 --mem_fwsel <=    "01" when fw_bu00(0)(5 downto 1) = rs2 and fw_bu00(0)(0) ='1'else
@@ -730,6 +761,7 @@ begin
             o_op_sign       <= op_sign       ; 
             o_rs1_fwsel     <= rs1_fwsel     ;
             o_rs2_fwsel     <= rs2_fwsel     ;
+            o_mem_fwsel     <= mem_fwsel     ;
             o_src1_addr     <= rs1;
             o_src2_addr     <= rs2;
 

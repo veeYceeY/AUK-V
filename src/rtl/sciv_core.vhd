@@ -67,6 +67,9 @@ signal fe0_instr_valid : std_logic;
 signal de0_rs1_addr : std_logic_vector(4 downto 0);
 signal de0_rs2_addr : std_logic_vector(4 downto 0);
 
+signal ex0_rs1_addr : std_logic_vector(4 downto 0);
+signal ex0_rs2_addr : std_logic_vector(4 downto 0);
+
 signal rf0_rs1: std_logic_vector(31 downto 0);
 signal rf0_rs2: std_logic_vector(31 downto 0);
 
@@ -109,6 +112,7 @@ signal ex0_store_type   : std_logic_vector(1 downto 0);
 signal ma0_br_addr : std_logic_vector(31 downto 0);
 signal ma0_br_en: std_logic;
 signal ma0_wb_data: std_logic_vector(31 downto 0);
+signal ma0_fb_data: std_logic_vector(31 downto 0);
 signal ma0_wb_reg_sel: std_logic_vector(4 downto 0);
 signal ma0_wb_we: std_logic;
 
@@ -122,8 +126,13 @@ signal wb0_br_en: std_logic;
 --signal wb0_rs1: std_logic_vector(31 downto 0);
 --signal wb0_rs2: std_logic_vector(31 downto 0);
 
+signal rs1_fwsel : std_logic_vector(1 downto 0);
+signal rs2_fwsel : std_logic_vector(1 downto 0);
+signal mem_fwsel : std_logic;
 signal de0_rs1_fwsel : std_logic_vector(1 downto 0);
 signal de0_rs2_fwsel : std_logic_vector(1 downto 0);
+signal de0_mem_fwsel : std_logic;
+signal ex0_mem_fwsel : std_logic;
 signal de0_cmp_op1sel : std_logic;
 signal fetch_stall : std_logic;
 signal de0_stall : std_logic;
@@ -151,13 +160,15 @@ signal de0_except_ill_instr      : std_logic;
 signal exception      : std_logic;
 signal exception_id      : std_logic_vector(7 downto 0);
 signal exception_arr      : std_logic_vector(7 downto 0);
+signal br_flush      : std_logic;
+signal tmp      : std_logic;
 begin
 
 --ma0_stall<= '0';
 --o_code_mem_en<='1';
 
-fetch_stall <= de0_stall or ma0_stall;
-
+fetch_stall <=  ma0_stall ;--or de0_stall;
+br_flush<=ex0_br_en;
 exception <= de0_except_ill_instr;
 
 FE0: entity work.fetch  
@@ -184,6 +195,7 @@ DE0: entity work.decode_uc
             i_clk           =>i_clk,
             i_rst           =>i_rst,
             i_stall         =>ma0_stall,
+            i_flush         =>br_flush,
             
             i_instr_valid   =>fe0_instr_valid,
             i_instr         =>fe0_instr,
@@ -205,6 +217,7 @@ DE0: entity work.decode_uc
             
             o_rs1_fwsel     =>de0_rs1_fwsel,
             o_rs2_fwsel     =>de0_rs2_fwsel,
+            o_mem_fwsel     =>de0_mem_fwsel,
             
             o_cmp_op1sel    =>de0_cmp_op1sel,
             o_op1_sel       =>de0_op1_sel,
@@ -270,12 +283,19 @@ DE0: entity work.decode_uc
             o_data      =>csr0_csr_rd_data
     );
 
+----------------------------Forward-------------------------------
+rs1_fwsel <= "01" when de0_rs1_addr /= "00000" and de0_rs1_addr= ex0_wb_reg_sel and ex0_wb_we = '1' and tmp='0' else
+             "10" when de0_rs1_addr /= "00000" and de0_rs1_addr= ex0_wb_reg_sel and ex0_wb_we = '1' and tmp='1' else
+             "10" when de0_rs1_addr /= "00000" and de0_rs1_addr= ma0_wb_reg_sel and ma0_wb_we = '1' else
+             "00";
 
-
-
-
-
-
+rs2_fwsel <= "01" when de0_rs2_addr /= "00000" and de0_rs2_addr= ex0_wb_reg_sel and ex0_wb_we = '1' and tmp='0' else
+             "10" when de0_rs2_addr /= "00000" and de0_rs2_addr= ex0_wb_reg_sel and ex0_wb_we = '1' and tmp='1' else
+             "10" when de0_rs2_addr /= "00000" and de0_rs2_addr= ma0_wb_reg_sel and ma0_wb_we = '1' else
+             "00";
+mem_fwsel  <= '1' when ex0_rs2_addr /= "00000" and ex0_rs2_addr= ma0_wb_reg_sel and ma0_wb_we = '1' else '0';
+-------------------------------------------------------------------
+tmp <= ma0_stall when rising_edge(i_clk);
 
 EX0: entity work.execute  
 
@@ -283,18 +303,26 @@ EX0: entity work.execute
             i_clk           => i_clk,
             i_rst           => i_rst,
             i_stall         =>ma0_stall,
+            i_flush         =>br_flush,
             i_rs1           =>de0_rs1,
             i_rs2           =>de0_rs2,
             
             i_fw_ee         =>ex0_exe_res,
-            i_fw_me         =>ma0_wb_data,
+            i_fw_me         =>ma0_fb_data,
             i_fw_we         =>x"00000000",
             
             i_imm           =>de0_imm,
             i_pc            =>de0_pc,
                              
-            i_rs1_fwsel     =>de0_rs1_fwsel,
-            i_rs2_fwsel     =>de0_rs2_fwsel,
+            i_rs1_addr     =>de0_rs1_addr,
+            i_rs2_addr     =>de0_rs2_addr,
+            
+            o_rs1_addr     =>ex0_rs1_addr,
+            o_rs2_addr     =>ex0_rs2_addr,
+            
+            i_rs1_fwsel     =>rs1_fwsel,
+            i_rs2_fwsel     =>rs2_fwsel,
+            i_mem_fwsel     =>de0_mem_fwsel,
             
             i_cmp_op1sel    =>de0_cmp_op1sel,
             i_op1_sel       =>de0_op1_sel,
@@ -319,7 +347,8 @@ EX0: entity work.execute
             i_wb_data_sel   =>de0_wb_data_sel,
             i_wb_reg_sel    =>de0_wb_reg,
             i_wb_we         =>de0_wb_en,
-                             
+                          
+            o_mem_fwsel     =>ex0_mem_fwsel,   
             o_exe_res       =>ex0_exe_res,
             o_br_addr       =>ex0_br_addr,
             o_br_en         =>ex0_br_en        ,
@@ -356,8 +385,11 @@ MA0: entity work.memory_access
                         
             i_exe_res           =>ex0_exe_res,
                                 
+            i_mem_fwsel           =>mem_fwsel,
+            i_fw_mm           =>ma0_wb_data,
+            
             i_br_addr           =>ex0_br_addr,
-            i_br_en             =>ex0_br_en,
+            i_flush             =>br_flush,
                                 
             i_mem_wr_data       =>ex0_mem_wr_data,
             i_mem_addr          =>ex0_mem_addr,
@@ -384,13 +416,13 @@ MA0: entity work.memory_access
             o_stall             =>ma0_stall,                   
             o_br_addr           =>ma0_br_addr,
             o_br_en             =>ma0_br_en,
+            o_fb_data           =>ma0_fb_data,
             o_wb_data           =>ma0_wb_data,
             o_wb_reg_sel        =>ma0_wb_reg_sel,
             o_wb_we             =>ma0_wb_we
             
             
   );
-
 
 
 

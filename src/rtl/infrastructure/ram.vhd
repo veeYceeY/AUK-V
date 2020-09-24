@@ -24,7 +24,7 @@ end ram;
 architecture behave of ram is
 
 attribute rom_style : string;
-type mem_type is array(511 downto 0) of std_logic_vector(31 downto 0);
+type mem_type is array(127 downto 0) of std_logic_vector(31 downto 0);
 signal mem : mem_type;
 attribute rom_style of mem : signal is "block";
 signal data : std_logic_vector(31 downto 0);

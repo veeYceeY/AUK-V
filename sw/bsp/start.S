@@ -1,11 +1,21 @@
 # Initialize sp and jump to main. Loop incase main returns
 .global _start
 _start:
-    la t0,_exception_entry
-    csrw mtvec,t0
-    li sp,0x008007ff
+    #la t0,_exception_entry
+    #csrw mtvec,t0
+    li sp,0x008001fc
     jal main
 here:
+    j here
+    
+    
+    
+#_start:
+#    la t0,_exception_entry
+#    csrw mtvec,t0
+#    li sp,0x008007fc
+#    jal main
+#here:
      j here
 _exception_entry:
     addi sp,sp,-128

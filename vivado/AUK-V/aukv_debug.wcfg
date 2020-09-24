@@ -3,193 +3,1017 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="tb_aukv_example_wb_behav.wdb" id="1">
+      <db_ref path="tb_aukv_example_native_behav.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
             <top_module name="pkg_aukv" />
-            <top_module name="tb_aukv_example_wb" />
+            <top_module name="tb_aukv_example_native" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="691000000fs"></ZoomStartTime>
-      <ZoomEndTime time="719800001fs"></ZoomEndTime>
-      <Cursor1Time time="715000000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="188000001fs"></ZoomEndTime>
+      <Cursor1Time time="545000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="222"></NameColumnWidth>
-      <ValueColumnWidth column_width="201"></ValueColumnWidth>
+      <ValueColumnWidth column_width="93"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="40" />
+   <WVObjectSize size="241" />
    <wave_markers>
       <marker label="" time="705400000" />
+      <marker label="" time="9138633000" />
+      <marker label="" time="2549700000" />
    </wave_markers>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/WBDM1/i_clk">
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/i_clk">
       <obj_property name="ElementShortName">i_clk</obj_property>
       <obj_property name="ObjectShortName">i_clk</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/WBDM1/i_rst">
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/i_rst">
       <obj_property name="ElementShortName">i_rst</obj_property>
       <obj_property name="ObjectShortName">i_rst</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/WBDM1/i_en">
-      <obj_property name="ElementShortName">i_en</obj_property>
-      <obj_property name="ObjectShortName">i_en</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/i_stall">
+      <obj_property name="ElementShortName">i_stall</obj_property>
+      <obj_property name="ObjectShortName">i_stall</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/WBDM1/i_we">
-      <obj_property name="ElementShortName">i_we</obj_property>
-      <obj_property name="ObjectShortName">i_we</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/i_branch_addr">
+      <obj_property name="ElementShortName">i_branch_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_branch_addr[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/WBDM1/i_addr">
-      <obj_property name="ElementShortName">i_addr[31:0]</obj_property>
-      <obj_property name="ObjectShortName">i_addr[31:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/i_evec_addr">
+      <obj_property name="ElementShortName">i_evec_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_evec_addr[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/WBDM1/i_data">
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/i_branch_en">
+      <obj_property name="ElementShortName">i_branch_en</obj_property>
+      <obj_property name="ObjectShortName">i_branch_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/i_exception">
+      <obj_property name="ElementShortName">i_exception</obj_property>
+      <obj_property name="ObjectShortName">i_exception</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/o_en">
+      <obj_property name="ElementShortName">o_en</obj_property>
+      <obj_property name="ObjectShortName">o_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/o_addr">
+      <obj_property name="ElementShortName">o_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/i_data">
       <obj_property name="ElementShortName">i_data[31:0]</obj_property>
       <obj_property name="ObjectShortName">i_data[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/WBDM1/i_strobe">
-      <obj_property name="ElementShortName">i_strobe[3:0]</obj_property>
-      <obj_property name="ObjectShortName">i_strobe[3:0]</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/i_valid">
+      <obj_property name="ElementShortName">i_valid</obj_property>
+      <obj_property name="ObjectShortName">i_valid</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/WBDM1/o_valid">
-      <obj_property name="ElementShortName">o_valid</obj_property>
-      <obj_property name="ObjectShortName">o_valid</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/o_pc">
+      <obj_property name="ElementShortName">o_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_pc[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/WBDM1/o_data">
-      <obj_property name="ElementShortName">o_data[31:0]</obj_property>
-      <obj_property name="ObjectShortName">o_data[31:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/o_instr">
+      <obj_property name="ElementShortName">o_instr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_instr[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/WBDM1/i_wb">
-      <obj_property name="ElementShortName">i_wb</obj_property>
-      <obj_property name="ObjectShortName">i_wb</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/o_instr_valid">
+      <obj_property name="ElementShortName">o_instr_valid</obj_property>
+      <obj_property name="ObjectShortName">o_instr_valid</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/WBDM1/o_wb">
-      <obj_property name="ElementShortName">o_wb</obj_property>
-      <obj_property name="ObjectShortName">o_wb</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/pc">
+      <obj_property name="ElementShortName">pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc[31:0]</obj_property>
    </wvobject>
-   <wvobject type="other" fp_name="/tb_aukv_example_wb/SC0/SC0/WBDM1/state">
-      <obj_property name="ElementShortName">state</obj_property>
-      <obj_property name="ObjectShortName">state</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/instr">
+      <obj_property name="ElementShortName">instr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instr[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/WBDM1/r_ack">
-      <obj_property name="ElementShortName">r_ack</obj_property>
-      <obj_property name="ObjectShortName">r_ack</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/exception_d1">
+      <obj_property name="ElementShortName">exception_d1</obj_property>
+      <obj_property name="ObjectShortName">exception_d1</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/WBAR0/i_clk">
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/exception_lth">
+      <obj_property name="ElementShortName">exception_lth</obj_property>
+      <obj_property name="ObjectShortName">exception_lth</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/IO0/o_port_b">
+      <obj_property name="ElementShortName">o_port_b[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_port_b[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/i_clk">
       <obj_property name="ElementShortName">i_clk</obj_property>
       <obj_property name="ObjectShortName">i_clk</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/WBAR0/i_rst">
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/i_rst">
       <obj_property name="ElementShortName">i_rst</obj_property>
       <obj_property name="ObjectShortName">i_rst</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/WBAR0/i_m0_wb">
-      <obj_property name="ElementShortName">i_m0_wb</obj_property>
-      <obj_property name="ObjectShortName">i_m0_wb</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/o_data_mem_en">
+      <obj_property name="ElementShortName">o_data_mem_en</obj_property>
+      <obj_property name="ObjectShortName">o_data_mem_en</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/WBAR0/o_m0_wb">
-      <obj_property name="ElementShortName">o_m0_wb</obj_property>
-      <obj_property name="ObjectShortName">o_m0_wb</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/o_data_mem_we">
+      <obj_property name="ElementShortName">o_data_mem_we</obj_property>
+      <obj_property name="ObjectShortName">o_data_mem_we</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/WBAR0/i_m1_wb">
-      <obj_property name="ElementShortName">i_m1_wb</obj_property>
-      <obj_property name="ObjectShortName">i_m1_wb</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/o_data_mem_addr">
+      <obj_property name="ElementShortName">o_data_mem_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_data_mem_addr[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/WBAR0/o_m1_wb">
-      <obj_property name="ElementShortName">o_m1_wb</obj_property>
-      <obj_property name="ObjectShortName">o_m1_wb</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/i_data_mem_data">
+      <obj_property name="ElementShortName">i_data_mem_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_data_mem_data[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/WBAR0/i_s_wb">
-      <obj_property name="ElementShortName">i_s_wb</obj_property>
-      <obj_property name="ObjectShortName">i_s_wb</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/i_data_mem_valid">
+      <obj_property name="ElementShortName">i_data_mem_valid</obj_property>
+      <obj_property name="ObjectShortName">i_data_mem_valid</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/WBAR0/o_s_wb">
-      <obj_property name="ElementShortName">o_s_wb</obj_property>
-      <obj_property name="ObjectShortName">o_s_wb</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/o_data_mem_data">
+      <obj_property name="ElementShortName">o_data_mem_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_data_mem_data[31:0]</obj_property>
    </wvobject>
-   <wvobject type="other" fp_name="/tb_aukv_example_wb/SC0/SC0/WBAR0/state">
-      <obj_property name="ElementShortName">state</obj_property>
-      <obj_property name="ObjectShortName">state</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/o_data_mem_strobe">
+      <obj_property name="ElementShortName">o_data_mem_strobe[3:0]</obj_property>
+      <obj_property name="ObjectShortName">o_data_mem_strobe[3:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/AXIIC0/i_rst">
-      <obj_property name="ElementShortName">i_rst</obj_property>
-      <obj_property name="ObjectShortName">i_rst</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/o_code_mem_en">
+      <obj_property name="ElementShortName">o_code_mem_en</obj_property>
+      <obj_property name="ObjectShortName">o_code_mem_en</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/AXIIC0/o_m_wb">
-      <obj_property name="ElementShortName">o_m_wb</obj_property>
-      <obj_property name="ObjectShortName">o_m_wb</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/o_code_mem_addr">
+      <obj_property name="ElementShortName">o_code_mem_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_code_mem_addr[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/AXIIC0/i_m_wb">
-      <obj_property name="ElementShortName">i_m_wb</obj_property>
-      <obj_property name="ObjectShortName">i_m_wb</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/i_code_mem_data">
+      <obj_property name="ElementShortName">i_code_mem_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_code_mem_data[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/AXIIC0/i_s0_wb">
-      <obj_property name="ElementShortName">i_s0_wb</obj_property>
-      <obj_property name="ObjectShortName">i_s0_wb</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/i_code_mem_valid">
+      <obj_property name="ElementShortName">i_code_mem_valid</obj_property>
+      <obj_property name="ObjectShortName">i_code_mem_valid</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/AXIIC0/o_s0_wb">
-      <obj_property name="ElementShortName">o_s0_wb</obj_property>
-      <obj_property name="ObjectShortName">o_s0_wb</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ma0_stall">
+      <obj_property name="ElementShortName">ma0_stall</obj_property>
+      <obj_property name="ObjectShortName">ma0_stall</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/AXIIC0/i_s1_wb">
-      <obj_property name="ElementShortName">i_s1_wb</obj_property>
-      <obj_property name="ObjectShortName">i_s1_wb</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/wb0_branch_addr">
+      <obj_property name="ElementShortName">wb0_branch_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">wb0_branch_addr[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/AXIIC0/o_s1_wb">
-      <obj_property name="ElementShortName">o_s1_wb</obj_property>
-      <obj_property name="ObjectShortName">o_s1_wb</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/wb0_branch_en">
+      <obj_property name="ElementShortName">wb0_branch_en</obj_property>
+      <obj_property name="ObjectShortName">wb0_branch_en</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/AXIIC0/i_s2_wb">
-      <obj_property name="ElementShortName">i_s2_wb</obj_property>
-      <obj_property name="ObjectShortName">i_s2_wb</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/fe0_pc">
+      <obj_property name="ElementShortName">fe0_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fe0_pc[31:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/AXIIC0/o_s2_wb">
-      <obj_property name="ElementShortName">o_s2_wb</obj_property>
-      <obj_property name="ObjectShortName">o_s2_wb</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ex0_br_en">
+      <obj_property name="ElementShortName">ex0_br_en</obj_property>
+      <obj_property name="ObjectShortName">ex0_br_en</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/AXIIC0/i_s3_wb">
-      <obj_property name="ElementShortName">i_s3_wb</obj_property>
-      <obj_property name="ObjectShortName">i_s3_wb</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/fe0_pc">
+      <obj_property name="ElementShortName">fe0_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fe0_pc[31:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/AXIIC0/o_s3_wb">
-      <obj_property name="ElementShortName">o_s3_wb</obj_property>
-      <obj_property name="ObjectShortName">o_s3_wb</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/fe0_instr">
+      <obj_property name="ElementShortName">fe0_instr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fe0_instr[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/AXIIC0/i_s4_wb">
-      <obj_property name="ElementShortName">i_s4_wb</obj_property>
-      <obj_property name="ObjectShortName">i_s4_wb</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/fe0_instr_valid">
+      <obj_property name="ElementShortName">fe0_instr_valid</obj_property>
+      <obj_property name="ObjectShortName">fe0_instr_valid</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/AXIIC0/o_s4_wb">
-      <obj_property name="ElementShortName">o_s4_wb</obj_property>
-      <obj_property name="ObjectShortName">o_s4_wb</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_rs1_addr">
+      <obj_property name="ElementShortName">de0_rs1_addr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_rs1_addr[4:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/AXIIC0/i_s5_wb">
-      <obj_property name="ElementShortName">i_s5_wb</obj_property>
-      <obj_property name="ObjectShortName">i_s5_wb</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_rs2_addr">
+      <obj_property name="ElementShortName">de0_rs2_addr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_rs2_addr[4:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/AXIIC0/o_s5_wb">
-      <obj_property name="ElementShortName">o_s5_wb</obj_property>
-      <obj_property name="ObjectShortName">o_s5_wb</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/rf0_rs1">
+      <obj_property name="ElementShortName">rf0_rs1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rf0_rs1[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/AXIIC0/busy">
-      <obj_property name="ElementShortName">busy</obj_property>
-      <obj_property name="ObjectShortName">busy</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/rf0_rs2">
+      <obj_property name="ElementShortName">rf0_rs2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rf0_rs2[31:0]</obj_property>
    </wvobject>
-   <wvobject type="other" fp_name="/tb_aukv_example_wb/SC0/AXIIC0/periph">
-      <obj_property name="ElementShortName">periph</obj_property>
-      <obj_property name="ObjectShortName">periph</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_rs1">
+      <obj_property name="ElementShortName">de0_rs1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_rs1[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/AXIIC0/i_clk">
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_rs2">
+      <obj_property name="ElementShortName">de0_rs2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_rs2[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_imm">
+      <obj_property name="ElementShortName">de0_imm[31:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_imm[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_pc">
+      <obj_property name="ElementShortName">de0_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_op1_sel">
+      <obj_property name="ElementShortName">de0_op1_sel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_op1_sel[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_op2_sel">
+      <obj_property name="ElementShortName">de0_op2_sel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_op2_sel[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_br_en">
+      <obj_property name="ElementShortName">de0_br_en</obj_property>
+      <obj_property name="ObjectShortName">de0_br_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_br_type">
+      <obj_property name="ElementShortName">de0_br_type[2:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_br_type[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_br_addr_sel">
+      <obj_property name="ElementShortName">de0_br_addr_sel</obj_property>
+      <obj_property name="ObjectShortName">de0_br_addr_sel</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_alu_opsel">
+      <obj_property name="ElementShortName">de0_alu_opsel[3:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_alu_opsel[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_op_sign">
+      <obj_property name="ElementShortName">de0_op_sign</obj_property>
+      <obj_property name="ObjectShortName">de0_op_sign</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_exe_res_sel">
+      <obj_property name="ElementShortName">de0_exe_res_sel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_exe_res_sel[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_mem_store_type">
+      <obj_property name="ElementShortName">de0_mem_store_type[1:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_mem_store_type[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_mem_load_type">
+      <obj_property name="ElementShortName">de0_mem_load_type[2:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_mem_load_type[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_wb_en">
+      <obj_property name="ElementShortName">de0_wb_en</obj_property>
+      <obj_property name="ObjectShortName">de0_wb_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_wb_reg">
+      <obj_property name="ElementShortName">de0_wb_reg[4:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_wb_reg[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_wb_data_sel">
+      <obj_property name="ElementShortName">de0_wb_data_sel</obj_property>
+      <obj_property name="ObjectShortName">de0_wb_data_sel</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_mem_en">
+      <obj_property name="ElementShortName">de0_mem_en</obj_property>
+      <obj_property name="ObjectShortName">de0_mem_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_mem_we">
+      <obj_property name="ElementShortName">de0_mem_we</obj_property>
+      <obj_property name="ObjectShortName">de0_mem_we</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_mem_data">
+      <obj_property name="ElementShortName">de0_mem_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_mem_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ex0_exe_res">
+      <obj_property name="ElementShortName">ex0_exe_res[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ex0_exe_res[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ex0_br_addr">
+      <obj_property name="ElementShortName">ex0_br_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ex0_br_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ex0_br_en">
+      <obj_property name="ElementShortName">ex0_br_en</obj_property>
+      <obj_property name="ObjectShortName">ex0_br_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ex0_mem_wr_data">
+      <obj_property name="ElementShortName">ex0_mem_wr_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ex0_mem_wr_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ex0_mem_addr">
+      <obj_property name="ElementShortName">ex0_mem_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ex0_mem_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ex0_mem_we">
+      <obj_property name="ElementShortName">ex0_mem_we</obj_property>
+      <obj_property name="ObjectShortName">ex0_mem_we</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ex0_mem_en">
+      <obj_property name="ElementShortName">ex0_mem_en</obj_property>
+      <obj_property name="ObjectShortName">ex0_mem_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ex0_wb_data_sel">
+      <obj_property name="ElementShortName">ex0_wb_data_sel</obj_property>
+      <obj_property name="ObjectShortName">ex0_wb_data_sel</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ex0_wb_reg_sel">
+      <obj_property name="ElementShortName">ex0_wb_reg_sel[4:0]</obj_property>
+      <obj_property name="ObjectShortName">ex0_wb_reg_sel[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ex0_wb_we">
+      <obj_property name="ElementShortName">ex0_wb_we</obj_property>
+      <obj_property name="ObjectShortName">ex0_wb_we</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ex0_load_type">
+      <obj_property name="ElementShortName">ex0_load_type[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ex0_load_type[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ex0_store_type">
+      <obj_property name="ElementShortName">ex0_store_type[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ex0_store_type[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ma0_br_addr">
+      <obj_property name="ElementShortName">ma0_br_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ma0_br_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ma0_br_en">
+      <obj_property name="ElementShortName">ma0_br_en</obj_property>
+      <obj_property name="ObjectShortName">ma0_br_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ma0_wb_data">
+      <obj_property name="ElementShortName">ma0_wb_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ma0_wb_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ma0_wb_reg_sel">
+      <obj_property name="ElementShortName">ma0_wb_reg_sel[4:0]</obj_property>
+      <obj_property name="ObjectShortName">ma0_wb_reg_sel[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ma0_wb_we">
+      <obj_property name="ElementShortName">ma0_wb_we</obj_property>
+      <obj_property name="ObjectShortName">ma0_wb_we</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/wb0_wb_data">
+      <obj_property name="ElementShortName">wb0_wb_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">wb0_wb_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/wb0_wb_reg_sel">
+      <obj_property name="ElementShortName">wb0_wb_reg_sel[4:0]</obj_property>
+      <obj_property name="ObjectShortName">wb0_wb_reg_sel[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/wb0_wb_we">
+      <obj_property name="ElementShortName">wb0_wb_we</obj_property>
+      <obj_property name="ObjectShortName">wb0_wb_we</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/wb0_br_addr">
+      <obj_property name="ElementShortName">wb0_br_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">wb0_br_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/wb0_br_en">
+      <obj_property name="ElementShortName">wb0_br_en</obj_property>
+      <obj_property name="ObjectShortName">wb0_br_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_rs1_fwsel">
+      <obj_property name="ElementShortName">de0_rs1_fwsel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_rs1_fwsel[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_rs2_fwsel">
+      <obj_property name="ElementShortName">de0_rs2_fwsel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_rs2_fwsel[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_cmp_op1sel">
+      <obj_property name="ElementShortName">de0_cmp_op1sel</obj_property>
+      <obj_property name="ObjectShortName">de0_cmp_op1sel</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/fetch_stall">
+      <obj_property name="ElementShortName">fetch_stall</obj_property>
+      <obj_property name="ObjectShortName">fetch_stall</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_stall">
+      <obj_property name="ElementShortName">de0_stall</obj_property>
+      <obj_property name="ObjectShortName">de0_stall</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_csr_sel">
+      <obj_property name="ElementShortName">de0_csr_sel</obj_property>
+      <obj_property name="ObjectShortName">de0_csr_sel</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_csr_we">
+      <obj_property name="ElementShortName">de0_csr_we</obj_property>
+      <obj_property name="ObjectShortName">de0_csr_we</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_csr_rd">
+      <obj_property name="ElementShortName">de0_csr_rd</obj_property>
+      <obj_property name="ObjectShortName">de0_csr_rd</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_csr_wr_data">
+      <obj_property name="ElementShortName">de0_csr_wr_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_csr_wr_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_csr_wr_addr">
+      <obj_property name="ElementShortName">de0_csr_wr_addr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_csr_wr_addr[11:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_csr_rd_addr">
+      <obj_property name="ElementShortName">de0_csr_rd_addr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_csr_rd_addr[11:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_csr_op">
+      <obj_property name="ElementShortName">de0_csr_op[1:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_csr_op[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/csr0_csr_data">
+      <obj_property name="ElementShortName">csr0_csr_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">csr0_csr_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ex0_csr_rd">
+      <obj_property name="ElementShortName">ex0_csr_rd</obj_property>
+      <obj_property name="ObjectShortName">ex0_csr_rd</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ex0_csr_we">
+      <obj_property name="ElementShortName">ex0_csr_we</obj_property>
+      <obj_property name="ObjectShortName">ex0_csr_we</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ex0_csr_wr_data">
+      <obj_property name="ElementShortName">ex0_csr_wr_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ex0_csr_wr_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ex0_csr_wr_addr">
+      <obj_property name="ElementShortName">ex0_csr_wr_addr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">ex0_csr_wr_addr[11:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ex0_csr_rd_addr">
+      <obj_property name="ElementShortName">ex0_csr_rd_addr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">ex0_csr_rd_addr[11:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/ex0_csr_op">
+      <obj_property name="ElementShortName">ex0_csr_op[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ex0_csr_op[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/csr0_csr_rd_data">
+      <obj_property name="ElementShortName">csr0_csr_rd_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">csr0_csr_rd_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/csr0_mtvec">
+      <obj_property name="ElementShortName">csr0_mtvec[31:0]</obj_property>
+      <obj_property name="ObjectShortName">csr0_mtvec[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_except_ill_instr">
+      <obj_property name="ElementShortName">de0_except_ill_instr</obj_property>
+      <obj_property name="ObjectShortName">de0_except_ill_instr</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/exception">
+      <obj_property name="ElementShortName">exception</obj_property>
+      <obj_property name="ObjectShortName">exception</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/exception_id">
+      <obj_property name="ElementShortName">exception_id[7:0]</obj_property>
+      <obj_property name="ObjectShortName">exception_id[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/exception_arr">
+      <obj_property name="ElementShortName">exception_arr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">exception_arr[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/RF0/i_clk">
       <obj_property name="ElementShortName">i_clk</obj_property>
       <obj_property name="ObjectShortName">i_clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/RF0/i_rst">
+      <obj_property name="ElementShortName">i_rst</obj_property>
+      <obj_property name="ObjectShortName">i_rst</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/RF0/i_rs1_addr">
+      <obj_property name="ElementShortName">i_rs1_addr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">i_rs1_addr[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/RF0/i_rs2_addr">
+      <obj_property name="ElementShortName">i_rs2_addr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">i_rs2_addr[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/RF0/i_wb_data">
+      <obj_property name="ElementShortName">i_wb_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_wb_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/RF0/i_wb_addr">
+      <obj_property name="ElementShortName">i_wb_addr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">i_wb_addr[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/RF0/i_we">
+      <obj_property name="ElementShortName">i_we</obj_property>
+      <obj_property name="ObjectShortName">i_we</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/RF0/o_rs1">
+      <obj_property name="ElementShortName">o_rs1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_rs1[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/RF0/o_rs2">
+      <obj_property name="ElementShortName">o_rs2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_rs2[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/RF0/sfr">
+      <obj_property name="ElementShortName">sfr[31:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">sfr[31:0][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="divider778" type="divider">
+      <obj_property name="label">feeeeetchhhh</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/i_clk">
+      <obj_property name="ElementShortName">i_clk</obj_property>
+      <obj_property name="ObjectShortName">i_clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/i_rst">
+      <obj_property name="ElementShortName">i_rst</obj_property>
+      <obj_property name="ObjectShortName">i_rst</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/i_stall">
+      <obj_property name="ElementShortName">i_stall</obj_property>
+      <obj_property name="ObjectShortName">i_stall</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/i_branch_addr">
+      <obj_property name="ElementShortName">i_branch_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_branch_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/i_evec_addr">
+      <obj_property name="ElementShortName">i_evec_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_evec_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/de0_br_en">
+      <obj_property name="ElementShortName">de0_br_en</obj_property>
+      <obj_property name="ObjectShortName">de0_br_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/i_branch_en">
+      <obj_property name="ElementShortName">i_branch_en</obj_property>
+      <obj_property name="ObjectShortName">i_branch_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/pc">
+      <obj_property name="ElementShortName">pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc[31:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/pc">
+      <obj_property name="ElementShortName">pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc[31:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/i_exception">
+      <obj_property name="ElementShortName">i_exception</obj_property>
+      <obj_property name="ObjectShortName">i_exception</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/o_en">
+      <obj_property name="ElementShortName">o_en</obj_property>
+      <obj_property name="ObjectShortName">o_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/o_addr">
+      <obj_property name="ElementShortName">o_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/i_data">
+      <obj_property name="ElementShortName">i_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/i_valid">
+      <obj_property name="ElementShortName">i_valid</obj_property>
+      <obj_property name="ObjectShortName">i_valid</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/o_pc">
+      <obj_property name="ElementShortName">o_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/o_instr">
+      <obj_property name="ElementShortName">o_instr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_instr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/o_instr_valid">
+      <obj_property name="ElementShortName">o_instr_valid</obj_property>
+      <obj_property name="ObjectShortName">o_instr_valid</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/instr">
+      <obj_property name="ElementShortName">instr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/exception_d1">
+      <obj_property name="ElementShortName">exception_d1</obj_property>
+      <obj_property name="ObjectShortName">exception_d1</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/exception_lth">
+      <obj_property name="ElementShortName">exception_lth</obj_property>
+      <obj_property name="ObjectShortName">exception_lth</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/IO0/o_port_b">
+      <obj_property name="ElementShortName">o_port_b[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_port_b[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/rm0/mem">
+      <obj_property name="ElementShortName">mem[511:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem[511:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/pc">
+      <obj_property name="ElementShortName">pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc[31:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/o_pc">
+      <obj_property name="ElementShortName">o_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/FE0/o_instr">
+      <obj_property name="ElementShortName">o_instr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_instr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_clk">
+      <obj_property name="ElementShortName">i_clk</obj_property>
+      <obj_property name="ObjectShortName">i_clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_rst">
+      <obj_property name="ElementShortName">i_rst</obj_property>
+      <obj_property name="ObjectShortName">i_rst</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_stall">
+      <obj_property name="ElementShortName">i_stall</obj_property>
+      <obj_property name="ObjectShortName">i_stall</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/RF0/sfr[14]">
+      <obj_property name="ElementShortName">[14][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[14][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/RF0/sfr[15]">
+      <obj_property name="ElementShortName">[15][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[15][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_flush">
+      <obj_property name="ElementShortName">i_flush</obj_property>
+      <obj_property name="ObjectShortName">i_flush</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_br_en">
+      <obj_property name="ElementShortName">i_br_en</obj_property>
+      <obj_property name="ObjectShortName">i_br_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_rs1">
+      <obj_property name="ElementShortName">i_rs1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_rs1[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_rs2">
+      <obj_property name="ElementShortName">i_rs2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_rs2[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_fw_ee">
+      <obj_property name="ElementShortName">i_fw_ee[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_fw_ee[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_fw_me">
+      <obj_property name="ElementShortName">i_fw_me[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_fw_me[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_fw_we">
+      <obj_property name="ElementShortName">i_fw_we[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_fw_we[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/o_br_en">
+      <obj_property name="ElementShortName">o_br_en</obj_property>
+      <obj_property name="ObjectShortName">o_br_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_imm">
+      <obj_property name="ElementShortName">i_imm[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_imm[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_pc">
+      <obj_property name="ElementShortName">i_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_rs1_fwsel">
+      <obj_property name="ElementShortName">i_rs1_fwsel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">i_rs1_fwsel[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_rs2_fwsel">
+      <obj_property name="ElementShortName">i_rs2_fwsel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">i_rs2_fwsel[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_mem_fwsel">
+      <obj_property name="ElementShortName">i_mem_fwsel</obj_property>
+      <obj_property name="ObjectShortName">i_mem_fwsel</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_cmp_op1sel">
+      <obj_property name="ElementShortName">i_cmp_op1sel</obj_property>
+      <obj_property name="ObjectShortName">i_cmp_op1sel</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_op1_sel">
+      <obj_property name="ElementShortName">i_op1_sel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">i_op1_sel[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_op2_sel">
+      <obj_property name="ElementShortName">i_op2_sel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">i_op2_sel[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_signed_op">
+      <obj_property name="ElementShortName">i_signed_op</obj_property>
+      <obj_property name="ObjectShortName">i_signed_op</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_alu_sel">
+      <obj_property name="ElementShortName">i_alu_sel[3:0]</obj_property>
+      <obj_property name="ObjectShortName">i_alu_sel[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_res_sel">
+      <obj_property name="ElementShortName">i_res_sel[1:0]</obj_property>
+      <obj_property name="ObjectShortName">i_res_sel[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_br_addr_sel">
+      <obj_property name="ElementShortName">i_br_addr_sel</obj_property>
+      <obj_property name="ObjectShortName">i_br_addr_sel</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_br_type_sel">
+      <obj_property name="ElementShortName">i_br_type_sel[2:0]</obj_property>
+      <obj_property name="ObjectShortName">i_br_type_sel[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_mem_wr_data">
+      <obj_property name="ElementShortName">i_mem_wr_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_mem_wr_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_mem_we">
+      <obj_property name="ElementShortName">i_mem_we</obj_property>
+      <obj_property name="ObjectShortName">i_mem_we</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_mem_en">
+      <obj_property name="ElementShortName">i_mem_en</obj_property>
+      <obj_property name="ObjectShortName">i_mem_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_load_type">
+      <obj_property name="ElementShortName">i_load_type[2:0]</obj_property>
+      <obj_property name="ObjectShortName">i_load_type[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_store_type">
+      <obj_property name="ElementShortName">i_store_type[1:0]</obj_property>
+      <obj_property name="ObjectShortName">i_store_type[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_wb_data_sel">
+      <obj_property name="ElementShortName">i_wb_data_sel</obj_property>
+      <obj_property name="ObjectShortName">i_wb_data_sel</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_wb_reg_sel">
+      <obj_property name="ElementShortName">i_wb_reg_sel[4:0]</obj_property>
+      <obj_property name="ObjectShortName">i_wb_reg_sel[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_wb_we">
+      <obj_property name="ElementShortName">i_wb_we</obj_property>
+      <obj_property name="ObjectShortName">i_wb_we</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/o_mem_fwsel">
+      <obj_property name="ElementShortName">o_mem_fwsel</obj_property>
+      <obj_property name="ObjectShortName">o_mem_fwsel</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/o_exe_res">
+      <obj_property name="ElementShortName">o_exe_res[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_exe_res[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/o_br_addr">
+      <obj_property name="ElementShortName">o_br_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_br_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/o_br_en">
+      <obj_property name="ElementShortName">o_br_en</obj_property>
+      <obj_property name="ObjectShortName">o_br_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/o_mem_wr_data">
+      <obj_property name="ElementShortName">o_mem_wr_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_mem_wr_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/o_mem_addr">
+      <obj_property name="ElementShortName">o_mem_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_mem_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/o_mem_we">
+      <obj_property name="ElementShortName">o_mem_we</obj_property>
+      <obj_property name="ObjectShortName">o_mem_we</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/o_mem_en">
+      <obj_property name="ElementShortName">o_mem_en</obj_property>
+      <obj_property name="ObjectShortName">o_mem_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/o_wb_data_sel">
+      <obj_property name="ElementShortName">o_wb_data_sel</obj_property>
+      <obj_property name="ObjectShortName">o_wb_data_sel</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/IO0/o_port_b">
+      <obj_property name="ElementShortName">o_port_b[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_port_b[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/o_wb_reg_sel">
+      <obj_property name="ElementShortName">o_wb_reg_sel[4:0]</obj_property>
+      <obj_property name="ObjectShortName">o_wb_reg_sel[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/o_wb_we">
+      <obj_property name="ElementShortName">o_wb_we</obj_property>
+      <obj_property name="ObjectShortName">o_wb_we</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/o_load_type">
+      <obj_property name="ElementShortName">o_load_type[2:0]</obj_property>
+      <obj_property name="ObjectShortName">o_load_type[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/o_store_type">
+      <obj_property name="ElementShortName">o_store_type[1:0]</obj_property>
+      <obj_property name="ObjectShortName">o_store_type[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_csr_sel">
+      <obj_property name="ElementShortName">i_csr_sel</obj_property>
+      <obj_property name="ObjectShortName">i_csr_sel</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_csr_rd">
+      <obj_property name="ElementShortName">i_csr_rd</obj_property>
+      <obj_property name="ObjectShortName">i_csr_rd</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_csr_we">
+      <obj_property name="ElementShortName">i_csr_we</obj_property>
+      <obj_property name="ObjectShortName">i_csr_we</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_csr_wr_addr">
+      <obj_property name="ElementShortName">i_csr_wr_addr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">i_csr_wr_addr[11:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_csr_rd_addr">
+      <obj_property name="ElementShortName">i_csr_rd_addr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">i_csr_rd_addr[11:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_csr_op">
+      <obj_property name="ElementShortName">i_csr_op[1:0]</obj_property>
+      <obj_property name="ObjectShortName">i_csr_op[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/o_csr_rd">
+      <obj_property name="ElementShortName">o_csr_rd</obj_property>
+      <obj_property name="ObjectShortName">o_csr_rd</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/o_csr_we">
+      <obj_property name="ElementShortName">o_csr_we</obj_property>
+      <obj_property name="ObjectShortName">o_csr_we</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/o_csr_wr_data">
+      <obj_property name="ElementShortName">o_csr_wr_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_csr_wr_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/o_csr_wr_addr">
+      <obj_property name="ElementShortName">o_csr_wr_addr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">o_csr_wr_addr[11:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/o_csr_rd_addr">
+      <obj_property name="ElementShortName">o_csr_rd_addr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">o_csr_rd_addr[11:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/o_csr_op">
+      <obj_property name="ElementShortName">o_csr_op[1:0]</obj_property>
+      <obj_property name="ObjectShortName">o_csr_op[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/i_csr_rd_data">
+      <obj_property name="ElementShortName">i_csr_rd_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_csr_rd_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/operand1">
+      <obj_property name="ElementShortName">operand1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">operand1[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/operand2">
+      <obj_property name="ElementShortName">operand2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">operand2[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/alu0_result">
+      <obj_property name="ElementShortName">alu0_result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu0_result[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/set_res">
+      <obj_property name="ElementShortName">set_res[31:0]</obj_property>
+      <obj_property name="ObjectShortName">set_res[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/branch_res">
+      <obj_property name="ElementShortName">branch_res[31:0]</obj_property>
+      <obj_property name="ObjectShortName">branch_res[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/branch_address">
+      <obj_property name="ElementShortName">branch_address[31:0]</obj_property>
+      <obj_property name="ObjectShortName">branch_address[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/mem_address">
+      <obj_property name="ElementShortName">mem_address[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_address[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/rd">
+      <obj_property name="ElementShortName">rd[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rd[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/alu0_ov">
+      <obj_property name="ElementShortName">alu0_ov</obj_property>
+      <obj_property name="ObjectShortName">alu0_ov</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/imm_type">
+      <obj_property name="ElementShortName">imm_type</obj_property>
+      <obj_property name="ObjectShortName">imm_type</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/mem_we">
+      <obj_property name="ElementShortName">mem_we</obj_property>
+      <obj_property name="ObjectShortName">mem_we</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/alu0_lt">
+      <obj_property name="ElementShortName">alu0_lt</obj_property>
+      <obj_property name="ObjectShortName">alu0_lt</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/alu0_ge">
+      <obj_property name="ElementShortName">alu0_ge</obj_property>
+      <obj_property name="ObjectShortName">alu0_ge</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/alu0_eq">
+      <obj_property name="ElementShortName">alu0_eq</obj_property>
+      <obj_property name="ObjectShortName">alu0_eq</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/alu0_ne">
+      <obj_property name="ElementShortName">alu0_ne</obj_property>
+      <obj_property name="ObjectShortName">alu0_ne</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/cp0_lt">
+      <obj_property name="ElementShortName">cp0_lt</obj_property>
+      <obj_property name="ObjectShortName">cp0_lt</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/cp0_ge">
+      <obj_property name="ElementShortName">cp0_ge</obj_property>
+      <obj_property name="ObjectShortName">cp0_ge</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/cp0_eq">
+      <obj_property name="ElementShortName">cp0_eq</obj_property>
+      <obj_property name="ObjectShortName">cp0_eq</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/cp0_ne">
+      <obj_property name="ElementShortName">cp0_ne</obj_property>
+      <obj_property name="ObjectShortName">cp0_ne</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/ZERO32">
+      <obj_property name="ElementShortName">ZERO32[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ZERO32[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/FOUR32">
+      <obj_property name="ElementShortName">FOUR32[31:0]</obj_property>
+      <obj_property name="ObjectShortName">FOUR32[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/cmp_result">
+      <obj_property name="ElementShortName">cmp_result</obj_property>
+      <obj_property name="ObjectShortName">cmp_result</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/br_en">
+      <obj_property name="ElementShortName">br_en</obj_property>
+      <obj_property name="ObjectShortName">br_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/set_result">
+      <obj_property name="ElementShortName">set_result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">set_result[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/next_instr_addr">
+      <obj_property name="ElementShortName">next_instr_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">next_instr_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/branch_addr">
+      <obj_property name="ElementShortName">branch_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">branch_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/exe_result">
+      <obj_property name="ElementShortName">exe_result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">exe_result[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/rs1">
+      <obj_property name="ElementShortName">rs1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rs1[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/rs2">
+      <obj_property name="ElementShortName">rs2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rs2[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/cmp_op1">
+      <obj_property name="ElementShortName">cmp_op1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">cmp_op1[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/mem_data">
+      <obj_property name="ElementShortName">mem_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/csr_wr_data">
+      <obj_property name="ElementShortName">csr_wr_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">csr_wr_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_native/SC0/SC0/SC0/EX0/wb_data">
+      <obj_property name="ElementShortName">wb_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">wb_data[31:0]</obj_property>
    </wvobject>
 </wave_config>
