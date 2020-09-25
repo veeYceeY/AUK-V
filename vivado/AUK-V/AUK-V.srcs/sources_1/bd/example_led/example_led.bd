@@ -14,7 +14,7 @@
       "clk_wiz_0": "",
       "xlconstant_0": "",
       "vio_0": "",
-      "sciv_example_native_0": ""
+      "sciv_example_wb_0": ""
     },
     "interface_ports": {
       "DDR": {
@@ -1171,12 +1171,12 @@
         "vlnv": "xilinx.com:ip:vio:3.0",
         "xci_name": "example_led_vio_0_0"
       },
-      "sciv_example_native_0": {
-        "vlnv": "xilinx.com:module_ref:sciv_example_native:1.0",
-        "xci_name": "example_led_sciv_example_native_0_0",
+      "sciv_example_wb_0": {
+        "vlnv": "xilinx.com:module_ref:sciv_example_wb:1.0",
+        "xci_name": "example_led_sciv_example_wb_0_0",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "sciv_example_native",
+          "ref_name": "sciv_example_wb",
           "boundary_crc": "0x0"
         },
         "ports": {
@@ -1220,16 +1220,16 @@
       }
     },
     "interface_nets": {
-      "processing_system7_0_FIXED_IO": {
-        "interface_ports": [
-          "FIXED_IO",
-          "processing_system7_0/FIXED_IO"
-        ]
-      },
       "processing_system7_0_DDR": {
         "interface_ports": [
           "DDR",
           "processing_system7_0/DDR"
+        ]
+      },
+      "processing_system7_0_FIXED_IO": {
+        "interface_ports": [
+          "FIXED_IO",
+          "processing_system7_0/FIXED_IO"
         ]
       }
     },
@@ -1246,7 +1246,7 @@
         "ports": [
           "clk_wiz_0/clk_out1",
           "vio_0/clk",
-          "sciv_example_native_0/i_clk"
+          "sciv_example_wb_0/i_clk"
         ]
       },
       "processing_system7_0_FCLK_RESET0_N": {
@@ -1267,22 +1267,22 @@
           "vio_0/probe_in0"
         ]
       },
-      "sciv_example_native_0_o_port_b": {
-        "ports": [
-          "sciv_example_native_0/o_port_b",
-          "LEDS"
-        ]
-      },
       "util_vector_logic_0_Res": {
         "ports": [
           "util_vector_logic_0/Res",
-          "sciv_example_native_0/i_rst"
+          "sciv_example_wb_0/i_rst"
         ]
       },
       "xlconstant_0_dout": {
         "ports": [
           "xlconstant_0/dout",
-          "sciv_example_native_0/i_port_a"
+          "sciv_example_wb_0/i_port_a"
+        ]
+      },
+      "sciv_example_wb_0_o_port_b": {
+        "ports": [
+          "sciv_example_wb_0/o_port_b",
+          "LEDS"
         ]
       }
     },

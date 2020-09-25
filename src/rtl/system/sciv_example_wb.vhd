@@ -10,7 +10,7 @@ use work.pkg_aukv.all;
 
 
 
-entity sciv_example_system_wb is
+entity sciv_example_wb is
     port(
         i_clk : in std_logic;
         i_rst : in std_logic;
@@ -20,9 +20,9 @@ entity sciv_example_system_wb is
         o_port_b: out std_logic_vector(2 downto 0)
     );
 
-end sciv_example_system_wb;
+end sciv_example_wb;
 
-architecture beh of sciv_example_system_wb is
+architecture beh of sciv_example_wb is
 
   signal sc0_m_out_wb     : t_out_wb_master;
   signal axiic0_m_in_wb  : t_in_wb_master;

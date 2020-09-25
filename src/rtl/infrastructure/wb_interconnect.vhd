@@ -40,18 +40,19 @@ signal busy: std_logic;
 type t_periph is (DEBUG,ROM,GPIO,RAM,S3,S4);
 signal periph : t_periph;
 begin
-    o_m_wb<=i_s1_wb;
-    process(i_clk,i_rst)
+--    o_m_wb<=i_s1_wb;
+--    o_s1_wb<=i_m_wb;
+    process(i_m_wb,i_s0_wb,i_s1_wb,i_s2_wb,i_s3_wb,i_s4_wb,i_s5_wb)
     begin
         if i_rst = '1' then
             busy <= '0';
-        elsif rising_edge(i_clk) then
-            if busy = '0' then
-                if i_m_wb.cyc ='1' then
-                    busy <= '1';
+        else --if rising_edge(i_clk) then
+--            if busy = '0' then
+--                if i_m_wb.cyc ='1' then
+--                    busy <= '1';
                     if i_m_wb.addr <x"00010000" then -- Debug-s0
                         periph<=DEBUG;
-                        --o_m_wb<=i_s0_wb;
+                        o_m_wb<=i_s0_wb;
 
                         o_s0_wb.addr<=i_m_wb.addr;
                         o_s0_wb.sel <=i_m_wb.sel;
@@ -67,7 +68,7 @@ begin
 --                        o_s5_wb<=idle_out_wb_master;
                     elsif i_m_wb.addr<x"00100000" then -- OCM-s1
                         periph<=ROM;
-                        --o_m_wb<=i_s1_wb;
+                        o_m_wb<=i_s1_wb;
 --                        o_m_wb.data<=i_s1_wb.data;
 --                        o_m_wb.ack<=i_s1_wb.ack;
                         o_s1_wb.addr<=i_m_wb.addr-x"00010000";
@@ -85,7 +86,7 @@ begin
                     elsif i_m_wb.addr<x"00800000" then -- periph-
                         if i_m_wb.addr<x"00100100" then --s2
                             periph<=GPIO;
-                            --o_m_wb<=i_s2_wb;
+                            o_m_wb<=i_s2_wb;
 
                             o_s2_wb.addr<=i_m_wb.addr-x"00100000";
                             o_s2_wb.sel <=i_m_wb.sel;
@@ -101,7 +102,7 @@ begin
 --                            o_s5_wb<=idle_out_wb_master;
                         elsif i_m_wb.addr<x"00100200" then --s3
                             periph<=S3;
-                            --o_m_wb<=i_s3_wb;
+                            o_m_wb<=i_s3_wb;
 
                             o_s3_wb.addr<=i_m_wb.addr-x"00100100";
                             o_s3_wb.sel <=i_m_wb.sel;
@@ -117,7 +118,7 @@ begin
 --                            o_s5_wb<=idle_out_wb_master;
                         else --s4
                             periph<=S4;
-                            --o_m_wb<=i_s4_wb;
+                            o_m_wb<=i_s4_wb;
 
                             o_s4_wb.addr<=i_m_wb.addr-x"00100200";
                             o_s4_wb.sel <=i_m_wb.sel;
@@ -134,7 +135,7 @@ begin
                         end if;
                     else --if i_m_wb.addr(31 downto 16)<x"2000" then -- system memory --s5
                         periph<=RAM;
-                        --o_m_wb<=i_s5_wb;
+                        o_m_wb<=i_s5_wb;
 
                         o_s5_wb.addr<=i_m_wb.addr-x"00800000";
                         o_s5_wb.sel <=i_m_wb.sel;
@@ -148,14 +149,14 @@ begin
 --                        o_s2_wb<=idle_out_wb_master;
 --                        o_s3_wb<=idle_out_wb_master;
 --                        o_s4_wb<=idle_out_wb_master;
-                    end if;
+--                    end if;
                 end if;
-            else
-                if i_m_wb.cyc ='0' then
-                    busy <= '0';
-                    --o_m_wb<=idle_in_wb_master;
-                end if;
-            end if;
+--            else
+--                if i_m_wb.cyc ='0' then
+--                    busy <= '0';
+--                    --o_m_wb<=idle_in_wb_master;
+--                end if;
+--           end if;
         end if;
     end process;
 end behave;

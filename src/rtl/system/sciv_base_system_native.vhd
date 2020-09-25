@@ -82,6 +82,9 @@ Port map(
 code_address<= sc0_code_mem_addr-x"00010000" ;--when sc0_code_mem_addr>= x"0001000" else sc0_code_mem_addr;
 CM0:entity work.code_mem
 port map(
+        i_clk             =>i_clk,
+        i_rst             =>i_rst,
+
         i_en         =>sc0_code_mem_en,
         i_addr       =>code_address,
         o_data       =>cm0_code_mem_data,

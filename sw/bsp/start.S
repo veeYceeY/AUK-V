@@ -4,6 +4,39 @@ _start:
     #la t0,_exception_entry
     #csrw mtvec,t0
     li sp,0x008001fc
+    li a4,0x000000d0
+    addi a4,a4,1
+    li ra,0x000000c0
+    sw a4,0(sp)
+    lw a5,0(sp)
+    addi a5,a5,1
+    sw a5,-4(sp)
+    lw a4,-4(sp)
+    sw a4,-8(sp)
+    addi sp,sp,-56
+    sw	ra,52(sp)
+    sw	ra,48(sp)
+    sw	a4,44(sp)
+    addi s0,sp,56
+    addi a5,s0,-56
+    sw	a5,-32(s0)
+    addi a5,s0,-52
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
     jal main
 here:
     j here
@@ -13,7 +46,7 @@ here:
 #_start:
 #    la t0,_exception_entry
 #    csrw mtvec,t0
-#    li sp,0x008007fc
+#    li sp,0x008001fc
 #    jal main
 #here:
      j here

@@ -65,7 +65,7 @@ begin
 --  );
 
 
-SC0:entity work.sciv_example_system_wb 
+SC0:entity work.sciv_example_wb 
   Port map( 
             i_clk        =>clk,
             i_rst        =>rst,
@@ -106,7 +106,7 @@ begin
     rst<= '1';
     wait for 100 ns;
     rst<='0';
-    wait for 500000 ns;
+    wait for 50000000 ns;
     std.env.finish;
 end process;
 

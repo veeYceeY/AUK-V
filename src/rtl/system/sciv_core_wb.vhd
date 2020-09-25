@@ -53,8 +53,8 @@ begin
               o_data_mem_en     =>sc0_en    ,
               o_data_mem_we     =>sc0_we    ,
               o_data_mem_addr   =>sc0_addr  ,
-              i_data_mem_data   =>wbdm0_data  ,
-              i_data_mem_valid  =>wbdm0_valid ,
+              i_data_mem_data   =>wbdm1_data  ,
+              i_data_mem_valid  =>wbdm1_valid ,
               o_data_mem_data   =>sc0_data  ,
               o_data_mem_strobe =>sc0_strobe,
     

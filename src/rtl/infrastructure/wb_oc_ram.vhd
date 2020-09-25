@@ -19,7 +19,7 @@ end wb_oc_ram;
 architecture behave of wb_oc_ram is
 
 attribute rom_style : string;
-type mem_type is array(511 downto 0) of std_logic_vector(31 downto 0);
+type mem_type is array(127 downto 0) of std_logic_vector(31 downto 0);
 signal mem : mem_type;
 attribute rom_style of mem : signal is "block";
 signal data : std_logic_vector(31 downto 0);
@@ -30,7 +30,7 @@ begin
     process(i_clk,i_rst)
     begin
         if i_rst = '1' then
-            for i in 0 to 255 loop
+            for i in 0 to 127 loop
                 mem(i) <= (others => '0');
             end loop;
         elsif rising_edge(i_clk) then
@@ -50,6 +50,6 @@ begin
         end if;
     end process;
 
-    o_m_wb.data <= mem(to_integer(unsigned((addr)))) when  i_m_wb.stb='1'  and i_m_wb.cyc='1' and rising_edge(i_clk);
-    o_m_wb.ack <= i_m_wb.stb and i_m_wb.cyc when rising_edge(i_clk);
+    o_m_wb.data <= mem(to_integer(unsigned((addr)))) when  i_m_wb.stb='1'  and i_m_wb.cyc='1';-- and rising_edge(i_clk);
+    o_m_wb.ack <= i_m_wb.stb and i_m_wb.cyc;-- when rising_edge(i_clk);
 end behave;
