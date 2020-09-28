@@ -30,6 +30,8 @@ use ieee.numeric_std.all;
 entity code_mem is
     port(
             i_en : in std_logic;
+            i_clk : in std_logic;
+            i_rst : in std_logic;
             i_addr : in std_logic_vector(31 downto 0);
             o_data : out std_logic_vector(31 downto 0);
             o_valid: out std_logic

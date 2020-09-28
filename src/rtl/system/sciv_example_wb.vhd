@@ -17,7 +17,9 @@ entity sciv_example_wb is
 
 
         i_port_a: in std_logic_vector(31 downto 0);
-        o_port_b: out std_logic_vector(2 downto 0)
+        o_port_b: out std_logic_vector(2 downto 0);
+        o_tx        : out std_logic;
+        i_rx        : in std_logic
     );
 
 end sciv_example_wb;
@@ -31,12 +33,12 @@ architecture beh of sciv_example_wb is
     signal ocr0_out_wb  : t_in_wb_master;
     signal ocm0_out_wb  : t_in_wb_master;
     signal s0_out_wb  : t_in_wb_master;
-    signal s3_out_wb  : t_in_wb_master;
+    signal uart0_out_wb  : t_in_wb_master;
     signal s4_out_wb  : t_in_wb_master;
     signal axiic0_ocr0_out_wb     : t_out_wb_master;
     signal axiic0_ocm0_out_wb     : t_out_wb_master;
     signal axiic0_s0_out_wb     : t_out_wb_master;
-    signal axiic0_s3_out_wb     : t_out_wb_master;
+    signal axiic0_uart0_out_wb     : t_out_wb_master;
     signal axiic0_s4_out_wb     : t_out_wb_master;
     signal axiic0_gpio0_out_wb     : t_out_wb_master;
     signal gpio0_portb : std_logic_vector(31 downto 0);
@@ -67,8 +69,8 @@ AXIIC0:entity work.wb_interconnect
           o_s1_wb  => axiic0_ocr0_out_wb,
           i_s2_wb  => gpio0_out_wb,
           o_s2_wb  => axiic0_gpio0_out_wb,
-          i_s3_wb  => idle_in_wb_master,
-          o_s3_wb  => axiic0_s3_out_wb,
+          i_s3_wb  => uart0_out_wb,
+          o_s3_wb  => axiic0_uart0_out_wb,
           i_s4_wb  => idle_in_wb_master,
           o_s4_wb  => axiic0_s4_out_wb,
 
@@ -85,6 +87,17 @@ AXIIC0:entity work.wb_interconnect
 
             o_m_wb  => ocm0_out_wb,
             i_m_wb  => axiic0_ocm0_out_wb
+    );
+
+  UART0:entity work.wb_uart 
+    port map(
+            clk   => i_clk,
+            reset   => i_rst,
+
+            o_m_wb  => uart0_out_wb,
+            i_m_wb  => axiic0_uart0_out_wb,
+            txd  => o_tx,
+            rxd  => i_rx
     );
 
 

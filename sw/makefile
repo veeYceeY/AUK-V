@@ -21,7 +21,7 @@ rom: ASM GCC LINK VERILOG IHEX LST ROM COPY_CODEMEM
 
 
 COPY_CODEMEM:
-	cp -f build/code_mem.vhd ../src/rtl/infrastructure/
+	cp -f build/wb_oc_rom.vhd ../src/rtl/infrastructure/
 	
 all: rom
 

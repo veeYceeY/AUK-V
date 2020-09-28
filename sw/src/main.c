@@ -17,8 +17,6 @@ void led(int* gpio,int val);
 void exception_handler(uint32_t cause, void * epc, void * saved_sp);
 
 
-
-
 int main()
 {
   //int gpio;
@@ -35,9 +33,7 @@ int main()
   *b=-10;
   *c=*a+*b;
   gpio =(int*) 0x00100001;
-  *gpio=0x86;
-  led(gpio,0x86);
-
+  //uart[0]=0x00000002;
   register uint32_t temp = 0x86;
   register uint32_t temp2 = 0x84;
   asm volatile("csrs mie, %[temp]\n":: [temp] "r" (temp));
@@ -47,18 +43,20 @@ int main()
   //asm volatile("nop\n");
   //asm volatile("nop\n");
   //asm volatile("nop\n");
+  *gpio=0x86;
+  led(gpio,0x86);
   //asm volatile("nop\n");
   //asm volatile("nop\n");
   //*ptr=*a+*ptr;
-
   while(1){
-	  for (int i=-10;i<500000;i++){
+  		//
+	  for (int i=-10;i<500;i++){
 	    }
 	  led(gpio,0x45);
-	  for (int i=0;i<700000;i++){
+	  for (int i=0;i<700;i++){
 	    }
 	  led(gpio,0x76);
-	  for (int i=0;i<800000;i++){
+	  for (int i=0;i<800;i++){
 	    }
 	  led(gpio,0xe3);
   }

@@ -37,6 +37,9 @@ signal sc0_portb   : std_logic_vector(2 downto 0);
 
 signal code_mem : mem_type;
 signal data_mem : mem_type;
+
+signal rx : std_logic;
+signal tx : std_logic;
 begin
 
 
@@ -70,7 +73,8 @@ SC0:entity work.sciv_example_wb
             i_clk        =>clk,
             i_rst        =>rst,
             i_port_a     =>sc0_porta,
-            o_port_b     =>sc0_portb    
+            o_tx     =>tx,
+            i_rx     =>rx    
             
   );
 

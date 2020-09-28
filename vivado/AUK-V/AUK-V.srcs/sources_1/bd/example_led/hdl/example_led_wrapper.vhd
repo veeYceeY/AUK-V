@@ -1,7 +1,7 @@
 --Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
---Date        : Fri Sep 25 16:41:22 2020
+--Date        : Sun Sep 27 15:37:42 2020
 --Host        : SCiMOS running 64-bit Ubuntu 20.04.1 LTS
 --Command     : generate_target example_led_wrapper.bd
 --Design      : example_led_wrapper

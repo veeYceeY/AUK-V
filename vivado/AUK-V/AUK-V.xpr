@@ -34,7 +34,7 @@
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSABoardId" Val="mys-7z020"/>
     <Option Name="DSANumComputeUnits" Val="60"/>
-    <Option Name="WTXSimLaunchSim" Val="1354"/>
+    <Option Name="WTXSimLaunchSim" Val="1369"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -104,6 +104,12 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/../../../../temp/fifo.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/../../src/rtl/memory_access.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -152,6 +158,12 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/../../../../temp/wb_uart.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/../../src/rtl/infrastructure/wb_oc_rom.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -184,14 +196,52 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="example_led.bd" FileRelPathName="ip/example_led_sciv_example_wb_0_0/example_led_sciv_example_wb_0_0.xci">
-          <Proxy FileSetName="example_led_sciv_example_wb_0_0"/>
+        <CompFileExtendedInfo CompFileName="example_led.bd" FileRelPathName="ip/example_led_axi_uartlite_0_0/example_led_axi_uartlite_0_0.xci">
+          <Proxy FileSetName="example_led_axi_uartlite_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="example_led.bd" FileRelPathName="ip/example_led_rst_ps7_0_100M_0/example_led_rst_ps7_0_100M_0.xci">
+          <Proxy FileSetName="example_led_rst_ps7_0_100M_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/example_led/hdl/example_led_wrapper.vhd">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../SCiV/SCiV.srcs/sources_1/bd/example_led/hdl/example_led_wrapper.vhd"/>
           <Attr Name="ImportTime" Val="1599123232"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../src/rtl/peripherals/uart/rtl/baud.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../src/rtl/peripherals/wb_reg.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../src/rtl/peripherals/uart/rtl/uart_tx.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../src/rtl/peripherals/uart/rtl/uart_rx.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../src/rtl/peripherals/uart/rtl/uart.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -417,6 +467,11 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/tb_aukv_example_wb_behav.wcfg">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="tb_aukv_example_wb"/>
@@ -438,6 +493,7 @@
         <Option Name="XSimWcfgFile" Val="$PPRDIR/tb_aukv_example_native_behav.wcfg"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/tb_aukv_example_native_behavs.wcfg"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/tb_aukv_example_native_behava.wcfg"/>
+        <Option Name="XSimWcfgFile" Val="$PPRDIR/tb_aukv_example_wb_behav.wcfg"/>
       </Config>
     </FileSet>
     <FileSet Name="utils_1" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
@@ -446,9 +502,15 @@
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
     </FileSet>
-    <FileSet Name="example_led_sciv_example_wb_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/example_led_sciv_example_wb_0_0">
+    <FileSet Name="example_led_axi_uartlite_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/example_led_axi_uartlite_0_0">
       <Config>
-        <Option Name="TopModule" Val="example_led_sciv_example_wb_0_0"/>
+        <Option Name="TopModule" Val="example_led_axi_uartlite_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="example_led_rst_ps7_0_100M_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/example_led_rst_ps7_0_100M_0">
+      <Config>
+        <Option Name="TopModule" Val="example_led_rst_ps7_0_100M_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -495,7 +557,18 @@
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2019"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="example_led_sciv_example_wb_0_0_synth_1" Type="Ft3:Synth" SrcSet="example_led_sciv_example_wb_0_0" Part="xc7z020clg400-1" ConstrsSet="example_led_sciv_example_wb_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/example_led_sciv_example_wb_0_0_synth_1" IncludeInArchive="true">
+    <Run Id="example_led_axi_uartlite_0_0_synth_1" Type="Ft3:Synth" SrcSet="example_led_axi_uartlite_0_0" Part="xc7z020clg400-1" ConstrsSet="example_led_axi_uartlite_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/example_led_axi_uartlite_0_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2019"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="example_led_rst_ps7_0_100M_0_synth_1" Type="Ft3:Synth" SrcSet="example_led_rst_ps7_0_100M_0" Part="xc7z020clg400-1" ConstrsSet="example_led_rst_ps7_0_100M_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/example_led_rst_ps7_0_100M_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019">
           <Desc>Vivado Synthesis Defaults</Desc>
@@ -529,7 +602,25 @@
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2019"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="example_led_sciv_example_wb_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="example_led_sciv_example_wb_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="example_led_sciv_example_wb_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+    <Run Id="example_led_axi_uartlite_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="example_led_axi_uartlite_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="example_led_axi_uartlite_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2019"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="example_led_rst_ps7_0_100M_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="example_led_rst_ps7_0_100M_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="example_led_rst_ps7_0_100M_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019">
           <Desc>Default settings for Implementation.</Desc>

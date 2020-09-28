@@ -1,38 +1,62 @@
+-----sd-----------------------------------------------------------------------------
+-- Company:  SCiMOS
+-- Engineer: Veeyceey
+-- 
+-- Create Date: 24.05.2020 12:49:36
+-- Design Name: 
+-- Module Name: sciv_core - Behavioral
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
+
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 --use ieee.std_logic_arith.all;
 use ieee.numeric_std.all;
+
+
 use work.pkg_aukv.all;
+
 
 entity wb_oc_rom is
     port(
             i_clk    : in std_logic;
             i_rst    : in std_logic;
-
             o_m_wb  : out t_in_wb_master;
             i_m_wb  : in t_out_wb_master
     );
-
 end wb_oc_rom;
-
 architecture behave of wb_oc_rom is
-
 attribute rom_style : string;
 type mem_type is array(1023 downto 0) of std_logic_vector(31 downto 0);
-signal mem : mem_type;
-attribute rom_style of mem : signal is "block";
 signal data : std_logic_vector(31 downto 0);
 signal addr : std_logic_vector(13 downto 0);
+signal mem : mem_type;
 begin
+
+
     addr <= i_m_wb.addr(15 downto 2)  ;
     data <= mem(to_integer(unsigned((addr)))) when i_m_wb.stb='1'  and i_m_wb.cyc='1' else (others => '0');
- 
-    o_m_wb.data <= mem(to_integer(unsigned((addr)))) when  i_m_wb.stb='1'  and i_m_wb.cyc='1';-- and rising_edge(i_clk);
-    o_m_wb.ack <= i_m_wb.stb and i_m_wb.cyc ;--when rising_edge(i_clk);
 
 
- 
+    o_m_wb.data <= mem(to_integer(unsigned((addr)))) when  i_m_wb.stb='1'  and i_m_wb.cyc='1';
+
+
+    o_m_wb.ack <= i_m_wb.stb and i_m_wb.cyc ;
+
+
     mem(0)<=x"00000033";
     mem(1)<=x"00000033";
     mem(2)<=x"00000033";
@@ -113,7 +137,7 @@ begin
     mem(77)<=x"34202573";
     mem(78)<=x"341025F3";
     mem(79)<=x"00010613";
-    mem(80)<=x"1E4000EF";
+    mem(80)<=x"1D8000EF";
     mem(81)<=x"00012003";
     mem(82)<=x"00412083";
     mem(83)<=x"00C12183";
@@ -174,16 +198,16 @@ begin
     mem(138)<=x"001007B7";
     mem(139)<=x"00178793";
     mem(140)<=x"FCF42A23";
-    mem(141)<=x"FD442783";
-    mem(142)<=x"08600713";
-    mem(143)<=x"00E7A023";
-    mem(144)<=x"08600593";
-    mem(145)<=x"FD442503";
-    mem(146)<=x"0AC000EF";
-    mem(147)<=x"08600493";
-    mem(148)<=x"08400093";
-    mem(149)<=x"3044A073";
-    mem(150)<=x"3040B073";
+    mem(141)<=x"08600493";
+    mem(142)<=x"08400093";
+    mem(143)<=x"3044A073";
+    mem(144)<=x"3040B073";
+    mem(145)<=x"FD442783";
+    mem(146)<=x"08600713";
+    mem(147)<=x"00E7A023";
+    mem(148)<=x"08600593";
+    mem(149)<=x"FD442503";
+    mem(150)<=x"090000EF";
     mem(151)<=x"FF600793";
     mem(152)<=x"FEF42623";
     mem(153)<=x"0100006F";
@@ -191,57 +215,54 @@ begin
     mem(155)<=x"00178793";
     mem(156)<=x"FEF42623";
     mem(157)<=x"FEC42703";
-    mem(158)<=x"0007A7B7";
-    mem(159)<=x"11F78793";
-    mem(160)<=x"FEE7D4E3";
-    mem(161)<=x"04500593";
-    mem(162)<=x"FD442503";
-    mem(163)<=x"068000EF";
-    mem(164)<=x"FE042423";
-    mem(165)<=x"0100006F";
-    mem(166)<=x"FE842783";
-    mem(167)<=x"00178793";
-    mem(168)<=x"FEF42423";
-    mem(169)<=x"FE842703";
-    mem(170)<=x"000AB7B7";
-    mem(171)<=x"E5F78793";
-    mem(172)<=x"FEE7D4E3";
-    mem(173)<=x"07600593";
-    mem(174)<=x"FD442503";
-    mem(175)<=x"038000EF";
-    mem(176)<=x"FE042223";
-    mem(177)<=x"0100006F";
-    mem(178)<=x"FE442783";
-    mem(179)<=x"00178793";
-    mem(180)<=x"FEF42223";
-    mem(181)<=x"FE442703";
-    mem(182)<=x"000C37B7";
-    mem(183)<=x"4FF78793";
-    mem(184)<=x"FEE7D4E3";
-    mem(185)<=x"0E300593";
-    mem(186)<=x"FD442503";
-    mem(187)<=x"008000EF";
-    mem(188)<=x"F6DFF06F";
-    mem(189)<=x"FF010113";
-    mem(190)<=x"00812623";
-    mem(191)<=x"01010413";
-    mem(192)<=x"FEA42A23";
-    mem(193)<=x"FEB42823";
-    mem(194)<=x"FF442783";
-    mem(195)<=x"FF042703";
-    mem(196)<=x"00E7A023";
-    mem(197)<=x"00000013";
-    mem(198)<=x"00C12403";
-    mem(199)<=x"01010113";
-    mem(200)<=x"00008067";
-    mem(201)<=x"FE810113";
-    mem(202)<=x"00812A23";
-    mem(203)<=x"01810413";
-    mem(204)<=x"FEA42A23";
-    mem(205)<=x"FEB42823";
-    mem(206)<=x"FEC42623";
-    mem(207)<=x"00000013";
-    mem(208)<=x"01412403";
-    mem(209)<=x"01810113";
-    mem(210)<=x"00008067";
+    mem(158)<=x"1F300793";
+    mem(159)<=x"FEE7D6E3";
+    mem(160)<=x"04500593";
+    mem(161)<=x"FD442503";
+    mem(162)<=x"060000EF";
+    mem(163)<=x"FE042423";
+    mem(164)<=x"0100006F";
+    mem(165)<=x"FE842783";
+    mem(166)<=x"00178793";
+    mem(167)<=x"FEF42423";
+    mem(168)<=x"FE842703";
+    mem(169)<=x"2BB00793";
+    mem(170)<=x"FEE7D6E3";
+    mem(171)<=x"07600593";
+    mem(172)<=x"FD442503";
+    mem(173)<=x"034000EF";
+    mem(174)<=x"FE042223";
+    mem(175)<=x"0100006F";
+    mem(176)<=x"FE442783";
+    mem(177)<=x"00178793";
+    mem(178)<=x"FEF42223";
+    mem(179)<=x"FE442703";
+    mem(180)<=x"31F00793";
+    mem(181)<=x"FEE7D6E3";
+    mem(182)<=x"0E300593";
+    mem(183)<=x"FD442503";
+    mem(184)<=x"008000EF";
+    mem(185)<=x"F79FF06F";
+    mem(186)<=x"FF010113";
+    mem(187)<=x"00812623";
+    mem(188)<=x"01010413";
+    mem(189)<=x"FEA42A23";
+    mem(190)<=x"FEB42823";
+    mem(191)<=x"FF442783";
+    mem(192)<=x"FF042703";
+    mem(193)<=x"00E7A023";
+    mem(194)<=x"00000013";
+    mem(195)<=x"00C12403";
+    mem(196)<=x"01010113";
+    mem(197)<=x"00008067";
+    mem(198)<=x"FE810113";
+    mem(199)<=x"00812A23";
+    mem(200)<=x"01810413";
+    mem(201)<=x"FEA42A23";
+    mem(202)<=x"FEB42823";
+    mem(203)<=x"FEC42623";
+    mem(204)<=x"00000013";
+    mem(205)<=x"01412403";
+    mem(206)<=x"01810113";
+    mem(207)<=x"00008067";
 end behave;

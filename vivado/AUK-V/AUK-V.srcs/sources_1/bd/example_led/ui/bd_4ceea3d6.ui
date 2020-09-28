@@ -5,29 +5,39 @@
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0.19  2019-03-26 bk=1.5019 VDI=41 GEI=35 GUI=JA:9.0 TLS
 #  -string -flagsOSRD
-preplace port DDR -pg 1 -lvl 5 -x 1270 -y 60 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -lvl 5 -x 1270 -y 80 -defaultsOSRD
-preplace portBus LEDS -pg 1 -lvl 5 -x 1270 -y 500 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 4 -x 1000 -y 120 -defaultsOSRD
-preplace inst util_vector_logic_0 -pg 1 -lvl 3 -x 660 -y 410 -defaultsOSRD -resize 97 92
-preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 130 -y 410 -defaultsOSRD
-preplace inst xlconstant_0 -pg 1 -lvl 3 -x 660 -y 520 -defaultsOSRD
-preplace inst vio_0 -pg 1 -lvl 2 -x 420 -y 410 -defaultsOSRD
-preplace inst sciv_example_wb_0 -pg 1 -lvl 4 -x 1000 -y 500 -defaultsOSRD
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 5 -30 150 NJ 150 NJ 150 770 -40 1230
-preplace netloc clk_wiz_0_clk_out1 1 1 3 230 340 N 340 770
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 5 -20 280 NJ 280 NJ 280 NJ 280 1230
-preplace netloc vio_0_probe_out0 1 2 1 NJ 410
-preplace netloc clk_wiz_0_locked 1 1 1 N 420
-preplace netloc util_vector_logic_0_Res 1 3 1 760 410n
-preplace netloc xlconstant_0_dout 1 3 1 N 520
-preplace netloc sciv_example_wb_0_o_port_b 1 4 1 N 500
-preplace netloc processing_system7_0_FIXED_IO 1 4 1 1240J 40n
-preplace netloc processing_system7_0_DDR 1 4 1 1250J 20n
-levelinfo -pg 1 -50 130 420 660 1000 1270
-pagesize -pg 1 -db -bbox -sgen -50 -50 1390 580
+preplace port DDR -pg 1 -lvl 6 -x 1680 -y 500 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 6 -x 1680 -y 520 -defaultsOSRD
+preplace portBus LEDS -pg 1 -lvl 6 -x 1680 -y 390 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -x 260 -y 600 -defaultsOSRD
+preplace inst util_vector_logic_0 -pg 1 -lvl 4 -x 1240 -y 300 -defaultsOSRD -resize 97 92
+preplace inst clk_wiz_0 -pg 1 -lvl 2 -x 670 -y 320 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 4 -x 1240 -y 410 -defaultsOSRD
+preplace inst vio_0 -pg 1 -lvl 3 -x 990 -y 300 -defaultsOSRD
+preplace inst axi_uartlite_0 -pg 1 -lvl 3 -x 990 -y 140 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -x 670 -y 120 -defaultsOSRD
+preplace inst rst_ps7_0_100M -pg 1 -lvl 1 -x 260 -y 360 -defaultsOSRD
+preplace inst sciv_example_wb_0 -pg 1 -lvl 5 -x 1510 -y 400 -defaultsOSRD
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 20 250 510 240 820J
+preplace netloc clk_wiz_0_clk_out1 1 2 3 840 230 NJ 230 1360
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 30 260 500
+preplace netloc vio_0_probe_out0 1 3 1 NJ 300
+preplace netloc clk_wiz_0_locked 1 2 1 850 310n
+preplace netloc util_vector_logic_0_Res 1 4 1 1340 300n
+preplace netloc xlconstant_0_dout 1 4 1 NJ 410
+preplace netloc sciv_example_wb_0_o_port_b 1 5 1 NJ 390
+preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 1 2 520 250 830
+preplace netloc sciv_example_wb_0_o_tx 1 3 3 N 130 NJ 130 1660
+preplace netloc axi_uartlite_0_tx 1 3 2 N 150 1350J
+preplace netloc processing_system7_0_FIXED_IO 1 1 5 NJ 520 NJ 520 NJ 520 NJ 520 NJ
+preplace netloc processing_system7_0_DDR 1 1 5 NJ 500 NJ 500 NJ 500 NJ 500 NJ
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 490 60n
+preplace netloc ps7_0_axi_periph_M00_AXI 1 2 1 N 120
+levelinfo -pg 1 0 260 670 990 1240 1510 1680
+pagesize -pg 1 -db -bbox -sgen 0 0 1800 760
 "
 }
 {
+   "da_axi4_cnt":"1",
+   "da_board_cnt":"1",
    "da_ps7_cnt":"1"
 }
