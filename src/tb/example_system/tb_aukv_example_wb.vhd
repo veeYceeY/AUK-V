@@ -81,9 +81,9 @@ SC0:entity work.sciv_example_wb
 process
 begin
     clk<='0';
-    wait for 5 ns;
+    wait for 10 ns;
     clk<='1';
-    wait for 5 ns;
+    wait for 10 ns;
     
 end process;
 

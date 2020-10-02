@@ -16,7 +16,7 @@ IHEX:
 LST:
 	$(TPATH)$(PREFIX)-objdump --source --all-headers --demangle  --line-numbers --wide "build/main.elf" > "build/main.lst"
 ROM:
-	python3 ../tools/rom_gen.py ./build/main.hex
+	python3 ../tools/rom_.py ./build/main.v
 rom: ASM GCC LINK VERILOG IHEX LST ROM COPY_CODEMEM
 
 

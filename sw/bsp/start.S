@@ -21,6 +21,15 @@ _start:
     addi a5,s0,-56
     sw	a5,-32(s0)
     addi a5,s0,-52
+    li a5,0x02020202
+    sw a5,40(sp)
+    li a5,0x03030303
+    sh a5,40(sp)
+    li a5,0x04040404
+    sb a5,40(sp)
+    lbu a5,40(sp)
+    lhu a5,40(sp)
+    lw a5,40(sp)
     nop
     nop
     nop
@@ -124,5 +133,6 @@ _exception_return:
     addi sp,sp,128
 
     mret
+
 
 

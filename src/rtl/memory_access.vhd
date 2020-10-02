@@ -126,11 +126,11 @@ mem_data_rd_uh <= x"0000" & i_data_mem_data(15 downto 0);
 
 --mem_data_wr_sb <= i_mem_wr_data;
 
-mem_data_rd <=  mem_data_rd_sb when i_load_type = x"0" else
-                mem_data_rd_sh when i_load_type = x"1" else
-                mem_data_rd_sw when i_load_type = x"2" else
-                mem_data_rd_ub when i_load_type = x"3" else
-                mem_data_rd_uh when i_load_type = x"4" else
+mem_data_rd <=  mem_data_rd_sb when i_load_type = "000" else
+                mem_data_rd_sh when i_load_type = "001" else
+                mem_data_rd_sw when i_load_type = "010" else
+                mem_data_rd_ub when i_load_type = "011" else
+                mem_data_rd_uh when i_load_type = "100" else
                 mem_data_rd_sw;
 --wb_data<= i_fw_mm when i_mem_fwsel = '1' else wb_data;                
 mem_data_wr <= i_fw_mm when i_mem_fwsel = '1' else i_mem_wr_data;

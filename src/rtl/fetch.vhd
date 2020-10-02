@@ -105,7 +105,7 @@ end process;
 process(i_clk,i_rst)
 begin
 if i_rst = '1' then
-    
+    valid_buff <= '0';
 elsif rising_edge(i_clk) then
     if i_stall='1' then
         if i_valid = '1' then
