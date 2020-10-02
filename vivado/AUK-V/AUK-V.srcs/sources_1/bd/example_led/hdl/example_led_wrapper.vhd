@@ -1,7 +1,7 @@
 --Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
---Date        : Fri Oct  2 11:12:46 2020
+--Date        : Fri Oct  2 14:20:37 2020
 --Host        : SCiMOS running 64-bit Ubuntu 20.04.1 LTS
 --Command     : generate_target example_led_wrapper.bd
 --Design      : example_led_wrapper
@@ -46,6 +46,12 @@ architecture STRUCTURE of example_led_wrapper is
     LEDS : out STD_LOGIC_VECTOR ( 2 downto 0 );
     i_rx_0 : in STD_LOGIC;
     o_tx_0 : out STD_LOGIC;
+    FIXED_IO_0_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
+    FIXED_IO_0_ddr_vrn : inout STD_LOGIC;
+    FIXED_IO_0_ddr_vrp : inout STD_LOGIC;
+    FIXED_IO_0_ps_srstb : inout STD_LOGIC;
+    FIXED_IO_0_ps_clk : inout STD_LOGIC;
+    FIXED_IO_0_ps_porb : inout STD_LOGIC;
     DDR_0_cas_n : inout STD_LOGIC;
     DDR_0_cke : inout STD_LOGIC;
     DDR_0_ck_n : inout STD_LOGIC;
@@ -60,13 +66,7 @@ architecture STRUCTURE of example_led_wrapper is
     DDR_0_dm : inout STD_LOGIC_VECTOR ( 3 downto 0 );
     DDR_0_dq : inout STD_LOGIC_VECTOR ( 31 downto 0 );
     DDR_0_dqs_n : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-    DDR_0_dqs_p : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-    FIXED_IO_0_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
-    FIXED_IO_0_ddr_vrn : inout STD_LOGIC;
-    FIXED_IO_0_ddr_vrp : inout STD_LOGIC;
-    FIXED_IO_0_ps_srstb : inout STD_LOGIC;
-    FIXED_IO_0_ps_clk : inout STD_LOGIC;
-    FIXED_IO_0_ps_porb : inout STD_LOGIC
+    DDR_0_dqs_p : inout STD_LOGIC_VECTOR ( 3 downto 0 )
   );
   end component example_led;
 begin

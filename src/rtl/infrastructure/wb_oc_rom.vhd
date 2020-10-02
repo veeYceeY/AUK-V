@@ -1,14 +1,14 @@
 -----sd-----------------------------------------------------------------------------
 -- Company:  SCiMOS
--- Engineer: Veeyceey
+-- Engineer: veeYceeY
 -- 
--- Create Date: Fri Oct  2 09:53:37 2020
+-- Create Date: Fri Oct  2 19:12:03 2020
 -- Design Name: 
--- Module Name: sciv_core - Behavioral
--- Project Name: 
+-- Module Name: wb_oc_rom
+-- Project Name: AUK-V 
 -- Target Devices: 
 -- Tool Versions: 
--- Description: 
+-- Description: On chip ROM with wishbone interface 
 -- 
 -- Dependencies: 
 -- 
