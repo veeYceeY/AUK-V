@@ -74,7 +74,7 @@ SC0:entity work.sciv_example_wb
             i_rst        =>rst,
             i_port_a     =>sc0_porta,
             o_tx     =>tx,
-            i_rx     =>rx    
+            i_rx     =>tx    
             
   );
 

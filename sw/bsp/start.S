@@ -30,6 +30,10 @@ _start:
     lbu a5,40(sp)
     lhu a5,40(sp)
     lw a5,40(sp)
+    li a5,0x12345678
+    li a6,0x0000000f
+    andi a4,a5,0x0f0
+    and a4,a5,a6
     nop
     nop
     nop
