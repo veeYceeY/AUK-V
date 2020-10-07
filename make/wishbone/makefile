@@ -1,6 +1,6 @@
 
 rom:
-	cd ../../sw/projects/test && make all
+	cd ../../sw/projects/bootloader && make all
 
 COPY_CODEMEM:
 	cp -f code_mem.vhd ../../src/rtl/infrastructure/

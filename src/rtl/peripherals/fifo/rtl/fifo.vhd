@@ -22,7 +22,7 @@ use IEEE.math_real.all;
 entity fifo is 
 generic(
             FIFO_WIDTH: integer :=8;
-            FIFO_DEPTH: integer :=8
+            FIFO_DEPTH: integer :=64
 );
     port (
         i_wrclk : in std_logic;
@@ -103,25 +103,25 @@ begin
 
     --integer gen1;
     grey_rd_addr(0) <= rd_addr(0);
-    G0:for gen1 in 1 to integer(ceil(log2(real(FIFO_DEPTH))))-1 generate
+    G0:for gen1 in 1 to integer(ceil(log2(real(FIFO_DEPTH)))) generate
     grey_rd_addr(gen1) <= rd_addr(gen1-1) xor rd_addr(gen1);
     end generate;
 
     --integer gen2;
     grey_wr_addr(0) <= wr_addr(0);
-    G1:for gen2 in 1 to integer(ceil(log2(real(FIFO_DEPTH))))-1 generate
+    G1:for gen2 in 1 to integer(ceil(log2(real(FIFO_DEPTH)))) generate
     grey_wr_addr(gen2) <= wr_addr(gen2-1) xor wr_addr(gen2);
     end generate;
   
     --integer gen3;
     sync_rd_addr(0) <= grey_rd_addr2(0);
-    G2:for gen3 in 1 to integer(ceil(log2(real(FIFO_DEPTH))))-1 generate
+    G2:for gen3 in 1 to integer(ceil(log2(real(FIFO_DEPTH)))) generate
     sync_rd_addr(gen3) <= grey_rd_addr2(gen3-1) xor rd_addr(gen3);
     end generate;
 
     --integer gen4;
     sync_wr_addr(0) <= grey_wr_addr2(0);
-    G3:for gen4 in 1 to integer(ceil(log2(real(FIFO_DEPTH))))-1 generate
+    G3:for gen4 in 1 to integer(ceil(log2(real(FIFO_DEPTH)))) generate
     sync_wr_addr(gen4) <= grey_wr_addr2(gen4-1) xor wr_addr(gen4);
     end generate;
   

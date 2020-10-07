@@ -60,7 +60,7 @@ begin
 
 process(i_baud_clk,i_rstn)
 begin
-    if i_rstn = '0' then
+    if i_rstn = '1' then
         rx_cdc0 <= '1';
         rx_cdc1 <= '1';
     elsif rising_edge(i_baud_clk) then
@@ -71,7 +71,7 @@ end process;
 
 process(i_baud_clk,i_rstn)
 begin
-    if i_rstn = '0' then
+    if i_rstn = '1' then
         rx_state<= st_start;
         rx_data<= (others => '0');
         rx_buff<= (others => '0');
@@ -117,7 +117,7 @@ end process;
 
 process(i_clk,i_rstn)
 begin
-    if i_rstn = '0' then
+    if i_rstn = '1' then
         rx_data_cdc0 <= (others => '0');
         rx_data_cdc1 <= (others => '0');
         rx_valid_cdc0 <= '0';

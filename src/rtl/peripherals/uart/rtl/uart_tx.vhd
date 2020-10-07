@@ -60,7 +60,7 @@ parity <= '0';
 
 process(i_baud_clk,i_rstn)
 begin
-    if i_rstn = '0' then
+    if i_rstn = '1' then
         txdata_cdc0 <= (others => '0');
         txdata_cdc1 <= (others => '0');
         txen_cdc0 <= '0';
@@ -82,7 +82,7 @@ txen_lth <= '1' when txen_cdc1 = '1' and txen_cdc2 = '0' else '0';
 
 process(i_baud_clk,i_rstn)
 begin
-    if i_rstn = '0' then
+    if i_rstn = '1' then
         tx_buff<= (others=>'1');
     elsif rising_edge(i_baud_clk) then
         if i_en = '1' then
@@ -100,7 +100,7 @@ done <= '1' when count = 0 else '0';
 
 process(i_baud_clk,i_rstn)
 begin
-    if i_rstn = '0' then
+    if i_rstn = '1' then
         count <= (others=>'0');
     elsif rising_edge(i_baud_clk) then
         if i_en = '1' then
