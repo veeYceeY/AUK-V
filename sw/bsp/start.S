@@ -1,55 +1,39 @@
 # Initialize sp and jump to main. Loop incase main returns
 .global _start
 _start:
-    #la t0,_exception_entry
-    #csrw mtvec,t0
+    la t0,_exception_entry
+    csrw mtvec,t0
     li sp,0x008001fc
-    li a4,0x000000d0
-    addi a4,a4,1
-    li ra,0x000000c0
-    sw a4,0(sp)
-    lw a5,0(sp)
-    addi a5,a5,1
-    sw a5,-4(sp)
-    lw a4,-4(sp)
-    sw a4,-8(sp)
-    addi sp,sp,-56
-    sw	ra,52(sp)
-    sw	ra,48(sp)
-    sw	a4,44(sp)
-    addi s0,sp,56
-    addi a5,s0,-56
-    sw	a5,-32(s0)
-    addi a5,s0,-52
-    li a5,0x02020202
-    sw a5,40(sp)
-    li a5,0x03030303
-    sh a5,40(sp)
-    li a5,0x04040404
-    sb a5,40(sp)
-    lbu a5,40(sp)
-    lhu a5,40(sp)
-    lw a5,40(sp)
-    li a5,0x12345678
-    li a6,0x0000000f
-    andi a4,a5,0x0f0
-    and a4,a5,a6
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
+    #li a4,0x000000d0
+    #addi a4,a4,1
+    #li ra,0x000000c0
+    #sw a4,0(sp)
+    #lw a5,0(sp)
+    #addi a5,a5,1
+    #sw a5,-4(sp)
+    #lw a4,-4(sp)
+    #sw a4,-8(sp)
+    #addi sp,sp,-56
+    #sw	ra,52(sp)
+    #sw	ra,48(sp)
+    #sw	a4,44(sp)
+    #addi s0,sp,56
+    #addi a5,s0,-56
+    #sw	a5,-32(s0)
+    #addi a5,s0,-52
+    #li a5,0x02020202
+    #sw a5,40(sp)
+    #li a5,0x03030303
+    #sh a5,40(sp)
+    #li a5,0x04040404
+    #sb a5,40(sp)
+    #lbu a5,40(sp)
+    #lhu a5,40(sp)
+    #lw a5,40(sp)
+    #li a5,0x12345678
+    #li a6,0x0000000f
+    #andi a4,a5,0x0f0
+    #and a4,a5,a6
     jal main
 here:
     j here
@@ -62,7 +46,7 @@ here:
 #    li sp,0x008001fc
 #    jal main
 #here:
-     j here
+#     j here
 _exception_entry:
     addi sp,sp,-128
     sw x0,0(sp)

@@ -60,6 +60,8 @@ signal txf0_txdata : std_logic_vector(7 downto 0);
 signal rxf0_rxdata : std_logic_vector(7 downto 0);
 signal rx0_rxdata : std_logic_vector(7 downto 0);
 signal tx_drdy : std_logic;
+signal rx_clk : std_logic;
+signal tx_clk : std_logic;
 begin
 
 
@@ -73,18 +75,18 @@ begin
             i_wrdata=> i_txdata,
             o_full  => o_tx_full,
     
-            i_rdclk => bd0_clk,
+            i_rdclk => tx_clk,
             i_rdrst => bd0_rst,
             i_rden  => bd0_txdone,
             o_rddata=> txf0_txdata,
             o_empty => txf0_tx_empty
         );
     o_tx_empty <= txf0_tx_empty;
-    tx_drdy <= not txf0_tx_empty;
+    tx_drdy <= '0' when i_rstn='1' else  not (txf0_tx_empty) and bd0_txdone when rising_edge(tx_clk);
     RXF0:entity work.fifo   
     
         port map (
-            i_wrclk => bd0_clk,
+            i_wrclk => rx_clk,
             i_wrrst => bd0_rst,
             i_wren  => rx0_rxvalid,
             i_wrdata=> rx0_rxdata,
@@ -102,6 +104,7 @@ TX0: entity work.uart_tx
             i_clk       =>i_clk,
             i_rstn       =>i_rstn,
             i_baud_clk  =>bd0_clk,
+            o_clk  =>tx_clk,
             
             i_en        =>i_en,
             o_done      =>bd0_txdone,
@@ -121,6 +124,7 @@ RX0: entity work.uart_rx
             i_en        =>i_en,
             
             i_baud_clk  =>bd0_clk,
+            o_clk  =>rx_clk,
 
             i_parity    =>i_parity,
 

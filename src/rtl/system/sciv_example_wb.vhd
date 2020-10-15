@@ -89,15 +89,26 @@ AXIIC0:entity work.wb_interconnect
             i_m_wb  => axiic0_ocm0_out_wb
     );
 
+--  UART0:entity work.wb_uart 
+--    port map(
+--            clk   => i_clk,
+--            reset   => i_rst,
+
+--            o_m_wb  => uart0_out_wb,
+--            i_m_wb  => axiic0_uart0_out_wb,
+--            txd  => o_tx,
+--            rxd  => i_rx
+--    );
+
   UART0:entity work.wb_uart 
     port map(
-            clk   => i_clk,
-            reset   => i_rst,
+            i_clk   => i_clk,
+            i_rst   => i_rst,
 
-            o_m_wb  => uart0_out_wb,
-            i_m_wb  => axiic0_uart0_out_wb,
-            txd  => o_tx,
-            rxd  => i_rx
+            o_s_wb  => uart0_out_wb,
+            i_s_wb  => axiic0_uart0_out_wb,
+            o_tx  => o_tx,
+            i_rx  => i_rx
     );
 
 

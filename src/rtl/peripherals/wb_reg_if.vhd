@@ -28,7 +28,7 @@ signal mem : mem_type;
 signal data : std_logic_vector(31 downto 0);
 signal addr : std_logic_vector(0 downto 0);
 begin
-    addr(0) <= i_m_wb.addr(0);
+    addr(0) <= i_m_wb.addr(2);
         data <= mem(to_integer(unsigned((addr)))) when i_m_wb.stb='1'  and i_m_wb.cyc='1' else (others => '0');
     process(i_clk,i_rst)
     begin

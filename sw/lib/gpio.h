@@ -1,10 +1,11 @@
 
 #define GPIO_WRITE 0
 
-int* goio_init(int id){
+int* gpio_init(int id){
     if (id=='1'){
-        return 0x00100001;
+        return (int*) 0x00100001;
     }
+    return 0;
 }
 
 void gpio_write(int* dev,int data){

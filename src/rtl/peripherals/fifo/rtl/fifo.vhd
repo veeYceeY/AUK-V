@@ -1,7 +1,7 @@
 ---------------------------------------------------------------------------------------
 --Author : veeYceeY
 --Company: SCiMOS
---This code implements FIFO
+--FIFO
 ---------------------------------------------------------------------------------------
 
 
@@ -70,11 +70,8 @@ signal empty : std_logic;
 
 begin
 
---    count <= wr_addr-rd_addr ;--when ov='1' else rd_clk-wr_clk;
- --   full<= '1' when count = FIFO_DEPTH-1 else '0';
---    empty <= '1' when count = 0 else '0';
-      full <= '1' when rd_addr(integer(ceil(log2(real(FIFO_DEPTH))))) /= rd_addr(integer(ceil(log2(real(FIFO_DEPTH))))) and rd_addr(integer(ceil(log2(real(FIFO_DEPTH))))-1 downto 0) = sync_rd_addr(integer(ceil(log2(real(FIFO_DEPTH))))-1 downto 0) else '0';
-      empty <= '1' when rd_addr = sync_rd_addr else '0';
+      full <= '1' when wr_addr(integer(ceil(log2(real(FIFO_DEPTH))))) /= sync_rd_addr(integer(ceil(log2(real(FIFO_DEPTH))))) and wr_addr(integer(ceil(log2(real(FIFO_DEPTH))))-1 downto 0) = sync_rd_addr(integer(ceil(log2(real(FIFO_DEPTH))))-1 downto 0) else '0';
+      empty <= '1' when rd_addr = sync_wr_addr else '0';
     process(i_wrclk,i_wrrst)
     begin
         if i_wrrst = '1' then
@@ -93,7 +90,7 @@ begin
         if i_rdrst = '1' then
             rd_addr<= (others=> '0');
         elsif rising_edge(i_rdclk) then
-            if i_rden = '1' then
+            if i_rden = '1' and empty='0' then
                 if empty = '0' then
                     rd_addr <= rd_addr + '1';
                 end if;
@@ -102,49 +99,51 @@ begin
     end process;
 
     --integer gen1;
-    grey_rd_addr(0) <= rd_addr(0);
-    G0:for gen1 in 1 to integer(ceil(log2(real(FIFO_DEPTH)))) generate
-    grey_rd_addr(gen1) <= rd_addr(gen1-1) xor rd_addr(gen1);
+    grey_rd_addr(integer(ceil(log2(real(FIFO_DEPTH))))) <= rd_addr(integer(ceil(log2(real(FIFO_DEPTH)))));
+    G0:for gen1 in 1 to (integer(ceil(log2(real(FIFO_DEPTH))))) generate
+    grey_rd_addr(gen1-1) <= rd_addr(gen1-1) xor rd_addr(gen1);
     end generate;
 
     --integer gen2;
-    grey_wr_addr(0) <= wr_addr(0);
+    grey_wr_addr(integer(ceil(log2(real(FIFO_DEPTH))))) <= wr_addr(integer(ceil(log2(real(FIFO_DEPTH)))));
     G1:for gen2 in 1 to integer(ceil(log2(real(FIFO_DEPTH)))) generate
-    grey_wr_addr(gen2) <= wr_addr(gen2-1) xor wr_addr(gen2);
+    grey_wr_addr(gen2-1) <= wr_addr(gen2-1) xor wr_addr(gen2);
     end generate;
   
     --integer gen3;
-    sync_rd_addr(0) <= grey_rd_addr2(0);
+    sync_rd_addr(integer(ceil(log2(real(FIFO_DEPTH))))) <= grey_rd_addr2(integer(ceil(log2(real(FIFO_DEPTH)))));
     G2:for gen3 in 1 to integer(ceil(log2(real(FIFO_DEPTH)))) generate
-    sync_rd_addr(gen3) <= grey_rd_addr2(gen3-1) xor rd_addr(gen3);
+    sync_rd_addr(gen3-1) <= grey_rd_addr2(gen3-1) xor sync_rd_addr(gen3);
     end generate;
 
     --integer gen4;
-    sync_wr_addr(0) <= grey_wr_addr2(0);
+    sync_wr_addr(integer(ceil(log2(real(FIFO_DEPTH))))) <= grey_wr_addr2(integer(ceil(log2(real(FIFO_DEPTH)))));
     G3:for gen4 in 1 to integer(ceil(log2(real(FIFO_DEPTH)))) generate
-    sync_wr_addr(gen4) <= grey_wr_addr2(gen4-1) xor wr_addr(gen4);
+    sync_wr_addr(gen4-1) <= grey_wr_addr2(gen4-1) xor sync_wr_addr(gen4);
     end generate;
   
-    process(i_wrclk,i_wrrst)
-    begin
-        if i_wrrst = '1' then
-
-        elsif rising_edge(i_wrclk) then
-            grey_wr_addr1<=grey_wr_addr;
-            grey_wr_addr2<=grey_wr_addr1;
-        end if;
-    end process;
-    process(i_rdclk,i_rdrst)
-    begin
-        if i_rdrst = '1' then
-
-        elsif rising_edge(i_rdclk) then
-            grey_rd_addr1<=grey_rd_addr;
-            grey_rd_addr2<=grey_rd_addr1;
-        end if;
-    end process;
-
-
+--    process(i_wrclk,i_wrrst)
+--    begin
+--        if i_wrrst = '1' then
+--            grey_wr_addr1<=(others=>'0');
+--            grey_wr_addr2<=(others=>'0');
+--        elsif rising_edge(i_wrclk) then
+--            grey_wr_addr1<=grey_wr_addr;
+--            grey_wr_addr2<=grey_wr_addr1;
+--        end if;
+--    end process;
+    grey_wr_addr2<=grey_wr_addr;
+--    process(i_rdclk,i_rdrst)
+--    begin
+--        if i_rdrst = '1' then
+--            grey_rd_addr1<=(others=>'0');
+--            grey_rd_addr2<=(others=>'0');
+--        elsif rising_edge(i_rdclk) then
+--            grey_rd_addr1<=grey_rd_addr;
+--            grey_rd_addr2<=grey_rd_addr1;
+--        end if;
+--    end process;
+    grey_rd_addr2<=grey_rd_addr;
     ac_rd_addr<=rd_addr((integer(ceil(log2(real(FIFO_DEPTH)))))-1 downto 0);
 
     ac_wr_addr<=wr_addr((integer(ceil(log2(real(FIFO_DEPTH)))))-1 downto 0);
@@ -155,7 +154,9 @@ begin
         if i_wrrst = '1' then
 
         elsif rising_edge(i_wrclk) then
-            mem(to_integer(unsigned(ac_wr_addr)))<=i_wrdata;
+            if i_wren ='1' then
+                mem(to_integer(unsigned(ac_wr_addr)))<=i_wrdata;
+            end if;
         end if;
     end process;
 
@@ -164,8 +165,10 @@ begin
     begin
         if i_rdrst = '1' then
             rd_data<= (others=> '0');
-        elsif rising_edge(i_wrclk) then
-            rd_data<=mem(to_integer(unsigned(ac_rd_addr)));
+        elsif rising_edge(i_rdclk) then
+            if i_rden ='1' then
+                rd_data<=mem(to_integer(unsigned(ac_rd_addr)));
+            end if;
         end if;
     end process;
 

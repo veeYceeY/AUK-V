@@ -61,11 +61,11 @@ begin
                         o_s0_wb.we  <=i_m_wb.we;
                         o_s0_wb.data<=i_m_wb.data;
 
---                        o_s1_wb<=idle_out_wb_master;
---                        o_s2_wb<=idle_out_wb_master;
---                        o_s3_wb<=idle_out_wb_master;
---                        o_s4_wb<=idle_out_wb_master;
---                        o_s5_wb<=idle_out_wb_master;
+                        o_s1_wb<=idle_out_wb_master;
+                        o_s2_wb<=idle_out_wb_master;
+                        o_s3_wb<=idle_out_wb_master;
+                        o_s4_wb<=idle_out_wb_master;
+                        o_s5_wb<=idle_out_wb_master;
                     elsif i_m_wb.addr<x"00100000" then -- OCM-s1
                         periph<=ROM;
                         o_m_wb<=i_s1_wb;
@@ -78,11 +78,11 @@ begin
                         o_s1_wb.we  <=i_m_wb.we;
                         o_s1_wb.data<=i_m_wb.data;
 
---                        o_s0_wb<=idle_out_wb_master;
---                        o_s2_wb<=idle_out_wb_master;
---                        o_s3_wb<=idle_out_wb_master;
---                        o_s4_wb<=idle_out_wb_master;
---                        o_s5_wb<=idle_out_wb_master;
+                        o_s0_wb<=idle_out_wb_master;
+                        o_s2_wb<=idle_out_wb_master;
+                        o_s3_wb<=idle_out_wb_master;
+                        o_s4_wb<=idle_out_wb_master;
+                        o_s5_wb<=idle_out_wb_master;
                     elsif i_m_wb.addr<x"00800000" then -- periph-
                         if i_m_wb.addr<x"00100100" then --s2
                             periph<=GPIO;
@@ -95,11 +95,11 @@ begin
                             o_s2_wb.we  <=i_m_wb.we;
                             o_s2_wb.data<=i_m_wb.data;
     
---                            o_s0_wb<=idle_out_wb_master;
---                            o_s1_wb<=idle_out_wb_master;
---                            o_s3_wb<=idle_out_wb_master;
---                            o_s4_wb<=idle_out_wb_master;
---                            o_s5_wb<=idle_out_wb_master;
+                            o_s0_wb<=idle_out_wb_master;
+                            o_s1_wb<=idle_out_wb_master;
+                            o_s3_wb<=idle_out_wb_master;
+                            o_s4_wb<=idle_out_wb_master;
+                            o_s5_wb<=idle_out_wb_master;
                         elsif i_m_wb.addr<x"00100200" then --s3
                             periph<=S3;
                             o_m_wb<=i_s3_wb;
@@ -111,11 +111,11 @@ begin
                             o_s3_wb.we  <=i_m_wb.we;
                             o_s3_wb.data<=i_m_wb.data;
     
---                            o_s0_wb<=idle_out_wb_master;
---                            o_s1_wb<=idle_out_wb_master;
---                            o_s2_wb<=idle_out_wb_master;
---                            o_s4_wb<=idle_out_wb_master;
---                            o_s5_wb<=idle_out_wb_master;
+                            o_s0_wb<=idle_out_wb_master;
+                            o_s1_wb<=idle_out_wb_master;
+                            o_s2_wb<=idle_out_wb_master;
+                            o_s4_wb<=idle_out_wb_master;
+                            o_s5_wb<=idle_out_wb_master;
                         else --s4
                             periph<=S4;
                             o_m_wb<=i_s4_wb;
@@ -127,11 +127,11 @@ begin
                             o_s4_wb.we  <=i_m_wb.we;
                             o_s4_wb.data<=i_m_wb.data;
     
---                            o_s0_wb<=idle_out_wb_master;
---                            o_s1_wb<=idle_out_wb_master;
---                            o_s2_wb<=idle_out_wb_master;
---                            o_s3_wb<=idle_out_wb_master;
---                            o_s5_wb<=idle_out_wb_master;
+                            o_s0_wb<=idle_out_wb_master;
+                            o_s1_wb<=idle_out_wb_master;
+                            o_s2_wb<=idle_out_wb_master;
+                            o_s3_wb<=idle_out_wb_master;
+                            o_s5_wb<=idle_out_wb_master;
                         end if;
                     else --if i_m_wb.addr(31 downto 16)<x"2000" then -- system memory --s5
                         periph<=RAM;
@@ -144,11 +144,11 @@ begin
                         o_s5_wb.we  <=i_m_wb.we;
                         o_s5_wb.data<=i_m_wb.data;
 
---                        o_s0_wb<=idle_out_wb_master;
---                        o_s1_wb<=idle_out_wb_master;
---                        o_s2_wb<=idle_out_wb_master;
---                        o_s3_wb<=idle_out_wb_master;
---                        o_s4_wb<=idle_out_wb_master;
+                        o_s0_wb<=idle_out_wb_master;
+                        o_s1_wb<=idle_out_wb_master;
+                        o_s2_wb<=idle_out_wb_master;
+                        o_s3_wb<=idle_out_wb_master;
+                        o_s4_wb<=idle_out_wb_master;
 --                    end if;
                 end if;
 --            else

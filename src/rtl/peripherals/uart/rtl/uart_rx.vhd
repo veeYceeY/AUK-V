@@ -28,11 +28,12 @@ entity uart_rx is
             i_clk       : in std_logic;
             i_rstn       : in std_logic;
             i_baud_clk  : in std_logic;
-
+            
             i_en        : in std_logic;
 
             i_parity    : in std_logic;
-
+            
+            o_clk :  out std_logic;
             o_rxdata    : out std_logic_vector(7 downto 0);
             o_rxvalid   : out std_logic;
 
@@ -41,7 +42,7 @@ entity uart_rx is
 end uart_rx;
 
 architecture arch_uart_rx of uart_rx is
-    type t_state is (st_idle,st_start,st_data,st_parity,st_stop);
+    type t_state is (st_idle,st_start,st_align,st_data,st_parity,st_stop);
     signal rx_state : t_state;
     signal rx_buff : std_logic_vector(7 downto 0);
     signal err : std_logic;
@@ -56,8 +57,30 @@ architecture arch_uart_rx of uart_rx is
     
     signal count : std_logic_vector(7 downto 0);
     signal parity : std_logic;
+    signal rx_clk : std_logic;
+    signal rx_clk_d : std_logic;
+    signal div_count : std_logic_vector(31 downto 0);
+    signal align_count : std_logic_vector(31 downto 0);
+    signal align_value : std_logic_vector(31 downto 0);
 begin
 
+process(i_baud_clk,i_rstn)
+begin
+    if i_rstn = '1' then
+        div_count<=(others=>'0');
+        --tx_clk<='0';
+    elsif rising_edge(i_baud_clk) then
+        if div_count < x"0000000F" then
+            div_count <= div_count+'1';
+        else
+            div_count <= (others=>'0');
+        end if;
+    end if;
+end process;
+
+rx_clk<='1' when div_count=align_value else '0';
+rx_clk_d<=rx_clk when rising_edge(i_baud_clk) ;
+o_clk<=rx_clk_d when rising_edge(i_baud_clk) ;
 process(i_baud_clk,i_rstn)
 begin
     if i_rstn = '1' then
@@ -85,28 +108,42 @@ begin
             when st_start =>
                 rx_valid <= '0';
                 if rx_cdc1 = '0' then
-                    rx_state <= st_data;
+                    rx_state <= st_align;
                     count<= x"08";
+                    align_count<=x"00000000";
+                end if;
+            when st_align =>
+                if align_count<x"00000007" then
+                    align_count<=align_count+1;
+                else
+                    rx_state <= st_data;
+                    align_value<=div_count;
                 end if;
             when st_data =>
-                    if count >0 then
-                        count<= count-1;
-                        rx_buff<= rx_cdc1 & rx_buff(7 downto 1);
-                    else
-                        parity <= rx_cdc1;
-                        rx_state <= st_stop;
+                    if rx_clk='1' then
+                        if count >0 then
+                            count<= count-1;
+                            rx_buff<= rx_cdc1 & rx_buff(7 downto 1);
+                        else
+                            parity <= rx_cdc1;
+                            rx_state <= st_stop;
+                        end if;
                     end if;
             when st_parity =>
                     --parity <= rx_cdc1;
-                    rx_state <= st_stop;
+                    if rx_clk='1' then
+                        rx_state <= st_stop;
+                    end if;
             when st_stop =>
-                rx_state <= st_start;
-                if rx_cdc1 = '1' then
-                    rx_data<= rx_buff;
-                    rx_valid<='1';
-                else
-                    err <='1';
-                end if;
+                    if rx_clk='1' then
+                        rx_state <= st_start;
+                        if rx_cdc1 = '1' then
+                            rx_data<= rx_buff;
+                            rx_valid<='1';
+                        else
+                            err <='1';
+                        end if;
+                    end if;
             when others  =>
                 rx_state <= st_start;
             end case;
@@ -132,8 +169,8 @@ end process;
 
 
 
-o_rxdata    <= rx_data_cdc1;
-o_rxvalid   <= rx_valid_cdc1;
+o_rxdata    <= rx_data;
+o_rxvalid   <= rx_valid;
 
 end arch_uart_rx;
 
