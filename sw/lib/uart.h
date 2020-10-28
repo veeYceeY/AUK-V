@@ -34,7 +34,7 @@ int uart_data_ready(volatile int* dev){
 }
 void uart_set_baud(volatile int* dev, int baud, int sys_freq){
 	
-	dev[BAUD]= 27;
+	dev[BAUD]= 22;
 }
 
 int uart_rx(volatile int* dev){

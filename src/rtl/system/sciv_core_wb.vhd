@@ -43,6 +43,11 @@ signal wbdm0_o_wb     : t_out_wb_master;
 signal wbdm1_o_wb     : t_out_wb_master;
 signal wbar0_m1_o_wb    : t_in_wb_master;
 signal wbar0_m0_o_wb    : t_in_wb_master;
+
+signal ch0_req        : std_logic;
+signal ch0_addr      : std_logic_vector(31 downto 0);
+signal ch0_data     : std_logic_vector(31 downto 0); 
+signal ch0_ack     : std_logic; 
 begin
 
     SC0:entity work.sciv_core 
@@ -60,21 +65,34 @@ begin
     
               o_code_mem_en     =>sc0_c_en    ,
               o_code_mem_addr   =>sc0_c_addr  ,
-              i_code_mem_data   =>wbdm0_data  ,
-              i_code_mem_valid  =>wbdm0_valid 
+              i_code_mem_data   =>ch0_data  ,
+              i_code_mem_valid  =>ch0_ack 
               
               
     );
-    
+    CH0: entity work.cache
+    port map(
+            i_clk => i_clk,
+            i_rst => i_rst,
+            i_req => sc0_c_en,
+            i_addr=> sc0_c_addr,
+            o_data=> ch0_data,
+            o_ack => ch0_ack,
+            o_req => ch0_req,
+            o_addr=> ch0_addr,
+            i_data=> wbdm0_data,
+            i_ack => wbdm0_valid
+            
+    );
     
 
     WBDM0: entity work.wb_master 
     port map (
             i_clk         => i_clk,
             i_rst         => i_rst,
-            i_en           => sc0_c_en    ,
+            i_en           => ch0_req    ,
             i_we           => '0'    ,
-            i_addr         => sc0_c_addr  ,
+            i_addr         => ch0_addr  ,
             i_data         => x"00000000",
             i_strobe       => "1111" ,
             o_valid        => wbdm0_valid  ,

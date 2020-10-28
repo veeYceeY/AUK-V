@@ -2,11 +2,11 @@
 # Webtalk v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
 # 
-# Start of session at: Sat Oct  3 12:13:50 2020
-# Process ID: 1370130
-# Current directory: /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/webtalk
+# Start of session at: Tue Oct 27 12:05:05 2020
+# Process ID: 3300907
+# Current directory: /home/veeyceey/Documents/workspace/github/AUKV-2/AUK-V/vivado/AUK-V/AUK-V.sdk/webtalk
 # Command line: wbtcv -mode batch -source sdk_webtalk.tcl
-# Log file: /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/webtalk/webtalk.log
-# Journal file: /home/veeyceey/Documents/workspace/github/AUK-V/vivado/AUK-V/AUK-V.sdk/webtalk/webtalk.jou
+# Log file: /home/veeyceey/Documents/workspace/github/AUKV-2/AUK-V/vivado/AUK-V/AUK-V.sdk/webtalk/webtalk.log
+# Journal file: /home/veeyceey/Documents/workspace/github/AUKV-2/AUK-V/vivado/AUK-V/AUK-V.sdk/webtalk/webtalk.jou
 #-----------------------------------------------------------
 source sdk_webtalk.tcl

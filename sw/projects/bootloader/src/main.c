@@ -61,6 +61,13 @@ int main()
     if(uart_data_ready(uart)==1){
       rx_data=uart_rx(uart);
       uart_tx(uart,rx_data);
+      if (rx_data=='r') {
+        led(gpio,0x06);
+      }else if(rx_data=='g') {
+        led(gpio,0x05);
+      }else if(rx_data=='b') {
+        led(gpio,0x03);
+      }
     }
   }
 

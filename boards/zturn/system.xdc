@@ -208,40 +208,7 @@ connect_debug_port u_ila_1/probe0 [get_nets [list example_led_i/axi_uartlite_0_t
 
 
 
-create_debug_core u_ila_0 ila
-set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
-set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
-set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
-set_property C_DATA_DEPTH 4096 [get_debug_cores u_ila_0]
-set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
-set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
-set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
-set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
-set_property port_width 1 [get_debug_ports u_ila_0/clk]
-connect_debug_port u_ila_0/clk [get_nets [list example_led_i/sciv_example_wb_0/U0/UART0/UART0/BD0/CLK]]
-set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
-set_property port_width 7 [get_debug_ports u_ila_0/probe0]
-connect_debug_port u_ila_0/probe0 [get_nets [list {example_led_i/sciv_example_wb_0/U0/UART0/UART0/RX0/count[0]} {example_led_i/sciv_example_wb_0/U0/UART0/UART0/RX0/count[1]} {example_led_i/sciv_example_wb_0/U0/UART0/UART0/RX0/count[2]} {example_led_i/sciv_example_wb_0/U0/UART0/UART0/RX0/count[3]} {example_led_i/sciv_example_wb_0/U0/UART0/UART0/RX0/count[4]} {example_led_i/sciv_example_wb_0/U0/UART0/UART0/RX0/count[5]} {example_led_i/sciv_example_wb_0/U0/UART0/UART0/RX0/count[6]}]]
-create_debug_port u_ila_0 probe
-set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
-set_property port_width 4 [get_debug_ports u_ila_0/probe1]
-connect_debug_port u_ila_0/probe1 [get_nets [list {example_led_i/sciv_example_wb_0/U0/UART0/UART0/RX0/align_value[0]} {example_led_i/sciv_example_wb_0/U0/UART0/UART0/RX0/align_value[1]} {example_led_i/sciv_example_wb_0/U0/UART0/UART0/RX0/align_value[2]} {example_led_i/sciv_example_wb_0/U0/UART0/UART0/RX0/align_value[3]}]]
-create_debug_port u_ila_0 probe
-set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
-set_property port_width 8 [get_debug_ports u_ila_0/probe2]
-connect_debug_port u_ila_0/probe2 [get_nets [list {example_led_i/sciv_example_wb_0/U0/UART0/UART0/RX0/rx_buff[0]} {example_led_i/sciv_example_wb_0/U0/UART0/UART0/RX0/rx_buff[1]} {example_led_i/sciv_example_wb_0/U0/UART0/UART0/RX0/rx_buff[2]} {example_led_i/sciv_example_wb_0/U0/UART0/UART0/RX0/rx_buff[3]} {example_led_i/sciv_example_wb_0/U0/UART0/UART0/RX0/rx_buff[4]} {example_led_i/sciv_example_wb_0/U0/UART0/UART0/RX0/rx_buff[5]} {example_led_i/sciv_example_wb_0/U0/UART0/UART0/RX0/rx_buff[6]} {example_led_i/sciv_example_wb_0/U0/UART0/UART0/RX0/rx_buff[7]}]]
-create_debug_port u_ila_0 probe
-set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
-set_property port_width 1 [get_debug_ports u_ila_0/probe3]
-connect_debug_port u_ila_0/probe3 [get_nets [list example_led_i/sciv_example_wb_0/U0/UART0/UART0/o_tx]]
-create_debug_port u_ila_0 probe
-set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe4]
-set_property port_width 1 [get_debug_ports u_ila_0/probe4]
-connect_debug_port u_ila_0/probe4 [get_nets [list example_led_i/sciv_example_wb_0/U0/UART0/UART0/RX0/rx_data]]
-create_debug_port u_ila_0 probe
-set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe5]
-set_property port_width 1 [get_debug_ports u_ila_0/probe5]
-connect_debug_port u_ila_0/probe5 [get_nets [list example_led_i/sciv_example_wb_0/U0/UART0/UART0/RX0/rx0_rxvalid]]
+
 set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
 set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
 set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]

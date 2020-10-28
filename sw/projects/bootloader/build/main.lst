@@ -7,17 +7,17 @@ start address 0x00010018
 
 Program Header:
     LOAD off    0x00001018 vaddr 0x00010018 paddr 0x00010018 align 2**12
-         filesz 0x00000489 memsz 0x00000489 flags r-x
+         filesz 0x000004d9 memsz 0x000004d9 flags r-x
 
 Sections:
 Idx Name              Size      VMA       LMA       File off  Algn  Flags
-  0 .text             00000474  00010018  00010018  00001018  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .rodata           00000015  0001048c  0001048c  0000148c  2**2  CONTENTS, ALLOC, LOAD, READONLY, DATA
-  2 .riscv.attributes 00000020  00000000  00000000  000014a1  2**0  CONTENTS, READONLY
-  3 .comment          00000012  00000000  00000000  000014c1  2**0  CONTENTS, READONLY
+  0 .text             000004c4  00010018  00010018  00001018  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .rodata           00000015  000104dc  000104dc  000014dc  2**2  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  2 .riscv.attributes 00000020  00000000  00000000  000014f1  2**0  CONTENTS, READONLY
+  3 .comment          00000012  00000000  00000000  00001511  2**0  CONTENTS, READONLY
 SYMBOL TABLE:
 00010018 l    d  .text	00000000 .text
-0001048c l    d  .rodata	00000000 .rodata
+000104dc l    d  .rodata	00000000 .rodata
 00000000 l    d  .riscv.attributes	00000000 .riscv.attributes
 00000000 l    d  .comment	00000000 .comment
 00000000 l    df *ABS*	00000000 build/start.o
@@ -27,15 +27,15 @@ SYMBOL TABLE:
 00000000 l    df *ABS*	00000000 main.c
 00010260 g     F .text	00000074 uart_print
 00010230 g     F .text	00000030 uart_tx
-00010434 g     F .text	00000030 led
+00010484 g     F .text	00000030 led
 0001014c g     F .text	0000003c uart_init
 00010018 g       .text	00000000 _start
 00010204 g     F .text	0000002c uart_rx
-0001033c g     F .text	000000f8 main
+0001033c g     F .text	00000148 main
 000102d4 g     F .text	00000068 wait_ms
 00010188 g     F .text	00000044 uart_data_ready
 000101cc g     F .text	00000038 uart_set_baud
-00010464 g     F .text	00000028 exception_handler
+000104b4 g     F .text	00000028 exception_handler
 
 
 
@@ -47,7 +47,7 @@ _start():
    1001c:	01c28293          	addi	t0,t0,28 # 10034 <_exception_entry>
    10020:	30529073          	csrw	mtvec,t0
    10024:	00800137          	lui	sp,0x800
-   10028:	1fc10113          	addi	sp,sp,508 # 8001fc <exception_handler+0x7efd98>
+   10028:	1fc10113          	addi	sp,sp,508 # 8001fc <exception_handler+0x7efd48>
    1002c:	310000ef          	jal	ra,1033c <main>
 
 00010030 <here>:
@@ -92,7 +92,7 @@ _exception_entry():
    100b8:	34202573          	csrr	a0,mcause
    100bc:	341025f3          	csrr	a1,mepc
    100c0:	00010613          	mv	a2,sp
-   100c4:	3a0000ef          	jal	ra,10464 <exception_handler>
+   100c4:	3f0000ef          	jal	ra,104b4 <exception_handler>
 
 000100c8 <_exception_return>:
 _exception_return():
@@ -140,7 +140,7 @@ uart_init():
    10160:	00100793          	li	a5,1
    10164:	00f71863          	bne	a4,a5,10174 <uart_init+0x28>
    10168:	001007b7          	lui	a5,0x100
-   1016c:	10078793          	addi	a5,a5,256 # 100100 <exception_handler+0xefc9c>
+   1016c:	10078793          	addi	a5,a5,256 # 100100 <exception_handler+0xefc4c>
    10170:	0080006f          	j	10178 <uart_init+0x2c>
    10174:	00000793          	li	a5,0
    10178:	00078513          	mv	a0,a5
@@ -178,7 +178,7 @@ uart_set_baud():
    101e0:	fec42623          	sw	a2,-20(s0)
    101e4:	ff442783          	lw	a5,-12(s0)
    101e8:	00c78793          	addi	a5,a5,12
-   101ec:	01b00713          	li	a4,27
+   101ec:	01600713          	li	a4,22
    101f0:	00e7a023          	sw	a4,0(a5)
    101f4:	00000013          	nop
    101f8:	01412403          	lw	s0,20(sp)
@@ -302,13 +302,13 @@ main():
    10394:	fe442783          	lw	a5,-28(s0)
    10398:	00e7a023          	sw	a4,0(a5)
    1039c:	001007b7          	lui	a5,0x100
-   103a0:	00478793          	addi	a5,a5,4 # 100004 <exception_handler+0xefba0>
+   103a0:	00478793          	addi	a5,a5,4 # 100004 <exception_handler+0xefb50>
    103a4:	fef42023          	sw	a5,-32(s0)
    103a8:	00100513          	li	a0,1
    103ac:	da1ff0ef          	jal	ra,1014c <uart_init>
    103b0:	fca42e23          	sw	a0,-36(s0)
    103b4:	02faf7b7          	lui	a5,0x2faf
-   103b8:	08078613          	addi	a2,a5,128 # 2faf080 <exception_handler+0x2f9ec1c>
+   103b8:	08078613          	addi	a2,a5,128 # 2faf080 <exception_handler+0x2f9ebcc>
    103bc:	000027b7          	lui	a5,0x2
    103c0:	58078593          	addi	a1,a5,1408 # 2580 <_start-0xda98>
    103c4:	fdc42503          	lw	a0,-36(s0)
@@ -322,9 +322,9 @@ main():
    103e4:	00e7a023          	sw	a4,0(a5)
    103e8:	08600593          	li	a1,134
    103ec:	fe042503          	lw	a0,-32(s0)
-   103f0:	044000ef          	jal	ra,10434 <led>
+   103f0:	094000ef          	jal	ra,10484 <led>
    103f4:	000107b7          	lui	a5,0x10
-   103f8:	48c78593          	addi	a1,a5,1164 # 1048c <exception_handler+0x28>
+   103f8:	4dc78593          	addi	a1,a5,1244 # 104dc <exception_handler+0x28>
    103fc:	fdc42503          	lw	a0,-36(s0)
    10400:	e61ff0ef          	jal	ra,10260 <uart_print>
    10404:	fdc42503          	lw	a0,-36(s0)
@@ -338,32 +338,52 @@ main():
    10424:	fd842583          	lw	a1,-40(s0)
    10428:	fdc42503          	lw	a0,-36(s0)
    1042c:	e05ff0ef          	jal	ra,10230 <uart_tx>
-   10430:	fd5ff06f          	j	10404 <main+0xc8>
+   10430:	fd842703          	lw	a4,-40(s0)
+   10434:	07200793          	li	a5,114
+   10438:	00f71a63          	bne	a4,a5,1044c <main+0x110>
+   1043c:	00600593          	li	a1,6
+   10440:	fe042503          	lw	a0,-32(s0)
+   10444:	040000ef          	jal	ra,10484 <led>
+   10448:	fbdff06f          	j	10404 <main+0xc8>
+   1044c:	fd842703          	lw	a4,-40(s0)
+   10450:	06700793          	li	a5,103
+   10454:	00f71a63          	bne	a4,a5,10468 <main+0x12c>
+   10458:	00500593          	li	a1,5
+   1045c:	fe042503          	lw	a0,-32(s0)
+   10460:	024000ef          	jal	ra,10484 <led>
+   10464:	fa1ff06f          	j	10404 <main+0xc8>
+   10468:	fd842703          	lw	a4,-40(s0)
+   1046c:	06200793          	li	a5,98
+   10470:	f8f71ae3          	bne	a4,a5,10404 <main+0xc8>
+   10474:	00300593          	li	a1,3
+   10478:	fe042503          	lw	a0,-32(s0)
+   1047c:	008000ef          	jal	ra,10484 <led>
+   10480:	f85ff06f          	j	10404 <main+0xc8>
 
-00010434 <led>:
+00010484 <led>:
 led():
-   10434:	ff010113          	addi	sp,sp,-16
-   10438:	00812623          	sw	s0,12(sp)
-   1043c:	01010413          	addi	s0,sp,16
-   10440:	fea42a23          	sw	a0,-12(s0)
-   10444:	feb42823          	sw	a1,-16(s0)
-   10448:	ff442783          	lw	a5,-12(s0)
-   1044c:	ff042703          	lw	a4,-16(s0)
-   10450:	00e7a023          	sw	a4,0(a5)
-   10454:	00000013          	nop
-   10458:	00c12403          	lw	s0,12(sp)
-   1045c:	01010113          	addi	sp,sp,16
-   10460:	00008067          	ret
+   10484:	ff010113          	addi	sp,sp,-16
+   10488:	00812623          	sw	s0,12(sp)
+   1048c:	01010413          	addi	s0,sp,16
+   10490:	fea42a23          	sw	a0,-12(s0)
+   10494:	feb42823          	sw	a1,-16(s0)
+   10498:	ff442783          	lw	a5,-12(s0)
+   1049c:	ff042703          	lw	a4,-16(s0)
+   104a0:	00e7a023          	sw	a4,0(a5)
+   104a4:	00000013          	nop
+   104a8:	00c12403          	lw	s0,12(sp)
+   104ac:	01010113          	addi	sp,sp,16
+   104b0:	00008067          	ret
 
-00010464 <exception_handler>:
+000104b4 <exception_handler>:
 exception_handler():
-   10464:	fe810113          	addi	sp,sp,-24
-   10468:	00812a23          	sw	s0,20(sp)
-   1046c:	01810413          	addi	s0,sp,24
-   10470:	fea42a23          	sw	a0,-12(s0)
-   10474:	feb42823          	sw	a1,-16(s0)
-   10478:	fec42623          	sw	a2,-20(s0)
-   1047c:	00000013          	nop
-   10480:	01412403          	lw	s0,20(sp)
-   10484:	01810113          	addi	sp,sp,24
-   10488:	00008067          	ret
+   104b4:	fe810113          	addi	sp,sp,-24
+   104b8:	00812a23          	sw	s0,20(sp)
+   104bc:	01810413          	addi	s0,sp,24
+   104c0:	fea42a23          	sw	a0,-12(s0)
+   104c4:	feb42823          	sw	a1,-16(s0)
+   104c8:	fec42623          	sw	a2,-20(s0)
+   104cc:	00000013          	nop
+   104d0:	01412403          	lw	s0,20(sp)
+   104d4:	01810113          	addi	sp,sp,24
+   104d8:	00008067          	ret
