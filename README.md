@@ -17,9 +17,6 @@
 
 ## Todo
 
-    CSR       -- on going
-    exceptions
-    Wishbone interface
-    AXI interface
-    Branch prediction
+    exception
+    
     
