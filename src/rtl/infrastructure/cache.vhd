@@ -9,8 +9,8 @@ use work.pkg_aukv.all;
 entity cache is
 
     generic(
-            LINE_SIZE : natural :=64;
-            OFFSET : natural := 8
+            LINE_SIZE : natural :=16;
+            OFFSET : natural := 6
     );
     port(
             i_clk : in std_logic;

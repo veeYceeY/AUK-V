@@ -12,6 +12,7 @@
 #include <stdint.h>
 #include "uart.h"
 #include "time.h"
+#include "timer.h"
 //#define APP_START 0x0080000
 void led(volatile int* gpio,int val);
 
@@ -20,6 +21,7 @@ int main()
   //int gpio;
   volatile int *gpio;
   volatile int *uart;
+  volatile int *timer;
   int *a,*b,*c;
   int x,y,z;
   int rx_data;
@@ -29,6 +31,9 @@ int main()
   //a=(int*)0x00010110;
   //b=(int*)0x00010114;
   //c=(int*)0x00010118;
+  timer =timer_init(1);
+  timer_set_count(timer,20000000);//000);
+  timer_start(timer);
   *a=5;
   *b=-10;
   *c=(*a)-(*b);
@@ -96,7 +101,13 @@ void led(volatile int* gpio,int val){
 }
 void exception_handler(uint32_t cause, void * epc, void * saved_sp)
 {
-	
+  volatile int* gpio;
+	gpio =(int*) 0x00100004;
+  if (*gpio==0x00){
+    *gpio=0xFF;
+  }else{
+    *gpio=0x00;
+  }
 }
 /*
 int __mulsi3(int a,int b){

@@ -12,18 +12,21 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="32366500000fs"></ZoomStartTime>
-      <ZoomEndTime time="32522500001fs"></ZoomEndTime>
-      <Cursor1Time time="32770000000fs"></Cursor1Time>
+      <ZoomStartTime time="44521934400000fs"></ZoomStartTime>
+      <ZoomEndTime time="44522092200001fs"></ZoomEndTime>
+      <Cursor1Time time="44522010000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="243"></NameColumnWidth>
-      <ValueColumnWidth column_width="120"></ValueColumnWidth>
+      <ValueColumnWidth column_width="112"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="339" />
+   <WVObjectSize size="383" />
    <wave_markers>
       <marker label="" time="35306000000" />
       <marker label="" time="32903583000" />
+      <marker label="" time="29117800000" />
+      <marker label="" time="44521996400000" />
+      <marker label="" time="44547362400000" />
    </wave_markers>
    <wvobject fp_name="divider744" type="divider">
       <obj_property name="label">dec</obj_property>
@@ -62,7 +65,6 @@
       <obj_property name="ObjectShortName">sfr[31:0][31:0]</obj_property>
       <obj_property name="CustomSignalColor">#00FF7F</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/OCR0/o_m_wb">
       <obj_property name="ElementShortName">o_m_wb</obj_property>
@@ -82,17 +84,17 @@
       <obj_property name="label">fetch</obj_property>
       <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/i_clk">
-      <obj_property name="ElementShortName">i_clk</obj_property>
-      <obj_property name="ObjectShortName">i_clk</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/de0_illegal">
+      <obj_property name="ElementShortName">de0_illegal</obj_property>
+      <obj_property name="ObjectShortName">de0_illegal</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/ex0_illegal">
+      <obj_property name="ElementShortName">ex0_illegal</obj_property>
+      <obj_property name="ObjectShortName">ex0_illegal</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/i_rst">
       <obj_property name="ElementShortName">i_rst</obj_property>
       <obj_property name="ObjectShortName">i_rst</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/i_stall">
-      <obj_property name="ElementShortName">i_stall</obj_property>
-      <obj_property name="ObjectShortName">i_stall</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/i_branch_addr">
       <obj_property name="ElementShortName">i_branch_addr[31:0]</obj_property>
@@ -114,6 +116,10 @@
       <obj_property name="ElementShortName">o_en</obj_property>
       <obj_property name="ObjectShortName">o_en</obj_property>
    </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/i_clk">
+      <obj_property name="ElementShortName">i_clk</obj_property>
+      <obj_property name="ObjectShortName">i_clk</obj_property>
+   </wvobject>
    <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/o_addr">
       <obj_property name="ElementShortName">o_addr[31:0]</obj_property>
       <obj_property name="ObjectShortName">o_addr[31:0]</obj_property>
@@ -130,29 +136,138 @@
       <obj_property name="ElementShortName">o_port_b[31:0]</obj_property>
       <obj_property name="ObjectShortName">o_port_b[31:0]</obj_property>
    </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/csr0/i_wr_addr">
+      <obj_property name="ElementShortName">i_wr_addr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">i_wr_addr[11:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/csr0/i_rd_addr">
+      <obj_property name="ElementShortName">i_rd_addr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">i_rd_addr[11:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/csr0/i_data">
+      <obj_property name="ElementShortName">i_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/csr0/i_we">
+      <obj_property name="ElementShortName">i_we</obj_property>
+      <obj_property name="ObjectShortName">i_we</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/csr0/i_rd">
+      <obj_property name="ElementShortName">i_rd</obj_property>
+      <obj_property name="ObjectShortName">i_rd</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/csr0/i_op">
+      <obj_property name="ElementShortName">i_op[1:0]</obj_property>
+      <obj_property name="ObjectShortName">i_op[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/csr0/o_data">
+      <obj_property name="ElementShortName">o_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/csr0/mepc">
+      <obj_property name="ElementShortName">mepc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mepc[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/epc">
+      <obj_property name="ElementShortName">epc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">epc[31:0]</obj_property>
+   </wvobject>
    <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/o_pc">
       <obj_property name="ElementShortName">o_pc[31:0]</obj_property>
       <obj_property name="ObjectShortName">o_pc[31:0]</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
       <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
-      <obj_property name="AnalogYRangeMin">65560.000000</obj_property>
-      <obj_property name="AnalogYRRangeMax">67584.000000</obj_property>
+      <obj_property name="AnalogYRangeMin">65107.6</obj_property>
+      <obj_property name="AnalogYRRangeMax">69156.6</obj_property>
       <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
       <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
       <obj_property name="AnalogHorizLine">0.000000</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/o_pc">
-      <obj_property name="ElementShortName">o_pc[31:0]</obj_property>
-      <obj_property name="ObjectShortName">o_pc[31:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/TMR0/i_m_wb">
+      <obj_property name="ElementShortName">i_m_wb</obj_property>
+      <obj_property name="ObjectShortName">i_m_wb</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/i_irq">
+      <obj_property name="ElementShortName">i_irq</obj_property>
+      <obj_property name="ObjectShortName">i_irq</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/o_ack">
+      <obj_property name="ElementShortName">o_ack</obj_property>
+      <obj_property name="ObjectShortName">o_ack</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/de0_except_ill_instr">
+      <obj_property name="ElementShortName">de0_except_ill_instr</obj_property>
+      <obj_property name="ObjectShortName">de0_except_ill_instr</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/interrupt">
+      <obj_property name="ElementShortName">interrupt</obj_property>
+      <obj_property name="ObjectShortName">interrupt</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/i_branch_en">
+      <obj_property name="ElementShortName">i_branch_en</obj_property>
+      <obj_property name="ObjectShortName">i_branch_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/i_stall">
+      <obj_property name="ElementShortName">i_stall</obj_property>
+      <obj_property name="ObjectShortName">i_stall</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/start">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/ins_valid">
+      <obj_property name="ElementShortName">ins_valid</obj_property>
+      <obj_property name="ObjectShortName">ins_valid</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/o_instr">
       <obj_property name="ElementShortName">o_instr[31:0]</obj_property>
       <obj_property name="ObjectShortName">o_instr[31:0]</obj_property>
    </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/fe0_pc">
+      <obj_property name="ElementShortName">fe0_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fe0_pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/de0_pc">
+      <obj_property name="ElementShortName">de0_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">de0_pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/ex0_pc">
+      <obj_property name="ElementShortName">ex0_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ex0_pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/ex_safe_zone">
+      <obj_property name="ElementShortName">ex_safe_zone</obj_property>
+      <obj_property name="ObjectShortName">ex_safe_zone</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/fe0_instr_valid">
+      <obj_property name="ElementShortName">fe0_instr_valid</obj_property>
+      <obj_property name="ObjectShortName">fe0_instr_valid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/de0_instr_valid">
+      <obj_property name="ElementShortName">de0_instr_valid</obj_property>
+      <obj_property name="ObjectShortName">de0_instr_valid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/ex0_instr_valid">
+      <obj_property name="ElementShortName">ex0_instr_valid</obj_property>
+      <obj_property name="ObjectShortName">ex0_instr_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider2439" type="divider">
+      <obj_property name="label">ssdsdsdsd</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/o_pc">
+      <obj_property name="ElementShortName">o_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_pc[31:0]</obj_property>
+   </wvobject>
    <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/o_instr_valid">
       <obj_property name="ElementShortName">o_instr_valid</obj_property>
       <obj_property name="ObjectShortName">o_instr_valid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/de_safe_zone">
+      <obj_property name="ElementShortName">de_safe_zone</obj_property>
+      <obj_property name="ObjectShortName">de_safe_zone</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/pc">
       <obj_property name="ElementShortName">pc[31:0]</obj_property>
@@ -164,13 +279,29 @@
       <obj_property name="CustomSignalColor">#00FF7F</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/t_pc">
-      <obj_property name="ElementShortName">t_pc[31:0]</obj_property>
-      <obj_property name="ObjectShortName">t_pc[31:0]</obj_property>
-   </wvobject>
    <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/instr">
       <obj_property name="ElementShortName">instr[31:0]</obj_property>
       <obj_property name="ObjectShortName">instr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/exception_d1">
+      <obj_property name="ElementShortName">exception_d1</obj_property>
+      <obj_property name="ObjectShortName">exception_d1</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/exception_lth">
+      <obj_property name="ElementShortName">exception_lth</obj_property>
+      <obj_property name="ObjectShortName">exception_lth</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/en">
+      <obj_property name="ElementShortName">en</obj_property>
+      <obj_property name="ObjectShortName">en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/flush">
+      <obj_property name="ElementShortName">flush</obj_property>
+      <obj_property name="ObjectShortName">flush</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/valid_d1">
+      <obj_property name="ElementShortName">valid_d1</obj_property>
+      <obj_property name="ObjectShortName">valid_d1</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/exception_d1">
       <obj_property name="ElementShortName">exception_d1</obj_property>
@@ -700,6 +831,8 @@
    <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/EX0/i_clk">
       <obj_property name="ElementShortName">i_clk</obj_property>
       <obj_property name="ObjectShortName">i_clk</obj_property>
+      <obj_property name="CustomSignalColor">#0000A0</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/EX0/i_rst">
       <obj_property name="ElementShortName">i_rst</obj_property>
@@ -762,6 +895,34 @@
       <obj_property name="ElementShortName">[10][31:0]</obj_property>
       <obj_property name="ObjectShortName">[10][31:0]</obj_property>
    </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/o_data_mem_en">
+      <obj_property name="ElementShortName">o_data_mem_en</obj_property>
+      <obj_property name="ObjectShortName">o_data_mem_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/o_data_mem_we">
+      <obj_property name="ElementShortName">o_data_mem_we</obj_property>
+      <obj_property name="ObjectShortName">o_data_mem_we</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/o_data_mem_data">
+      <obj_property name="ElementShortName">o_data_mem_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_data_mem_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/o_data_mem_addr">
+      <obj_property name="ElementShortName">o_data_mem_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_data_mem_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/o_data_mem_strobe">
+      <obj_property name="ElementShortName">o_data_mem_strobe[3:0]</obj_property>
+      <obj_property name="ObjectShortName">o_data_mem_strobe[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_data_mem_data">
+      <obj_property name="ElementShortName">i_data_mem_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_data_mem_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_data_mem_valid">
+      <obj_property name="ElementShortName">i_data_mem_valid</obj_property>
+      <obj_property name="ObjectShortName">i_data_mem_valid</obj_property>
+   </wvobject>
    <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/RF0/i_wb_data">
       <obj_property name="ElementShortName">i_wb_data[31:0]</obj_property>
       <obj_property name="ObjectShortName">i_wb_data[31:0]</obj_property>
@@ -777,6 +938,26 @@
    <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/RF0/sfr">
       <obj_property name="ElementShortName">sfr[31:0][31:0]</obj_property>
       <obj_property name="ObjectShortName">sfr[31:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/i_branch_addr">
+      <obj_property name="ElementShortName">i_branch_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_branch_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/i_branch_en">
+      <obj_property name="ElementShortName">i_branch_en</obj_property>
+      <obj_property name="ObjectShortName">i_branch_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/o_pc">
+      <obj_property name="ElementShortName">o_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/o_instr">
+      <obj_property name="ElementShortName">o_instr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_instr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/FE0/o_instr_valid">
+      <obj_property name="ElementShortName">o_instr_valid</obj_property>
+      <obj_property name="ObjectShortName">o_instr_valid</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/EX0/o_rs1_addr">
       <obj_property name="ElementShortName">o_rs1_addr[4:0]</obj_property>

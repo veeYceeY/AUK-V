@@ -13,23 +13,19 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="139500000001fs"></ZoomEndTime>
-      <Cursor1Time time="35350000000fs"></Cursor1Time>
+      <ZoomEndTime time="13480000000001fs"></ZoomEndTime>
+      <Cursor1Time time="130000000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="198"></NameColumnWidth>
-      <ValueColumnWidth column_width="198"></ValueColumnWidth>
+      <ValueColumnWidth column_width="194"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="34" />
+   <WVObjectSize size="60" />
    <wave_markers>
       <marker label="" time="705400000" />
       <marker label="" time="9138633000" />
       <marker label="" time="67321276596000" />
    </wave_markers>
-   <wvobject fp_name="divider778" type="divider">
-      <obj_property name="label">feeeeetchhhh</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-   </wvobject>
    <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/gpio0_portb">
       <obj_property name="ElementShortName">gpio0_portb[31:0]</obj_property>
       <obj_property name="ObjectShortName">gpio0_portb[31:0]</obj_property>
@@ -362,446 +358,233 @@
    <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem">
       <obj_property name="ElementShortName">mem[63:0][7:0]</obj_property>
       <obj_property name="ObjectShortName">mem[63:0][7:0]</obj_property>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[63]">
-         <obj_property name="ElementShortName">[63][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[63][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[62]">
-         <obj_property name="ElementShortName">[62][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[62][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[61]">
-         <obj_property name="ElementShortName">[61][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[61][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[60]">
-         <obj_property name="ElementShortName">[60][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[60][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[59]">
-         <obj_property name="ElementShortName">[59][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[59][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[58]">
-         <obj_property name="ElementShortName">[58][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[58][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[57]">
-         <obj_property name="ElementShortName">[57][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[57][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[56]">
-         <obj_property name="ElementShortName">[56][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[56][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[55]">
-         <obj_property name="ElementShortName">[55][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[55][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[54]">
-         <obj_property name="ElementShortName">[54][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[54][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[53]">
-         <obj_property name="ElementShortName">[53][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[53][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[52]">
-         <obj_property name="ElementShortName">[52][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[52][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[51]">
-         <obj_property name="ElementShortName">[51][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[51][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[50]">
-         <obj_property name="ElementShortName">[50][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[50][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[49]">
-         <obj_property name="ElementShortName">[49][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[49][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[48]">
-         <obj_property name="ElementShortName">[48][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[48][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[47]">
-         <obj_property name="ElementShortName">[47][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[47][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[46]">
-         <obj_property name="ElementShortName">[46][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[46][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[45]">
-         <obj_property name="ElementShortName">[45][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[45][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[44]">
-         <obj_property name="ElementShortName">[44][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[44][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[43]">
-         <obj_property name="ElementShortName">[43][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[43][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[42]">
-         <obj_property name="ElementShortName">[42][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[42][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[41]">
-         <obj_property name="ElementShortName">[41][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[41][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[40]">
-         <obj_property name="ElementShortName">[40][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[40][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[39]">
-         <obj_property name="ElementShortName">[39][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[39][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[38]">
-         <obj_property name="ElementShortName">[38][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[38][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[37]">
-         <obj_property name="ElementShortName">[37][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[37][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[36]">
-         <obj_property name="ElementShortName">[36][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[36][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[35]">
-         <obj_property name="ElementShortName">[35][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[35][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[34]">
-         <obj_property name="ElementShortName">[34][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[34][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[33]">
-         <obj_property name="ElementShortName">[33][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[33][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[32]">
-         <obj_property name="ElementShortName">[32][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[32][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[31]">
-         <obj_property name="ElementShortName">[31][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[31][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[30]">
-         <obj_property name="ElementShortName">[30][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[30][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[29]">
-         <obj_property name="ElementShortName">[29][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[29][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[28]">
-         <obj_property name="ElementShortName">[28][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[28][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[27]">
-         <obj_property name="ElementShortName">[27][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[27][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[26]">
-         <obj_property name="ElementShortName">[26][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[26][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[25]">
-         <obj_property name="ElementShortName">[25][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[25][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[24]">
-         <obj_property name="ElementShortName">[24][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[24][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[23]">
-         <obj_property name="ElementShortName">[23][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[23][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[22]">
-         <obj_property name="ElementShortName">[22][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[22][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[21]">
-         <obj_property name="ElementShortName">[21][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[21][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[20]">
-         <obj_property name="ElementShortName">[20][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[20][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[19]">
-         <obj_property name="ElementShortName">[19][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[19][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[18]">
-         <obj_property name="ElementShortName">[18][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[18][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[17]">
-         <obj_property name="ElementShortName">[17][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[17][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[16]">
-         <obj_property name="ElementShortName">[16][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[16][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[15]">
-         <obj_property name="ElementShortName">[15][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[15][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[14]">
-         <obj_property name="ElementShortName">[14][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[14][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[13]">
-         <obj_property name="ElementShortName">[13][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[13][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[12]">
-         <obj_property name="ElementShortName">[12][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[12][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[11]">
-         <obj_property name="ElementShortName">[11][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[11][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[10]">
-         <obj_property name="ElementShortName">[10][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[10][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[9]">
-         <obj_property name="ElementShortName">[9][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[9][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[8]">
-         <obj_property name="ElementShortName">[8][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[8][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[7]">
-         <obj_property name="ElementShortName">[7][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[7][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[6]">
-         <obj_property name="ElementShortName">[6][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[6][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[5]">
-         <obj_property name="ElementShortName">[5][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[5][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[4]">
-         <obj_property name="ElementShortName">[4][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[4][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[3]">
-         <obj_property name="ElementShortName">[3][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[3][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[2]">
-         <obj_property name="ElementShortName">[2][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[2][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[1]">
-         <obj_property name="ElementShortName">[1][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/RXF0/mem[0]">
-         <obj_property name="ElementShortName">[0][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[0][7:0]</obj_property>
-         <obj_property name="Radix">ASCIIRADIX</obj_property>
-      </wvobject>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/UART0/TXF0/mem[0]">
-      <obj_property name="ElementShortName">[0][7:0]</obj_property>
-      <obj_property name="ObjectShortName">[0][7:0]</obj_property>
-      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   <wvobject fp_name="divider778" type="divider">
+      <obj_property name="label">feeeeetchhhh</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/o_s_wb">
-      <obj_property name="ElementShortName">o_s_wb</obj_property>
-      <obj_property name="ObjectShortName">o_s_wb</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/UART0/i_clk">
-      <obj_property name="ElementShortName">i_clk</obj_property>
-      <obj_property name="ObjectShortName">i_clk</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/UART0/i_rst">
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_rst">
       <obj_property name="ElementShortName">i_rst</obj_property>
       <obj_property name="ObjectShortName">i_rst</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/i_s_wb">
-      <obj_property name="ElementShortName">i_s_wb</obj_property>
-      <obj_property name="ObjectShortName">i_s_wb</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_exe_res">
+      <obj_property name="ElementShortName">i_exe_res[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_exe_res[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/o_s_wb">
-      <obj_property name="ElementShortName">o_s_wb</obj_property>
-      <obj_property name="ObjectShortName">o_s_wb</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_br_addr">
+      <obj_property name="ElementShortName">i_br_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_br_addr[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/UART0/o_tx">
-      <obj_property name="ElementShortName">o_tx</obj_property>
-      <obj_property name="ObjectShortName">o_tx</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_flush">
+      <obj_property name="ElementShortName">i_flush</obj_property>
+      <obj_property name="ObjectShortName">i_flush</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/UART0/i_rx">
-      <obj_property name="ElementShortName">i_rx</obj_property>
-      <obj_property name="ObjectShortName">i_rx</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_mem_fwsel">
+      <obj_property name="ElementShortName">i_mem_fwsel</obj_property>
+      <obj_property name="ObjectShortName">i_mem_fwsel</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/UART0/wren">
-      <obj_property name="ElementShortName">wren</obj_property>
-      <obj_property name="ObjectShortName">wren</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_fw_mm">
+      <obj_property name="ElementShortName">i_fw_mm[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_fw_mm[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/UART0/rden">
-      <obj_property name="ElementShortName">rden</obj_property>
-      <obj_property name="ObjectShortName">rden</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_mem_wr_data">
+      <obj_property name="ElementShortName">i_mem_wr_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_mem_wr_data[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/UART0/fifowren">
-      <obj_property name="ElementShortName">fifowren</obj_property>
-      <obj_property name="ObjectShortName">fifowren</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_mem_addr">
+      <obj_property name="ElementShortName">i_mem_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_mem_addr[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/UART0/fiforden">
-      <obj_property name="ElementShortName">fiforden</obj_property>
-      <obj_property name="ObjectShortName">fiforden</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_mem_we">
+      <obj_property name="ElementShortName">i_mem_we</obj_property>
+      <obj_property name="ObjectShortName">i_mem_we</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/UART0/fifordvalid">
-      <obj_property name="ElementShortName">fifordvalid</obj_property>
-      <obj_property name="ObjectShortName">fifordvalid</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_mem_en">
+      <obj_property name="ElementShortName">i_mem_en</obj_property>
+      <obj_property name="ObjectShortName">i_mem_en</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/UART0/rstn">
-      <obj_property name="ElementShortName">rstn</obj_property>
-      <obj_property name="ObjectShortName">rstn</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_mem_we_p">
+      <obj_property name="ElementShortName">i_mem_we_p</obj_property>
+      <obj_property name="ObjectShortName">i_mem_we_p</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/addr">
-      <obj_property name="ElementShortName">addr[1:0]</obj_property>
-      <obj_property name="ObjectShortName">addr[1:0]</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_mem_en_p">
+      <obj_property name="ElementShortName">i_mem_en_p</obj_property>
+      <obj_property name="ObjectShortName">i_mem_en_p</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/rxdata">
-      <obj_property name="ElementShortName">rxdata[7:0]</obj_property>
-      <obj_property name="ObjectShortName">rxdata[7:0]</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_data_mem_valid">
+      <obj_property name="ElementShortName">i_data_mem_valid</obj_property>
+      <obj_property name="ObjectShortName">i_data_mem_valid</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/txdata">
-      <obj_property name="ElementShortName">txdata[7:0]</obj_property>
-      <obj_property name="ObjectShortName">txdata[7:0]</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_clk">
+      <obj_property name="ElementShortName">i_clk</obj_property>
+      <obj_property name="ObjectShortName">i_clk</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/status">
-      <obj_property name="ElementShortName">status[31:0]</obj_property>
-      <obj_property name="ObjectShortName">status[31:0]</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/o_stall">
+      <obj_property name="ElementShortName">o_stall</obj_property>
+      <obj_property name="ObjectShortName">o_stall</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/UART0/bauddiv">
-      <obj_property name="ElementShortName">bauddiv[31:0]</obj_property>
-      <obj_property name="ObjectShortName">bauddiv[31:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_wb_reg_sel">
+      <obj_property name="ElementShortName">i_wb_reg_sel[4:0]</obj_property>
+      <obj_property name="ObjectShortName">i_wb_reg_sel[4:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/UART0/tx_full">
-      <obj_property name="ElementShortName">tx_full</obj_property>
-      <obj_property name="ObjectShortName">tx_full</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_wb_we">
+      <obj_property name="ElementShortName">i_wb_we</obj_property>
+      <obj_property name="ObjectShortName">i_wb_we</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/UART0/rx_full">
-      <obj_property name="ElementShortName">rx_full</obj_property>
-      <obj_property name="ObjectShortName">rx_full</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_wb_data_sel">
+      <obj_property name="ElementShortName">i_wb_data_sel</obj_property>
+      <obj_property name="ObjectShortName">i_wb_data_sel</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/UART0/tx_empty">
-      <obj_property name="ElementShortName">tx_empty</obj_property>
-      <obj_property name="ObjectShortName">tx_empty</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_load_type">
+      <obj_property name="ElementShortName">i_load_type[2:0]</obj_property>
+      <obj_property name="ObjectShortName">i_load_type[2:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/UART0/rx_empty">
-      <obj_property name="ElementShortName">rx_empty</obj_property>
-      <obj_property name="ObjectShortName">rx_empty</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_store_type">
+      <obj_property name="ElementShortName">i_store_type[1:0]</obj_property>
+      <obj_property name="ObjectShortName">i_store_type[1:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/UART0/ack">
-      <obj_property name="ElementShortName">ack</obj_property>
-      <obj_property name="ObjectShortName">ack</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/o_data_mem_en">
+      <obj_property name="ElementShortName">o_data_mem_en</obj_property>
+      <obj_property name="ObjectShortName">o_data_mem_en</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/UART0/ack2">
-      <obj_property name="ElementShortName">ack2</obj_property>
-      <obj_property name="ObjectShortName">ack2</obj_property>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/o_data_mem_we">
+      <obj_property name="ElementShortName">o_data_mem_we</obj_property>
+      <obj_property name="ObjectShortName">o_data_mem_we</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/UART0/wren_lth">
-      <obj_property name="ElementShortName">wren_lth</obj_property>
-      <obj_property name="ObjectShortName">wren_lth</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/o_data_mem_data">
+      <obj_property name="ElementShortName">o_data_mem_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_data_mem_data[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/UART0/wren_d1">
-      <obj_property name="ElementShortName">wren_d1</obj_property>
-      <obj_property name="ObjectShortName">wren_d1</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/o_data_mem_addr">
+      <obj_property name="ElementShortName">o_data_mem_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_data_mem_addr[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/UART0/rden_lth">
-      <obj_property name="ElementShortName">rden_lth</obj_property>
-      <obj_property name="ObjectShortName">rden_lth</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/o_data_mem_strobe">
+      <obj_property name="ElementShortName">o_data_mem_strobe[3:0]</obj_property>
+      <obj_property name="ObjectShortName">o_data_mem_strobe[3:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/UART0/rden_d1">
-      <obj_property name="ElementShortName">rden_d1</obj_property>
-      <obj_property name="ObjectShortName">rden_d1</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/i_data_mem_data">
+      <obj_property name="ElementShortName">i_data_mem_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i_data_mem_data[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/UART0/rd_ack1">
-      <obj_property name="ElementShortName">rd_ack1</obj_property>
-      <obj_property name="ObjectShortName">rd_ack1</obj_property>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/o_br_addr">
+      <obj_property name="ElementShortName">o_br_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_br_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/o_br_en">
+      <obj_property name="ElementShortName">o_br_en</obj_property>
+      <obj_property name="ObjectShortName">o_br_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/o_fb_data">
+      <obj_property name="ElementShortName">o_fb_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_fb_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/o_wb_data">
+      <obj_property name="ElementShortName">o_wb_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_wb_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/o_wb_reg_sel">
+      <obj_property name="ElementShortName">o_wb_reg_sel[4:0]</obj_property>
+      <obj_property name="ObjectShortName">o_wb_reg_sel[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/o_wb_we">
+      <obj_property name="ElementShortName">o_wb_we</obj_property>
+      <obj_property name="ObjectShortName">o_wb_we</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/b_sign">
+      <obj_property name="ElementShortName">b_sign[7:0]</obj_property>
+      <obj_property name="ObjectShortName">b_sign[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/h_sign">
+      <obj_property name="ElementShortName">h_sign[7:0]</obj_property>
+      <obj_property name="ObjectShortName">h_sign[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/t_wb_data">
+      <obj_property name="ElementShortName">t_wb_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">t_wb_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/t_wb_reg_sel">
+      <obj_property name="ElementShortName">t_wb_reg_sel[4:0]</obj_property>
+      <obj_property name="ObjectShortName">t_wb_reg_sel[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/t_wb_we">
+      <obj_property name="ElementShortName">t_wb_we</obj_property>
+      <obj_property name="ObjectShortName">t_wb_we</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/wb_data">
+      <obj_property name="ElementShortName">wb_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">wb_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/mem_data_rd">
+      <obj_property name="ElementShortName">mem_data_rd[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data_rd[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/mem_data_wr">
+      <obj_property name="ElementShortName">mem_data_wr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data_wr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/mem_strobe_rd">
+      <obj_property name="ElementShortName">mem_strobe_rd[3:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_strobe_rd[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/mem_strobe_wr">
+      <obj_property name="ElementShortName">mem_strobe_wr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_strobe_wr[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/mem_strobe">
+      <obj_property name="ElementShortName">mem_strobe[3:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_strobe[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/mem_data_rd_sb">
+      <obj_property name="ElementShortName">mem_data_rd_sb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data_rd_sb[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/mem_data_rd_sh">
+      <obj_property name="ElementShortName">mem_data_rd_sh[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data_rd_sh[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/mem_data_rd_sw">
+      <obj_property name="ElementShortName">mem_data_rd_sw[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data_rd_sw[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/mem_data_wr_sb">
+      <obj_property name="ElementShortName">mem_data_wr_sb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data_wr_sb[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/mem_data_wr_sh">
+      <obj_property name="ElementShortName">mem_data_wr_sh[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data_wr_sh[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/mem_data_wr_sw">
+      <obj_property name="ElementShortName">mem_data_wr_sw[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data_wr_sw[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/mem_data_rd_ub">
+      <obj_property name="ElementShortName">mem_data_rd_ub[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data_rd_ub[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/mem_data_rd_uh">
+      <obj_property name="ElementShortName">mem_data_rd_uh[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data_rd_uh[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/stall">
+      <obj_property name="ElementShortName">stall</obj_property>
+      <obj_property name="ObjectShortName">stall</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/stall_state">
+      <obj_property name="ElementShortName">stall_state</obj_property>
+      <obj_property name="ObjectShortName">stall_state</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/valid_d1">
+      <obj_property name="ElementShortName">valid_d1</obj_property>
+      <obj_property name="ObjectShortName">valid_d1</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/stall_d0">
+      <obj_property name="ElementShortName">stall_d0</obj_property>
+      <obj_property name="ObjectShortName">stall_d0</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_aukv_example_wb/SC0/SC0/SC0/MA0/stall_t">
+      <obj_property name="ElementShortName">stall_t</obj_property>
+      <obj_property name="ObjectShortName">stall_t</obj_property>
    </wvobject>
 </wave_config>

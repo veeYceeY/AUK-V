@@ -16,6 +16,9 @@ entity sciv_core_wb is
 
         o_clk    : out std_logic;
         o_rst    : out std_logic;
+        
+        i_irq : in std_logic;
+        o_ack    : out std_logic;
 
         i_wb  : in t_in_wb_master;
         o_wb  : out t_out_wb_master
@@ -55,6 +58,9 @@ begin
               i_clk             =>i_clk,
               i_rst             =>i_rst,
     
+              i_irq             =>i_irq,
+              o_ack             =>o_ack,
+              
               o_data_mem_en     =>sc0_en    ,
               o_data_mem_we     =>sc0_we    ,
               o_data_mem_addr   =>sc0_addr  ,

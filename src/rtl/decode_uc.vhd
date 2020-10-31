@@ -58,6 +58,7 @@ entity decode_uc is
             o_rs2        : out std_logic_vector(31 downto 0);
             o_imm        : out std_logic_vector(31 downto 0);
             o_pc         : out std_logic_vector(31 downto 0);
+            o_instr_valid :out std_logic;
             
             o_rs1_fwsel  : out std_logic_vector(1 downto 0);
             o_rs2_fwsel  : out std_logic_vector(1 downto 0);
@@ -381,56 +382,9 @@ rs2_fwsel <=    "01" when fw_bu00(0) = rs2 and wb_we_buff(0) ='1'and rs2 /=x"000
 --                "11" when fw_bu00(2)(5 downto 1) = rs2 and fw_bu00(2)(0) ='1'else
 --                "00";
 mem_wr<='1' when mem_en='1' else '0'; --and mem_we='0'else '0';
-process(i_clk,i_rst)
-begin
-    if i_rst ='1' then
-        stall_d<='0';
-    elsif rising_edge(i_clk) then
-        stall_d<=stall;
-    end if;
-end process;
 
-process(i_clk,i_rst)
-begin
-if i_rst ='1' then
-    bubble_count<=x"0";
-    bubble_end<='0';
-    bubble<='0';
-elsif rising_edge(i_clk) then
-    if i_stall = '0' then
-        if bubble_count="0" then
-            if mem_wr= '1'  then
-                bubble_count<=x"0";
-                bubble_end<='1';
-                bubble<='1';
-            elsif br_en='1' then
-                bubble_count<=x"2";
-                bubble<='1';
-                --bubble<='1';
-            else
-                bubble_end<='0';
-                bubble<='0';
-            end if;
-        else
-            if bubble_count=2 then
-                bubble_end<='1';
-                bubble<='0';
-            end if;
-            if bubble_count=1 then
-                bubble_end<='0';
-                bubble<='0';
-            end if;
-            bubble_count<=bubble_count-1;
-        end if;
-    end if;
-end if;
-end process;
-
-
-
-stall<=(mem_wr or br_en or bubble) and (not bubble_end) and (not i_stall);
 --stall<='0';
-o_stall<=stall;
+o_stall<='0';
 -----------------------data forwardingc memaccess---------------            
 
 --process(i_clk,i_rst)
@@ -740,6 +694,7 @@ begin
             o_src1_addr     <= (others => '0') ;
             o_src2_addr     <= (others => '0') ;
         
+        o_instr_valid        <= '0'              ;
     elsif rising_edge(i_clk) then
         if i_stall = '0' then
             o_imm           <= imm           ;
@@ -764,6 +719,7 @@ begin
             o_mem_fwsel     <= mem_fwsel     ;
             o_src1_addr     <= rs1;
             o_src2_addr     <= rs2;
+            o_instr_valid  <= i_instr_valid;
 
         end if;
     end if;

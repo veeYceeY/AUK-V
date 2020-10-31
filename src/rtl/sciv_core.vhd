@@ -36,6 +36,8 @@ entity sciv_core is
             i_clk             : in std_logic;
             i_rst             : in std_logic;
             
+            i_irq             : in std_logic;
+            o_ack             : out std_logic;
             
             o_data_mem_en     : out std_logic;
             o_data_mem_we     : out std_logic;
@@ -137,6 +139,7 @@ signal de0_cmp_op1sel : std_logic;
 signal fetch_stall : std_logic;
 signal de0_stall : std_logic;
 
+signal de0_instr_valid   : std_logic;
 signal de0_csr_sel   : std_logic;
 signal de0_csr_we    : std_logic;
 signal de0_csr_rd    : std_logic;
@@ -146,7 +149,10 @@ signal de0_csr_rd_addr  : std_logic_vector(11 downto 0);
 signal de0_csr_op    : std_logic_vector(1 downto 0);
 signal csr0_csr_data  : std_logic_vector(31 downto 0);
 
-    
+           
+signal ex0_pc: std_logic_Vector(31 downto 0); 
+signal ex0_instr_valid      : std_logic;
+
 signal ex0_csr_rd      : std_logic;
 signal ex0_csr_we      : std_logic;
 signal ex0_csr_wr_data : std_logic_vector(31 downto 0);
@@ -162,14 +168,22 @@ signal exception_id      : std_logic_vector(7 downto 0);
 signal exception_arr      : std_logic_vector(7 downto 0);
 signal br_flush      : std_logic;
 signal tmp      : std_logic;
+signal de_safe_zone      : std_logic;
+signal ex_safe_zone      : std_logic;
+signal interrupt      : std_logic;
+signal epc: std_logic_vector(31 downto 0);
+signal de0_illegal      : std_logic;
+signal ex0_illegal      : std_logic;
+signal stall_d1      : std_logic;
+signal stall_d2      : std_logic;
 begin
 
 --ma0_stall<= '0';
 --o_code_mem_en<='1';
 
 fetch_stall <=  ma0_stall ;--or de0_stall;
-br_flush<=ex0_br_en;
-exception <= de0_except_ill_instr;
+br_flush<=ex0_br_en or interrupt;
+exception <= ex0_illegal or interrupt;
 
 FE0: entity work.fetch  
         port map (
@@ -214,6 +228,7 @@ DE0: entity work.decode_uc
             o_rs2           =>de0_rs2,
             o_imm           =>de0_imm,
             o_pc            =>de0_pc,
+            o_instr_valid   =>de0_instr_valid,
             
             o_rs1_fwsel     =>de0_rs1_fwsel,
             o_rs2_fwsel     =>de0_rs2_fwsel,
@@ -249,13 +264,18 @@ DE0: entity work.decode_uc
         o_csr_wr_addr      => de0_csr_wr_addr,
         o_csr_rd_addr      => de0_csr_rd_addr,
         o_csr_op           => de0_csr_op    ,
-        o_except_ill_instr => de0_except_ill_instr    
+        o_except_ill_instr => de0_illegal    
       
             
     );
-
-    exception_arr(0)<=de0_except_ill_instr;
-    exception_arr(1)<='0';
+    stall_d1<='0' when i_rst='1' else ma0_stall when rising_edge(i_clk);
+    stall_d2<='0' when i_rst='1' else stall_d1 when rising_edge(i_clk);
+    interrupt <= ex_safe_zone and i_irq;
+    de_safe_zone<= ex0_br_en and (not (ma0_stall));-- or stall_d1 or stall_d2));
+    ex_safe_zone<= ex0_br_en and ex0_instr_valid and (not (ma0_stall));-- or stall_d1 or stall_d2));
+    o_ack<= interrupt;
+    exception_arr(0)<=ex0_illegal;
+    exception_arr(1)<=interrupt;
     exception_arr(2)<='0';
     exception_arr(3)<='0';
     exception_arr(4)<='0';
@@ -263,6 +283,9 @@ DE0: entity work.decode_uc
     exception_arr(6)<='0';
     exception_arr(7)<='0';
     exception_id <= exception_arr;
+    epc <= ex0_pc when interrupt='1' else
+            de0_pc when ex0_illegal='1' else
+            x"00000018";
     csr0: entity work.csr_file  
     port map(
             i_clk       =>i_clk,
@@ -270,7 +293,7 @@ DE0: entity work.decode_uc
             
             i_rd_addr   =>ex0_csr_rd_addr,
             i_wr_addr   =>ex0_csr_wr_addr,
-            i_pc       =>fe0_pc,
+            i_pc       =>epc,
             i_instr       =>fe0_instr,
             o_mtvec       =>csr0_mtvec,
             i_exception_id=> exception_id,
@@ -313,6 +336,11 @@ EX0: entity work.execute
             
             i_imm           =>de0_imm,
             i_pc            =>de0_pc,
+            o_pc            =>ex0_pc,
+            i_instr_valid   =>de0_instr_valid,
+            o_instr_valid   =>ex0_instr_valid,
+            i_illegal   =>de0_illegal,
+            o_illegal   =>ex0_illegal,
                              
             i_rs1_addr     =>de0_rs1_addr,
             i_rs2_addr     =>de0_rs2_addr,

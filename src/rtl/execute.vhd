@@ -45,6 +45,12 @@ entity execute is
             
             i_imm           : in std_logic_vector(31 downto 0);
             i_pc            : in std_logic_vector(31 downto 0);
+            o_pc            :out std_logic_vector(31 downto 0);
+            i_instr_valid : in std_logic;
+            o_instr_valid : out std_logic;
+            
+            i_illegal : in std_logic;
+            o_illegal : out std_logic;
             
             i_rs1_addr     : in std_logic_vector(4 downto 0);
             i_rs2_addr     : in std_logic_vector(4 downto 0);
@@ -315,6 +321,8 @@ begin
         o_mem_en        <= '0'               ;
         o_load_type     <= (others => '0')   ;
         o_store_type    <= (others => '0')   ;
+        o_pc            <= (others => '0')  ;
+        o_instr_valid  <= '0' ;
         
     elsif rising_edge(i_clk) then
         if i_stall='0' then
@@ -332,23 +340,27 @@ begin
                 o_mem_en        <= '0'               ;
                 o_load_type     <= (others => '0')   ;
                 o_store_type    <= (others => '0')   ;
+                o_illegal        <= '0'               ;
             else
-                o_rs1_addr      <= i_rs1_addr;
-                o_rs2_addr      <= i_rs2_addr;
-                o_mem_fwsel     <= i_mem_fwsel;
-                o_br_addr       <= branch_addr     ;
-                o_br_en         <= br_en           ;
-                o_exe_res       <= wb_data      ;
-                o_mem_wr_data   <= mem_data   ;
-                o_mem_addr      <= mem_address     ;
-                o_mem_we        <= i_mem_we        ;
-                o_wb_data_sel   <= i_wb_data_sel   ;
-                o_wb_reg_sel    <= i_wb_reg_sel    ;
-                o_wb_we         <= i_wb_we         ;
-                o_mem_en        <= i_mem_en        ;
-                o_load_type     <= i_load_type     ;
-                o_store_type    <= i_store_type    ;
+                    o_illegal      <= i_illegal;
+                    o_rs1_addr      <= i_rs1_addr;
+                    o_rs2_addr      <= i_rs2_addr;
+                    o_mem_fwsel     <= i_mem_fwsel;
+                    o_br_addr       <= branch_addr     ;
+                    o_br_en         <= br_en           ;
+                    o_exe_res       <= wb_data      ;
+                    o_mem_wr_data   <= mem_data   ;
+                    o_mem_addr      <= mem_address     ;
+                    o_mem_we        <= i_mem_we        ;
+                    o_wb_data_sel   <= i_wb_data_sel   ;
+                    o_wb_reg_sel    <= i_wb_reg_sel    ;
+                    o_wb_we         <= i_wb_we         ;
+                    o_mem_en        <= i_mem_en        ;
+                    o_load_type     <= i_load_type     ;
+                    o_store_type    <= i_store_type    ;
             end if;
+                o_pc            <= i_pc;
+                o_instr_valid  <= i_instr_valid;
         end if;
         
     end if;
