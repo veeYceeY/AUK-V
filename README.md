@@ -16,7 +16,6 @@
     make sim  
 
 ## Todo
-
-    exception
     
+    uart  bootloader
     
