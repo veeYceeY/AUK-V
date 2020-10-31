@@ -34,7 +34,7 @@
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSABoardId" Val="mys-7z020"/>
     <Option Name="DSANumComputeUnits" Val="60"/>
-    <Option Name="WTXSimLaunchSim" Val="1844"/>
+    <Option Name="WTXSimLaunchSim" Val="1864"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -232,14 +232,14 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
+        <CompFileExtendedInfo CompFileName="example_led.bd" FileRelPathName="ip/example_led_clk_wiz_0_1/example_led_clk_wiz_0_1.xci">
+          <Proxy FileSetName="example_led_clk_wiz_0_1"/>
+        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="example_led.bd" FileRelPathName="ip/example_led_vio_0_0/example_led_vio_0_0.xci">
           <Proxy FileSetName="example_led_vio_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="example_led.bd" FileRelPathName="ip/example_led_sciv_example_wb_0_0/example_led_sciv_example_wb_0_0.xci">
           <Proxy FileSetName="example_led_sciv_example_wb_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="example_led.bd" FileRelPathName="ip/example_led_clk_wiz_0_1/example_led_clk_wiz_0_1.xci">
-          <Proxy FileSetName="example_led_clk_wiz_0_1"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/example_led/hdl/example_led_wrapper.vhd">
@@ -561,13 +561,13 @@
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Flow_PerfOptimized_high" Flow="Vivado Synthesis 2019"/>
         <Step Id="synth_design">
-          <Option Id="ShregMinSize">5</Option>
+          <Option Id="ResourceSharing">2</Option>
           <Option Id="FsmExtraction">1</Option>
+          <Option Id="KeepEquivalentRegisters">1</Option>
+          <Option Id="ShregMinSize">5</Option>
           <Option Id="RepFanoutThreshold">400</Option>
           <Option Id="FlattenHierarchy">1</Option>
           <Option Id="NoCombineLuts">1</Option>
-          <Option Id="ResourceSharing">2</Option>
-          <Option Id="KeepEquivalentRegisters">1</Option>
         </Step>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
