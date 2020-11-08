@@ -9,10 +9,10 @@
     ghdl
     gtkwave
 ## Create code rom in vhdl 
-    cd make/native
+    cd make/wishbone
     make rom  
 ## Running simulation
-    cd make/native
+    cd make/wishbone
     make sim  
 
 ## Todo
