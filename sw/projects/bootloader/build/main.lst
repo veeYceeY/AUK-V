@@ -7,19 +7,29 @@ start address 0x00010018
 
 Program Header:
     LOAD off    0x00001018 vaddr 0x00010018 paddr 0x00010018 align 2**12
-         filesz 0x00000731 memsz 0x00000731 flags r-x
-    LOAD off    0x00000000 vaddr 0x00800000 paddr 0x00010749 align 2**12
+         filesz 0x00000859 memsz 0x00000859 flags r-x
+    LOAD off    0x00000000 vaddr 0x00800000 paddr 0x00010871 align 2**12
          filesz 0x00000000 memsz 0x0000000c flags rw-
 
 Sections:
 Idx Name              Size      VMA       LMA       File off  Algn  Flags
-  0 .text             00000731  00010018  00010018  00001018  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .bss              0000000c  00800000  00010749  00002000  2**2  ALLOC
-  2 .riscv.attributes 00000020  00000000  00000000  00001749  2**0  CONTENTS, READONLY
+  0 .text             00000859  00010018  00010018  00001018  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss              0000000c  00800000  00010871  00002000  2**2  ALLOC
+  2 .riscv.attributes 00000020  00000000  00000000  00001871  2**0  CONTENTS, READONLY
+  3 .debug_line       000001fa  00000000  00000000  00001891  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  4 .debug_info       0000004c  00000000  00000000  00001a8b  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  5 .debug_abbrev     00000028  00000000  00000000  00001ad7  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  6 .debug_aranges    00000040  00000000  00000000  00001b00  2**3  CONTENTS, READONLY, DEBUGGING, OCTETS
+  7 .debug_str        000000de  00000000  00000000  00001b40  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
 SYMBOL TABLE:
 00010018 l    d  .text	00000000 .text
 00800000 l    d  .bss	00000000 .bss
 00000000 l    d  .riscv.attributes	00000000 .riscv.attributes
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_str	00000000 .debug_str
 00000000 l    df *ABS*	00000000 build/start.o
 00010034 l       .text	00000000 _exception_entry
 00010030 l       .text	00000000 here
@@ -28,19 +38,23 @@ SYMBOL TABLE:
 00800008 g     O .bss	00000004 timer
 00010260 g     F .text	00000074 uart_print
 000103ec g     F .text	0000003c timer_enable
+000107b0 g     F .text	00000048 .hidden __udivsi3
 0080000c g       .bss	00000000 __bss_end
 0001033c g     F .text	0000003c timer_init
 00010230 g     F .text	00000030 uart_tx
 00000000 g       *ABS*	00000000 __stack_top
-000106ac g     F .text	00000030 led
+000106fc g     F .text	00000030 led
+000107f8 g     F .text	00000010 .hidden __umodsi3
 00010464 g     F .text	00000030 timer_start
 0001014c g     F .text	0000003c uart_init
 00010018 g       .text	00000000 _start
 00800000 g       .text	00000000 __data_end
+00010784 g     F .text	00000024 .hidden __mulsi3
 00010204 g     F .text	0000002c uart_rx
-00010734 g       .text	00000000 __text_end
-000104d0 g     F .text	000001dc main
+0001085c g       .text	00000000 __text_end
+000104d0 g     F .text	0000022c main
 00800000 g       .text	00000000 __data_begin
+000107a8 g     F .text	00000084 .hidden __divsi3
 000102d4 g     F .text	00000068 wait_ms
 00800000 g       .bss	00000000 __bss_begin
 00010494 g     F .text	0000003c timer_stop
@@ -48,10 +62,11 @@ SYMBOL TABLE:
 00010188 g     F .text	00000044 uart_data_ready
 00800000 g     O .bss	00000004 gpio
 000103b8 g     F .text	00000034 timer_set_count
+0001082c g     F .text	00000030 .hidden __modsi3
 00800004 g     O .bss	00000004 uart
 00010378 g     F .text	00000040 timer_overflow
 000101cc g     F .text	00000038 uart_set_baud
-000106dc g     F .text	00000058 exception_handler
+0001072c g     F .text	00000058 exception_handler
 
 
 
@@ -108,7 +123,7 @@ _exception_entry():
    100b8:	34202573          	csrr	a0,mcause
    100bc:	341025f3          	csrr	a1,mepc
    100c0:	00010613          	mv	a2,sp
-   100c4:	618000ef          	jal	ra,106dc <exception_handler>
+   100c4:	668000ef          	jal	ra,1072c <exception_handler>
 
 000100c8 <_exception_return>:
 _exception_return():
@@ -156,7 +171,7 @@ uart_init():
    10160:	00100793          	li	a5,1
    10164:	00f71863          	bne	a4,a5,10174 <uart_init+0x28>
    10168:	001007b7          	lui	a5,0x100
-   1016c:	10078793          	addi	a5,a5,256 # 100100 <__text_end+0xef9cc>
+   1016c:	10078793          	addi	a5,a5,256 # 100100 <__text_end+0xef8a4>
    10170:	0080006f          	j	10178 <uart_init+0x2c>
    10174:	00000793          	li	a5,0
    10178:	00078513          	mv	a0,a5
@@ -301,7 +316,7 @@ timer_init():
    10350:	00100793          	li	a5,1
    10354:	00f71863          	bne	a4,a5,10364 <timer_init+0x28>
    10358:	001007b7          	lui	a5,0x100
-   1035c:	20078793          	addi	a5,a5,512 # 100200 <__text_end+0xefacc>
+   1035c:	20078793          	addi	a5,a5,512 # 100200 <__text_end+0xef9a4>
    10360:	0080006f          	j	10368 <timer_init+0x2c>
    10364:	00000793          	li	a5,0
    10368:	00078513          	mv	a0,a5
@@ -418,171 +433,404 @@ main():
    104d0:	fd010113          	addi	sp,sp,-48
    104d4:	02112623          	sw	ra,44(sp)
    104d8:	02812423          	sw	s0,40(sp)
-   104dc:	02912223          	sw	s1,36(sp)
-   104e0:	03010413          	addi	s0,sp,48
-   104e4:	fd440793          	addi	a5,s0,-44
-   104e8:	fef42623          	sw	a5,-20(s0)
-   104ec:	fd840793          	addi	a5,s0,-40
-   104f0:	fef42423          	sw	a5,-24(s0)
-   104f4:	fdc40793          	addi	a5,s0,-36
-   104f8:	fef42223          	sw	a5,-28(s0)
-   104fc:	00100513          	li	a0,1
-   10500:	e3dff0ef          	jal	ra,1033c <timer_init>
-   10504:	00050713          	mv	a4,a0
-   10508:	008007b7          	lui	a5,0x800
-   1050c:	00e7a423          	sw	a4,8(a5) # 800008 <timer>
-   10510:	008007b7          	lui	a5,0x800
-   10514:	0087a703          	lw	a4,8(a5) # 800008 <timer>
-   10518:	013137b7          	lui	a5,0x1313
-   1051c:	d0078593          	addi	a1,a5,-768 # 1312d00 <__bss_end+0xb12cf4>
-   10520:	00070513          	mv	a0,a4
-   10524:	e95ff0ef          	jal	ra,103b8 <timer_set_count>
-   10528:	008007b7          	lui	a5,0x800
-   1052c:	0087a783          	lw	a5,8(a5) # 800008 <timer>
-   10530:	00078513          	mv	a0,a5
-   10534:	f31ff0ef          	jal	ra,10464 <timer_start>
-   10538:	fec42783          	lw	a5,-20(s0)
-   1053c:	00500713          	li	a4,5
-   10540:	00e7a023          	sw	a4,0(a5)
-   10544:	fe842783          	lw	a5,-24(s0)
-   10548:	ff600713          	li	a4,-10
-   1054c:	00e7a023          	sw	a4,0(a5)
-   10550:	fec42783          	lw	a5,-20(s0)
-   10554:	0007a703          	lw	a4,0(a5)
-   10558:	fe842783          	lw	a5,-24(s0)
-   1055c:	0007a783          	lw	a5,0(a5)
-   10560:	40f70733          	sub	a4,a4,a5
-   10564:	fe442783          	lw	a5,-28(s0)
-   10568:	00e7a023          	sw	a4,0(a5)
-   1056c:	008007b7          	lui	a5,0x800
-   10570:	00100737          	lui	a4,0x100
-   10574:	00470713          	addi	a4,a4,4 # 100004 <__text_end+0xef8d0>
-   10578:	00e7a023          	sw	a4,0(a5) # 800000 <__data_begin>
-   1057c:	00100513          	li	a0,1
-   10580:	bcdff0ef          	jal	ra,1014c <uart_init>
-   10584:	00050713          	mv	a4,a0
-   10588:	008007b7          	lui	a5,0x800
-   1058c:	00e7a223          	sw	a4,4(a5) # 800004 <uart>
-   10590:	008007b7          	lui	a5,0x800
-   10594:	0047a703          	lw	a4,4(a5) # 800004 <uart>
-   10598:	02faf7b7          	lui	a5,0x2faf
-   1059c:	08078613          	addi	a2,a5,128 # 2faf080 <__bss_end+0x27af074>
-   105a0:	000027b7          	lui	a5,0x2
-   105a4:	58078593          	addi	a1,a5,1408 # 2580 <__stack_top+0x2580>
-   105a8:	00070513          	mv	a0,a4
-   105ac:	c21ff0ef          	jal	ra,101cc <uart_set_baud>
-   105b0:	08600493          	li	s1,134
-   105b4:	08400093          	li	ra,132
-   105b8:	3044a073          	csrs	mie,s1
-   105bc:	3040b073          	csrc	mie,ra
+   104dc:	03010413          	addi	s0,sp,48
+   104e0:	fe040793          	addi	a5,s0,-32
+   104e4:	fef42a23          	sw	a5,-12(s0)
+   104e8:	fe440793          	addi	a5,s0,-28
+   104ec:	fef42823          	sw	a5,-16(s0)
+   104f0:	fe840793          	addi	a5,s0,-24
+   104f4:	fef42623          	sw	a5,-20(s0)
+   104f8:	ff442783          	lw	a5,-12(s0)
+   104fc:	00500713          	li	a4,5
+   10500:	00e7a023          	sw	a4,0(a5)
+   10504:	ff042783          	lw	a5,-16(s0)
+   10508:	ff600713          	li	a4,-10
+   1050c:	00e7a023          	sw	a4,0(a5)
+   10510:	ff442783          	lw	a5,-12(s0)
+   10514:	0007a703          	lw	a4,0(a5)
+   10518:	ff042783          	lw	a5,-16(s0)
+   1051c:	0007a783          	lw	a5,0(a5)
+   10520:	00078593          	mv	a1,a5
+   10524:	00070513          	mv	a0,a4
+   10528:	25c000ef          	jal	ra,10784 <__mulsi3>
+   1052c:	00050793          	mv	a5,a0
+   10530:	00078713          	mv	a4,a5
+   10534:	fec42783          	lw	a5,-20(s0)
+   10538:	00e7a023          	sw	a4,0(a5)
+   1053c:	ff042783          	lw	a5,-16(s0)
+   10540:	0007a703          	lw	a4,0(a5)
+   10544:	ff442783          	lw	a5,-12(s0)
+   10548:	0007a783          	lw	a5,0(a5)
+   1054c:	00078593          	mv	a1,a5
+   10550:	00070513          	mv	a0,a4
+   10554:	254000ef          	jal	ra,107a8 <__divsi3>
+   10558:	00050793          	mv	a5,a0
+   1055c:	00078713          	mv	a4,a5
+   10560:	fec42783          	lw	a5,-20(s0)
+   10564:	00e7a023          	sw	a4,0(a5)
+   10568:	00100513          	li	a0,1
+   1056c:	dd1ff0ef          	jal	ra,1033c <timer_init>
+   10570:	00050713          	mv	a4,a0
+   10574:	008007b7          	lui	a5,0x800
+   10578:	00e7a423          	sw	a4,8(a5) # 800008 <timer>
+   1057c:	008007b7          	lui	a5,0x800
+   10580:	0087a703          	lw	a4,8(a5) # 800008 <timer>
+   10584:	013137b7          	lui	a5,0x1313
+   10588:	d0078593          	addi	a1,a5,-768 # 1312d00 <__bss_end+0xb12cf4>
+   1058c:	00070513          	mv	a0,a4
+   10590:	e29ff0ef          	jal	ra,103b8 <timer_set_count>
+   10594:	008007b7          	lui	a5,0x800
+   10598:	0087a783          	lw	a5,8(a5) # 800008 <timer>
+   1059c:	00078513          	mv	a0,a5
+   105a0:	ec5ff0ef          	jal	ra,10464 <timer_start>
+   105a4:	008007b7          	lui	a5,0x800
+   105a8:	00100737          	lui	a4,0x100
+   105ac:	00470713          	addi	a4,a4,4 # 100004 <__text_end+0xef7a8>
+   105b0:	00e7a023          	sw	a4,0(a5) # 800000 <__data_begin>
+   105b4:	00100513          	li	a0,1
+   105b8:	b95ff0ef          	jal	ra,1014c <uart_init>
+   105bc:	00050713          	mv	a4,a0
    105c0:	008007b7          	lui	a5,0x800
-   105c4:	0007a783          	lw	a5,0(a5) # 800000 <__data_begin>
-   105c8:	08600713          	li	a4,134
-   105cc:	00e7a023          	sw	a4,0(a5)
-   105d0:	008007b7          	lui	a5,0x800
-   105d4:	0007a783          	lw	a5,0(a5) # 800000 <__data_begin>
-   105d8:	08600593          	li	a1,134
-   105dc:	00078513          	mv	a0,a5
-   105e0:	0cc000ef          	jal	ra,106ac <led>
-   105e4:	008007b7          	lui	a5,0x800
-   105e8:	0047a703          	lw	a4,4(a5) # 800004 <uart>
-   105ec:	000107b7          	lui	a5,0x10
-   105f0:	73478593          	addi	a1,a5,1844 # 10734 <__text_end>
-   105f4:	00070513          	mv	a0,a4
-   105f8:	c69ff0ef          	jal	ra,10260 <uart_print>
-   105fc:	008007b7          	lui	a5,0x800
-   10600:	0047a783          	lw	a5,4(a5) # 800004 <uart>
-   10604:	00078513          	mv	a0,a5
-   10608:	b81ff0ef          	jal	ra,10188 <uart_data_ready>
-   1060c:	00050713          	mv	a4,a0
-   10610:	00100793          	li	a5,1
-   10614:	fef714e3          	bne	a4,a5,105fc <main+0x12c>
+   105c4:	00e7a223          	sw	a4,4(a5) # 800004 <uart>
+   105c8:	008007b7          	lui	a5,0x800
+   105cc:	0047a703          	lw	a4,4(a5) # 800004 <uart>
+   105d0:	02faf7b7          	lui	a5,0x2faf
+   105d4:	08078613          	addi	a2,a5,128 # 2faf080 <__bss_end+0x27af074>
+   105d8:	000027b7          	lui	a5,0x2
+   105dc:	58078593          	addi	a1,a5,1408 # 2580 <__stack_top+0x2580>
+   105e0:	00070513          	mv	a0,a4
+   105e4:	be9ff0ef          	jal	ra,101cc <uart_set_baud>
+   105e8:	08600793          	li	a5,134
+   105ec:	fcf42c23          	sw	a5,-40(s0)
+   105f0:	08400793          	li	a5,132
+   105f4:	fcf42a23          	sw	a5,-44(s0)
+   105f8:	fd842783          	lw	a5,-40(s0)
+   105fc:	3047a073          	csrs	mie,a5
+   10600:	fd442783          	lw	a5,-44(s0)
+   10604:	3047b073          	csrc	mie,a5
+   10608:	008007b7          	lui	a5,0x800
+   1060c:	0007a783          	lw	a5,0(a5) # 800000 <__data_begin>
+   10610:	08600713          	li	a4,134
+   10614:	00e7a023          	sw	a4,0(a5)
    10618:	008007b7          	lui	a5,0x800
-   1061c:	0047a783          	lw	a5,4(a5) # 800004 <uart>
-   10620:	00078513          	mv	a0,a5
-   10624:	be1ff0ef          	jal	ra,10204 <uart_rx>
-   10628:	fea42023          	sw	a0,-32(s0)
+   1061c:	0007a783          	lw	a5,0(a5) # 800000 <__data_begin>
+   10620:	08600593          	li	a1,134
+   10624:	00078513          	mv	a0,a5
+   10628:	0d4000ef          	jal	ra,106fc <led>
    1062c:	008007b7          	lui	a5,0x800
-   10630:	0047a783          	lw	a5,4(a5) # 800004 <uart>
-   10634:	fe042583          	lw	a1,-32(s0)
-   10638:	00078513          	mv	a0,a5
-   1063c:	bf5ff0ef          	jal	ra,10230 <uart_tx>
-   10640:	fe042703          	lw	a4,-32(s0)
-   10644:	07200793          	li	a5,114
-   10648:	00f71e63          	bne	a4,a5,10664 <main+0x194>
-   1064c:	008007b7          	lui	a5,0x800
-   10650:	0007a783          	lw	a5,0(a5) # 800000 <__data_begin>
-   10654:	00600593          	li	a1,6
-   10658:	00078513          	mv	a0,a5
-   1065c:	050000ef          	jal	ra,106ac <led>
-   10660:	f9dff06f          	j	105fc <main+0x12c>
-   10664:	fe042703          	lw	a4,-32(s0)
-   10668:	06700793          	li	a5,103
-   1066c:	00f71e63          	bne	a4,a5,10688 <main+0x1b8>
-   10670:	008007b7          	lui	a5,0x800
-   10674:	0007a783          	lw	a5,0(a5) # 800000 <__data_begin>
-   10678:	00500593          	li	a1,5
-   1067c:	00078513          	mv	a0,a5
-   10680:	02c000ef          	jal	ra,106ac <led>
-   10684:	f79ff06f          	j	105fc <main+0x12c>
-   10688:	fe042703          	lw	a4,-32(s0)
-   1068c:	06200793          	li	a5,98
-   10690:	f6f716e3          	bne	a4,a5,105fc <main+0x12c>
-   10694:	008007b7          	lui	a5,0x800
-   10698:	0007a783          	lw	a5,0(a5) # 800000 <__data_begin>
-   1069c:	00300593          	li	a1,3
-   106a0:	00078513          	mv	a0,a5
-   106a4:	008000ef          	jal	ra,106ac <led>
-   106a8:	f55ff06f          	j	105fc <main+0x12c>
+   10630:	0047a703          	lw	a4,4(a5) # 800004 <uart>
+   10634:	000117b7          	lui	a5,0x11
+   10638:	85c78593          	addi	a1,a5,-1956 # 1085c <__text_end>
+   1063c:	00070513          	mv	a0,a4
+   10640:	c21ff0ef          	jal	ra,10260 <uart_print>
+   10644:	008007b7          	lui	a5,0x800
+   10648:	0047a783          	lw	a5,4(a5) # 800004 <uart>
+   1064c:	00078513          	mv	a0,a5
+   10650:	b39ff0ef          	jal	ra,10188 <uart_data_ready>
+   10654:	00050713          	mv	a4,a0
+   10658:	00100793          	li	a5,1
+   1065c:	fef714e3          	bne	a4,a5,10644 <main+0x174>
+   10660:	008007b7          	lui	a5,0x800
+   10664:	0047a783          	lw	a5,4(a5) # 800004 <uart>
+   10668:	00078513          	mv	a0,a5
+   1066c:	b99ff0ef          	jal	ra,10204 <uart_rx>
+   10670:	00050793          	mv	a5,a0
+   10674:	fcf42e23          	sw	a5,-36(s0)
+   10678:	008007b7          	lui	a5,0x800
+   1067c:	0047a783          	lw	a5,4(a5) # 800004 <uart>
+   10680:	fdc42703          	lw	a4,-36(s0)
+   10684:	00070593          	mv	a1,a4
+   10688:	00078513          	mv	a0,a5
+   1068c:	ba5ff0ef          	jal	ra,10230 <uart_tx>
+   10690:	fdc42703          	lw	a4,-36(s0)
+   10694:	07200793          	li	a5,114
+   10698:	00f71e63          	bne	a4,a5,106b4 <main+0x1e4>
+   1069c:	008007b7          	lui	a5,0x800
+   106a0:	0007a783          	lw	a5,0(a5) # 800000 <__data_begin>
+   106a4:	00600593          	li	a1,6
+   106a8:	00078513          	mv	a0,a5
+   106ac:	050000ef          	jal	ra,106fc <led>
+   106b0:	f95ff06f          	j	10644 <main+0x174>
+   106b4:	fdc42703          	lw	a4,-36(s0)
+   106b8:	06700793          	li	a5,103
+   106bc:	00f71e63          	bne	a4,a5,106d8 <main+0x208>
+   106c0:	008007b7          	lui	a5,0x800
+   106c4:	0007a783          	lw	a5,0(a5) # 800000 <__data_begin>
+   106c8:	00500593          	li	a1,5
+   106cc:	00078513          	mv	a0,a5
+   106d0:	02c000ef          	jal	ra,106fc <led>
+   106d4:	f71ff06f          	j	10644 <main+0x174>
+   106d8:	fdc42703          	lw	a4,-36(s0)
+   106dc:	06200793          	li	a5,98
+   106e0:	f6f712e3          	bne	a4,a5,10644 <main+0x174>
+   106e4:	008007b7          	lui	a5,0x800
+   106e8:	0007a783          	lw	a5,0(a5) # 800000 <__data_begin>
+   106ec:	00300593          	li	a1,3
+   106f0:	00078513          	mv	a0,a5
+   106f4:	008000ef          	jal	ra,106fc <led>
+   106f8:	f4dff06f          	j	10644 <main+0x174>
 
-000106ac <led>:
+000106fc <led>:
 led():
-   106ac:	ff010113          	addi	sp,sp,-16
-   106b0:	00812623          	sw	s0,12(sp)
-   106b4:	01010413          	addi	s0,sp,16
-   106b8:	fea42a23          	sw	a0,-12(s0)
-   106bc:	feb42823          	sw	a1,-16(s0)
-   106c0:	ff442783          	lw	a5,-12(s0)
-   106c4:	ff042703          	lw	a4,-16(s0)
-   106c8:	00e7a023          	sw	a4,0(a5)
-   106cc:	00000013          	nop
-   106d0:	00c12403          	lw	s0,12(sp)
-   106d4:	01010113          	addi	sp,sp,16
-   106d8:	00008067          	ret
+   106fc:	ff010113          	addi	sp,sp,-16
+   10700:	00812623          	sw	s0,12(sp)
+   10704:	01010413          	addi	s0,sp,16
+   10708:	fea42a23          	sw	a0,-12(s0)
+   1070c:	feb42823          	sw	a1,-16(s0)
+   10710:	ff442783          	lw	a5,-12(s0)
+   10714:	ff042703          	lw	a4,-16(s0)
+   10718:	00e7a023          	sw	a4,0(a5)
+   1071c:	00000013          	nop
+   10720:	00c12403          	lw	s0,12(sp)
+   10724:	01010113          	addi	sp,sp,16
+   10728:	00008067          	ret
 
-000106dc <exception_handler>:
+0001072c <exception_handler>:
 exception_handler():
-   106dc:	fe810113          	addi	sp,sp,-24
-   106e0:	00812a23          	sw	s0,20(sp)
-   106e4:	01810413          	addi	s0,sp,24
-   106e8:	fea42a23          	sw	a0,-12(s0)
-   106ec:	feb42823          	sw	a1,-16(s0)
-   106f0:	fec42623          	sw	a2,-20(s0)
-   106f4:	008007b7          	lui	a5,0x800
-   106f8:	0007a783          	lw	a5,0(a5) # 800000 <__data_begin>
-   106fc:	0007a783          	lw	a5,0(a5)
-   10700:	00079c63          	bnez	a5,10718 <exception_handler+0x3c>
-   10704:	008007b7          	lui	a5,0x800
-   10708:	0007a783          	lw	a5,0(a5) # 800000 <__data_begin>
-   1070c:	0ff00713          	li	a4,255
-   10710:	00e7a023          	sw	a4,0(a5)
-   10714:	0100006f          	j	10724 <exception_handler+0x48>
-   10718:	008007b7          	lui	a5,0x800
-   1071c:	0007a783          	lw	a5,0(a5) # 800000 <__data_begin>
-   10720:	0007a023          	sw	zero,0(a5)
-   10724:	00000013          	nop
-   10728:	01412403          	lw	s0,20(sp)
-   1072c:	01810113          	addi	sp,sp,24
-   10730:	00008067          	ret
+   1072c:	fe810113          	addi	sp,sp,-24
+   10730:	00812a23          	sw	s0,20(sp)
+   10734:	01810413          	addi	s0,sp,24
+   10738:	fea42a23          	sw	a0,-12(s0)
+   1073c:	feb42823          	sw	a1,-16(s0)
+   10740:	fec42623          	sw	a2,-20(s0)
+   10744:	008007b7          	lui	a5,0x800
+   10748:	0007a783          	lw	a5,0(a5) # 800000 <__data_begin>
+   1074c:	0007a783          	lw	a5,0(a5)
+   10750:	00079c63          	bnez	a5,10768 <exception_handler+0x3c>
+   10754:	008007b7          	lui	a5,0x800
+   10758:	0007a783          	lw	a5,0(a5) # 800000 <__data_begin>
+   1075c:	0ff00713          	li	a4,255
+   10760:	00e7a023          	sw	a4,0(a5)
+   10764:	0100006f          	j	10774 <exception_handler+0x48>
+   10768:	008007b7          	lui	a5,0x800
+   1076c:	0007a783          	lw	a5,0(a5) # 800000 <__data_begin>
+   10770:	0007a023          	sw	zero,0(a5)
+   10774:	00000013          	nop
+   10778:	01412403          	lw	s0,20(sp)
+   1077c:	01810113          	addi	sp,sp,24
+   10780:	00008067          	ret
 
-00010734 <__text_end>:
+00010784 <__mulsi3>:
+__mulsi3():
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/muldi3.S:37
+/* Our RV64 64-bit routine is equivalent to our RV32 32-bit routine.  */
+# define __muldi3 __mulsi3
+#endif
+
+FUNC_BEGIN (__muldi3)
+  mv     a2, a0
+   10784:	00050613          	mv	a2,a0
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/muldi3.S:38
+  li     a0, 0
+   10788:	00000513          	li	a0,0
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/muldi3.S:40
+.L1:
+  andi   a3, a1, 1
+   1078c:	0015f693          	andi	a3,a1,1
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/muldi3.S:41
+  beqz   a3, .L2
+   10790:	00068463          	beqz	a3,10798 <__mulsi3+0x14>
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/muldi3.S:42
+  add    a0, a0, a2
+   10794:	00c50533          	add	a0,a0,a2
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/muldi3.S:44
+.L2:
+  srli   a1, a1, 1
+   10798:	0015d593          	srli	a1,a1,0x1
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/muldi3.S:45
+  slli   a2, a2, 1
+   1079c:	00161613          	slli	a2,a2,0x1
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/muldi3.S:46
+  bnez   a1, .L1
+   107a0:	fe0596e3          	bnez	a1,1078c <__mulsi3+0x8>
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/muldi3.S:47
+  ret
+   107a4:	00008067          	ret
+
+000107a8 <__divsi3>:
+__divsi3():
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:69
+  li    t0, -1
+  beq   a1, t0, .L20
+#endif
+
+FUNC_BEGIN (__divdi3)
+  bltz  a0, .L10
+   107a8:	06054063          	bltz	a0,10808 <__umodsi3+0x10>
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:70
+  bltz  a1, .L11
+   107ac:	0605c663          	bltz	a1,10818 <__umodsi3+0x20>
+
+000107b0 <__udivsi3>:
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:74
+  /* Since the quotient is positive, fall into __udivdi3.  */
+
+FUNC_BEGIN (__udivdi3)
+  mv    a2, a1
+   107b0:	00058613          	mv	a2,a1
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:75
+  mv    a1, a0
+   107b4:	00050593          	mv	a1,a0
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:76
+  li    a0, -1
+   107b8:	fff00513          	li	a0,-1
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:77
+  beqz  a2, .L5
+   107bc:	02060c63          	beqz	a2,107f4 <__udivsi3+0x44>
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:78
+  li    a3, 1
+   107c0:	00100693          	li	a3,1
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:79
+  bgeu  a2, a1, .L2
+   107c4:	00b67a63          	bgeu	a2,a1,107d8 <__udivsi3+0x28>
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:81
+.L1:
+  blez  a2, .L2
+   107c8:	00c05863          	blez	a2,107d8 <__udivsi3+0x28>
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:82
+  slli  a2, a2, 1
+   107cc:	00161613          	slli	a2,a2,0x1
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:83
+  slli  a3, a3, 1
+   107d0:	00169693          	slli	a3,a3,0x1
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:84
+  bgtu  a1, a2, .L1
+   107d4:	feb66ae3          	bltu	a2,a1,107c8 <__udivsi3+0x18>
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:86
+.L2:
+  li    a0, 0
+   107d8:	00000513          	li	a0,0
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:88
+.L3:
+  bltu  a1, a2, .L4
+   107dc:	00c5e663          	bltu	a1,a2,107e8 <__udivsi3+0x38>
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:89
+  sub   a1, a1, a2
+   107e0:	40c585b3          	sub	a1,a1,a2
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:90
+  or    a0, a0, a3
+   107e4:	00d56533          	or	a0,a0,a3
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:92
+.L4:
+  srli  a3, a3, 1
+   107e8:	0016d693          	srli	a3,a3,0x1
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:93
+  srli  a2, a2, 1
+   107ec:	00165613          	srli	a2,a2,0x1
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:94
+  bnez  a3, .L3
+   107f0:	fe0696e3          	bnez	a3,107dc <__udivsi3+0x2c>
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:96
+.L5:
+  ret
+   107f4:	00008067          	ret
+
+000107f8 <__umodsi3>:
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:101
+FUNC_END (__udivdi3)
+
+FUNC_BEGIN (__umoddi3)
+  /* Call __udivdi3(a0, a1), then return the remainder, which is in a1.  */
+  move  t0, ra
+   107f8:	00008293          	mv	t0,ra
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:102
+  jal   __udivdi3
+   107fc:	fb5ff0ef          	jal	ra,107b0 <__udivsi3>
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:103
+  move  a0, a1
+   10800:	00058513          	mv	a0,a1
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:104
+  jr    t0
+   10804:	00028067          	jr	t0
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:109
+FUNC_END (__umoddi3)
+
+  /* Handle negative arguments to __divdi3.  */
+.L10:
+  neg   a0, a0
+   10808:	40a00533          	neg	a0,a0
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:111
+  /* Zero is handled as a negative so that the result will not be inverted.  */
+  bgtz  a1, .L12     /* Compute __udivdi3(-a0, a1), then negate the result.  */
+   1080c:	00b04863          	bgtz	a1,1081c <__umodsi3+0x24>
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:113
+
+  neg   a1, a1
+   10810:	40b005b3          	neg	a1,a1
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:114
+  j     __udivdi3    /* Compute __udivdi3(-a0, -a1).  */
+   10814:	f9dff06f          	j	107b0 <__udivsi3>
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:116
+.L11:                /* Compute __udivdi3(a0, -a1), then negate the result.  */
+  neg   a1, a1
+   10818:	40b005b3          	neg	a1,a1
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:118
+.L12:
+  move  t0, ra
+   1081c:	00008293          	mv	t0,ra
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:119
+  jal   __udivdi3
+   10820:	f91ff0ef          	jal	ra,107b0 <__udivsi3>
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:120
+  neg   a0, a0
+   10824:	40a00533          	neg	a0,a0
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:121
+  jr    t0
+   10828:	00028067          	jr	t0
+
+0001082c <__modsi3>:
+__modsi3():
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:125
+FUNC_END (__divdi3)
+
+FUNC_BEGIN (__moddi3)
+  move   t0, ra
+   1082c:	00008293          	mv	t0,ra
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:126
+  bltz   a1, .L31
+   10830:	0005ca63          	bltz	a1,10844 <__modsi3+0x18>
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:127
+  bltz   a0, .L32
+   10834:	00054c63          	bltz	a0,1084c <__modsi3+0x20>
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:129
+.L30:
+  jal    __udivdi3    /* The dividend is not negative.  */
+   10838:	f79ff0ef          	jal	ra,107b0 <__udivsi3>
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:130
+  move   a0, a1
+   1083c:	00058513          	mv	a0,a1
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:131
+  jr     t0
+   10840:	00028067          	jr	t0
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:133
+.L31:
+  neg    a1, a1
+   10844:	40b005b3          	neg	a1,a1
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:134
+  bgez   a0, .L30
+   10848:	fe0558e3          	bgez	a0,10838 <__modsi3+0xc>
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:136
+.L32:
+  neg    a0, a0
+   1084c:	40a00533          	neg	a0,a0
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:137
+  jal    __udivdi3    /* The dividend is hella negative.  */
+   10850:	f61ff0ef          	jal	ra,107b0 <__udivsi3>
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:138
+  neg    a0, a1
+   10854:	40b00533          	neg	a0,a1
+/home/veeyceey/Documents/workspace/github/riscv-gnu-toolchain/build-gcc-newlib-stage2/riscv32-unknown-elf/libgcc/../../.././riscv-gcc/libgcc/config/riscv/div.S:139
+  jr     t0
+   10858:	00028067          	jr	t0
+
+0001085c <__text_end>:
 __text_end():
-   10734:	5541                	li	a0,-16
-   10736:	20562d4b          	fnmsub.s	fs10,fa2,ft5,ft4,rdn
-   1073a:	73796173          	csrrsi	sp,0x737,18
-   1073e:	4820                	lw	s0,80(s0)
-   10740:	6969                	lui	s2,0x1a
-   10742:	6969                	lui	s2,0x1a
-   10744:	2169                	jal	10bce <__text_end+0x49a>
-   10746:	0a0d                	addi	s4,s4,3
+   1085c:	5541                	li	a0,-16
+   1085e:	20562d4b          	fnmsub.s	fs10,fa2,ft5,ft4,rdn
+   10862:	73796173          	csrrsi	sp,0x737,18
+   10866:	4820                	lw	s0,80(s0)
+   10868:	6969                	lui	s2,0x1a
+   1086a:	6969                	lui	s2,0x1a
+   1086c:	2169                	jal	10cf6 <__text_end+0x49a>
+   1086e:	0a0d                	addi	s4,s4,3
 	...

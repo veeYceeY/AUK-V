@@ -3,11 +3,13 @@ TPATH := /opt/riscv32i/bin/
 PREFIX := riscv32-unknown-elf
 XSCT := /opt/vivado191/SDK/2019.1/bin/xsct/
 DEPS:=  -I../.. -I../../lib  -I../../bsp
-CC_FLAGS:= -march=rv32i  -Wall -Werror -mpreferred-stack-boundary=3  -ffreestanding $(DEPS) -std=gnu99
+CC_FLAGS:= -march=rv32i  -Wall -Werror -mpreferred-stack-boundary=3  -ffreestanding $(DEPS) -std=gnu99  -pedantic
+
 #CC_FLAGS:= -march=rv32i -Wall  -fomit-frame-pointer -ffreestanding -fno-builtin -I../.. -I../../lib -std=gnu99 \
 	-Wall -Werror=implicit-function-declaration -ffunction-sections -fdata-sections
 AS_FLAGS:= -march=rv32i 
-LD_FLAGS:= -march=rv32i -nostartfiles -L../lib \
+LD_FLAGS:= -L /opt/riscv32i/lib/gcc/riscv32-unknown-elf/10.1.0   -l:libgcc.a 
+#LD_FLAGS:= -march=rv32i -nostartfiles -L../lib \
 	-Wl,-m,elf32lriscv --specs=nosys.specs -Wl,--no-relax -Wl,--gc-sections
 CC := $(TPATH)$(PREFIX)-gcc
 LD := $(TPATH)$(PREFIX)-ld
@@ -22,7 +24,7 @@ start.o:
 main.o:
 	$(CC)  $(CC_FLAGS) -c src/main.c -o build/main.o 
 main.elf: main.o start.o
-	$(LD) build/start.o build/main.o -T ../../bsp/ldscript -o build/main.elf
+	$(LD)   build/start.o build/main.o -T ../../bsp/ldscript -o build/main.elf $(LD_FLAGS)
 main.v: main.elf
 	$(OBJCOPY) -O verilog  build/main.elf  build/main.v
 main.hex: main.elf

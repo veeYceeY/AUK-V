@@ -525,7 +525,7 @@ begin
             elsif funct3 = "111" then
                 uc_addr <= x"18";
                 uc  <= "00001001001000110000000000000100";
-            elsif funct3 = x"101" then
+            elsif funct3 = "101" then
                 if funct7(5) = '0' then
                     uc_addr <= x"1b";
                     uc  <= "00001100001001110000000000000100";

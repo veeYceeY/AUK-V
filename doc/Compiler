@@ -1,5 +1,7 @@
 
 make clean
-./configure --with-arch=rv32i --prefix=/opt/riscv32i
+./configure --with-xlen=32 --with-arch=I, and I expect --enable-multilib --prefix=/opt/riscv32i_mlib
 make -j 12 newlib
+
+
 
