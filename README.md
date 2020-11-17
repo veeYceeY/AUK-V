@@ -4,16 +4,9 @@
 
     AUK-V is a RISC-V 32 bit processor compatible with RV32I instructions
 
-## Requirements for running simulation
-
-    ghdl
-    gtkwave
 ## Create code rom in vhdl 
     cd make/wishbone
-    make rom  
-## Running simulation
-    cd make/wishbone
-    make sim  
+    make rom 
 
 ## Todo
     
