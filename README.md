@@ -7,7 +7,6 @@
 ## Install tool chain
     git clone https://github.com/riscv/riscv-gnu-toolchain.git
     cd riscv-gnu-toolchain
-    make clean
     ./configure --with-arch=rv32i --prefix=/opt/riscv32i
     make newlib
 
