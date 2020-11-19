@@ -3,7 +3,7 @@ TPATH := /opt/riscv32i/bin/
 PREFIX := riscv32-unknown-elf
 XSCT := /opt/vivado191/SDK/2019.1/bin/xsct/
 DEPS:=  -I../.. -I../../lib  -I../../bsp
-CC_FLAGS:= -march=rv32i  -Wall -Werror -mpreferred-stack-boundary=3  -ffreestanding $(DEPS) -std=gnu99  -pedantic
+CC_FLAGS:= -march=rv32i  -Wall -Werror -mpreferred-stack-boundary=4  -ffreestanding $(DEPS) -std=gnu99  -pedantic
 
 #CC_FLAGS:= -march=rv32i -Wall  -fomit-frame-pointer -ffreestanding -fno-builtin -I../.. -I../../lib -std=gnu99 \
 	-Wall -Werror=implicit-function-declaration -ffunction-sections -fdata-sections
