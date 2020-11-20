@@ -142,7 +142,7 @@ vfile+="end wb_oc_rom;\n"
 
 vfile+="architecture behave of wb_oc_rom is\n"
 vfile+="attribute rom_style : string;\n"
-vfile+="type mem_type is array(1023 downto 0) of std_logic_vector(31 downto 0);\n"
+vfile+="type mem_type is array(1623 downto 0) of std_logic_vector(31 downto 0);\n"
 vfile+="signal data : std_logic_vector(31 downto 0);\n"
 vfile+="signal addr : std_logic_vector(13 downto 0);\n"
 vfile+="signal mem : mem_type;\n"

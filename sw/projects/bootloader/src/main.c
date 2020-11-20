@@ -23,6 +23,7 @@ int main()
   volatile int *a,*b,*c;
   volatile int x,y,z;
   volatile int rx_data;
+  
   a=&z;
   b=&y;
   c=&x;
@@ -36,7 +37,7 @@ int main()
   timer =timer_init(1);
   timer_set_count(timer,20000000);
   timer_start(timer);
-  gpio =(int*) 0x00100004;
+  gpio =( volatile int*) 0x00100004;
   uart =uart_init(1);
   uart_set_baud(uart,9600,50000000);
   //uart[0]=0x00000002;
